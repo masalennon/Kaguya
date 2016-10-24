@@ -1,0 +1,30 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 21, 2016, 6:38:06 PM
+    Author     : Masanari
+*/
+
+/*.body {
+
+    text-decoration: underline;
+    font-family: メイリオ;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+}*/
+.link {
+    text-decoration: underline;
+    font-family: メイリオ;
+    font-weight: bold;
+    font-size: 16px;
+    position: fixed;
+    margin-right: 10px;
+}
+a:link { color: darkgreen; }
+a:visited { color: #000080; } 
+a:hover { color: yellow; } 
+a:active { color: yellow; }

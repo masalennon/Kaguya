@@ -1,0 +1,110 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 21, 2016, 5:18:09 PM
+    Author     : Masanari
+*/
+
+
+.title {
+    text-align: center;
+    width: 930px;
+    margin: 50px;
+
+}
+body {
+    font-family: メイリオ;
+    margin-left: 150px;
+    left: 600px;
+}
+.husbandmessage {
+    /*    font-weight: bold;
+        margin-bottom: 0px;*/
+    margin-top: 30px;
+    font-weight: bold;
+
+
+}
+.wifemessage {
+    /*    margin-top: 30px;
+        margin-bottom: 0pt;
+        font-weight: bold;*/
+    margin-top: 30px;
+    font-weight: bold;
+
+}
+.husbandheadrow {
+    width: 200px;
+    height: 80px;
+    border-right: 1px solid #ABABAB;
+    border-left: 2px solid #ABABAB;
+    font-size: 14pt;
+    font-weight: bold;
+    background: lightblue;
+    text-align: center;
+}
+.husband {
+    width: 950px;
+    margin-top: 0px;
+    margin-right: 5px;
+}
+.wifeheadrow {
+    width: 200px;
+    height: 80px;
+    border-right: 1px solid #ABABAB;
+    border-left: 2px solid #ABABAB;
+    font-size: 14pt;
+    font-weight: bold;
+    background: mistyrose;
+    text-align: center;
+
+}
+.wife {
+    width: 950px;
+    margin-top: 0px;
+    margin-right: 5px;
+}
+.headrow {
+    width: 200px;
+    height: 50px;
+    border-right: 1px solid #ABABAB;
+    border-left: 2px solid #ABABAB;
+    font-size: 14pt;
+    font-weight: bold;
+    background: palegreen;
+    text-align: center;
+
+    /*住所*/
+}
+.Button {
+    font-family: メイリオ;
+    font-weight: bold;
+    margin: 50px;
+    margin-top: 50px;
+    margin-right: 5px;
+    margin-left: 300px;
+}
+
+.latter {
+    margin-top: 0px;
+    margin-right: 5px;
+    width: 950px;
+    //住所のテーブル名
+}
+.onlyTokyo {
+    margin-top: 30px;
+    font-weight: bold;
+
+}
+.gallery {
+    width: 500px;
+}
+
+.gallery img {
+    position: relative;
+    left: 25%;
+    margin: 50px;
+}
