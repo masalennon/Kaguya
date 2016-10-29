@@ -1,0 +1,50 @@
+title{
+	font-family
+	
+}
+
+<li>
+
+</li>
+
+.page-discription {
+ 
+}
+.nav{
+  	max-width: 25%;
+  	min-width: 140px;
+  	display-flex;
+  	margin: 300;
+}
+
+.nav li {
+  	display: inline;
+  	margin: 80;
+    padding: 0 10px;  
+
+}
+.nav li:active {
+	top: 2px;
+}
+.page-title{
+	text-align: center;
+	font-weight: 100;
+}
+
+h1{
+	
+	position: center;
+	background-size: cover;
+	
+}
+.contact-btn{
+	float: left;
+}
+.h1 class{
+	position: center;
+}
+
+p{
+	
+	text-align: center;
+}

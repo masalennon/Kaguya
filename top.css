@@ -1,0 +1,61 @@
+title{
+	font-family
+	
+}
+
+<li>
+
+</li>
+
+.page-description {
+ 	font-weight: 200;
+}
+.nav{
+  	max-width: 25%;
+  	min-width: 140px;
+  	display-flex;
+  	margin: 300;
+}
+
+.nav li {
+  	display: inline;
+  	margin: 80;
+    padding: 0 10px;  
+
+}
+.nav li:active {
+	top: 2px;
+}
+.page-title{
+	text-align: center;
+	font-weight: 100;
+}
+.gallery img{
+	max-width: 1000px;
+	max-height:1400px;
+	position: absolute; 
+	left: 6%;
+}
+.gallery {
+	position: relative; 
+	
+}
+h1{
+	
+	position: center;
+	background-size: cover;
+	
+}
+.contact-btn{
+	float: left;
+}
+.h1 class{
+	position: center;
+}
+
+p{
+	text-align: center;
+}
+body{
+    font: "メイリオ";
+	}

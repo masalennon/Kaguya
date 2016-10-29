@@ -1,0 +1,32 @@
+title{
+    text-align: center;
+    font-weight: 100;
+    text;  
+}
+
+p{
+    text-align: center;
+    font-weight: 80;
+}
+
+h3{
+    text-align: center;
+    font-weight: 100;
+    margin: 80px 40px 0px 40px;
+    font-size: 45px;
+    color: rgb(60,60,60);
+}
+
+body{
+    width: "100";
+    font-family:'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif !important;
+}
+
+.description{
+    margin: 30px 170px 0px 170px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 145%;
+    font: "メイリオ";
+    
+}
