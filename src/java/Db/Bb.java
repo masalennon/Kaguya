@@ -23,6 +23,7 @@ import javax.validation.constraints.*;
 /**
  *
  * @author Masanari
+ * @param <T>
  */
 @Named
 @SessionScoped
@@ -131,9 +132,8 @@ public class Bb implements Serializable {
             System.out.println("miss");
             log.severe("新規登録できない/" + firstName);
         } finally {
-            OldCoupleInformationDb db = new OldCoupleInformationDb();
-            db.create(oci);
-
+            System.out.println("failed!!!!");
+            
         }
     }
 

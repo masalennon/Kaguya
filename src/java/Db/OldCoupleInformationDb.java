@@ -5,8 +5,7 @@
  */
 package Db;
 
-import java.io.Serializable;
-import javax.ejb.EJB;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,14 +13,16 @@ import javax.persistence.PersistenceContext;
 /**
  *
  * @author Masanari
+ * @param <T>
  */
 @Stateless
-public class OldCoupleInformationDb {
+public class OldCoupleInformationDb<T> {
     
     @PersistenceContext
     private EntityManager em;
     
-    public void create(OldCoupleInformation oci) {
-        em.persist(oci);
+    public void create(T entity) {
+        em.persist(entity);
     }
+    
 }

@@ -15,72 +15,93 @@ and open the template in the editor.
     margin: 50px;
 
 }
-body {
-    font-family: メイリオ;
-    margin-left: 150px;
-    left: 600px;
-}
+
 .husbandmessage {
-    /*    font-weight: bold;
-        margin-bottom: 0px;*/
+    font-weight: bold;
+    margin-bottom: 0px;
     margin-top: 30px;
     font-weight: bold;
 
 
 }
 .wifemessage {
-    /*    margin-top: 30px;
-        margin-bottom: 0pt;
-        font-weight: bold;*/
+    margin-top: 30px;
+    margin-bottom: 0pt;
+    font-weight: bold;
     margin-top: 30px;
     font-weight: bold;
 
 }
 .husbandheadrow {
-    width: 200px;
-    height: 80px;
+    width: 299px;
+    height: 79px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
-    font-size: 14pt;
+    font-size: 14px;
     font-weight: bold;
     background: lightblue;
     text-align: center;
 }
+.husbandheadrow2 {
+    width: 599px;
+    height: 79px;
+    border-right: 1px solid #ABABAB;
+    border-left: 2px solid #ABABAB;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
 .husband {
-    width: 950px;
-    margin-top: 0px;
-    margin-right: 5px;
+    width: 900px;
+
 }
 .wifeheadrow {
-    width: 200px;
+    width: 249px;
     height: 80px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
-    font-size: 14pt;
+    font-size: 14px;
     font-weight: bold;
     background: mistyrose;
     text-align: center;
 
 }
+.wifeheadrow2 {
+    width: 649px;
+    height: 80px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border-right: 1px solid #ABABAB;
+    border-left: 2px solid #ABABAB;
+}
 .wife {
-    width: 950px;
-    margin-top: 0px;
-    margin-right: 5px;
+    width: 900px;
 }
 .headrow {
-    width: 200px;
+    width: 249px;
     height: 50px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
-    font-size: 14pt;
+    font-size: 14px;
     font-weight: bold;
     background: palegreen;
     text-align: center;
 
-    /*住所*/
+    /*    住所*/
+}
+.headrow2 {
+    width: 649px;
+    height: 50px;
+    border-right: 1px solid #ABABAB;
+    border-left: 2px solid #ABABAB;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+
+    /*    住所*/
 }
 .Button {
-    font-family: メイリオ;
     font-weight: bold;
     margin: 50px;
     margin-top: 50px;
@@ -91,8 +112,8 @@ body {
 .latter {
     margin-top: 0px;
     margin-right: 5px;
-    width: 950px;
-    //住所のテーブル名
+    width: 900px;
+    /*    住所のテーブル名*/
 }
 .onlyTokyo {
     margin-top: 30px;
@@ -107,4 +128,7 @@ body {
     position: relative;
     left: 25%;
     margin: 50px;
+}
+table {
+    width: 900px;
 }
