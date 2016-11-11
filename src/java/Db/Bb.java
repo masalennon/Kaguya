@@ -79,12 +79,11 @@ public class Bb implements Serializable {
     @NotNull
     private String mailAddress;
 
-//    @Inject
-//    OldCoupleInformationDb db;
+
     @Inject
     transient Logger log;
 
-//    @PersistenceContext(unitName = "KaguyaPU")
+//   @PersistenceContext(unitName = "KaguyaPU")
 //    private EntityManager em;
 //    @Resource
 //    private javax.transaction.UserTransaction utx;
@@ -114,6 +113,7 @@ public class Bb implements Serializable {
     }
 
     public void create() {
+        OldCoupleInformationDb ocidb = new OldCoupleInformationDb();
 
         OldCoupleInformation oci = new OldCoupleInformation(id, firstName, lastName,
                 firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
@@ -123,9 +123,8 @@ public class Bb implements Serializable {
                 mobilePhoneNumberThree, mailAddress);
         try {
             //em.persist(oci);
-            OldCoupleInformationDb db = new OldCoupleInformationDb();
             System.out.println("ok1");
-            db.create(oci);
+            ocidb.create(oci);
             System.out.println("ok2");
             clear();
         } catch (Exception e) {
@@ -133,7 +132,7 @@ public class Bb implements Serializable {
             log.severe("新規登録できない/" + firstName);
         } finally {
             System.out.println("failed!!!!");
-            
+
         }
     }
 

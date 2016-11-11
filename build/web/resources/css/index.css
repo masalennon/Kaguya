@@ -25,7 +25,6 @@ and open the template in the editor.
 
 }
 .wifemessage {
-    margin-top: 30px;
     margin-bottom: 0pt;
     font-weight: bold;
     margin-top: 30px;
@@ -33,7 +32,7 @@ and open the template in the editor.
 
 }
 .husbandheadrow {
-    width: 299px;
+    width: 249px;
     height: 79px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
@@ -43,7 +42,7 @@ and open the template in the editor.
     text-align: center;
 }
 .husbandheadrow2 {
-    width: 599px;
+    width: 649px;
     height: 79px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
@@ -102,11 +101,10 @@ and open the template in the editor.
     /*    住所*/
 }
 .Button {
-    font-weight: bold;
+    font-size: 15px;
+    position: absolute;
+    left: 700px;
     margin: 50px;
-    margin-top: 50px;
-    margin-right: 5px;
-    margin-left: 300px;
 }
 
 .latter {
@@ -126,8 +124,9 @@ and open the template in the editor.
 
 .gallery img {
     position: relative;
-    left: 25%;
-    margin: 50px;
+    left: -100px;
+    top: 10px;
+    margin: 30px;
 }
 table {
     width: 900px;

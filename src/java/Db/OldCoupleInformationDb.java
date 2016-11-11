@@ -22,7 +22,7 @@ public class OldCoupleInformationDb<T> {
     private EntityManager em;
     
     public void create(T entity) {
-        em.persist(entity);
+        em.merge(entity);
     }
     
 }
