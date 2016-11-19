@@ -7,7 +7,9 @@ and open the template in the editor.
 
 <!DOCTYPE xhtml>
 <xhtml xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:h="http://xmlns.jcp.org/jsf/html">
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:jsf="http://xmlns.jcp.org/jsf">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -15,172 +17,161 @@ and open the template in the editor.
 
 
     </h:head>
-    <div align="center">
-        <h:body>
+    <h:body>
+        <ui:composition>
             <h:form>
+                <div align="center">
 
-                <div class="title">
-                    <h2>かぐや会員登録お申込み画面</h2>
+                    <div class="title">
+                        <h2>かぐや会員登録お申込み画面</h2>
+                    </div>
+                    <div class="gallery" text-align="center">
+                        <img src="./resources/images/Capture.JPG"></img>
+                    </div>
+
+
+                    <div class="husbandmessage">ご主人のお名前、生年月日をそれぞれ入力してください。</div>
+                    <table border="1" cellspacing="0" cellpadding="2" class="husband"> 
+                        <tr>
+                            <td class="husbandheadrow">
+                                名前
+                            </td>　
+                            <td class="husbandheadrow2">
+                                (姓) <h:inputText id="firstName" required="true" requiredMessage="必須"
+                                                 value="#{bb.firstName}" label="名前"/>
+                                (名) <h:inputText id="lastName" required="true"
+                                                 requiredMessage="必須" value="#{bb.lastName}"/><br/>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td class="husbandheadrow">
+                                名前(ふりがな)
+                            </td>　
+                            <td class="husbandheadrow2">
+                                ＜全角ひらがなのみ＞
+                                (姓) <h:inputText id="firstNameHurigana" required="true"
+                                                 requiredMessage="必須" value="#{bb.firstNameHurigana}"/>
+                                (名) <h:inputText id="lastNameHurigana" required="true" requiredMessage="必須"
+                                                 value="#{bb.lastNameHurigana}"/><br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td class="husbandheadrow">
+                                誕生日
+                            </td>
+                            <td class="husbandheadrow2">
+                                <h:inputText id="birthYear" required="true" requiredMessage="必須"
+                                             value="#{bb.birthYear}"/>　/
+                                <h:inputText id="birthMonth" required="true"
+                                             requiredMessage="必須" 
+                                             value="#{bb.birthMonth}"/> /
+                                <h:inputText id="birthDay" required="true"
+                                             requiredMessage="必須"
+                                             value="#{bb.birthDay}"/> (年/月/日) <br/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="wifemessage">奥様のお名前、生年月日をそれぞれ入力してください。</div>
+                    <table border="1" cellspacing="0" cellpadding="2" class="wife" > 
+                        <tr>
+                            <td class="wifeheadrow">
+                                名前
+                            </td>　
+                            <td class="wifeheadrow2">
+                                (姓) <h:inputText id="firstNameHuriganaWife" required="true"
+                                                 requiredMessage="必須" value="#{bb.firstNameHuriganaWife}"/>
+                                (名) <h:inputText id="lastNameHuriganaWife" required="true" requiredMessage="必須"
+                                                 value="#{bb.lastNameHuriganaWife}"/><br/>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td class="wifeheadrow">
+                                <em>名前(ふりがな)</em>
+                            </td>　
+                            <td class="wifeheadrow2">
+                                ＜全角ひらがなのみ＞
+                                (姓) <h:inputText id="firstNameWife" required="true" requiredMessage="必須"
+                                                 value="#{bb.firstNameWife}" label="名前"/>
+                                (名) <h:inputText id="lastNameWife" required="true"
+                                                 requiredMessage="必須" value="#{bb.lastNameWife}"/><br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td class="wifeheadrow">
+                                誕生日
+                            </td>
+                            <td class="wifeheadrow2">
+                                <h:inputText id="birthYearWife" required="true" requiredMessage="必須"
+                                             value="#{bb.birthYearWife}"/>　/
+                                <h:inputText id="birthMonthWife" required="true"
+                                             requiredMessage="必須" 
+                                             value="#{bb.birthMonthWife}"/> /
+                                <h:inputText id="birthDayWife" required="true"
+                                             requiredMessage="必須"
+                                             value="#{bb.birthDayWife}"/> (年/月/日) <br/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="onlyTokyo">ご住所、ご連絡先を入力してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</div>
+                    <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
+                        <tr>
+                            <td class="headrow">
+                                市区町村
+                            </td>
+                            <td class="headrow2">
+                                <h:inputText id="addressOne" required="true" requiredMessage="必須"
+                                             value="#{bb.addressOne}"/><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="headrow">
+                                それ以降の住所
+                            </td>
+                            <td class="headrow2">
+                                <h:inputText id="addressTwo" required="true"
+                                             requiredMessage="必須" value="#{bb.addressTwo}"/><br/>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="headrow">
+                                電話番号
+                            </td>
+                            <td class="headrow2"><h:inputText id="housePhoneNumberOne" required="true"
+                                                              requiredMessage="必須"
+                                                              value="#{bb.housePhoneNumberOne}"/> -
+
+                                <h:inputText id="housePhoneNumberTwo" required="true"
+                                             requiredMessage="必須"
+                                             value="#{bb.housePhoneNumberTwo}"/> -
+                                <h:inputText id="housePhoneNumberThree" required="true"
+                                             requiredMessage="必須"
+                                             value="#{bb.housePhoneNumberThree}"/><br/>
+                            </td>　　　
+                        </tr>
+    
+                        <tr>
+                            <td class="headrow">
+                                メールアドレス
+                            </td>
+                            <td class="headrow2"><h:inputText id="mailAddress" required="true"
+                                                              requiredMessage="必須"
+                                                              value="#{bb.mailAddress}"/><br/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h:commandButton value="以下の会員規約に同意して確認画面へ進む" action="#{bb.goToConfirm()}" class="Button"/>
                 </div>
-                <div class="gallery" text-align="center">
-                    <img src="./resources/images/Capture.JPG"></img>
-                </div>
-               
 
-                <div class="husbandmessage">ご主人のお名前、生年月日をそれぞれ入力してください。</div>
-                <table border="1" cellspacing="0" cellpadding="2" class="husband"> 
-                    <tr>
-                        <td class="husbandheadrow">
-                            名前
-                        </td>　
-                        <td class="husbandheadrow2">
-                            (姓) <h:inputText id="firstName" required="true" requiredMessage="必須"
-                                             value="#{bb.firstName}" label="名前"/>
-                            (名) <h:inputText id="lastName" required="true"
-                                             requiredMessage="必須" value="#{bb.lastName}"/><br/>
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td class="husbandheadrow">
-                            名前(ふりがな)
-                        </td>　
-                        <td class="husbandheadrow2">
-                            ＜全角ひらがなのみ＞
-                            (姓) <h:inputText id="firstNameHurigana" required="true"
-                                             requiredMessage="必須" value="#{bb.firstNameHurigana}"/>
-                            (名) <h:inputText id="lastNameHurigana" required="true" requiredMessage="必須"
-                                             value="#{bb.lastNameHurigana}"/><br/>
-                        </td>
-                    </tr>
-
-                    <tr>
-
-                        <td class="husbandheadrow">
-                            誕生日
-                        </td>
-                        <td class="husbandheadrow2">
-                            <h:inputText id="birthYear" required="true" requiredMessage="必須"
-                                         value="#{bb.birthYear}"/>　/
-                            <h:inputText id="birthMonth" required="true"
-                                         requiredMessage="必須" 
-                                         value="#{bb.birthMonth}"/> /
-                            <h:inputText id="birthDay" required="true"
-                                         requiredMessage="必須"
-                                         value="#{bb.birthDay}"/> (年/月/日) <br/>
-                        </td>
-                    </tr>
-                </table>
-
-                <div class="wifemessage">奥様のお名前、生年月日をそれぞれ入力してください。</div>
-                <table border="1" cellspacing="0" cellpadding="2" class="wife" > 
-                    <tr>
-                        <td class="wifeheadrow">
-                            名前
-                        </td>　
-                        <td class="wifeheadrow2">
-                            (姓) <h:inputText id="firstNameHuriganaWife" required="true"
-                                             requiredMessage="必須" value="#{bb.firstNameHuriganaWife}"/>
-                            (名) <h:inputText id="lastNameHuriganaWife" required="true" requiredMessage="必須"
-                                             value="#{bb.lastNameHuriganaWife}"/><br/>
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td class="wifeheadrow">
-                            <em>名前(ふりがな)</em>
-                        </td>　
-                        <td class="wifeheadrow2">
-                            ＜全角ひらがなのみ＞
-                            (姓) <h:inputText id="firstNameWife" required="true" requiredMessage="必須"
-                                             value="#{bb.firstNameWife}" label="名前"/>
-                            (名) <h:inputText id="lastNameWife" required="true"
-                                             requiredMessage="必須" value="#{bb.lastNameWife}"/><br/>
-                        </td>
-                    </tr>
-
-                    <tr>
-
-                        <td class="wifeheadrow">
-                            誕生日
-                        </td>
-                        <td class="wifeheadrow2">
-                            <h:inputText id="birthYearWife" required="true" requiredMessage="必須"
-                                         value="#{bb.birthYearWife}"/>　/
-                            <h:inputText id="birthMonthWife" required="true"
-                                         requiredMessage="必須" 
-                                         value="#{bb.birthMonthWife}"/> /
-                            <h:inputText id="birthDayWife" required="true"
-                                         requiredMessage="必須"
-                                         value="#{bb.birthDayWife}"/> (年/月/日) <br/>
-                        </td>
-                    </tr>
-                </table>
-
-                <div class="onlyTokyo">ご住所、ご連絡先を入力してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</div>
-                <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
-                    <tr>
-                        <td class="headrow">
-                            市区町村
-                        </td>
-                        <td class="headrow2">
-                            <h:inputText id="addressOne" required="true" requiredMessage="必須"
-                                         value="#{bb.addressOne}"/><br/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="headrow">
-                            それ以降の住所
-                        </td>
-                        <td class="headrow2">
-                            <h:inputText id="addressTwo" required="true"
-                                         requiredMessage="必須" value="#{bb.addressTwo}"/><br/>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="headrow">
-                            電話番号
-                        </td>
-                        <td class="headrow2"><h:inputText id="housePhoneNumberOne" required="true"
-                                                          requiredMessage="必須"
-                                                          value="#{bb.housePhoneNumberOne}"/> -
-
-                            <h:inputText id="housePhoneNumberTwo" required="true"
-                                         requiredMessage="必須"
-                                         value="#{bb.housePhoneNumberTwo}"/> -
-                            <h:inputText id="housePhoneNumberThree" required="true"
-                                         requiredMessage="必須"
-                                         value="#{bb.housePhoneNumberThree}"/><br/>
-                        </td>　　　
-                    </tr>
-                    <!--               　<tr>
-                                        <td class="headrow">
-                                            携帯電話番号
-                                        </td>
-                                        <th><h:inputText id="mobilePhoneNumberOne" required="true"
-                                                         requiredMessage="必須"
-                                                         value="#{bb.mobilePhoneNumberOne}"/> -
-                                            <h:inputText id="mobilePhoneNumberTwo" required="true"
-                                                         requiredMessage="必須"
-                                                         value="#{bb.mobilePhoneNumberTwo}"/> -
-                                            <h:inputText id="mobilePhoneNumberThree" required="true"
-                                                         requiredMessage="必須"
-                                                         value="#{bb.mobilePhoneNumberThree}"/><br/>    
-                                        </th>
-                                    </tr>-->
-                    <tr>
-                        <td class="headrow">
-                            メールアドレス
-                        </td>
-                        <td class="headrow2"><h:inputText id="mailAddress" required="true"
-                                                          requiredMessage="必須"
-                                                          value="#{bb.mailAddress}"/><br/>
-                        </td>
-                    </tr>
-                </table>
-
-                <h:commandButton value="以下の会員規約に同意して確認画面へ進む" action="#{bb.goToConfirm()}" class="Button"/>
             </h:form>
-            <br/>
-        </h:body>
-    </div>
+        </ui:composition>
+        <br/>
+    </h:body>
 </xhtml>

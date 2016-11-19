@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/index.css" />
+        <div class="gallery">
+            <img src="./resources/images/2.JPG"></img>
+        </div>
+    </head>
+    <h:form>
+        <h:body>
+            <div align="center">
+                <div class="parentmessage">保護者の方のお名前、生年月日を確認してください</div>
+                <table border="1" cellspacing="0" cellpadding="2" class="parent"> 
+                    <tr>
+                        <td class="parentheadrow">
+                            <br/>
+                            名前
+                            <br/>
+                        </td>　
+                        <th>
+                            (姓) <h:outputText id="firstNameMom" 
+                                              value="#{bb.firstNameMom}"/>
+                            (名) <h:outputText id="lastNameMom"  value="#{bb.lastNameMom}"/>
+                        </th>
+                    </tr> 
+                    <tr>
+                        <td class="parentheadrow">
+                            名前(ふりがな)
+                        </td>　
+                        <th>
+                            (姓) <h:outputText id="firstNameHuriganaMom" value="#{bb.firstNameHuriganaMom}"/>
+                            (名) <h:outputText id="lastNameHuriganaMom" 
+                                              value="#{bb.lastNameHuriganaMom}"/><br/>
+                        </th>
+                    </tr>
+
+                    <tr>
+
+                        <td class="parentheadrow">
+                            誕生日
+                        </td>
+                        <th>
+                            <br/>
+                            <h:outputText id="birthYearMom" 
+                                          value="#{bb.birthYearMom}"/>　/
+                            <h:outputText id="birthMonthMom"  
+                                          value="#{bb.birthMonthMom}"/> /
+                            <h:outputText id="birthDayMom" 
+                                          value="#{bb.birthDayMom}"/> (年/月/日) <br/>
+                            <br/>
+                        </th>
+                    </tr>
+                </table>
+                <br/>
+                <h:commandButton value="入力画面へ戻る" action="#{bb.goToInput()}" class="Button"/>
+                <h:commandButton value="上記の内容を確認して送信" action="#{bb.create()}" class="Button"/>
+            </div>
+
+        </h:body>
+    </h:form>
+
+</html>

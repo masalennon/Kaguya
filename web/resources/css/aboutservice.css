@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : Nov 11, 2016, 1:44:57 PM
     Author     : Masanari
 */
+body{
+    background-color: background;
+}
 .title {
     margin: 30px;
 }
@@ -16,5 +19,12 @@ and open the template in the editor.
 }
 
 .content {
-    margin: 70px;
+    text-align: center;
+    border: 4px solid #82636b;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    margin: 2em 0;
+    padding: 2em;
+    width: 1000px;
+    background-color: olivedrab;
 }
+

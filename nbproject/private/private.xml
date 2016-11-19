@@ -4,15 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/masanari/Kaguya/src/java/Db/Bb.java</file>
-            <file>file:/Users/masanari/Kaguya/web/confirm.xhtml</file>
             <file>file:/Users/masanari/Kaguya/web/resources/css/aboutservice.css</file>
-            <file>file:/Users/masanari/Kaguya/web/findpeople.xhtml</file>
             <file>file:/Users/masanari/Kaguya/web/resources/css/index.css</file>
-            <file>file:/Users/masanari/Kaguya/web/complete.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/input.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/index.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/companyinfo.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/aboutservice.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/links.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/parentIndex.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/companyTag.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/BbParent.java</file>
+            <file>file:/Users/masanari/Kaguya/web/forTheSafety.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/main.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/templates/template01.xhtml</file>
         </group>
     </open-files>
 </project-private>

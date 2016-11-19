@@ -1,11 +1,18 @@
 package Db;
 
 import java.io.Serializable;
+import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 /*
@@ -18,63 +25,69 @@ import javax.validation.constraints.NotNull;
  * @author Masanari
  */
 @Entity
+@ManagedBean(name = "oldCoupleInformation")
 public class OldCoupleInformation implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotNull
+    //
     private String firstName;
-    @NotNull
+    //
     private String lastName;
-    @NotNull
+    //
     private String firstNameHurigana;
-    @NotNull
+    //
     private String lastNameHurigana;
-    @NotNull
+    //
     private String addressOne;
-    @NotNull
+    //
     private String addressTwo;
-    @NotNull
+    //
     private String birthYear;
-    @NotNull
+    //
     private String birthMonth;
-    @NotNull
+    //
     private String birthDay;
-    @NotNull
+    //
     private String firstNameWife;
-    @NotNull
+    //
     private String lastNameWife;
-    @NotNull
+    //
     private String firstNameHuriganaWife;
-    @NotNull
+    //
     private String lastNameHuriganaWife;
-    @NotNull
+    //
     private String birthYearWife;
-    @NotNull
+    //
     private String birthMonthWife;
-    @NotNull
+    //
     private String birthDayWife;
-
-    @NotNull
+    //
     private String housePhoneNumberOne;
-    @NotNull
+    //
     private String housePhoneNumberTwo;
-    @NotNull
+    //
     private String housePhoneNumberThree;
+    
     private String housePhoneNumber = housePhoneNumberOne + housePhoneNumberTwo + housePhoneNumberThree;
-    @NotNull
-    private String mobilePhoneNumberOne;
-    @NotNull
-    private String mobilePhoneNumberTwo;
-    @NotNull
-    private String mobilePhoneNumberThree;
-    private String mobilePhoneNumber = mobilePhoneNumberOne + mobilePhoneNumberTwo + mobilePhoneNumberThree;
-    @NotNull
+
+    //
     private String mailAddress;
 
-    public OldCoupleInformation(Long id, String firstName, String lastName, String firstNameHurigana, String lastNameHurigana, String addressOne, String addressTwo, String birthYear, String birthMonth, String birthDay, String firstNameWife, String lastNameWife, String firstNameHuriganaWife, String lastNameHuriganaWife, String birthYearWife, String birthMonthWife, String birthDayWife, String housePhoneNumberOne, String housePhoneNumberTwo, String housePhoneNumberThree, String mobilePhoneNumberOne, String mobilePhoneNumberTwo, String mobilePhoneNumberThree, String mailAddress) {
+    @EJB
+    OldCoupleInformationDb db;
+
+    @Inject
+    transient Logger log;
+
+    public OldCoupleInformation(Long id, String firstName, String lastName, String firstNameHurigana,
+            String lastNameHurigana, String addressOne, String addressTwo, String birthYear,
+            String birthMonth, String birthDay, String firstNameWife, String lastNameWife,
+            String firstNameHuriganaWife, String lastNameHuriganaWife, String birthYearWife,
+            String birthMonthWife, String birthDayWife, String housePhoneNumberOne,
+            String housePhoneNumberTwo, String housePhoneNumberThree, String mailAddress) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -95,10 +108,49 @@ public class OldCoupleInformation implements Serializable {
         this.housePhoneNumberOne = housePhoneNumberOne;
         this.housePhoneNumberTwo = housePhoneNumberTwo;
         this.housePhoneNumberThree = housePhoneNumberThree;
-        this.mobilePhoneNumberOne = mobilePhoneNumberOne;
-        this.mobilePhoneNumberTwo = mobilePhoneNumberTwo;
-        this.mobilePhoneNumberThree = mobilePhoneNumberThree;
         this.mailAddress = mailAddress;
+    }
+
+    @PostConstruct
+    public void load() {
+        Flash flash = FacesContext.getCurrentInstance()
+                .getExternalContext().getFlash();
+        this.firstName = (String) flash.get("firstname");
+    }
+
+    public String goToComplete() {
+        System.out.println("move to complete page.");
+        System.out.println(firstName);
+        create();
+        System.out.println("after create");
+        return "complete.xhtml";
+    }
+
+    public void create() {
+
+        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
+                firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
+                birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
+                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, housePhoneNumberOne,
+                housePhoneNumberTwo, housePhoneNumberThree, mailAddress);
+
+        try {
+            System.out.println(firstName);
+            System.out.println(this.firstName);
+            //oldCoupleInformation.setAddressOne();
+            //System.out.println(oldCoupleInformation.getAddressOne() + "^^^^^^^^^^^^^^^^^");
+            db.create(oldCoupleInformation);
+            System.out.println(firstName);
+//            clear();
+
+        } catch (Exception e) {
+            System.out.println("miss");
+            log.fine("新規登録できない/" + firstName + "|" + e.getMessage());
+
+        } finally {
+            goToComplete();
+        }
+
     }
 
     public OldCoupleInformation() {
@@ -270,38 +322,6 @@ public class OldCoupleInformation implements Serializable {
 
     public void setHousePhoneNumber(String housePhoneNumber) {
         this.housePhoneNumber = housePhoneNumber;
-    }
-
-    public String getMobilePhoneNumberOne() {
-        return mobilePhoneNumberOne;
-    }
-
-    public void setMobilePhoneNumberOne(String mobilePhoneNumberOne) {
-        this.mobilePhoneNumberOne = mobilePhoneNumberOne;
-    }
-
-    public String getMobilePhoneNumberTwo() {
-        return mobilePhoneNumberTwo;
-    }
-
-    public void setMobilePhoneNumberTwo(String mobilePhoneNumberTwo) {
-        this.mobilePhoneNumberTwo = mobilePhoneNumberTwo;
-    }
-
-    public String getMobilePhoneNumberThree() {
-        return mobilePhoneNumberThree;
-    }
-
-    public void setMobilePhoneNumberThree(String mobilePhoneNumberThree) {
-        this.mobilePhoneNumberThree = mobilePhoneNumberThree;
-    }
-
-    public String getMobilePhoneNumber() {
-        return mobilePhoneNumber;
-    }
-
-    public void setMobilePhoneNumber(String mobilePhoneNumber) {
-        this.mobilePhoneNumber = mobilePhoneNumber;
     }
 
     public String getMailAddress() {
