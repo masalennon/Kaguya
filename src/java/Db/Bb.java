@@ -8,6 +8,7 @@ package Db;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
@@ -69,6 +70,8 @@ public class Bb implements Serializable {
     private String housePhoneNumber = housePhoneNumberOne + housePhoneNumberTwo + housePhoneNumberThree;
     //
     private String mailAddress;
+  @EJB
+    OldCoupleInformationDb db;
 
 //   @PersistenceContext(unitName = "KaguyaPU")
 //    private EntityManager em;
@@ -76,6 +79,48 @@ public class Bb implements Serializable {
 //    private javax.transaction.UserTransaction utx;
 
 //usrdsplyprprty.setflag();
+    
+    
+    
+    @PostConstruct
+    public void load() {
+        Flash flash = FacesContext.getCurrentInstance()
+                .getExternalContext().getFlash();
+        this.firstName = (String) flash.get("firstname");
+    }
+
+    public String goToComplete() {
+        System.out.println("move to complete page.");
+        System.out.println(firstName);
+        create();
+        System.out.println("after create");
+        return "complete.xhtml";
+    }
+
+    public void create() {
+
+        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
+                firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
+                birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
+                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, housePhoneNumberOne,
+                housePhoneNumberTwo, housePhoneNumberThree, mailAddress);
+
+        try {
+            System.out.println("firstName in create() = " + firstName);
+            System.out.println("this.firstName in create() = " + this.firstName);
+            //oldCoupleInformation.setAddressOne();
+            //System.out.println(oldCoupleInformation.getAddressOne() + "^^^^^^^^^^^^^^^^^");
+            db.create(oldCoupleInformation);
+            System.out.println(firstName);
+//            clear();
+
+        } catch (Exception e) {
+            System.out.println("miss");
+         //   log.fine("新規登録できない/" + firstName + "|" + e.getMessage());
+
+        }
+    }
+
     public String goToInput() {
         System.out.println("back to input.");
         return "input.xhtml";

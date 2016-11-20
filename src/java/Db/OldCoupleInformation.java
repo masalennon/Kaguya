@@ -70,17 +70,15 @@ public class OldCoupleInformation implements Serializable {
     private String housePhoneNumberTwo;
     //
     private String housePhoneNumberThree;
-    
+
     private String housePhoneNumber = housePhoneNumberOne + housePhoneNumberTwo + housePhoneNumberThree;
 
     //
     private String mailAddress;
 
-    @EJB
-    OldCoupleInformationDb db;
-
-    @Inject
-    transient Logger log;
+  
+//    @Inject
+//    transient Logger log;
 
     public OldCoupleInformation(Long id, String firstName, String lastName, String firstNameHurigana,
             String lastNameHurigana, String addressOne, String addressTwo, String birthYear,
@@ -109,48 +107,6 @@ public class OldCoupleInformation implements Serializable {
         this.housePhoneNumberTwo = housePhoneNumberTwo;
         this.housePhoneNumberThree = housePhoneNumberThree;
         this.mailAddress = mailAddress;
-    }
-
-    @PostConstruct
-    public void load() {
-        Flash flash = FacesContext.getCurrentInstance()
-                .getExternalContext().getFlash();
-        this.firstName = (String) flash.get("firstname");
-    }
-
-    public String goToComplete() {
-        System.out.println("move to complete page.");
-        System.out.println(firstName);
-        create();
-        System.out.println("after create");
-        return "complete.xhtml";
-    }
-
-    public void create() {
-
-        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
-                firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
-                birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
-                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, housePhoneNumberOne,
-                housePhoneNumberTwo, housePhoneNumberThree, mailAddress);
-
-        try {
-            System.out.println(firstName);
-            System.out.println(this.firstName);
-            //oldCoupleInformation.setAddressOne();
-            //System.out.println(oldCoupleInformation.getAddressOne() + "^^^^^^^^^^^^^^^^^");
-            db.create(oldCoupleInformation);
-            System.out.println(firstName);
-//            clear();
-
-        } catch (Exception e) {
-            System.out.println("miss");
-            log.fine("新規登録できない/" + firstName + "|" + e.getMessage());
-
-        } finally {
-            goToComplete();
-        }
-
     }
 
     public OldCoupleInformation() {
