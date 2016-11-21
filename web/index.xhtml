@@ -63,13 +63,13 @@ and open the template in the editor.
                             </td>
                             <td class="husbandheadrow2">
                                 <h:inputText id="birthYear" required="true" requiredMessage="必須"
-                                             value="#{bb.birthYear}"/>　/
+                                             value="#{bb.birthYear}"/>　年
                                 <h:inputText id="birthMonth" required="true"
                                              requiredMessage="必須" 
-                                             value="#{bb.birthMonth}"/> /
+                                             value="#{bb.birthMonth}"/> 月
                                 <h:inputText id="birthDay" required="true"
                                              requiredMessage="必須"
-                                             value="#{bb.birthDay}"/> (年/月/日) <br/>
+                                             value="#{bb.birthDay}"/> 日<br/>
                             </td>
                         </tr>
                     </table>
@@ -107,13 +107,13 @@ and open the template in the editor.
                             </td>
                             <td class="wifeheadrow2">
                                 <h:inputText id="birthYearWife" required="true" requiredMessage="必須"
-                                             value="#{bb.birthYearWife}"/>　/
+                                             value="#{bb.birthYearWife}"/>　年
                                 <h:inputText id="birthMonthWife" required="true"
                                              requiredMessage="必須" 
-                                             value="#{bb.birthMonthWife}"/> /
+                                             value="#{bb.birthMonthWife}"/> 月
                                 <h:inputText id="birthDayWife" required="true"
                                              requiredMessage="必須"
-                                             value="#{bb.birthDayWife}"/> (年/月/日) <br/>
+                                             value="#{bb.birthDayWife}"/> 日 <br/>
                             </td>
                         </tr>
                     </table>
@@ -143,19 +143,19 @@ and open the template in the editor.
                             <td class="headrow">
                                 電話番号
                             </td>
-                            <td class="headrow2"><h:inputText id="housePhoneNumberOne" required="true"
+                            <td class="headrow2"><h:inputText id="phoneNumberOne" required="true"
                                                               requiredMessage="必須"
-                                                              value="#{bb.housePhoneNumberOne}"/> -
+                                                              value="#{bb.phoneNumberOne}"/> -
 
-                                <h:inputText id="housePhoneNumberTwo" required="true"
+                                <h:inputText id="phoneNumberTwo" required="true"
                                              requiredMessage="必須"
-                                             value="#{bb.housePhoneNumberTwo}"/> -
-                                <h:inputText id="housePhoneNumberThree" required="true"
+                                             value="#{bb.phoneNumberTwo}"/> -
+                                <h:inputText id="phoneNumberThree" required="true"
                                              requiredMessage="必須"
-                                             value="#{bb.housePhoneNumberThree}"/><br/>
+                                             value="#{bb.phoneNumberThree}"/><br/>
                             </td>　　　
                         </tr>
-    
+
                         <tr>
                             <td class="headrow">
                                 メールアドレス
@@ -166,8 +166,8 @@ and open the template in the editor.
                             </td>
                         </tr>
                     </table>
-
-                    <h:commandButton value="以下の会員規約に同意して確認画面へ進む" action="#{bb.goToConfirm()}" class="Button"/>
+                    <div align="center">❇確認画面はないので、よく確認してから送信してください</div>
+                    <h:commandButton value="以下の会員規約に同意して確認画面へ進む" action="#{bb.goToComplete()}" class="Button"/>
                 </div>
 
             </h:form>

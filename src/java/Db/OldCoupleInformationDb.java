@@ -20,7 +20,7 @@ import javax.transaction.Transactional;
  * @param <T>
  */
 @Stateful
-@Transactional
+//@Transactional
 
 public class OldCoupleInformationDb implements Serializable{
     

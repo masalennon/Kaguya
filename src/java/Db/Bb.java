@@ -6,17 +6,13 @@
 package Db;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
-import javax.validation.constraints.*;
 
 /**
  *
@@ -62,50 +58,41 @@ public class Bb implements Serializable {
     //
     private String birthDayWife;
     //
-    private String housePhoneNumberOne;
+    private String phoneNumberOne;
     //
-    private String housePhoneNumberTwo;
+    private String phoneNumberTwo;
     //
-    private String housePhoneNumberThree;
-    private String housePhoneNumber = housePhoneNumberOne + housePhoneNumberTwo + housePhoneNumberThree;
+    private String phoneNumberThree;
+    private String phoneNumber = phoneNumberOne + "-" + phoneNumberTwo
+            + "-" + phoneNumberThree;
     //
     private String mailAddress;
-  @EJB
+    @EJB
     OldCoupleInformationDb db;
-
-//   @PersistenceContext(unitName = "KaguyaPU")
-//    private EntityManager em;
-//    @Resource
-//    private javax.transaction.UserTransaction utx;
-
-//usrdsplyprprty.setflag();
-    
-    
-    
-    @PostConstruct
-    public void load() {
-        Flash flash = FacesContext.getCurrentInstance()
-                .getExternalContext().getFlash();
-        this.firstName = (String) flash.get("firstname");
-    }
+    @Inject
+    transient Logger log;
 
     public String goToComplete() {
         System.out.println("move to complete page.");
-        System.out.println(firstName);
+        System.out.println("firstName in goToComplete() = " + firstName);
+        System.out.println("getFirstName()" + getFirstName());
         create();
         System.out.println("after create");
-        return "complete.xhtml";
+        return "complete";
     }
 
     public void create() {
-
+//        Flash flash = FacesContext.getCurrentInstance().
+//                getExternalContext().getFlash();
         OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
                 firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
                 birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
-                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, housePhoneNumberOne,
-                housePhoneNumberTwo, housePhoneNumberThree, mailAddress);
+                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, phoneNumber, mailAddress);
 
         try {
+//            System.out.println(flash.get(firstName));
+//            System.out.println(flash.get("firstName"));
+
             System.out.println("firstName in create() = " + firstName);
             System.out.println("this.firstName in create() = " + this.firstName);
             //oldCoupleInformation.setAddressOne();
@@ -116,7 +103,7 @@ public class Bb implements Serializable {
 
         } catch (Exception e) {
             System.out.println("miss");
-         //   log.fine("新規登録できない/" + firstName + "|" + e.getMessage());
+            log.fine("新規登録できない/" + firstName + "|" + e.getMessage());
 
         }
     }
@@ -129,7 +116,7 @@ public class Bb implements Serializable {
     public String goToConfirm() {
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
-        flash.put("firstname", this.firstName);
+        flash.put("firstName", firstName);
         System.out.println("move to confirm page.");
         System.out.println(firstName + " in goToConfirm()");
         return "realConfirm";
@@ -139,8 +126,8 @@ public class Bb implements Serializable {
         firstName = lastName
                 = firstNameHurigana = lastNameHurigana = addressOne = addressTwo = birthYear
                 = birthMonth = birthDay = firstNameWife = lastNameWife = firstNameHuriganaWife
-                = lastNameHuriganaWife = birthYearWife = birthMonthWife = birthDayWife = housePhoneNumberOne
-                = housePhoneNumberTwo = housePhoneNumberThree = mailAddress = null;
+                = lastNameHuriganaWife = birthYearWife = birthMonthWife = birthDayWife
+                = phoneNumber = mailAddress = null;
     }
 
     public String edit(OldCoupleInformation oldCoupleInformation) {
@@ -152,13 +139,13 @@ public class Bb implements Serializable {
 //        return db.getAll();
 //    }
 //
-//    public Logger getLog() {
-//        return log;
-//    }
-//
-//    public void setLog(Logger log) {
-//        this.log = log;
-//    }
+    public Logger getLog() {
+        return log;
+    }
+
+    public void setLog(Logger log) {
+        this.log = log;
+    }
 
     public void setId() {
         this.id = id;
@@ -292,36 +279,36 @@ public class Bb implements Serializable {
         this.birthDayWife = birthDayWife;
     }
 
-    public String getHousePhoneNumberOne() {
-        return housePhoneNumberOne;
+    public String getPhoneNumberOne() {
+        return phoneNumberOne;
     }
 
-    public void setHousePhoneNumberOne(String housePhoneNumberOne) {
-        this.housePhoneNumberOne = housePhoneNumberOne;
+    public void setPhoneNumberOne(String housePhoneNumberOne) {
+        this.phoneNumberOne = housePhoneNumberOne;
     }
 
-    public String getHousePhoneNumberTwo() {
-        return housePhoneNumberTwo;
+    public String getPhoneNumberTwo() {
+        return phoneNumberTwo;
     }
 
-    public void setHousePhoneNumberTwo(String housePhoneNumberTwo) {
-        this.housePhoneNumberTwo = housePhoneNumberTwo;
+    public void setPhoneNumberTwo(String housePhoneNumberTwo) {
+        this.phoneNumberTwo = housePhoneNumberTwo;
     }
 
-    public String getHousePhoneNumberThree() {
-        return housePhoneNumberThree;
+    public String getPhoneNumberThree() {
+        return phoneNumberThree;
     }
 
-    public void setHousePhoneNumberThree(String housePhoneNumberThree) {
-        this.housePhoneNumberThree = housePhoneNumberThree;
+    public void setPhoneNumberThree(String housePhoneNumberThree) {
+        this.phoneNumberThree = housePhoneNumberThree;
     }
 
-    public String getHousePhoneNumber() {
-        return housePhoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setHousePhoneNumber(String housePhoneNumber) {
-        this.housePhoneNumber = housePhoneNumber;
+    public void setPhoneNumber(String housePhoneNumber) {
+        this.phoneNumber = housePhoneNumber;
     }
 
     public String getMailAddress() {

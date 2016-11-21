@@ -134,13 +134,13 @@ and open the template in the editor.
                             <td class="headrow">
                                 電話番号
                             </td>
-                            <th><h:outputText id="housePhoneNumberOne" 
-                                              value="#{bb.housePhoneNumberOne}" /> -
+                            <th><h:outputText id="PhoneNumberOne" 
+                                              value="#{bb.PhoneNumberOne}" /> -
 
-                                <h:outputText id="housePhoneNumberTwo" 
-                                              value="#{bb.housePhoneNumberTwo}" /> -
-                                <h:outputText id="housePhoneNumberThree"
-                                              value="#{bb.housePhoneNumberThree}" /><br/>
+                                <h:outputText id="PhoneNumberTwo" 
+                                              value="#{bb.PhoneNumberTwo}" /> -
+                                <h:outputText id="PhoneNumberThree"
+                                              value="#{bb.PhoneNumberThree}" /><br/>
                             </th>
                         </tr>
 
@@ -154,8 +154,10 @@ and open the template in the editor.
                         </tr>
                     </table>
                     <h:commandButton value="入力画面へ戻る" action="#{bb.goToInput()}" class="Button"/><br/>
-                    <h:commandButton value="上記の内容を確認して送信" action="#{bb.goToComplete()}" class="Button"/>
-
+                    <h:commandButton value="上記の内容を確認して送信" action="#{bb.goToComplete()}" class="Button">
+                        <!--<f:setPropertyActionListener value="#{bb.firstName}" target="#{oldCoupleInformation.firstName}"/>-->
+                        <!--<f:param name="sNo" value="#{oldCoupleInformaton.firstName}" />-->
+                    </h:commandButton>
                 </div>
             </h:body>
         </h:form>

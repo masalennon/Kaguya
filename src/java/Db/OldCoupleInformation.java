@@ -1,19 +1,11 @@
 package Db;
 
 import java.io.Serializable;
-import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-import javax.faces.context.Flash;
-import javax.inject.Inject;
-import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -65,27 +57,28 @@ public class OldCoupleInformation implements Serializable {
     //
     private String birthDayWife;
     //
-    private String housePhoneNumberOne;
+    private String phoneNumberOne;
     //
-    private String housePhoneNumberTwo;
+    private String phoneNumberTwo;
     //
-    private String housePhoneNumberThree;
+    private String phoneNumberThree;
 
-    private String housePhoneNumber = housePhoneNumberOne + housePhoneNumberTwo + housePhoneNumberThree;
-
+    private String phoneNumber = phoneNumberOne + "-" + phoneNumberTwo
+            + "-" + phoneNumberThree;
+    
     //
     private String mailAddress;
 
-  
 //    @Inject
 //    transient Logger log;
+
 
     public OldCoupleInformation(Long id, String firstName, String lastName, String firstNameHurigana,
             String lastNameHurigana, String addressOne, String addressTwo, String birthYear,
             String birthMonth, String birthDay, String firstNameWife, String lastNameWife,
             String firstNameHuriganaWife, String lastNameHuriganaWife, String birthYearWife,
-            String birthMonthWife, String birthDayWife, String housePhoneNumberOne,
-            String housePhoneNumberTwo, String housePhoneNumberThree, String mailAddress) {
+            String birthMonthWife, String birthDayWife, String phoneNumber, String mailAddress) {
+
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -103,9 +96,7 @@ public class OldCoupleInformation implements Serializable {
         this.birthYearWife = birthYearWife;
         this.birthMonthWife = birthMonthWife;
         this.birthDayWife = birthDayWife;
-        this.housePhoneNumberOne = housePhoneNumberOne;
-        this.housePhoneNumberTwo = housePhoneNumberTwo;
-        this.housePhoneNumberThree = housePhoneNumberThree;
+        this.phoneNumber = phoneNumber;
         this.mailAddress = mailAddress;
     }
 
@@ -248,36 +239,36 @@ public class OldCoupleInformation implements Serializable {
         this.birthDayWife = birthDayWife;
     }
 
-    public String getHousePhoneNumberOne() {
-        return housePhoneNumberOne;
+    public String getPhoneNumberOne() {
+        return phoneNumberOne;
     }
 
-    public void setHousePhoneNumberOne(String housePhoneNumberOne) {
-        this.housePhoneNumberOne = housePhoneNumberOne;
+    public void setPhoneNumberOne(String phoneNumberOne) {
+        this.phoneNumberOne = phoneNumberOne;
     }
 
-    public String getHousePhoneNumberTwo() {
-        return housePhoneNumberTwo;
+    public String getPhoneNumberTwo() {
+        return phoneNumberTwo;
     }
 
-    public void setHousePhoneNumberTwo(String housePhoneNumberTwo) {
-        this.housePhoneNumberTwo = housePhoneNumberTwo;
+    public void setPhoneNumberTwo(String phoneNumberTwo) {
+        this.phoneNumberTwo = phoneNumberTwo;
     }
 
-    public String getHousePhoneNumberThree() {
-        return housePhoneNumberThree;
+    public String getPhoneNumberThree() {
+        return phoneNumberThree;
     }
 
-    public void setHousePhoneNumberThree(String housePhoneNumberThree) {
-        this.housePhoneNumberThree = housePhoneNumberThree;
+    public void setPhoneNumberThree(String phoneNumberThree) {
+        this.phoneNumberThree = phoneNumberThree;
     }
 
-    public String getHousePhoneNumber() {
-        return housePhoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setHousePhoneNumber(String housePhoneNumber) {
-        this.housePhoneNumber = housePhoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getMailAddress() {
