@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
+import net.tkxtools.MailSender;
 
 /**
  *
@@ -58,28 +59,35 @@ public class Bb implements Serializable {
     //
     private String birthDayWife;
     //
-    private String phoneNumberOne;
+    private String phoneNumber;
     //
-    private String phoneNumberTwo;
-    //
-    private String phoneNumberThree;
-    private String phoneNumber = phoneNumberOne + "-" + phoneNumberTwo
-            + "-" + phoneNumberThree;
+//    private String phoneNumberTwo;
+//    //
+//    private String phoneNumberThree;
+//    
+//    private String phoneNumber = phoneNumber + "-" + phoneNumberTwo
+//            + "-" + phoneNumberThree;
     //
     private String mailAddress;
     @EJB
     OldCoupleInformationDb db;
     @Inject
     transient Logger log;
+    @EJB
+    protected MailSender sender;		// 電子メールユーティリティ
+    @Inject
+    protected MakeText text;
 
     public String goToComplete() {
         System.out.println("move to complete page.");
         System.out.println("firstName in goToComplete() = " + firstName);
         System.out.println("getFirstName()" + getFirstName());
         create();
+        sendMail();
         System.out.println("after create");
         return "complete";
     }
+//confirmBeanを作って、そこで再びflashによるデータの受け渡しをするとうまくいくかもしれない。
 
     public void create() {
 //        Flash flash = FacesContext.getCurrentInstance().
@@ -99,7 +107,7 @@ public class Bb implements Serializable {
             //System.out.println(oldCoupleInformation.getAddressOne() + "^^^^^^^^^^^^^^^^^");
             db.create(oldCoupleInformation);
             System.out.println(firstName);
-//            clear();
+            clear();
 
         } catch (Exception e) {
             System.out.println("miss");
@@ -133,6 +141,10 @@ public class Bb implements Serializable {
     public String edit(OldCoupleInformation oldCoupleInformation) {
         firstName = oldCoupleInformation.getFirstName();
         return null;
+    }
+
+    public void sendMail() {
+        sender.send(this.mailAddress, "お問い合わせのご確認", text.getText(this.firstName));
     }
 
 //    public List<OldCoupleInformation> getAll() {
@@ -279,36 +291,12 @@ public class Bb implements Serializable {
         this.birthDayWife = birthDayWife;
     }
 
-    public String getPhoneNumberOne() {
-        return phoneNumberOne;
-    }
-
-    public void setPhoneNumberOne(String housePhoneNumberOne) {
-        this.phoneNumberOne = housePhoneNumberOne;
-    }
-
-    public String getPhoneNumberTwo() {
-        return phoneNumberTwo;
-    }
-
-    public void setPhoneNumberTwo(String housePhoneNumberTwo) {
-        this.phoneNumberTwo = housePhoneNumberTwo;
-    }
-
-    public String getPhoneNumberThree() {
-        return phoneNumberThree;
-    }
-
-    public void setPhoneNumberThree(String housePhoneNumberThree) {
-        this.phoneNumberThree = housePhoneNumberThree;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String housePhoneNumber) {
-        this.phoneNumber = housePhoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getMailAddress() {

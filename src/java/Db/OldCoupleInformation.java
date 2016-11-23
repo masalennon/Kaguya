@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,6 +18,7 @@ import javax.persistence.Id;
  * @author Masanari
  */
 @Entity
+@Table(name = "KAGUYA")
 @ManagedBean(name = "oldCoupleInformation")
 public class OldCoupleInformation implements Serializable {
 
@@ -57,15 +59,9 @@ public class OldCoupleInformation implements Serializable {
     //
     private String birthDayWife;
     //
-    private String phoneNumberOne;
+    private String phoneNumber;
     //
-    private String phoneNumberTwo;
-    //
-    private String phoneNumberThree;
 
-    private String phoneNumber = phoneNumberOne + "-" + phoneNumberTwo
-            + "-" + phoneNumberThree;
-    
     //
     private String mailAddress;
 
@@ -237,30 +233,6 @@ public class OldCoupleInformation implements Serializable {
 
     public void setBirthDayWife(String birthDayWife) {
         this.birthDayWife = birthDayWife;
-    }
-
-    public String getPhoneNumberOne() {
-        return phoneNumberOne;
-    }
-
-    public void setPhoneNumberOne(String phoneNumberOne) {
-        this.phoneNumberOne = phoneNumberOne;
-    }
-
-    public String getPhoneNumberTwo() {
-        return phoneNumberTwo;
-    }
-
-    public void setPhoneNumberTwo(String phoneNumberTwo) {
-        this.phoneNumberTwo = phoneNumberTwo;
-    }
-
-    public String getPhoneNumberThree() {
-        return phoneNumberThree;
-    }
-
-    public void setPhoneNumberThree(String phoneNumberThree) {
-        this.phoneNumberThree = phoneNumberThree;
     }
 
     public String getPhoneNumber() {
