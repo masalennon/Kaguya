@@ -9,7 +9,8 @@ and open the template in the editor.
 <xhtml xmlns="http://www.w3.org/1999/xhtml"
        xmlns:h="http://xmlns.jcp.org/jsf/html"
        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-       xmlns:jsf="http://xmlns.jcp.org/jsf">
+       xmlns:jsf="http://xmlns.jcp.org/jsf"
+       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -20,13 +21,10 @@ and open the template in the editor.
     <h:body>
         <ui:composition>
             <h:form>
-                <div align="center">
+                <div class="set" align="center">
 
                     <div class="title">
                         <h2>かぐや会員登録お申込み画面</h2>
-                    </div>
-                    <div class="gallery" text-align="center">
-                        <img src="./resources/images/Capture.JPG"></img>
                     </div>
 
 
@@ -63,13 +61,13 @@ and open the template in the editor.
                             </td>
                             <td class="husbandheadrow2">
                                 <h:inputText id="birthYear" required="true" requiredMessage="必須"
-                                             value="#{bb.birthYear}"/>　年
+                                             value="#{bb.birthYear}"/>　 年
                                 <h:inputText id="birthMonth" required="true"
                                              requiredMessage="必須" 
-                                             value="#{bb.birthMonth}"/> 月
+                                             value="#{bb.birthMonth}"/>  月
                                 <h:inputText id="birthDay" required="true"
                                              requiredMessage="必須"
-                                             value="#{bb.birthDay}"/> 日<br/>
+                                             value="#{bb.birthDay}"/>  日<br/>
                             </td>
                         </tr>
                     </table>
@@ -125,34 +123,30 @@ and open the template in the editor.
                                 市区町村
                             </td>
                             <td class="headrow2">
-                                <h:inputText id="addressOne" required="true" requiredMessage="必須"
-                                             value="#{bb.addressOne}"/><br/>
+                                <h:inputText id="addressOne" required="true" p:watermark="例：世田谷区弦巻"
+                                             requiredMessage="必須" value="#{bb.addressOne}"><p:watermark id="wtmSearch" for="frm:txt" 
+                                                                                           value="検索するキーワードを入力して下さい" /></h:inputText><br/>
                             </td>
                         </tr>
                         <tr>
                             <td class="headrow">
                                 それ以降の住所
                             </td>
-                            <td class="headrow2">
-                                <h:inputText id="addressTwo" required="true"
-                                             requiredMessage="必須" value="#{bb.addressTwo}"/><br/>
-
+                            <td class="headrow2"><br/>
+                                <h:inputText id="addressTwo" p:placeholder="例：１丁目"
+                                             value="#{bb.addressTwo}"/><br/>
+                                ここは必須ではありませんが、何丁目に住んでいるかがわかるとより保護者の方の参考になります。
                             </td>
                         </tr>
                         <tr>
                             <td class="headrow">
                                 電話番号
                             </td>
-                            <td class="headrow2"><h:inputText id="phoneNumberOne" required="true"
-                                                              requiredMessage="必須"
-                                                              value="#{bb.phoneNumberOne}"/> -
+                            <td class="headrow2">
+                                <h:inputText id="phoneNumber" required="true"
+                                             requiredMessage="必須"
+                                             value="#{bb.phoneNumber}"/> 
 
-                                <h:inputText id="phoneNumberTwo" required="true"
-                                             requiredMessage="必須"
-                                             value="#{bb.phoneNumberTwo}"/> -
-                                <h:inputText id="phoneNumberThree" required="true"
-                                             requiredMessage="必須"
-                                             value="#{bb.phoneNumberThree}"/><br/>
                             </td>　　　
                         </tr>
 
@@ -160,16 +154,20 @@ and open the template in the editor.
                             <td class="headrow">
                                 メールアドレス
                             </td>
-                            <td class="headrow2"><h:inputText id="mailAddress" required="true"
-                                                              requiredMessage="必須"
-                                                              value="#{bb.mailAddress}"/><br/>
+                            <td class="headrow2">
+                                <h:inputText id="mailAddress" required="true"
+                                             requiredMessage="必須"
+                                             value="#{bb.mailAddress}"/><br/>
                             </td>
                         </tr>
-                    </table>
-                    <div align="center">❇確認画面はないので、よく確認してから送信してください</div>
-                    <h:commandButton value="以下の会員規約に同意して確認画面へ進む" action="#{bb.goToComplete()}" class="Button"/>
+                    </table><br/><br/>
+                    <div align="center">❇夫婦で撮ったお写真やお部屋の様子がわかる写真があると、申し込みが来る確率が上がります。</div>
+                    <h:commandButton value="以下の会員規約に同意して確認画面へ進む" action="#{bb.goToConfirm()}" class="Button"/>
                 </div>
 
+            </h:form>
+            <h:form enctype="multipart/form-data">
+                <div align="center"><h:inputFile id="file" value="#{bb.file}" /></div><br />
             </h:form>
         </ui:composition>
         <br/>

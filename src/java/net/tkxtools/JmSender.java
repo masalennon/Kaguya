@@ -1,5 +1,7 @@
 package net.tkxtools;
 
+;;
+
 /**
  * 電子メール送信ユーティリティ
  *
@@ -35,6 +37,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
+
+
 
 public class JmSender {
 

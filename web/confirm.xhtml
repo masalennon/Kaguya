@@ -34,8 +34,8 @@ and open the template in the editor.
                             </td>　
                             <th>
                                 (姓) <h:outputText id="firstName" 
-                                                  value="#{bb.firstName}"/>
-                                (名) <h:outputText id="lastName"  value="#{bb.lastName}"/>
+                                                  value="#{cb.firstName}"/>
+                                (名) <h:outputText id="lastName"  value="#{cb.lastName}"/>
                             </th>
                         </tr> 
                         <tr>
@@ -43,9 +43,9 @@ and open the template in the editor.
                                 名前(ふりがな)
                             </td>　
                             <th>
-                                (姓) <h:outputText id="firstNameHurigana" value="#{bb.firstNameHurigana}"/>
+                                (姓) <h:outputText id="firstNameHurigana" value="#{cb.firstNameHurigana}"/>
                                 (名) <h:outputText id="lastNameHurigana" 
-                                                  value="#{bb.lastNameHurigana}"/><br/>
+                                                  value="#{cb.lastNameHurigana}"/><br/>
                             </th>
                         </tr>
 
@@ -57,11 +57,11 @@ and open the template in the editor.
                             <th>
                                 <br/>
                                 <h:outputText id="birthYear" 
-                                              value="#{bb.birthYear}"/>　/
+                                              value="#{cb.birthYear}"/>　年
                                 <h:outputText id="birthMonth"  
-                                              value="#{bb.birthMonth}"/> /
+                                              value="#{cb.birthMonth}"/> 月
                                 <h:outputText id="birthDay" 
-                                              value="#{bb.birthDay}"/> (年/月/日) <br/>
+                                              value="#{cb.birthDay}"/> 日 <br/>
                                 <br/>
                             </th>
                         </tr>
@@ -76,9 +76,9 @@ and open the template in the editor.
                                 <br/>
                             </td>　
                             <th>
-                                (姓) <h:outputText id="firstNameHuriganaWife"  value="#{bb.firstNameHuriganaWife}"/>
+                                (姓) <h:outputText id="firstNameHuriganaWife"  value="#{cb.firstNameHuriganaWife}"/>
                                 (名) <h:outputText id="lastNameHuriganaWife" 
-                                                  value="#{bb.lastNameHuriganaWife}"/><br/>
+                                                  value="#{cb.lastNameHuriganaWife}"/><br/>
                             </th>
                         </tr> 
                         <tr>
@@ -87,8 +87,8 @@ and open the template in the editor.
                             </td>　
                             <th>
                                 (姓) <h:outputText id="firstNameWife" 
-                                                  value="#{bb.firstNameWife}" />
-                                (名) <h:outputText id="lastNameWife"  value="#{bb.lastNameWife}"/>
+                                                  value="#{cb.firstNameWife}" />
+                                (名) <h:outputText id="lastNameWife"  value="#{cb.lastNameWife}"/>
                             </th>
                         </tr>
 
@@ -100,11 +100,11 @@ and open the template in the editor.
                             <th>
                                 <br/>
                                 <h:outputText id="birthYearWife"
-                                              value="#{bb.birthYearWife}"/>　/
+                                              value="#{cb.birthYearWife}"/>　年
                                 <h:outputText id="birthMonthWife" 
-                                              value="#{bb.birthMonthWife}"/> /
+                                              value="#{cb.birthMonthWife}"/> 月
                                 <h:outputText id="birthDayWife" 
-                                              value="#{bb.birthDayWife}"/> (年/月/日) <br/>
+                                              value="#{cb.birthDayWife}"/> 日 <br/>
                                 <br/>
                             </th>
                         </tr>
@@ -118,7 +118,7 @@ and open the template in the editor.
                             </td>
                             <th>
                                 <h:outputText id="addressOne" 
-                                              value="#{bb.addressOne}" /><br/>
+                                              value="#{cb.addressOne}" /><br/>
                             </th>
                         </tr>
                         <tr>
@@ -126,7 +126,7 @@ and open the template in the editor.
                                 それ以降の住所
                             </td>
                             <th>
-                                <h:outputText id="addressTwo" value="#{bb.addressTwo}" /><br/>
+                                <h:outputText id="addressTwo" value="#{cb.addressTwo}" /><br/>
 
                             </th>
                         </tr>
@@ -134,13 +134,10 @@ and open the template in the editor.
                             <td class="headrow">
                                 電話番号
                             </td>
-                            <th><h:outputText id="PhoneNumberOne" 
-                                              value="#{bb.PhoneNumberOne}" /> -
+                            <th><h:outputText id="PhoneNumber" 
+                                              value="#{cb.phoneNumber}" /> 
 
-                                <h:outputText id="PhoneNumberTwo" 
-                                              value="#{bb.PhoneNumberTwo}" /> -
-                                <h:outputText id="PhoneNumberThree"
-                                              value="#{bb.PhoneNumberThree}" /><br/>
+                               
                             </th>
                         </tr>
 
@@ -149,13 +146,13 @@ and open the template in the editor.
                                 メールアドレス
                             </td>
                             <th><h:outputText id="mailAddress" 
-                                              value="#{bb.mailAddress}" /><br/>
+                                              value="#{cb.mailAddress}" /><br/>
                             </th>
                         </tr>
                     </table>
                     <h:commandButton value="入力画面へ戻る" action="#{bb.goToInput()}" class="Button"/><br/>
-                    <h:commandButton value="上記の内容を確認して送信" action="#{bb.goToComplete()}" class="Button">
-                        <!--<f:setPropertyActionListener value="#{bb.firstName}" target="#{oldCoupleInformation.firstName}"/>-->
+                    <h:commandButton value="上記の内容を確認して送信" action="#{cb.goToComplete()}" class="Button">
+                        <!--<f:setPropertyActionListener value="#{cb.firstName}" target="#{oldCoupleInformation.firstName}"/>-->
                         <!--<f:param name="sNo" value="#{oldCoupleInformaton.firstName}" />-->
                     </h:commandButton>
                 </div>
