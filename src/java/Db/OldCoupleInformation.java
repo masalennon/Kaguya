@@ -65,7 +65,7 @@ public class OldCoupleInformation implements Serializable {
     @NotEmpty
     private String mailAddress;
     
-    
+    private Part file;
 
 //    @Inject
 //    transient Logger log;

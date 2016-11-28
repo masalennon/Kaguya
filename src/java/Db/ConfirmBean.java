@@ -22,7 +22,7 @@ import javax.servlet.http.Part;
  * @author Masanari
  */
 @ManagedBean(name = "cb")
-@SessionScoped
+@ViewScoped//ViewScopedじゃないとだめ！！！
 public class ConfirmBean implements Serializable {
     //
 
@@ -64,6 +64,8 @@ public class ConfirmBean implements Serializable {
 
     private String mailAddress;
 
+    private Part file;
+    
     @EJB
     OldCoupleInformationDb db;
 
@@ -92,6 +94,9 @@ public class ConfirmBean implements Serializable {
         this.birthDayWife = (String) flash.get("birthYearWife");
         this.phoneNumber = (String) flash.get("phoneNumber");
         this.mailAddress = (String) flash.get("mailAddress");
+        System.out.println("firstName in init() = " + firstName);
+        
+        
     }
 
     public void clear() {
@@ -102,7 +107,7 @@ public class ConfirmBean implements Serializable {
                 = phoneNumber = mailAddress = null;
     }
 
-    public String goToComplete() {
+    public void create() {
 
         OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
                 firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
@@ -113,15 +118,18 @@ public class ConfirmBean implements Serializable {
 
             db.create(oldCoupleInformation);
             clear();
-            return "/complete.xhtml?faces-redirect=true";
 
         } catch (Exception e) {
             System.out.println("miss");
             log.fine("新規登録できない/" + firstName + "|" + e.getMessage());
-            return null;
+
         }
     }
 
+    public String goToComplete() {
+        create();
+        return "/complete.xhtml?faces-redirect=true";
+    }
 
     public Long getId() {
         return id;

@@ -21,11 +21,11 @@ import javax.faces.bean.ManagedBean;
 public class DbBean {
 
     private Map<String, Image> image;
-
-    @PostConstruct
-    public void init() {
-        image = new HashMap<>();
-    }
+//
+//    @PostConstruct
+//    public void init() {
+//        image = new HashMap<>();
+//    }
 
     public Map<String, Image> getImage() {
         return image;
