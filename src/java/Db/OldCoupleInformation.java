@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.servlet.http.Part;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,51 +21,51 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "KAGUYA")
-@ManagedBean(name = "oldCoupleInformation")
 public class OldCoupleInformation implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    //
+    @NotEmpty
     private String firstName;
-    //
+    @NotEmpty
     private String lastName;
-    //
+    @NotEmpty
     private String firstNameHurigana;
-    //
+    @NotEmpty
     private String lastNameHurigana;
-    //
+    @NotEmpty
     private String addressOne;
-    //
+    @NotEmpty
     private String addressTwo;
-    //
+    @NotEmpty
     private String birthYear;
-    //
+    @NotEmpty
     private String birthMonth;
-    //
+    @NotEmpty
     private String birthDay;
-    //
+    @NotEmpty
     private String firstNameWife;
-    //
+    @NotEmpty
     private String lastNameWife;
-    //
+    @NotEmpty
     private String firstNameHuriganaWife;
-    //
+    @NotEmpty
     private String lastNameHuriganaWife;
-    //
+    @NotEmpty
     private String birthYearWife;
-    //
+    @NotEmpty
     private String birthMonthWife;
-    //
+    @NotEmpty
     private String birthDayWife;
-    //
+    @NotEmpty
     private String phoneNumber;
     //
-
-    //
+    @NotEmpty
     private String mailAddress;
+    
+    
 
 //    @Inject
 //    transient Logger log;
@@ -250,5 +252,8 @@ public class OldCoupleInformation implements Serializable {
     public void setMailAddress(String mailAddress) {
         this.mailAddress = mailAddress;
     }
+
+
+    
 
 }

@@ -5,61 +5,75 @@
  */
 package Db;
 
+import entities.Image;
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
+import javax.servlet.http.Part;
 import net.tkxtools.MailSender;
+import org.apache.commons.io.IOUtils;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
  * @author Masanari
  * @param <T>
  */
-@ManagedBean(name = "bb")
+@ManagedBean(name = "bb", eager = true)
 @SessionScoped
 public class Bb implements Serializable {
 
-    //
+    @NotEmpty
     private Long id;
-    //
+    @NotEmpty
     private String firstName;
-    //
+    @NotEmpty
     private String lastName;
-    //
+    @NotEmpty
     private String firstNameHurigana;
-    //
+    @NotEmpty
     private String lastNameHurigana;
-    //
+    @NotEmpty
     private String addressOne;
-    //
+    @NotEmpty
     private String addressTwo;
-    //
+    @NotEmpty
     private String birthYear;
-    //
+    @NotEmpty
     private String birthMonth;
-    //
+    @NotEmpty
     private String birthDay;
-    //
+    @NotEmpty
     private String firstNameWife;
-    //
+    @NotEmpty
     private String lastNameWife;
-    //
+    @NotEmpty
     private String firstNameHuriganaWife;
-    //
+    @NotEmpty
     private String lastNameHuriganaWife;
-    //
+    @NotEmpty
     private String birthYearWife;
-    //
+    @NotEmpty
     private String birthMonthWife;
-    //
+    @NotEmpty
     private String birthDayWife;
-    //
+    @NotEmpty
     private String phoneNumber;
+
+    private Part file;
+
     //
 //    private String phoneNumberTwo;
 //    //
@@ -71,49 +85,39 @@ public class Bb implements Serializable {
     private String mailAddress;
     @EJB
     OldCoupleInformationDb db;
+    Inject ConfirmBean;
     @Inject
     transient Logger log;
     @EJB
     protected MailSender sender;		// 電子メールユーティリティ
     @Inject
     protected MakeText text;
+//    @EJB
+//    protected DbBean dbBean;
 
-    public String goToComplete() {
-        System.out.println("move to complete page.");
-        System.out.println("firstName in goToComplete() = " + firstName);
-        System.out.println("getFirstName()" + getFirstName());
-        create();
-        sendMail();
-        System.out.println("after create");
-        return "complete";
-    }
 //confirmBeanを作って、そこで再びflashによるデータの受け渡しをするとうまくいくかもしれない。
+    @ManagedProperty(value = "#{dbbean}")
+    private DbBean dbbean;
 
-    public void create() {
-//        Flash flash = FacesContext.getCurrentInstance().
-//                getExternalContext().getFlash();
-        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
-                firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
-                birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
-                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, phoneNumber, mailAddress);
-
+    public void uploadImage() {
+//        DbBean dbbean = new DbBean();
         try {
-//            System.out.println(flash.get(firstName));
-//            System.out.println(flash.get("firstName"));
+            Map<String, Image> db = dbbean.getImage();
+            Image img = new Image();
+            img.setName(file.getSubmittedFileName());
+            img.setContentType(file.getContentType());
 
-            System.out.println("firstName in create() = " + firstName);
-            System.out.println("this.firstName in create() = " + this.firstName);
-            //oldCoupleInformation.setAddressOne();
-            //System.out.println(oldCoupleInformation.getAddressOne() + "^^^^^^^^^^^^^^^^^");
-            db.create(oldCoupleInformation);
-            System.out.println(firstName);
-            clear();
+            byte[] content = IOUtils.toByteArray(file.getInputStream());
+            img.setContent(content);
+            db.put(img.getName(), img);
+            
+            System.out.println(img.toString());
 
-        } catch (Exception e) {
-            System.out.println("miss");
-            log.fine("新規登録できない/" + firstName + "|" + e.getMessage());
-
+        } catch (IOException ex) {
+            Logger.getLogger(Bb.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("fail to upload");
         }
+
     }
 
     public String goToInput() {
@@ -124,19 +128,28 @@ public class Bb implements Serializable {
     public String goToConfirm() {
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
-        flash.put("firstName", firstName);
-        System.out.println("move to confirm page.");
-        System.out.println(firstName + " in goToConfirm()");
-        return "realConfirm";
+        flash.put("firstName", this.firstName);
+        flash.put("lastName", this.lastName);
+        flash.put("firstNameHurigana", this.firstNameHurigana);
+        flash.put("lastNameHurigana", this.lastNameHurigana);
+        flash.put("addressOne", this.addressOne);
+        flash.put("addressTwo", this.addressTwo);
+        flash.put("birthYear", this.birthYear);
+        flash.put("birthMonth", this.birthMonth);
+        flash.put("birthDay", this.birthDay);
+        flash.put("firstNameWife", this.firstNameWife);
+        flash.put("lastNameWife", this.lastNameWife);
+        flash.put("firstNameHuriganaWife", this.firstNameHuriganaWife);
+        flash.put("lastNameHuriganaWife", this.lastNameHuriganaWife);
+        flash.put("birthYearWife", this.birthYearWife);
+        flash.put("birthMonthWife", this.birthMonthWife);
+        flash.put("birthDayWife", this.birthDayWife);
+        flash.put("phoneNumber", this.phoneNumber);
+        flash.put("mailAddress", this.mailAddress);
+
+        return "/realConfirm.xhtml?faces-redirect=true";
     }
 
-    public void clear() {
-        firstName = lastName
-                = firstNameHurigana = lastNameHurigana = addressOne = addressTwo = birthYear
-                = birthMonth = birthDay = firstNameWife = lastNameWife = firstNameHuriganaWife
-                = lastNameHuriganaWife = birthYearWife = birthMonthWife = birthDayWife
-                = phoneNumber = mailAddress = null;
-    }
 
     public String edit(OldCoupleInformation oldCoupleInformation) {
         firstName = oldCoupleInformation.getFirstName();
@@ -307,7 +320,55 @@ public class Bb implements Serializable {
         this.mailAddress = mailAddress;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Part getFile() {
+        return file;
+    }
+
+    public void setFile(Part file) {
+        this.file = file;
+    }
+
+    public OldCoupleInformationDb getDb() {
+        return db;
+    }
+
+    public void setDb(OldCoupleInformationDb db) {
+        this.db = db;
+    }
+
+    public MailSender getSender() {
+        return sender;
+    }
+
+    public void setSender(MailSender sender) {
+        this.sender = sender;
+    }
+
+    public MakeText getText() {
+        return text;
+    }
+
+    public void setText(MakeText text) {
+        this.text = text;
+    }
+
     public Bb() {
+    }
+
+    public void setDbbean(DbBean dbbean) {
+        this.dbbean = dbbean;
+    }
+
+    public DbBean getDbbean() {
+        return dbbean;
     }
 
 }
