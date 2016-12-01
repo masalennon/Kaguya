@@ -10,18 +10,22 @@ and open the template in the editor.
 
 
 .title {
-    text-align: center;
     width: 930px;
     margin: 40px;
-    margin-top: 200px;
+    margin-top: 0px;
 
 }
+
+body {
+}
+
 
 .husbandmessage {
     font-weight: bold;
     margin-bottom: 0px;
     margin-top: 30px;
     font-weight: bold;
+    font-size: 15px;
 
 
 }
@@ -30,6 +34,7 @@ and open the template in the editor.
     font-weight: bold;
     margin-top: 30px;
     font-weight: bold;
+    font-size: 15px;
 
 }
 .husbandheadrow {
@@ -37,17 +42,18 @@ and open the template in the editor.
     height: 79px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     background: lightblue;
     text-align: center;
+
 }
 .husbandheadrow2 {
     width: 649px;
     height: 79px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     text-align: center;
 }
@@ -60,7 +66,7 @@ and open the template in the editor.
     height: 80px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     background: mistyrose;
     text-align: center;
@@ -69,7 +75,7 @@ and open the template in the editor.
 .wifeheadrow2 {
     width: 649px;
     height: 80px;
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     text-align: center;
     border-right: 1px solid #ABABAB;
@@ -80,10 +86,10 @@ and open the template in the editor.
 }
 .headrow {
     width: 249px;
-    height: 50px;
+    height: 80px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     background: palegreen;
     text-align: center;
@@ -95,7 +101,7 @@ and open the template in the editor.
     height: 50px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
 
@@ -120,6 +126,9 @@ and open the template in the editor.
 
 }
 
+.text {
+    height: 48px;
+}
 .parentmessage {
     margin-bottom: 0pt;
     font-weight: bold;
@@ -192,18 +201,20 @@ a:visited { color: #000080; }
 a:hover { color: pink; } 
 a:active { color: brown; }
 */
-
-
+.inputText {
+    font-size: 15px;
+}
+/*
 #link {
-    /*    width:530px;
+        width:530px;
         padding:0;
         margin:0;
-        list-style-type: none;*/
+        list-style-type: none;
     margin-left: 0%;
     margin-right: 0%;
     padding-left: 0%;
     padding-right: 0%;
-    margin-top: -1200px;
+    margin-top: -1400px;
 }
 #link li {
     width:20%;
@@ -260,3 +271,76 @@ a:active { color: brown; }
         0px -1px 1px rgba(0,0,0,0.3) inset,
         0px 1px 3px #666;
 } 
+
+
+
+
+*/
+/* --- ナビゲーションバー --- */
+div.nav {
+    width: 100%; /* ナビゲーションの幅 */
+    height: 100%;
+    background-image: url("./resources/images/輝夜メニューバー大.png") ; /* ナビゲーションの背景 */
+    border-top: 2px #84aed2 solid; /* 上境界線 */
+    border-bottom: 2px #2c5170 solid; /* 下境界線 */
+    font-size: 100%;
+    margin-top: -1350px
+}
+
+/* --- メニューエリア --- */
+div.nav ul.nl {
+    width: 600px; /* メニューの幅 */
+    margin: 0 auto; /* センターに配置 */
+    padding: 0;
+    background:  url(輝夜メニューバー大.png) repeat-x top; /* メニューの背景 */
+    border-left: 1px #2c5170 solid; /* メニューの左境界線 */
+    border-right: 1px #84aed2 solid; /* メニューの右境界線 */
+    list-style-type: none;
+    text-align: center;
+}
+
+/* --- メニュー項目 --- */
+div.nav ul.nl li {
+    width: 20%; /* 項目の幅 */
+    float: left;
+}
+
+/* --- リンク --- */
+div.nav ul.nl li a {
+    display: block;
+    position: relative; /* IE6用 */
+    padding: 7px 2px 4px; /* リンクエリアのパディング（上、左右、下） */
+    border-left: 1px #84aed2 solid; /* リンクエリアの左境界線 */
+    border-right: 1px #2c5170 solid; /* リンクエリアの右境界線 */
+    text-decoration: none; /* テキストの下線（なし） */
+    font-weight: bold; /* 文字の太さ（太字） */
+    color: #ffffff; /* 文字色 */
+    line-height: 100%; /* 行の高さ */
+}
+/* 英字部分 
+div.nav ul.nl li a span.en {
+display: block;
+margin-top: 2px;  英字部分の上マージン 
+font-size: 85%;  英字の文字サイズ 
+font-weight: normal;  文字の太さ（ノーマル） 
+color: #eee8aa;  英字の文字色 
+}*/
+/* --- ポイント時の設定 --- */
+div.nav ul.nl li a:hover {
+    background: #5e91bd url(hor_menu6_on.gif) repeat-x top; /* ポイント時の背景 */
+}
+div.nav ul.nl li a:hover span.en {
+    color: #fde337; /* ポイント時の英字の文字色 */
+}
+
+/* --- clearfix --- */
+.clearFix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearFix {
+    min-height: 1px;
+}

@@ -8,7 +8,9 @@ package Db;
 import entities.Image;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +22,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import javax.servlet.http.Part;
 import net.tkxtools.MailSender;
@@ -50,11 +53,11 @@ public class Bb implements Serializable {
     @NotEmpty
     private String addressTwo;
     @NotEmpty
-    private String birthYear;
+    private String birthYear="1940";
     @NotEmpty
-    private String birthMonth;
+    private String birthMonth="1";
     @NotEmpty
-    private String birthDay;
+    private String birthDay="1";
     @NotEmpty
     private String firstNameWife;
     @NotEmpty
@@ -64,17 +67,22 @@ public class Bb implements Serializable {
     @NotEmpty
     private String lastNameHuriganaWife;
     @NotEmpty
-    private String birthYearWife;
+    private String birthYearWife = "1940";
     @NotEmpty
-    private String birthMonthWife;
+    private String birthMonthWife = "1";
     @NotEmpty
-    private String birthDayWife;
+    private String birthDayWife = "1";
     @NotEmpty
     private String phoneNumber;
 
     private Part file;
-
+    @NotEmpty
     private String mailAddress;
+
+    private final List<SelectItem> yearList = new ArrayList();
+    private final List<SelectItem> monthList = new ArrayList();
+    private final List<SelectItem> dayList = new ArrayList();
+
     @Inject
     transient Logger log;
     @EJB
@@ -109,9 +117,31 @@ public class Bb implements Serializable {
 
     }
 
+    @PostConstruct
+    public void loadPage() {
+        for (int i = 1940; i <= 1990; i++) {
+            final SelectItem item = new SelectItem();
+            item.setLabel(String.valueOf(i));
+            item.setValue(String.valueOf(i));
+            yearList.add(item);
+        }
+        for (int i = 1; i <= 12; i++) {
+            final SelectItem item = new SelectItem();
+            item.setLabel(String.valueOf(i));
+            item.setValue(String.valueOf(i));
+            monthList.add(item);
+        }
+        for (int i = 1; i <= 31; i++) {
+            final SelectItem item = new SelectItem();
+            item.setLabel(String.valueOf(i));
+            item.setValue(String.valueOf(i));
+            dayList.add(item);
+        }
+    }
+
     public String goToInput() {
         System.out.println("back to input.");
-        return "input.xhtml";
+        return "/input.xhtml?faces-redirect=true";
     }
 
     public String goToConfirm() {
@@ -351,4 +381,16 @@ public class Bb implements Serializable {
         return dbbean;
     }
 
+    public List<SelectItem> getYearList() {
+        return yearList;
+    }
+
+    public List<SelectItem> getMonthList() {
+        return monthList;
+    }
+
+    public List<SelectItem> getDayList() {
+        return dayList;
+    }
+    
 }

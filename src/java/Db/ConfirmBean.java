@@ -40,11 +40,11 @@ public class ConfirmBean implements Serializable {
     //
     private String addressTwo;
     //
-    private String birthYear;
+    private String birthYear = "1940";
     //
-    private String birthMonth;
+    private String birthMonth = "1";
     //
-    private String birthDay;
+    private String birthDay = "1";
     //
     private String firstNameWife;
     //
@@ -54,11 +54,11 @@ public class ConfirmBean implements Serializable {
     //
     private String lastNameHuriganaWife;
     //
-    private String birthYearWife;
+    private String birthYearWife = "1940";
     //
-    private String birthMonthWife;
+    private String birthMonthWife = "1";
     //
-    private String birthDayWife;
+    private String birthDayWife = "1";
     //
     private String phoneNumber;
 
