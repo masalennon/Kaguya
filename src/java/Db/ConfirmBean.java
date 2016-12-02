@@ -65,6 +65,7 @@ public class ConfirmBean implements Serializable {
     private String mailAddress;
 
     private Part file;
+
     
     @EJB
     OldCoupleInformationDb db;
