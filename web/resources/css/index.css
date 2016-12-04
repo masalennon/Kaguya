@@ -128,6 +128,17 @@ body {
 
 .text {
     height: 48px;
+    font-size: 25px;
+}
+
+.text1 {
+    height: 48px;
+    width: 400px;
+}
+
+.text2 {
+    height: 48px;
+    width: 250px;
 }
 .parentmessage {
     margin-bottom: 0pt;
@@ -167,13 +178,12 @@ body {
 
 .gallery img {
     position: absolute;
-    left: 10px;
-    top: 5px;
-    margin: 0px;
-    width: 150px;
+    left: 160px;
+    top: 300px;
+    margin: 300px;
+    width: 600px;
     margin-top: 20px;
-    border-bottom: 3px solid green;
-
+    
 }
 table {
     width: 900px;
@@ -186,154 +196,73 @@ p.line {
 .set {
 }
 
-/*.link {
-    text-decoration: underline;
-    font-family: メイリオ;
-    font-weight: bold;
-    font-size: 16px;
-    position: absolute;
-    margin-right: 10px;
-    float: right;
-    margin-bottom: 50px;
-}
-a:link { color: darkgreen; }
-a:visited { color: #000080; } 
-a:hover { color: pink; } 
-a:active { color: brown; }
-*/
+
 .inputText {
     font-size: 15px;
 }
-/*
-#link {
-        width:530px;
-        padding:0;
-        margin:0;
-        list-style-type: none;
-    margin-left: 0%;
-    margin-right: 0%;
-    padding-left: 0%;
-    padding-right: 0%;
-    margin-top: -1400px;
-}
-#link li {
-    width:20%;
-    float:left;
-    padding:0;
-    margin:0;
-    text-align:center;
-}
-#link ul {
-    overflow: hidden;
-}
-#link li a {
-    width:auto;
-    color:#fff;
-    font-size:19px;
-    font-weight:bold;
-    text-shadow:0 -1px 0px #333,0 1px 0px #555;
-    padding:10px 0;
-    text-decoration:none;
-    display:block;
-    background:#666;
-    background-image: -moz-linear-gradient(top, #888 0%, #777 50%, #666 50%, #777 100%);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, green));
-    border-left:1px solid #444;
-    box-shadow: 1px 0px 0px rgba(225,225,225,0.3) inset,
-        -1px 0px 0px rgba(225,225,225,0.3) inset,
-        0px 1px 1px rgba(0,0,0,0.1) inset,
-        0px -1px 1px rgba(0,0,0,0.3) inset,
-        0px 1px 3px #666;
-}
-#link li:first-child a{
-    border-left:0px;
-    border-radius:5px 0 0 5px;
-    border-left:0;
-    box-shadow:-1px 0px 0px rgba(225,225,225,0.3) inset,
-        0px 1px 1px rgba(0,0,0,0.1) inset,
-        0px -1px 1px rgba(0,0,0,0.3) inset,
-        0px 1px 3px #666;
-}
-#link li:last-child a{
-    border-radius:0 5px 5px 0;
-    box-shadow: 1px 0px 0px rgba(225,225,225,0.3) inset,
-        0px 1px 1px rgba(0,0,0,0.1) inset,
-        0px -1px 1px rgba(0,0,0,0.3) inset,
-        0px 1px 3px #666;
-}
-#link li a:hover {
-    background:#555;
-    background-image: -moz-linear-gradient(top, #555 0%, #444 50%, #333 50%, #444 100%);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #555), color-stop(0.50, #444), color-stop(0.50, #333), color-stop(1, #444));
-    box-shadow: 1px 0px 0px rgba(225,225,225,0) inset,
-        -1px 0px 0px rgba(225,225,225,0) inset,
-        0px 1px 1px rgba(0,0,0,0.1) inset,
-        0px -1px 1px rgba(0,0,0,0.3) inset,
-        0px 1px 3px #666;
-} 
 
 
 
 
-*/
-/* --- ナビゲーションバー --- */
-div.nav {
-    width: 100%; /* ナビゲーションの幅 */
+
+ /*--- ナビゲーションバー ---*/ 
+/*div.nav {
+    width: 100%;  ナビゲーションの幅 
     height: 100%;
-    background-image: url("./resources/images/輝夜メニューバー大.png") ; /* ナビゲーションの背景 */
-    border-top: 2px #84aed2 solid; /* 上境界線 */
-    border-bottom: 2px #2c5170 solid; /* 下境界線 */
+    background-image: url("./resources/images/輝夜メニューバー大.png") ;  ナビゲーションの背景 
+    border-top: 2px #84aed2 solid;  上境界線 
+    border-bottom: 2px #2c5170 solid;  下境界線 
     font-size: 100%;
     margin-top: -1350px
-}
-
-/* --- メニューエリア --- */
+}*/
+/*
+ --- メニューエリア --- 
 div.nav ul.nl {
-    width: 600px; /* メニューの幅 */
-    margin: 0 auto; /* センターに配置 */
+    width: 600px;  メニューの幅 
+    margin: 0 auto;  センターに配置 
     padding: 0;
-    background:  url(輝夜メニューバー大.png) repeat-x top; /* メニューの背景 */
-    border-left: 1px #2c5170 solid; /* メニューの左境界線 */
-    border-right: 1px #84aed2 solid; /* メニューの右境界線 */
+    background:  url(輝夜メニューバー大.png) repeat-x top;  メニューの背景 
+    border-left: 1px #2c5170 solid;  メニューの左境界線 
+    border-right: 1px #84aed2 solid;  メニューの右境界線 
     list-style-type: none;
     text-align: center;
 }
 
-/* --- メニュー項目 --- */
+ --- メニュー項目 --- 
 div.nav ul.nl li {
-    width: 20%; /* 項目の幅 */
+    width: 20%;  項目の幅 
     float: left;
 }
 
-/* --- リンク --- */
+ --- リンク --- 
 div.nav ul.nl li a {
     display: block;
-    position: relative; /* IE6用 */
-    padding: 7px 2px 4px; /* リンクエリアのパディング（上、左右、下） */
-    border-left: 1px #84aed2 solid; /* リンクエリアの左境界線 */
-    border-right: 1px #2c5170 solid; /* リンクエリアの右境界線 */
-    text-decoration: none; /* テキストの下線（なし） */
-    font-weight: bold; /* 文字の太さ（太字） */
-    color: #ffffff; /* 文字色 */
-    line-height: 100%; /* 行の高さ */
+    position: relative;  IE6用 
+    padding: 7px 2px 4px;  リンクエリアのパディング（上、左右、下） 
+    border-left: 1px #84aed2 solid;  リンクエリアの左境界線 
+    border-right: 1px #2c5170 solid;  リンクエリアの右境界線 
+    text-decoration: none;  テキストの下線（なし） 
+    font-weight: bold;  文字の太さ（太字） 
+    color: #ffffff;  文字色 
+    line-height: 100%;  行の高さ 
 }
-/* 英字部分 
+ 英字部分 
 div.nav ul.nl li a span.en {
 display: block;
 margin-top: 2px;  英字部分の上マージン 
 font-size: 85%;  英字の文字サイズ 
 font-weight: normal;  文字の太さ（ノーマル） 
 color: #eee8aa;  英字の文字色 
-}*/
-/* --- ポイント時の設定 --- */
+}
+ --- ポイント時の設定 --- 
 div.nav ul.nl li a:hover {
-    background: #5e91bd url(hor_menu6_on.gif) repeat-x top; /* ポイント時の背景 */
+    background: #5e91bd url(hor_menu6_on.gif) repeat-x top;  ポイント時の背景 
 }
 div.nav ul.nl li a:hover span.en {
-    color: #fde337; /* ポイント時の英字の文字色 */
+    color: #fde337;  ポイント時の英字の文字色 
 }
 
-/* --- clearfix --- */
+ --- clearfix --- 
 .clearFix:after {
     content: ".";
     display: block;
@@ -343,4 +272,4 @@ div.nav ul.nl li a:hover span.en {
 }
 .clearFix {
     min-height: 1px;
-}
+}*/

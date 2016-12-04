@@ -8,9 +8,9 @@ and open the template in the editor.
     Author     : Masanari
 */
 .title {
-    
+    font-size: 45px;
 }
 
 .sub-title {
-    margin: 40px;
+    font-size: 25px;
 }

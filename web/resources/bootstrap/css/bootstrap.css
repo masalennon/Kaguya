@@ -85,6 +85,12 @@ sub {
 }
 img {
     border: 0;
+    position: absolute;
+    left: 160px;
+    top: 300px;
+    margin: 300px;
+    width: 600px;
+    margin-top: 20px;
 }
 svg:not(:root) {
     overflow: hidden;
@@ -1068,7 +1074,8 @@ th {
     content: "\e260";
 }
 .con {
-    margin: 450px;
+    padding-left: 200px;
+    padding-right: 100px;
 }
 
 *:before,
@@ -1187,7 +1194,7 @@ h6,
 .h6 {
     font-family: inherit;
     font-weight: 500;
-    line-height: 1.1;
+    line-height: 1.6;
     color: inherit;
 }
 h1 small,
@@ -1226,6 +1233,9 @@ h3,
 .h3 {
     margin-top: 20px;
     margin-bottom: 10px;
+    padding-left: 200px;
+    padding-right: 50px;
+    line-height: 1.6;
 }
 h1 small,
 .h1 small,
@@ -2550,7 +2560,7 @@ output {
 }
 .form-control {
     display: block;
-    width: 100%;
+    width: 20%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;

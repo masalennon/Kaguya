@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.servlet.http.Part;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -21,6 +23,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @Table(name = "KAGUYA")
+
 public class OldCoupleInformation implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -64,18 +67,20 @@ public class OldCoupleInformation implements Serializable {
     //
     @NotEmpty
     private String mailAddress;
-    
+
     private Part file;
+
+    private String educationContent;
+
+    private String message;
 
 //    @Inject
 //    transient Logger log;
-
-
     public OldCoupleInformation(Long id, String firstName, String lastName, String firstNameHurigana,
             String lastNameHurigana, String addressOne, String addressTwo, String birthYear,
             String birthMonth, String birthDay, String firstNameWife, String lastNameWife,
             String firstNameHuriganaWife, String lastNameHuriganaWife, String birthYearWife,
-            String birthMonthWife, String birthDayWife, String phoneNumber, String mailAddress) {
+            String birthMonthWife, String birthDayWife, String phoneNumber, String mailAddress, String educationContent, String message) {
 
         this.id = id;
         this.firstName = firstName;
@@ -96,6 +101,8 @@ public class OldCoupleInformation implements Serializable {
         this.birthDayWife = birthDayWife;
         this.phoneNumber = phoneNumber;
         this.mailAddress = mailAddress;
+        this.educationContent = educationContent;
+        this.message = message;
     }
 
     public OldCoupleInformation() {
@@ -253,7 +260,28 @@ public class OldCoupleInformation implements Serializable {
         this.mailAddress = mailAddress;
     }
 
+    public Part getFile() {
+        return file;
+    }
 
-    
+    public void setFile(Part file) {
+        this.file = file;
+    }
+
+    public String getEducationContent() {
+        return educationContent;
+    }
+
+    public void setEducationContent(String educationContent) {
+        this.educationContent = educationContent;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
 }

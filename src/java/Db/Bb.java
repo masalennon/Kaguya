@@ -42,6 +42,7 @@ public class Bb implements Serializable {
     private Long id;
     @NotEmpty
     private String firstName;
+    private String coupleName = firstName + "さんご夫妻";
     @NotEmpty
     private String lastName;
     @NotEmpty
@@ -53,11 +54,11 @@ public class Bb implements Serializable {
     @NotEmpty
     private String addressTwo;
     @NotEmpty
-    private String birthYear="1940";
+    private String birthYear = "1940";
     @NotEmpty
-    private String birthMonth="1";
+    private String birthMonth = "1";
     @NotEmpty
-    private String birthDay="1";
+    private String birthDay = "1";
     @NotEmpty
     private String firstNameWife;
     @NotEmpty
@@ -75,20 +76,30 @@ public class Bb implements Serializable {
     @NotEmpty
     private String phoneNumber;
 
+    private String educationContent;
+
+    private String message;
+
     private Part file;
+
     @NotEmpty
     private String mailAddress;
 
     private final List<SelectItem> yearList = new ArrayList();
     private final List<SelectItem> monthList = new ArrayList();
     private final List<SelectItem> dayList = new ArrayList();
+    private List<OldCoupleInformation> coupleList;
 
+    @EJB
+    protected OldCoupleInformationDb db;
     @Inject
     transient Logger log;
     @EJB
     protected MailSender sender;		// 電子メールユーティリティ
     @Inject
     protected MakeText text;
+//    @EJB
+//    protected OldCoupleInformation oci;
 //    @EJB
 //    protected DbBean dbBean;
 
@@ -99,14 +110,14 @@ public class Bb implements Serializable {
     public void uploadImage() {
 //        DbBean dbbean = new DbBean();
         try {
-            Map<String, Image> db = dbbean.getImage();
+            Map<String, Image> image = dbbean.getImage();
             Image img = new Image();
             img.setName(file.getSubmittedFileName());
             img.setContentType(file.getContentType());
 
             byte[] content = IOUtils.toByteArray(file.getInputStream());
             img.setContent(content);
-            db.put(img.getName(), img);
+            image.put(img.getName(), img);
 
             System.out.println(img.toString());
 
@@ -137,14 +148,35 @@ public class Bb implements Serializable {
             item.setValue(String.valueOf(i));
             dayList.add(item);
         }
+        coupleList = db.getAll();
+        columns = new ArrayList<>();
+        createDynamicColumns();
     }
+//書籍エンティティのリスト
 
-    public String goToInput() {
-        System.out.println("back to input.");
-        return "/input.xhtml?faces-redirect=true";
+    //DataTableのカラムリスト
+    private List<ColumnModel> columns;
+
+    /**
+     * カラム生成
+     */
+    public void createDynamicColumns() {
+        columns.clear();
+
+        this.firstName = firstName + "さんご夫妻";
+        
+        //ヘッダとエンティティの属性である変数名を記述
+        columns.add(new ColumnModel("名前", "firstName"));
+        columns.add(new ColumnModel("住んでいる地域", "addressOne"));
+        columns.add(new ColumnModel("丁目", "addressTwo"));
+        columns.add(new ColumnModel("提供できる保育の内容", "educationContent"));
+        columns.add(new ColumnModel("保護者の方への言葉", "message"));
+        columns.add(new ColumnModel("詳細", "addressOne"));
+
     }
 
     public String goToConfirm() {
+
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
         flash.put("firstName", this.firstName);
@@ -165,8 +197,11 @@ public class Bb implements Serializable {
         flash.put("birthDayWife", this.birthDayWife);
         flash.put("phoneNumber", this.phoneNumber);
         flash.put("mailAddress", this.mailAddress);
+        flash.put("message", this.message);
+        flash.put("educationContent", this.educationContent);
+        System.out.println(this.message);
+        return "/confirm.xhtml?faces-redirect=true";
 
-        return "/realConfirm.xhtml?faces-redirect=true";
     }
 
     public String edit(OldCoupleInformation oldCoupleInformation) {
@@ -178,10 +213,10 @@ public class Bb implements Serializable {
         sender.send(this.mailAddress, "お問い合わせのご確認", text.getText(this.firstName));
     }
 
-//    public List<OldCoupleInformation> getAll() {
-//        return db.getAll();
-//    }
-//
+    public List<OldCoupleInformation> getAll() {
+        return db.getAll();
+    }
+
     public Logger getLog() {
         return log;
     }
@@ -392,5 +427,45 @@ public class Bb implements Serializable {
     public List<SelectItem> getDayList() {
         return dayList;
     }
-    
+
+    public String getEducationContent() {
+        return educationContent;
+    }
+
+    public void setEducationContent(String educationContent) {
+        this.educationContent = educationContent;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public List<OldCoupleInformation> getCoupleList() {
+        return coupleList;
+    }
+
+    public void setCoupleList(List<OldCoupleInformation> coupleList) {
+        this.coupleList = coupleList;
+    }
+
+    public OldCoupleInformationDb getDb() {
+        return db;
+    }
+
+    public void setDb(OldCoupleInformationDb db) {
+        this.db = db;
+    }
+
+    public List getColumns() {
+        return columns;
+    }
+
+    public void setColumns(List columns) {
+        this.columns = columns;
+    }
+
 }

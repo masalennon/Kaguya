@@ -4,159 +4,197 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" type="text/css" href="resources/css/index.css" />
-<!--        <div class="gallery">
-            <img src="./resources/images/2.JPG"></img>
-        </div>-->
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />		
+
+            <title>primestrap</title>
+        </f:facet>
+
+        <f:facet name="middle">
+            <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+            <h:outputStylesheet name="resources/css/index.css" />
+            <link rel="stylesheet" type="text/css" href="resources/css/index.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+
+        </f:facet>
+
+        <f:facet name="last">
+
+        </f:facet>
     </h:head>
-    <ui:composition>
-        <h:form>
-            <h:body>
-                <div align="center">
-                    <div class="title">
-                        <h2>かぐや会員登録お申込み画面</h2>
-                    </div>
-                    <div class="husbandmessage">ご主人のお名前、生年月日を確認してください</div>
-                    <table border="1" cellspacing="0" cellpadding="2" class="husband"> 
-                        <tr>
-                            <td class="husbandheadrow">
-                                <br/>
-                                名前
-                                <br/>
-                            </td>　
-                            <th>
-                                (姓) <h:outputText id="firstName" 
-                                                  value="#{cb.firstName}"/>
-                                (名) <h:outputText id="lastName"  value="#{cb.lastName}"/>
-                            </th>
-                        </tr> 
-                        <tr>
-                            <td class="husbandheadrow">
-                                名前(ふりがな)
-                            </td>　
-                            <th>
-                                (姓) <h:outputText id="firstNameHurigana" value="#{cb.firstNameHurigana}"/>
-                                (名) <h:outputText id="lastNameHurigana" 
-                                                  value="#{cb.lastNameHurigana}"/><br/>
-                            </th>
-                        </tr>
+    <h:form>
+        <h:body>
+            <div class="set" align="center">
 
-                        <tr>
-
-                            <td class="husbandheadrow">
-                                誕生日
-                            </td>
-                            <th>
-                                <br/>
-                                <h:outputText id="birthYear" 
-                                              value="#{cb.birthYear}"/>　年
-                                <h:outputText id="birthMonth"  
-                                              value="#{cb.birthMonth}"/> 月
-                                <h:outputText id="birthDay" 
-                                              value="#{cb.birthDay}"/> 日 <br/>
-                                <br/>
-                            </th>
-                        </tr>
-                    </table>
-
-                    <div class="wifemessage">奥様のお名前、生年月日を確認してください。</div>
-                    <table border="1" cellspacing="0" cellpadding="2" class="wife"> 
-                        <tr>
-                            <td class="wifeheadrow">
-                                <br/>
-                                名前
-                                <br/>
-                            </td>　
-                            <th>
-                                (姓) <h:outputText id="firstNameHuriganaWife"  value="#{cb.firstNameHuriganaWife}"/>
-                                (名) <h:outputText id="lastNameHuriganaWife" 
-                                                  value="#{cb.lastNameHuriganaWife}"/><br/>
-                            </th>
-                        </tr> 
-                        <tr>
-                            <td class="wifeheadrow">
-                                名前(ふりがな)
-                            </td>　
-                            <th>
-                                (姓) <h:outputText id="firstNameWife" 
-                                                  value="#{cb.firstNameWife}" />
-                                (名) <h:outputText id="lastNameWife"  value="#{cb.lastNameWife}"/>
-                            </th>
-                        </tr>
-
-                        <tr>
-
-                            <td class="wifeheadrow">
-                                誕生日
-                            </td>
-                            <th>
-                                <br/>
-                                <h:outputText id="birthYearWife"
-                                              value="#{cb.birthYearWife}"/>　年
-                                <h:outputText id="birthMonthWife" 
-                                              value="#{cb.birthMonthWife}"/> 月
-                                <h:outputText id="birthDayWife" 
-                                              value="#{cb.birthDayWife}"/> 日 <br/>
-                                <br/>
-                            </th>
-                        </tr>
-                    </table>
-
-                    <div class="onlyTokyo">ご住所、ご連絡先を確認してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</div>
-                    <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
-                        <tr class="c3">
-                            <td class="headrow">
-                                市区町村
-                            </td>
-                            <th>
-                                <h:outputText id="addressOne" 
-                                              value="#{cb.addressOne}" /><br/>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="headrow">
-                                それ以降の住所
-                            </td>
-                            <th>
-                                <h:outputText id="addressTwo" value="#{cb.addressTwo}" /><br/>
-
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="headrow">
-                                電話番号
-                            </td>
-                            <th><h:outputText id="PhoneNumber" 
-                                              value="#{cb.phoneNumber}" /> 
-
-                               
-                            </th>
-                        </tr>
-
-                        <tr>
-                            <td class="headrow">
-                                メールアドレス
-                            </td>
-                            <th><h:outputText id="mailAddress" 
-                                              value="#{cb.mailAddress}" /><br/>
-                            </th>
-                        </tr>
-                    </table>
-                    <h:commandButton value="入力画面へ戻る" action="#{bb.goToInput()}" class="Button"/><br/>
-                    <h:commandButton value="上記の内容を確認して送信" action="#{cb.goToComplete()}" class="Button">
-                        <!--<f:setPropertyActionListener value="#{cb.firstName}" target="#{oldCoupleInformation.firstName}"/>-->
-                        <!--<f:param name="sNo" value="#{oldCoupleInformaton.firstName}" />-->
-                    </h:commandButton>
+                <div class="title">
+                    <h2>かぐや会員登録お申込み画面</h2>
                 </div>
-            </h:body>
-        </h:form>
-    </ui:composition>
+                <div class="husbandmessage">ご主人のお名前、生年月日を確認してください</div>
+                <table border="1" cellspacing="0" cellpadding="2" class="husband"> 
+                    <tr>
+                        <td class="husbandheadrow">
+                            <br/>
+                            名前
+                            <br/>
+                        </td>　
+                        <th class="headrow2">
+                            (姓) <h:outputText id="firstName" class = "text"
+                                              value="#{cb.firstName}"/>
+                            (名) <h:outputText id="lastName" class = "text" value="#{cb.lastName}"/>
+                        </th>
+                    </tr> 
+                    <tr>
+                        <td class="husbandheadrow">
+                            名前(ふりがな)
+                        </td>　
+                        <th class="headrow2">
+                            (姓) <h:outputText id="firstNameHurigana" class = "text" value="#{cb.firstNameHurigana}"/>
+                            (名) <h:outputText id="lastNameHurigana" class = "text" 
+                                              value="#{cb.lastNameHurigana}"/><br/>
+                        </th>
+                    </tr>
+
+                    <tr>
+
+                        <td class="husbandheadrow">
+                            誕生日
+                        </td>
+                        <th class="headrow2">
+                            <br/>
+                            <h:outputText id="birthYear" class = "text"
+                                          value="#{cb.birthYear}"/>　年
+                            <h:outputText id="birthMonth" class = "text" 
+                                          value="#{cb.birthMonth}"/> 月
+                            <h:outputText id="birthDay" class = "text"
+                                          value="#{cb.birthDay}"/> 日 <br/>
+                            <br/>
+                        </th>
+                    </tr>
+                </table>
+
+                <div class="wifemessage">奥様のお名前、生年月日を確認してください。</div>
+                <table border="1" cellspacing="0" cellpadding="2" class="wife"> 
+                    <tr>
+                        <td class="wifeheadrow">
+                            <br/>
+                            名前
+                            <br/>
+                        </td>　
+                        <th class="headrow2">
+                            (姓) <h:outputText id="firstNameHuriganaWife"  value="#{cb.firstNameHuriganaWife}" class = "text"/>
+                            (名) <h:outputText id="lastNameHuriganaWife" class = "text"
+                                              value="#{cb.lastNameHuriganaWife}"/><br/>
+                        </th>
+                    </tr> 
+                    <tr>
+                        <td class="wifeheadrow">
+                            名前(ふりがな)
+                        </td>　
+                        <th class="headrow2">
+                            (姓) <h:outputText id="firstNameWife" class = "text"
+                                              value="#{cb.firstNameWife}" />
+                            (名) <h:outputText id="lastNameWife" class = "text" value="#{cb.lastNameWife}"/>
+                        </th>
+                    </tr>
+
+                    <tr>
+
+                        <td class="wifeheadrow">
+                            誕生日
+                        </td>
+                        <th class="headrow2">
+                            <br/>
+                            <h:outputText id="birthYearWife" class = "text"
+                                          value="#{cb.birthYearWife}"/>　年
+                            <h:outputText id="birthMonthWife" class = "text"
+                                          value="#{cb.birthMonthWife}"/> 月
+                            <h:outputText id="birthDayWife" class = "text"
+                                          value="#{cb.birthDayWife}"/> 日 <br/>
+                            <br/>
+                        </th>
+                    </tr>
+                </table>
+
+                <div class="onlyTokyo">ご住所、ご連絡先を確認してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</div>
+                <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
+                    <tr class="c3">
+                        <td class="headrow">
+                            市区町村
+                        </td>
+                        <th class="headrow2">
+                            <h:outputText id="addressOne" class = "text"
+                                          value="#{cb.addressOne}" /><br/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="headrow">
+                            それ以降の住所
+                        </td>
+                        <th class="headrow2">
+                            <h:outputText id="addressTwo" value="#{cb.addressTwo}" class = "text"/><br/>
+
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="headrow">
+                            電話番号
+                        </td>
+                        <th class="headrow2"><h:outputText id="PhoneNumber" 
+                                          value="#{cb.phoneNumber}" class = "text"/> 
+
+
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td class="headrow">
+                            メールアドレス
+                        </td>
+                        <th class="headrow2"><h:outputText id="mailAddress" 
+                                          value="#{cb.mailAddress}" class = "text"/><br/>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td class="headrow">
+                            提供できる保育の内容
+                        </td>
+                        <td class="headrow2">
+                            <h:outputText class = "text" id="educationcontent" 
+                                          value="#{cb.educationContent}"/> 
+
+                        </td>　　　
+                    </tr>
+
+                    <tr>
+                        <td class="headrow">
+                            保護者の方への言葉
+                        </td>
+                        <td class="headrow2">
+                            <h:outputText class = "text" id="message" 
+                                          value="#{cb.message}" /><br/>
+                        </td>
+                    </tr>
+
+                </table>
+                <br/><br/>
+                <h:commandButton value="入力画面へ戻る" action="#{cb.goToInput()}" class="Button"/><br/><br/>
+                <h:commandButton value="上記の内容を確認して送信" action="#{cb.goToComplete()}" class="Button">
+
+                </h:commandButton>
+
+            </div>
+        </h:body>
+    </h:form>
+
 </html>

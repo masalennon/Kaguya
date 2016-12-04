@@ -66,7 +66,10 @@ public class ConfirmBean implements Serializable {
 
     private Part file;
 
-    
+    private String educationContent;
+
+    private String message;
+
     @EJB
     OldCoupleInformationDb db;
 
@@ -92,12 +95,13 @@ public class ConfirmBean implements Serializable {
         this.lastNameHuriganaWife = (String) flash.get("lastNameHuriganaWife");
         this.birthYearWife = (String) flash.get("birthYearWife");
         this.birthMonthWife = (String) flash.get("birthMonthWife");
-        this.birthDayWife = (String) flash.get("birthYearWife");
+        this.birthDayWife = (String) flash.get("birthDayWife");
         this.phoneNumber = (String) flash.get("phoneNumber");
         this.mailAddress = (String) flash.get("mailAddress");
+        this.educationContent = (String) flash.get("educationContent");
+        this.message = (String) flash.get("message");
         System.out.println("firstName in init() = " + firstName);
-        
-        
+
     }
 
     public void clear() {
@@ -105,7 +109,7 @@ public class ConfirmBean implements Serializable {
                 = firstNameHurigana = lastNameHurigana = addressOne = addressTwo = birthYear
                 = birthMonth = birthDay = firstNameWife = lastNameWife = firstNameHuriganaWife
                 = lastNameHuriganaWife = birthYearWife = birthMonthWife = birthDayWife
-                = phoneNumber = mailAddress = null;
+                = phoneNumber = mailAddress = educationContent = message = null;
     }
 
     public void create() {
@@ -113,7 +117,8 @@ public class ConfirmBean implements Serializable {
         OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
                 firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
                 birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
-                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, phoneNumber, mailAddress);
+                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, phoneNumber, mailAddress,
+                educationContent, message);
 
         try {
 
@@ -125,6 +130,11 @@ public class ConfirmBean implements Serializable {
             log.fine("新規登録できない/" + firstName + "|" + e.getMessage());
 
         }
+    }
+
+    public String goToInput() {
+        System.out.println("back to input.");
+        return "/index.xhtml?faces-redirect=true";
     }
 
     public String goToComplete() {
@@ -300,4 +310,27 @@ public class ConfirmBean implements Serializable {
         this.log = log;
     }
 
+    public Part getFile() {
+        return file;
+    }
+
+    public void setFile(Part file) {
+        this.file = file;
+    }
+
+    public String getEducationContent() {
+        return educationContent;
+    }
+
+    public void setEducationContent(String educationContent) {
+        this.educationContent = educationContent;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
