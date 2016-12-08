@@ -9,6 +9,9 @@ html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
+.datatable {
+
+}
 body {
     margin: 0;
 }
@@ -1077,6 +1080,28 @@ th {
     padding-left: 200px;
     padding-right: 100px;
 }
+.container-kaguya {
+    padding-top: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: block-inline;
+    background-color:whitesmoke;
+    width: 60%;
+    margin-left: 350px;
+}
+
+.description-kaguya {
+    padding-top: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: block-inline;
+    background-color:whitesmoke;
+    width: 60%;
+    margin-left: 250px;
+    margin-top: 50px;
+    line-height: 35px;
+    font-size: 20px;
+}
 
 *:before,
 *:after {
@@ -1593,12 +1618,7 @@ pre code {
     max-height: 340px;
     overflow-y: scroll;
 }
-.container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
+
 @media (min-width: 768px) {
     .container {
         width: 750px;

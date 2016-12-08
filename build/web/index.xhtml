@@ -45,12 +45,12 @@ and open the template in the editor.
                         <a class="navbar-brand" href="main.xhtml">かぐや</a>
                     </div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a href="main.xhtml">Home</a></li>
                         <li><a href="serviceoverview.xhtml">サービスの概要</a></li>
                         <li><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
-                        <li><a href="forTheSafety.xhtml">安全への取り組み</a></li>
-                        <li><a href="findpeople.xhtml">受け入れ先を探す</a></li>
-                        <li><a href="input.xhtml">会員登録</a></li>
+                        <li><a href="safety.xhtml">安全への取り組み</a></li>
+                        <li><a href="find.xhtml">受け入れ先を探す</a></li>
+                        <li><a href="index.xhtml">会員登録</a></li>
                         <li><a href="contact.xhtml">お問合せ</a></li>
 
                     </ul>
@@ -66,7 +66,6 @@ and open the template in the editor.
         </h:form>
 
         <h:form>
-
             <div class="set" align="center">
 
                 <div class="title">
@@ -188,7 +187,7 @@ and open the template in the editor.
                 <br/>
 
                 <div class="onlyTokyo">
-                    <h2>ご住所、ご連絡先を入力してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</h2>
+                    <h2>ご住所、ご連絡先、その他の項目を入力してください。<br/>注：本サービスは東京都にお住まいの方のみを対象としています。</h2>
                 </div>
 
                 <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
@@ -203,10 +202,11 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td class="headrow">
-                            それ以降の住所
+                            それ以降の住所(丁目まで)
                         </td>
                         <td class="headrow2"><br/>
-                            ここは必須ではありませんが、何丁目に住んでいるかがわかると、<br/>保護者の方の参考になります。<br/>
+                            必須ではありませんが、何丁目かまでわかると、<br/>保護者の方の参考になります。全体に公開されますので、<br/>
+                            住所を全て記入するのはご遠慮ください。<br/>
                             <h:inputText class = "text2" id="addressTwo" a:placeholder=" 例：１丁目"
                                          value="#{bb.addressTwo}"/><br/><br/>
                         </td>
@@ -231,6 +231,16 @@ and open the template in the editor.
                             <h:inputText class = "text2" id="mailAddress" required="true"
                                          requiredMessage="必須"
                                          value="#{bb.mailAddress}"/><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headrow">
+                            希望月謝
+                        </td>
+                        <td class="headrow2">
+                            <h:inputText class = "text2" id="payment" required="true"
+                                         requiredMessage="必須" a:placeholder="　　目安は５〜８万円です"
+                                         value="#{bb.payment}"/><br/>
                         </td>
                     </tr>
 
@@ -277,4 +287,5 @@ and open the template in the editor.
 
         <br/>
     </h:body>
+
 </xhtml>

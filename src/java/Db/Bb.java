@@ -24,6 +24,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.model.SelectItem;
 import javax.inject.Inject;
+import javax.persistence.Transient;
 import javax.servlet.http.Part;
 import net.tkxtools.MailSender;
 import org.apache.commons.io.IOUtils;
@@ -42,7 +43,6 @@ public class Bb implements Serializable {
     private Long id;
     @NotEmpty
     private String firstName;
-    private String coupleName = firstName + "さんご夫妻";
     @NotEmpty
     private String lastName;
     @NotEmpty
@@ -80,10 +80,15 @@ public class Bb implements Serializable {
 
     private String message;
 
+    private String payment;
+
     private Part file;
 
     @NotEmpty
     private String mailAddress;
+
+    @Transient
+    private String coupleName = this.firstName + "さんご夫妻";
 
     private final List<SelectItem> yearList = new ArrayList();
     private final List<SelectItem> monthList = new ArrayList();
@@ -163,8 +168,6 @@ public class Bb implements Serializable {
     public void createDynamicColumns() {
         columns.clear();
 
-        this.firstName = firstName + "さんご夫妻";
-        
         //ヘッダとエンティティの属性である変数名を記述
         columns.add(new ColumnModel("名前", "firstName"));
         columns.add(new ColumnModel("住んでいる地域", "addressOne"));
@@ -199,9 +202,11 @@ public class Bb implements Serializable {
         flash.put("mailAddress", this.mailAddress);
         flash.put("message", this.message);
         flash.put("educationContent", this.educationContent);
-        System.out.println(this.message);
-        return "/confirm.xhtml?faces-redirect=true";
+        flash.put("payment", this.payment);
 
+        System.out.println(this.message);
+
+        return "/confirm.xhtml?faces-redirect=true";
     }
 
     public String edit(OldCoupleInformation oldCoupleInformation) {
@@ -466,6 +471,14 @@ public class Bb implements Serializable {
 
     public void setColumns(List columns) {
         this.columns = columns;
+    }
+
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
     }
 
 }

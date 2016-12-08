@@ -183,7 +183,7 @@ body {
     margin: 300px;
     width: 600px;
     margin-top: 20px;
-    
+
 }
 table {
     width: 900px;
@@ -201,11 +201,19 @@ p.line {
     font-size: 15px;
 }
 
+.background {
+    display: inline;
+    background-color: #1b6d85;
+    font-size: 15px;
+    line-height: 30px;
+    padding-left: 200px;
+    width:50%;
+    position: relative;
+}
 
 
 
-
- /*--- ナビゲーションバー ---*/ 
+/*--- ナビゲーションバー --- 
 /*div.nav {
     width: 100%;  ナビゲーションの幅 
     height: 100%;

@@ -15,7 +15,12 @@ $(function () {
         var link = $(this).attr("href");
         //リンク先が今と同じであれば遷移しない
         if (link === lastpage) {
-            return false;
+//            return false;
+            $content.fadeOut(600, function () {
+                getPage(link);
+            });
+            //今のリンク先を保存
+            lastpage = link;
         } else {
             $content.fadeOut(600, function () {
                 getPage(link);
@@ -27,7 +32,7 @@ $(function () {
     });
     //初期設定
     getPage("aboutservice.xhtml");
-    var lastpage = "aboutservice.xhtml";
+    var lastpage = "aboutservice2.xhtml";
 
     //ページを取得してくる
     function getPage(elm) {
@@ -40,7 +45,7 @@ $(function () {
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 console.log(textStatus);
-                
+
 //                alert('問題がありました。');
             }
         });

@@ -13,25 +13,16 @@ and open the template in the editor.
     <h:head>
         <title>お支払いについて（保護者向け）</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <style>
-            .thanks {
-                font-size: 25px;
-                font-weight: bold;
-                margin: 30px;
-            }
-            .top {
-                margin: 30px;
-                list-style: none;
-            }
-        </style>
+        <h:body>
+            <ui:composition template="/templates/topbar-template.xhtml">
+                <ui:define name="content">
+                    <ui:include src="payment-content.xhtml"/>
+                </ui:define>
+                    
+                
+                
+            </ui:composition>
+
+        </h:body>
     </h:head>
-    <h:body>
-        <div class="thanks" 
-             Align="center">ご登録ありがとうございました。</div>
-        <div Align="center" class="top">
-            <ui>
-                <li><a href="main.xhtml" ><b>トップページに戻る</b></a></li>
-            </ui>
-        </div>
-    </h:body>
 </html>

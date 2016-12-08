@@ -74,13 +74,16 @@ public class OldCoupleInformation implements Serializable {
 
     private String message;
 
+    private String payment;
+
 //    @Inject
 //    transient Logger log;
     public OldCoupleInformation(Long id, String firstName, String lastName, String firstNameHurigana,
             String lastNameHurigana, String addressOne, String addressTwo, String birthYear,
             String birthMonth, String birthDay, String firstNameWife, String lastNameWife,
             String firstNameHuriganaWife, String lastNameHuriganaWife, String birthYearWife,
-            String birthMonthWife, String birthDayWife, String phoneNumber, String mailAddress, String educationContent, String message) {
+            String birthMonthWife, String birthDayWife, String phoneNumber, String mailAddress, 
+            String educationContent, String message, String payment) {
 
         this.id = id;
         this.firstName = firstName;
@@ -103,6 +106,7 @@ public class OldCoupleInformation implements Serializable {
         this.mailAddress = mailAddress;
         this.educationContent = educationContent;
         this.message = message;
+        this.payment = payment;
     }
 
     public OldCoupleInformation() {
@@ -282,6 +286,14 @@ public class OldCoupleInformation implements Serializable {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
     }
 
 }
