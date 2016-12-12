@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:jsf="http://xmlns.jcp.org/jsf"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />		
+
+            <title>primestrap</title>
+        </f:facet>
+
+        <f:facet name="middle">
+            <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+            <h:outputStylesheet name="resources/css/index.css" />
+            <link rel="stylesheet" type="text/css" href="resources/css/index.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+
+        </f:facet>
+
+        <f:facet name="last">
+
+        </f:facet>
+
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form>
+                <div id="pic">
+                    <p:graphicImage value="#{bb.picL}">
+                        <f:param name="productId" value="#{bb.oci.id}"/>
+                    </p:graphicImage>			
+                </div>
+                <div id="exp">
+                    <div id="bklink">
+                        <h:link outcome="index">
+                            <h:graphicImage library="images" name="back.jpg"/>
+                        </h:link>
+                    </div>
+                    <h:outputText value="#{bb.oci.FirstName}" styleClass="name"/>
+                    <h:outputText value="#{bb.oci.salary}" styleClass="price">
+                        <f:convertNumber type="currency" locale="ja_JP"/>
+                    </h:outputText>
+                    <h:outputText value="#{bb.oci.message}" styleClass="text"/>
+                    <div id="cart">
+<!--                        <h:commandLink action="#{bb.addToCart()}">
+                            <h:graphicImage library="images" name="cart01.jpg"/>
+                            <f:ajax execute="@this"/> 
+                        </h:commandLink>-->
+                    </div>
+                </div>
+            </h:form>
+
+
+
+        </ui:composition>
+    </h:body>
+</xhtml>

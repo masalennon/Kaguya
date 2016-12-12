@@ -58,21 +58,41 @@
             <br/>
 
             <div class="datatable">
-                <p:dataTable id="example" class="table table-striped table-bordered dt-responsive nowrap" 
-                             rows="10" var="book" value="#{bb.coupleList}" paginator="true" widgetVar="carsTable">
-                    <p:outputPanel>
-                        <h:outputText value="Search all fields:" />
-                        <h:inputText id="globalFilter" onkeyup="carsTable.filter()" />
-                    </p:outputPanel>
-                    <p:columns id="example" var="col" value="#{bb.columns}" filterBy="#{book[col.property]}" headerText="Model" filterMatchMode="contains">
-                        <f:facet name="header">
-                            #{col.header}
-                        </f:facet>
-                        <h:outputText value="#{book[col.property]}" />
-                    </p:columns>
-                </p:dataTable>
+                <h:dataTable id="example" class="table table-striped table-bordered dt-responsive nowrap" 
+                             rows="10" var="info" value="#{bb.coupleList}">
+
+                    <h:column>
+                            <h:outputText value="#{info.firstName}" />
+                    </h:column>
+                    <h:column>
+                            <h:outputText value="#{info.addressOne}" />
+                    </h:column>
+                    <h:column>
+                        <h:commandLink action="#{bb.detail(info)}">
+                             詳細へ
+                        </h:commandLink>  
+                    </h:column>
+                </h:dataTable>
 
 
+
+
+
+
+                <!--                <p:dataTable id="example" class="table table-striped table-bordered dt-responsive nowrap" 
+                                             rows="10" var="info" value="{bb.coupleList}" paginator="true" widgetVar="carsTable">
+                                    <p:outputPanel>
+                                        <h:outputText value="Search all fields:" />
+                                        <h:inputText id="globalFilter" onkeyup="carsTable.filter()" />
+                                    </p:outputPanel>
+                                    <p:columns id="example" var="col" value="#{bb.columns}" filterBy="#{info[col.property]}" headerText="Model" filterMatchMode="contains">
+                                        <f:facet name="header">
+                #{col.header}
+            </f:facet>
+            <h:outputText value="#{info[col.property]}" />
+        </p:columns>
+
+    </p:dataTable>-->
             </div>
         </ui:composition>
 

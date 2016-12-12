@@ -1085,24 +1085,75 @@ th {
     padding-left: 100px;
     padding-right: 100px;
     display: block-inline;
-    background-color:whitesmoke;
+    background-color:white;
     width: 60%;
     margin-left: 350px;
+    font-size: 20px;
+    line-height: 45px;
+    letter-spacing: 3px;
+    background-image: url(/resources/images/bamboo.jpg);
 }
 
+.subheadig-kaguya {
+    margin: 20px 0;
+    font-size: 20px;
+    color: #2d3940;
+    font-weight: 800;
+    border-left: 2px solid #2d3940;
+    /*border-right: 2px solid #2d3940;*/
+
+    line-height: 1.6;
+    letter-spacing: 1.4px;
+    padding-left: 18px;
+    margin-bottom: 23px;
+    margin-top: 23px;
+
+}
+
+.heading-kaguya {
+    margin: 20px 0;
+    padding: 10px 0;
+    font-size: 22px;
+    color: #2d3940;
+    font-weight: 700;
+    line-height: 34px;
+    letter-spacing: 1.4px;
+    border-top: 2px solid #2d3940;
+    border-bottom: 2px solid #2d3940;
+}
+
+.red {
+    color: red;
+    
+}
+
+
+
+.reinforce {
+    font-size: 25px;
+
+}
 .description-kaguya {
     padding-top: 30px;
     padding-left: 100px;
     padding-right: 100px;
     display: block-inline;
-    background-color:whitesmoke;
+    background-color:white;
+             background: url(/resources/images/bamboo.jpg) top right no-repeat;
+
     width: 60%;
     margin-left: 250px;
     margin-top: 50px;
     line-height: 35px;
     font-size: 20px;
 }
-
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background: linear-gradient(to bottom, #fff 0, #f6f6f6 0px);
+}
 *:before,
 *:after {
     -webkit-box-sizing: border-box;
@@ -1114,13 +1165,7 @@ html {
 
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333;
-    background-color: #fff;
-}
+
 input,
 button,
 select,
@@ -1645,7 +1690,7 @@ pre code {
     margin-left: -15px;
 }
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-    position: relative;
+    position: fixed;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
@@ -4198,7 +4243,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
     position: relative;
     min-height: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     border: 1px solid transparent;
 }
 @media (min-width: 768px) {

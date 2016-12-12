@@ -82,18 +82,12 @@ public class Bb implements Serializable {
 
     private String payment;
 
-    private Part file;
+    private Part file;//byte[]に画像を変換するメソッドを作って、それをbyte[]型で格納すれば良い
 
     @NotEmpty
     private String mailAddress;
 
-    @Transient
-    private String coupleName = this.firstName + "さんご夫妻";
-
-    private final List<SelectItem> yearList = new ArrayList();
-    private final List<SelectItem> monthList = new ArrayList();
-    private final List<SelectItem> dayList = new ArrayList();
-    private List<OldCoupleInformation> coupleList;
+    String detail = "詳細へ";
 
     @EJB
     protected OldCoupleInformationDb db;
@@ -103,10 +97,14 @@ public class Bb implements Serializable {
     protected MailSender sender;		// 電子メールユーティリティ
     @Inject
     protected MakeText text;
-//    @EJB
-//    protected OldCoupleInformation oci;
-//    @EJB
-//    protected DbBean dbBean;
+//OldCoupleInformationをEJBで持ってこようとすると失敗するのはなんでだ
+    @Transient
+    private String coupleName = this.firstName + "さんご夫妻";
+
+    private final List<SelectItem> yearList = new ArrayList();
+    private final List<SelectItem> monthList = new ArrayList();
+    private final List<SelectItem> dayList = new ArrayList();
+    private List<OldCoupleInformation> coupleList;
 
 //confirmBeanを作って、そこで再びflashによるデータの受け渡しをするとうまくいくかもしれない。
     @ManagedProperty(value = "#{dbbean}")
@@ -131,6 +129,13 @@ public class Bb implements Serializable {
             System.out.println("fail to upload");
         }
 
+    }
+    OldCoupleInformation oci = new OldCoupleInformation();
+
+    public String detail(OldCoupleInformation oldcoupleinformation) {
+
+        oci = oldcoupleinformation;
+        return "detail?faces-redirect=true";
     }
 
     @PostConstruct
@@ -174,7 +179,7 @@ public class Bb implements Serializable {
         columns.add(new ColumnModel("丁目", "addressTwo"));
         columns.add(new ColumnModel("提供できる保育の内容", "educationContent"));
         columns.add(new ColumnModel("保護者の方への言葉", "message"));
-        columns.add(new ColumnModel("詳細", "addressOne"));
+//        columns.add(new ColumnModel("詳細", "detail"));
 
     }
 
@@ -479,6 +484,14 @@ public class Bb implements Serializable {
 
     public void setPayment(String payment) {
         this.payment = payment;
+    }
+
+    public OldCoupleInformation getOci() {
+        return oci;
+    }
+
+    public void setOci(OldCoupleInformation oci) {
+        this.oci = oci;
     }
 
 }

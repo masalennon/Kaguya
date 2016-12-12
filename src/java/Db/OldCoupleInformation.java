@@ -1,7 +1,9 @@
 package Db;
 
 import java.io.Serializable;
+import javax.ejb.Remote;
 import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,9 +23,10 @@ import org.hibernate.validator.constraints.NotEmpty;
  *
  * @author Masanari
  */
+@Named
+@Remote
 @Entity
 @Table(name = "KAGUYA")
-
 public class OldCoupleInformation implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -82,7 +85,7 @@ public class OldCoupleInformation implements Serializable {
             String lastNameHurigana, String addressOne, String addressTwo, String birthYear,
             String birthMonth, String birthDay, String firstNameWife, String lastNameWife,
             String firstNameHuriganaWife, String lastNameHuriganaWife, String birthYearWife,
-            String birthMonthWife, String birthDayWife, String phoneNumber, String mailAddress, 
+            String birthMonthWife, String birthDayWife, String phoneNumber, String mailAddress,
             String educationContent, String message, String payment) {
 
         this.id = id;
