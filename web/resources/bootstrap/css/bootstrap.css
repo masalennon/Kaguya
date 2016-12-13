@@ -1091,7 +1091,7 @@ th {
     font-size: 20px;
     line-height: 45px;
     letter-spacing: 3px;
-    background-image: url(/resources/images/bamboo.jpg);
+    background: url(bamboo.jpg);
 }
 
 .subheadig-kaguya {
@@ -1124,7 +1124,7 @@ th {
 
 .red {
     color: red;
-    
+
 }
 
 
@@ -1139,7 +1139,10 @@ th {
     padding-right: 100px;
     display: block-inline;
     background-color:white;
-             background: url(/resources/images/bamboo.jpg) top right no-repeat;
+    background-image: url(..resources/images/bamboo.jpg);
+    background-image: url('/Users/masanari/Kaguya/web/resources/images/bamboo.jpg');
+
+    background: url('../bamboo.jpg');
 
     width: 60%;
     margin-left: 250px;
@@ -1153,6 +1156,10 @@ body {
     line-height: 1.42857143;
     color: #333;
     background: linear-gradient(to bottom, #fff 0, #f6f6f6 0px);
+    background-image: url('/Users/masanari/Kaguya/web/resources/images/bamboo.jpg');
+    background-image: url('../images/bamboo.jpg');
+    background-image: url('../resources/images/bamboo.jpg');
+
 }
 *:before,
 *:after {

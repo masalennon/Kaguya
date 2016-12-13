@@ -7,6 +7,7 @@ package Db;
 
 import entities.Image;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,12 +21,15 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import javax.persistence.Transient;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
+import static jdk.nashorn.tools.ShellFunctions.input;
 import net.tkxtools.MailSender;
 import org.apache.commons.io.IOUtils;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -84,10 +88,16 @@ public class Bb implements Serializable {
 
     private Part file;//byte[]に画像を変換するメソッドを作って、それをbyte[]型で格納すれば良い
 
+    InputStream is;
+    
+//    byte[] bytes = IOUtils.toByteArray(InputStream input);
+
     @NotEmpty
     private String mailAddress;
 
     String detail = "詳細へ";
+
+    protected OldCoupleInformation oci;
 
     @EJB
     protected OldCoupleInformationDb db;
@@ -130,12 +140,30 @@ public class Bb implements Serializable {
         }
 
     }
-    OldCoupleInformation oci = new OldCoupleInformation();
 
+//    
+//    public List<OldCoupleInformation> getFromDb() {
+//		List<OldCoupleInformation> ls = null;
+//		try {
+//			ls = pm.getFromDb(priceItem, kindItem, productPage);
+//		} catch (Exception e) {
+//			facesMessage("商品の検索処理でエラーが発生しました");
+//		}
+//		return ls;
+//	}
     public String detail(OldCoupleInformation oldcoupleinformation) {
-
+        System.out.println("detail()");
         oci = oldcoupleinformation;
-        return "detail?faces-redirect=true";
+        return "detail-content.xhtml";
+    }
+
+    public ExternalContext getServlet() {
+        return FacesContext.getCurrentInstance().getExternalContext();
+    }
+
+    /* *****（リクエストオブジェクトを取得する）**************/
+    public HttpServletRequest getRequest() {
+        return (HttpServletRequest) getServlet().getRequest();
     }
 
     @PostConstruct
