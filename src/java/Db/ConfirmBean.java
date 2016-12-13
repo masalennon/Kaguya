@@ -72,6 +72,8 @@ public class ConfirmBean implements Serializable {
 
     private String payment;
 
+    private byte[] image;
+
     @EJB
     OldCoupleInformationDb db;
 
@@ -103,6 +105,7 @@ public class ConfirmBean implements Serializable {
         this.educationContent = (String) flash.get("educationContent");
         this.message = (String) flash.get("message");
         this.payment = (String) flash.get("payment");
+        this.image = (byte[]) flash.get("image");
 
         System.out.println("firstName in init() = " + firstName);
 
@@ -122,7 +125,7 @@ public class ConfirmBean implements Serializable {
                 firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
                 birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
                 lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, phoneNumber, mailAddress,
-                educationContent, message, payment);
+                educationContent, message, payment, image);
 
         try {
 
@@ -345,5 +348,15 @@ public class ConfirmBean implements Serializable {
     public void setPayment(String payment) {
         this.payment = payment;
     }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+    
+    
 
 }

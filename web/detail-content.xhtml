@@ -45,30 +45,37 @@ and open the template in the editor.
         <h:form>
 
             <div id="pic">
-                <!--                    <p:graphicImage value="{bb.picL}">
-                                        <f:param name="productId" value="{bb.oci.id}"/>
-                                    </p:graphicImage>			-->
-                <img src="../resources/images/3.JPG"></img>
+                <p:graphicImage value="{bb.image}">
+                    <f:param name="productId" value="{bb.oci.image}"/>
+                </p:graphicImage>			
+                <!--<img src="../resources/images/3.JPG"></img>-->
 
 
 
             </div>
             <div id="exp" class="description-kaguya">
-                
-
-                <h:outputText value="#{bb.oci.firstName}" styleClass="name"/>さんご夫妻
 
 
-                <h:outputText value="#{bb.oci.lastName}" styleClass="name"/><br/>
-                <h:outputText value="#{bb.oci.firstNameHuriganaWife}" styleClass="name"/>
+
+                <div class="kaguya-detail"><h:outputText value="#{bb.oci.firstName}" styleClass="name"/>さんご夫妻</div>
+
+
+                <div class="kaguya-detail"><h:outputText value="#{bb.oci.addressTwo}" styleClass="name"/></div>
+                <div class="kaguya-detail">
+                    <h:outputText value="#{bb.oci.firstNameHuriganaWife}" styleClass="name"/>
+                </div>
                 <h:outputText value="#{bb.oci.lastNameHuriganaWife}" styleClass="name"/><br/>
-                <h:outputText value="#{bb.oci.addressOne}" styleClass="name"/>
+                <div class="kaguya-detail">
+                    <h:outputText value="#{bb.oci.addressOne}" styleClass="name"/>
+                </div>
                 <br/>
 
-                <h:outputText value="#{bb.oci.payment}" styleClass="price"><br/>
-                    <!--<f:convertNumber type="currency" locale="ja_JP"/>-->
-                </h:outputText>
-                <h:outputText value="#{bb.oci.message}" styleClass="text"/>
+                <div class="kaguya-detail">
+                    <h:outputText value="#{bb.oci.payment}" styleClass="price"/>
+                </div><br/>
+                <div class="kaguya-detail">
+                    <h:outputText value="#{bb.oci.message}" styleClass="text"/>
+                </div>
                 <div id="cart">
                     <!--                        <h:commandLink action="{bb.addToCart()}">
                                                 <h:graphicImage library="images" name="cart01.jpg"/>

@@ -5,9 +5,9 @@
  */
 package Db;
 
-
 import java.io.Serializable;
 import java.util.List;
+import static javafx.scene.input.KeyCode.T;
 import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -22,13 +22,17 @@ import javax.transaction.Transactional;
 @Stateful
 //@Transactional
 
-public class OldCoupleInformationDb implements Serializable{
-    
+public class OldCoupleInformationDb<T> implements Serializable {
+
     @PersistenceContext
     private EntityManager em;
+    protected Class<T> entityClass;
+    
+//    public OldCoupleInformationDb(Class<T> entityClass) {
+//		this.entityClass = entityClass;
+//	}
 
     public void create(OldCoupleInformation oldCoupleInformation) {
-        
         em.persist(oldCoupleInformation);
     }
 
@@ -40,11 +44,14 @@ public class OldCoupleInformationDb implements Serializable{
         em.remove(em.merge(oldCoupleInformation));  // mergしてから削除する
     }
 
-    public OldCoupleInformation find(Integer key) {
-        return em.find(OldCoupleInformation.class, key);
+//    public OldCoupleInformation find(Integer key) {
+//        return em.find(OldCoupleInformation.class, key);
+//    }
+    public T find(Object id) {
+        return em.find(entityClass, id);
     }
 
     public List<OldCoupleInformation> getAll() {
         return em.createQuery("SELECT c FROM OldCoupleInformation c").getResultList();
-    }   
+    }
 }

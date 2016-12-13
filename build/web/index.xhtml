@@ -66,7 +66,7 @@ and open the template in the editor.
 
         </h:form>
 
-        <h:form>
+        <h:form enctype="multipart/form-data">
             <div class="set" align="center">
 
                 <div class="title">
@@ -276,15 +276,18 @@ and open the template in the editor.
                     </tr>
                 </table><br/><br/>
 
-
+                <h:form enctype="multipart/form-data">
+                    <div align="center"><h:inputFile id="file" value="#{bb.file}" label="写真を選択"/></div><br />
+                </h:form>
                 <div align="center">❇夫婦で撮ったお写真やお部屋の様子がわかる写真があると、申し込みが来やすくなります。</div>
                 <h:commandButton value="確認画面へ進む(登録は無料です)" action="#{bb.goToConfirm()}" class="Button"/>
-
+<!--enctype="multipart/form-data"-->
             </div>
         </h:form>
-        <h:form enctype="multipart/form-data">
-            <div align="center"><h:inputFile id="file" value="#{bb.file}" label="写真を選択"/></div><br />
-        </h:form>
+
+        <!--        <h:form id="form" enctype="multipart/form-data">
+                    <h:inputFile id="file" value="#{bb.file}" />
+                </h:form>-->
 
         <br/>
     </h:body>

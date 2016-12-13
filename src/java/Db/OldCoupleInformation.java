@@ -4,10 +4,13 @@ import java.io.Serializable;
 import javax.ejb.Remote;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
+import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -78,6 +81,9 @@ public class OldCoupleInformation implements Serializable {
     private String message;
 
     private String payment;
+    @Lob
+    @Basic(fetch=FetchType.LAZY)
+    private byte[] image;
 
 //    @Inject
 //    transient Logger log;
@@ -86,7 +92,7 @@ public class OldCoupleInformation implements Serializable {
             String birthMonth, String birthDay, String firstNameWife, String lastNameWife,
             String firstNameHuriganaWife, String lastNameHuriganaWife, String birthYearWife,
             String birthMonthWife, String birthDayWife, String phoneNumber, String mailAddress,
-            String educationContent, String message, String payment) {
+            String educationContent, String message, String payment, byte[] image) {
 
         this.id = id;
         this.firstName = firstName;
@@ -110,6 +116,7 @@ public class OldCoupleInformation implements Serializable {
         this.educationContent = educationContent;
         this.message = message;
         this.payment = payment;
+        this.image = image;
     }
 
     public OldCoupleInformation() {
@@ -297,6 +304,14 @@ public class OldCoupleInformation implements Serializable {
 
     public void setPayment(String payment) {
         this.payment = payment;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
 }

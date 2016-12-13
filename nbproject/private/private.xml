@@ -3,35 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/masanari/Kaguya/web/confirm.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/warningforold.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/inquery-content.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/faq.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/complete.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/safety-content.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/detail-content.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/ConfirmBean.java</file>
+            <file>file:/Users/masanari/Kaguya/web/find-content.xhtml</file>
             <file>file:/Users/masanari/Kaguya/web/index.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/warningforparents.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/src/java/Db/OldCoupleInformationDb.java</file>
+            <file>file:/Users/masanari/Kaguya/web/aboutservice.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/top.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/FileUploadBean.java</file>
             <file>file:/Users/masanari/Kaguya/src/java/Db/Bb.java</file>
-            <file>file:/Users/masanari/Kaguya/web/topbar.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/detail.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/OldCoupleInformation.java</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/SuperBb.java</file>
             <file>file:/Users/masanari/Kaguya/web/resources/bootstrap/css/bootstrap.css</file>
             <file>file:/Users/masanari/Kaguya/src/java/Db/DbBean.java</file>
-            <file>file:/Users/masanari/Kaguya/web/inquery.xhtml</file>
             <file>file:/Users/masanari/Kaguya/web/main.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/aboutservice2.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/templates/templateConfirm.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/faq-content.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/resources/css/index.css</file>
-            <file>file:/Users/masanari/Kaguya/web/resources/css/main.css</file>
-            <file>file:/Users/masanari/Kaguya/web/payment-content.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/find.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/aboutservice.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/templates/aboutserviceTemplate.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/safety.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/src/java/Db/OldCoupleInformation.java</file>
-            <file>file:/Users/masanari/Kaguya/web/payment.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/templates/topbar-template.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/caution.xhtml</file>
         </group>
     </open-files>
 </project-private>

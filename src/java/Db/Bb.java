@@ -6,6 +6,8 @@
 package Db;
 
 import entities.Image;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -24,15 +26,20 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.faces.event.PhaseId;
 import javax.faces.model.SelectItem;
 import javax.inject.Inject;
+import static javax.mail.internet.HeaderTokenizer.Token.EOF;
 import javax.persistence.Transient;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import static jdk.nashorn.tools.ShellFunctions.input;
 import net.tkxtools.MailSender;
 import org.apache.commons.io.IOUtils;
+import static org.apache.commons.io.IOUtils.copy;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 /**
  *
@@ -89,8 +96,8 @@ public class Bb implements Serializable {
     private Part file;//byte[]に画像を変換するメソッドを作って、それをbyte[]型で格納すれば良い
 
     InputStream is;
-    
-//    byte[] bytes = IOUtils.toByteArray(InputStream input);
+
+    private byte[] image;
 
     @NotEmpty
     private String mailAddress;
@@ -108,8 +115,6 @@ public class Bb implements Serializable {
     @Inject
     protected MakeText text;
 //OldCoupleInformationをEJBで持ってこようとすると失敗するのはなんでだ
-    @Transient
-    private String coupleName = this.firstName + "さんご夫妻";
 
     private final List<SelectItem> yearList = new ArrayList();
     private final List<SelectItem> monthList = new ArrayList();
@@ -120,37 +125,8 @@ public class Bb implements Serializable {
     @ManagedProperty(value = "#{dbbean}")
     private DbBean dbbean;
 
-    public void uploadImage() {
-//        DbBean dbbean = new DbBean();
-        try {
-            Map<String, Image> image = dbbean.getImage();
-            Image img = new Image();
-            img.setName(file.getSubmittedFileName());
-            img.setContentType(file.getContentType());
 
-            byte[] content = IOUtils.toByteArray(file.getInputStream());
-            img.setContent(content);
-            image.put(img.getName(), img);
 
-            System.out.println(img.toString());
-
-        } catch (IOException ex) {
-            Logger.getLogger(Bb.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("fail to upload");
-        }
-
-    }
-
-//    
-//    public List<OldCoupleInformation> getFromDb() {
-//		List<OldCoupleInformation> ls = null;
-//		try {
-//			ls = pm.getFromDb(priceItem, kindItem, productPage);
-//		} catch (Exception e) {
-//			facesMessage("商品の検索処理でエラーが発生しました");
-//		}
-//		return ls;
-//	}
     public String detail(OldCoupleInformation oldcoupleinformation) {
         System.out.println("detail()");
         oci = oldcoupleinformation;
@@ -189,6 +165,7 @@ public class Bb implements Serializable {
         coupleList = db.getAll();
         columns = new ArrayList<>();
         createDynamicColumns();
+
     }
 //書籍エンティティのリスト
 
@@ -211,8 +188,31 @@ public class Bb implements Serializable {
 
     }
 
-    public String goToConfirm() {
+    public byte[] toByteArray() throws IOException {
+        if (file != null) {
+            byte[] data = new byte[(int) file.getSize()];   // byte配列を作成
 
+            InputStream in = file.getInputStream();     // ストリームからbyte配列
+            in.read(data);
+            return data;
+// に、入力する
+
+        } else {
+            System.out.println("file = null");
+            return null;
+        }
+    }
+
+//        return output.toByteArray();
+//        byte[] data = new byte[(int) file.getSize()];   // byte配列を作成
+    public void imageToByte() throws IOException {
+//        image = toByteArray();
+
+    }
+
+    public String goToConfirm() throws IOException {
+        image = toByteArray();
+//        imageToByte();
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
         flash.put("firstName", this.firstName);
@@ -236,8 +236,8 @@ public class Bb implements Serializable {
         flash.put("message", this.message);
         flash.put("educationContent", this.educationContent);
         flash.put("payment", this.payment);
-
-        System.out.println(this.message);
+        flash.put("image", image);
+        System.out.println(image);
 
         return "/confirm.xhtml?faces-redirect=true";
     }
@@ -520,6 +520,22 @@ public class Bb implements Serializable {
 
     public void setOci(OldCoupleInformation oci) {
         this.oci = oci;
+    }
+
+    public InputStream getIs() {
+        return is;
+    }
+
+    public void setIs(InputStream is) {
+        this.is = is;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
 }
