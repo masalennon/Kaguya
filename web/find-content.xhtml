@@ -62,16 +62,26 @@
                              rows="10" var="info" value="#{bb.coupleList}">
 
                     <h:column>
-                            <h:outputText value="#{info.firstName}" />
+                        <p:graphicImage value="#{bb.pic}">
+                            <f:param name="id" value="#{info.id}"/>
+                        </p:graphicImage>
                     </h:column>
+                    
                     <h:column>
-                            <h:outputText value="#{info.addressOne}" />
+                        <h:outputText value="#{info.firstName}" />
                     </h:column>
+
+                    <h:column>
+                        <h:outputText value="#{info.addressOne}" />
+                    </h:column>
+
                     <h:column>
                         <h:commandLink action="#{bb.detail(info)}">
-                             詳細へ
+                            詳細へ
                         </h:commandLink>  
                     </h:column>
+
+
                 </h:dataTable>
 
 

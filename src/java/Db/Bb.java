@@ -48,7 +48,9 @@ import org.primefaces.model.StreamedContent;
  */
 @ManagedBean(name = "bb", eager = true)
 @SessionScoped
-public class Bb implements Serializable {
+public class Bb extends SuperBb implements Serializable {
+
+    SuperBb sbb;
 
     @NotEmpty
     private Long id;
@@ -125,8 +127,6 @@ public class Bb implements Serializable {
     @ManagedProperty(value = "#{dbbean}")
     private DbBean dbbean;
 
-
-
     public String detail(OldCoupleInformation oldcoupleinformation) {
         System.out.println("detail()");
         oci = oldcoupleinformation;
@@ -179,6 +179,8 @@ public class Bb implements Serializable {
         columns.clear();
 
         //ヘッダとエンティティの属性である変数名を記述
+        columns.add(new ColumnModel("id", "id"));
+
         columns.add(new ColumnModel("名前", "firstName"));
         columns.add(new ColumnModel("住んでいる地域", "addressOne"));
         columns.add(new ColumnModel("丁目", "addressTwo"));

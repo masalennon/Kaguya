@@ -1,32 +1,56 @@
+package Db;
+
+import Db.OldCoupleInformation;
+
 ///*
 // * To change this license header, choose License Headers in Project Properties.
 // * To change this template file, choose Tools | Templates
 // * and open the template in the editor.
-// */
-//package Db;
-//
-//import java.io.ByteArrayInputStream;
-//import java.io.InputStream;
-//import java.util.Map;
-//import java.util.logging.Logger;
-//import javax.ejb.EJB;
-//import javax.faces.context.ExternalContext;
-//import javax.faces.context.FacesContext;
-//import javax.faces.event.PhaseId;
-//import javax.inject.Inject;
-//import javax.persistence.EntityManager;
-//import javax.persistence.PersistenceContext;
-//import javax.servlet.http.Part;
-//import net.tkxtools.MailSender;
-//import org.hibernate.validator.constraints.NotEmpty;
-//import org.primefaces.model.DefaultStreamedContent;
-//import org.primefaces.model.StreamedContent;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Map;
+import java.util.logging.Logger;
+import javax.ejb.EJB;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseId;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.servlet.http.Part;
+import net.tkxtools.MailSender;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 //
 ///**
 // *
 // * @author Masanari
 // */
-//public class SuperBb<T> {
+
+public class SuperBb<T> extends OldCoupleInformationDb {
+
+    public StreamedContent getPic() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+            System.out.println("if");
+            return new DefaultStreamedContent();
+        } else {
+            System.out.println("if else");
+            ExternalContext sv = context.getExternalContext();
+            Map<String, String> map = sv.getRequestParameterMap();
+            String key = map.get("id");
+            OldCoupleInformation e = find(Long.valueOf(key));
+
+            ByteArrayInputStream in = new ByteArrayInputStream(e.getImage());
+            DefaultStreamedContent ds = new DefaultStreamedContent(in);
+            return ds;
+        }
+    }
+//
+//    @EJB
+//    OldCoupleInformationDb db;
+}
 //
 //    @NotEmpty
 //    private Long id;

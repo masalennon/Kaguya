@@ -31,6 +31,10 @@ public class OldCoupleInformationDb<T> implements Serializable {
 //    public OldCoupleInformationDb(Class<T> entityClass) {
 //		this.entityClass = entityClass;
 //	}
+    
+    
+   
+    
 
     public void create(OldCoupleInformation oldCoupleInformation) {
         em.persist(oldCoupleInformation);
@@ -47,8 +51,8 @@ public class OldCoupleInformationDb<T> implements Serializable {
 //    public OldCoupleInformation find(Integer key) {
 //        return em.find(OldCoupleInformation.class, key);
 //    }
-    public T find(Object id) {
-        return em.find(entityClass, id);
+    public OldCoupleInformation find(Long key) {
+        return em.find(OldCoupleInformation.class, key);
     }
 
     public List<OldCoupleInformation> getAll() {

@@ -45,34 +45,49 @@ and open the template in the editor.
         <h:form>
 
             <div id="pic">
-                <p:graphicImage value="{bb.image}">
-                    <f:param name="productId" value="{bb.oci.image}"/>
-                </p:graphicImage>			
+
                 <!--<img src="../resources/images/3.JPG"></img>-->
 
+                <p:graphicImage value="#{bb.pic}">
+                    <f:param name="id" value="#{bb.oci.id}"/>
+                </p:graphicImage>	
 
+                <p:graphicImage value="#{bb.pic}">
+                    <f:param name="id" value="#{info.image}"/>
+                </p:graphicImage>
 
             </div>
             <div id="exp" class="description-kaguya">
 
 
 
-                <div class="kaguya-detail"><h:outputText value="#{bb.oci.firstName}" styleClass="name"/>さんご夫妻</div>
+                <div class="kaguya-detail">
+                    <h:outputText value="#{bb.oci.firstName}" styleClass="name"/>さんご夫妻
+                </div>
 
 
-                <div class="kaguya-detail"><h:outputText value="#{bb.oci.addressTwo}" styleClass="name"/></div>
+                <div class="kaguya-detail">
+                    <h:outputText value="#{bb.oci.addressTwo}" styleClass="name"/>
+                </div>
+
                 <div class="kaguya-detail">
                     <h:outputText value="#{bb.oci.firstNameHuriganaWife}" styleClass="name"/>
                 </div>
+
                 <h:outputText value="#{bb.oci.lastNameHuriganaWife}" styleClass="name"/><br/>
+
                 <div class="kaguya-detail">
                     <h:outputText value="#{bb.oci.addressOne}" styleClass="name"/>
                 </div>
+
                 <br/>
 
                 <div class="kaguya-detail">
                     <h:outputText value="#{bb.oci.payment}" styleClass="price"/>
-                </div><br/>
+                </div>
+
+                <br/>
+
                 <div class="kaguya-detail">
                     <h:outputText value="#{bb.oci.message}" styleClass="text"/>
                 </div>
