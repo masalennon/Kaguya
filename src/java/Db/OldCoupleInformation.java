@@ -35,7 +35,7 @@ public class OldCoupleInformation implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     @NotEmpty
     private String firstName;
     @NotEmpty
@@ -75,6 +75,8 @@ public class OldCoupleInformation implements Serializable {
     private String mailAddress;
 
     private Part file;
+    
+    private Part fileRoom;
 
     private String educationContent;
 
@@ -82,17 +84,20 @@ public class OldCoupleInformation implements Serializable {
 
     private String payment;
     @Lob
-    @Basic(fetch=FetchType.LAZY)
+    @Basic(fetch = FetchType.LAZY)
     private byte[] image;
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] imageRoom;
 
 //    @Inject
 //    transient Logger log;
-    public OldCoupleInformation(Long id, String firstName, String lastName, String firstNameHurigana,
+    public OldCoupleInformation(Integer id, String firstName, String lastName, String firstNameHurigana,
             String lastNameHurigana, String addressOne, String addressTwo, String birthYear,
             String birthMonth, String birthDay, String firstNameWife, String lastNameWife,
             String firstNameHuriganaWife, String lastNameHuriganaWife, String birthYearWife,
             String birthMonthWife, String birthDayWife, String phoneNumber, String mailAddress,
-            String educationContent, String message, String payment, byte[] image) {
+            String educationContent, String message, String payment, byte[] image, byte[] imageRoom) {
 
         this.id = id;
         this.firstName = firstName;
@@ -117,16 +122,18 @@ public class OldCoupleInformation implements Serializable {
         this.message = message;
         this.payment = payment;
         this.image = image;
+        this.imageRoom = imageRoom;
+
     }
 
     public OldCoupleInformation() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -313,5 +320,22 @@ public class OldCoupleInformation implements Serializable {
     public void setImage(byte[] image) {
         this.image = image;
     }
+
+    public byte[] getImageRoom() {
+        return imageRoom;
+    }
+
+    public void setImageRoom(byte[] imageRoom) {
+        this.imageRoom = imageRoom;
+    }
+
+    public Part getFileRoom() {
+        return fileRoom;
+    }
+
+    public void setFileRoom(Part fileRoom) {
+        this.fileRoom = fileRoom;
+    }
+    
 
 }

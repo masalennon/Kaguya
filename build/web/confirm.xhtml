@@ -164,7 +164,7 @@ and open the template in the editor.
                                                            value="#{cb.mailAddress}" class = "text"/><br/>
                         </th>
                     </tr>
-                    
+
                     <tr>
                         <td class="headrow">
                             希望月謝
@@ -173,7 +173,7 @@ and open the template in the editor.
                                                            value="#{cb.payment}" class = "text"/><br/>
                         </th>
                     </tr>
-                    
+
                     <tr>
                         <td class="headrow">
                             提供できる保育の内容
@@ -197,6 +197,11 @@ and open the template in the editor.
 
                 </table>
                 <br/><br/>
+                <p:graphicImage value="#{bb.pic}" >
+                    <f:param name="id" value="{bb.id}"/>
+                </p:graphicImage>
+                <br/><br/>
+
                 <h:commandButton value="入力画面へ戻る" action="#{cb.goToInput()}" class="Button"/><br/><br/>
                 <h:commandButton value="上記の内容を確認して送信" action="#{cb.goToComplete()}" class="Button">
 

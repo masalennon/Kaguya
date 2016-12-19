@@ -24,7 +24,6 @@ and open the template in the editor.
 
         <f:facet name="middle">
             <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
-            <h:outputStylesheet name="resources/css/index.css" />
             <link rel="stylesheet" type="text/css" href="resources/css/index.css" />
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
 
@@ -36,6 +35,7 @@ and open the template in the editor.
 
     </h:head>
     <h:body>
+        <h:outputStylesheet library="css" name="index.css" />
 
         <h:form>
 
@@ -80,7 +80,8 @@ and open the template in the editor.
                 <table border="1" cellspacing="0" cellpadding="2" class="husband"> 
                     <tr>
                         <td class="husbandheadrow">
-                            名前
+                            名前                            <span style="background: #ea352d" class="require">必須</span>
+
                         </td>　
                         <td class="husbandheadrow2">
                             (姓) <h:inputText class = "text" id="firstName" required="true" requiredMessage="必須"
@@ -91,7 +92,8 @@ and open the template in the editor.
                     </tr> 
                     <tr>
                         <td class="husbandheadrow">
-                            名前(ふりがな)
+                            ふりがな                            <span style="background: #ea352d" class="require">必須</span>
+
                         </td>　
                         <td class="husbandheadrow2">
 
@@ -105,7 +107,8 @@ and open the template in the editor.
                     <tr>
 
                         <td class="husbandheadrow">
-                            誕生日
+                            誕生日                             <span style="background: #ea352d" class="require">必須</span>
+
                         </td>
                         <td class="husbandheadrow2">
 
@@ -133,31 +136,36 @@ and open the template in the editor.
                 <table border="1" cellspacing="0" cellpadding="2" class="wife" > 
                     <tr>
                         <td class="wifeheadrow">
-                            名前
+                            名前                            <span style="background: #ea352d" class="require">必須</span>
+
                         </td>　
                         <td class="wifeheadrow2">
-                            (姓) <h:inputText class = "text" id="firstNameHuriganaWife" required="true"
-                                             requiredMessage="必須" value="#{bb.firstNameHuriganaWife}" a:placeholder="(姓)"/>
-                            (名) <h:inputText class = "text" id="lastNameHuriganaWife" required="true" requiredMessage="必須"
-                                             value="#{bb.lastNameHuriganaWife}" a:placeholder="(名)"/><br/>
+                            (姓) <h:inputText class = "text" id="firstNameWife" required="true"
+                                             requiredMessage="必須" value="#{bb.firstNameWife}" a:placeholder="(姓)"/>
+                            (名) <h:inputText class = "text" id="lastNameWife" required="true" requiredMessage="必須"
+                                             value="#{bb.lastNameWife}" a:placeholder="(名)"/><br/>
                         </td>
                     </tr> 
                     <tr>
                         <td class="wifeheadrow">
-                            名前(ふりがな)
+                            ふりがな                            <span style="background: #ea352d" class="require">必須</span>
+
                         </td>　
                         <td class="wifeheadrow2">
-                            (姓) <h:inputText class = "text" id="firstNameWife" required="true" requiredMessage="必須"
-                                             value="#{bb.firstNameWife}" label="名前" a:placeholder="(姓)ふりがな"/>
-                            (名) <h:inputText class = "text" id="lastNameWife" required="true"
-                                             requiredMessage="必須" value="#{bb.lastNameWife}" a:placeholder="(名)ふりがな"/><br/>
+                            (姓) <h:inputText class = "text" id="firstNameHuriganaWife" required="true" requiredMessage="必須"
+                                             value="#{bb.firstNameHuriganaWife}" label="名前" a:placeholder="(姓)ふりがな"/>     
+
+                            (名) <h:inputText class = "text" id="lastNameHuriganaWife" required="true"
+                                             requiredMessage="必須" value="#{bb.lastNameHuriganaWife}" a:placeholder="(名)ふりがな"/>
+                            <br/>
                         </td>
                     </tr>
 
                     <tr>
 
                         <td class="wifeheadrow">
-                            誕生日
+                            誕生日                            <span style="background: #ea352d" class="require">必須</span>
+
                         </td>
                         <td class="wifeheadrow2">
 
@@ -194,11 +202,12 @@ and open the template in the editor.
                 <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
                     <tr>
                         <td class="headrow">
-                            市区町村
+                            市区町村                            <span style="background: #ea352d" class="require">必須</span>
+
                         </td>
                         <td class="headrow2">
                             <h:inputText class = "text2" id="addressOne" required="true" a:placeholder=" 例：世田谷区弦巻"
-                                         requiredMessage="必須" value="#{bb.addressOne}"></h:inputText><br/>
+                                         requiredMessage="必須" value="#{bb.addressOne}"/><br/>
                         </td>
                     </tr>
                     <tr>
@@ -214,7 +223,8 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td class="headrow">
-                            電話番号
+                            電話番号                            <span style="background: #ea352d" class="require">必須</span>
+
                         </td>
                         <td class="headrow2">
                             <h:inputText class = "text2" id="phoneNumber" required="true"
@@ -226,7 +236,8 @@ and open the template in the editor.
 
                     <tr>
                         <td class="headrow">
-                            メールアドレス
+                            メールアドレス                            <span style="background: #ea352d" class="require">必須</span>
+
                         </td>
                         <td class="headrow2">
                             <h:inputText class = "text2" id="mailAddress" required="true"
@@ -236,7 +247,8 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td class="headrow">
-                            希望月謝
+                            希望月謝                            <span style="background: #ea352d" class="require">必須</span>
+
                         </td>
                         <td class="headrow2">
                             <h:inputText class = "text2" id="payment" required="true"
@@ -247,7 +259,8 @@ and open the template in the editor.
 
                     <tr>
                         <td class="headrow">
-                            提供できる保育の内容
+                            提供できる保育の内容                            <span style="background: #ea352d" class="require">必須</span>
+
                         </td>
                         <td class="headrow2">
                             <h:inputText class = "text1" id="educationcontent" required="true"
@@ -275,13 +288,19 @@ and open the template in the editor.
                         </td>
                     </tr>
                 </table><br/><br/>
-
+                <div align="center">ご夫婦で撮った写真</div>
                 <h:form enctype="multipart/form-data">
                     <div align="center"><h:inputFile id="file" value="#{bb.file}" label="写真を選択"/></div><br />
+                    <div align="center"><h:inputFile id="fileRoom" value="#{bb.fileRoom}" label="写真を選択"/></div><br />
+
                 </h:form>
+
+                <div align="center">お部屋の写真</div>
+<!--                <h:form enctype="multipart/form-data">
+                </h:form>-->
                 <div align="center">❇夫婦で撮ったお写真やお部屋の様子がわかる写真があると、申し込みが来やすくなります。</div>
                 <h:commandButton value="確認画面へ進む(登録は無料です)" action="#{bb.goToConfirm()}" class="Button"/>
-<!--enctype="multipart/form-data"-->
+                <!--enctype="multipart/form-data"-->
             </div>
         </h:form>
 

@@ -14,11 +14,7 @@ and open the template in the editor.
        xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
     <h:head>
-        <style type="text/css">
-            /*background-image: url(bamboo.jpg);*/
-            /*background-image: url(“images/sky.jpg”);*/
 
-        </style>
         <f:facet name="first">
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
@@ -29,8 +25,8 @@ and open the template in the editor.
 
         <f:facet name="middle">
             <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
-            <h:outputStylesheet name="resources/css/index.css" />
-            <link rel="stylesheet" type="text/css" href="resources/css/index.css" />
+            <h:outputStylesheet name="resources/css/detail.css" />
+            <link rel="stylesheet" type="text/css" href="resources/css/detail.css" />
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
 
         </f:facet>
@@ -41,67 +37,141 @@ and open the template in the editor.
 
     </h:head>
     <h:body>
-        <!--<ui:composition>-->
+
         <h:form>
 
-            <div id="pic">
-
-                <!--<img src="../resources/images/3.JPG"></img>-->
-
-                <p:graphicImage value="#{bb.pic}">
-                    <f:param name="id" value="#{bb.oci.id}"/>
-                </p:graphicImage>	
-
-                <p:graphicImage value="#{bb.pic}">
-                    <f:param name="id" value="#{info.image}"/>
-                </p:graphicImage>
-
-            </div>
-            <div id="exp" class="description-kaguya">
-
-
-
-                <div class="kaguya-detail">
-                    <h:outputText value="#{bb.oci.firstName}" styleClass="name"/>さんご夫妻
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="main.xhtml">かぐや</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="main.xhtml">Home</a></li>
+                        <li><a href="serviceoverview.xhtml">サービスの概要</a></li>
+                        <li><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
+                        <li><a href="safety.xhtml">安全への取り組み</a></li>
+                        <li><a href="find.xhtml">受け入れ先を探す</a></li>
+                        <li><a href="index.xhtml">会員登録</a></li>  
+                        <li><a href="faq.xhtml">よくある質問</a></li>
+                        <li><a href="inquery.xhtml">お問合せ</a></li>
+                    </ul>
                 </div>
+            </nav>
 
 
-                <div class="kaguya-detail">
-                    <h:outputText value="#{bb.oci.addressTwo}" styleClass="name"/>
+
+            <section id="exp" align="center" class="kaguya-detail-container">
+                <div class="img-detail">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p:graphicImage class="img-detail" value="#{bb.pic}"  width="" height="">
+                        <f:param name="id" value="#{bb.oci.id}"/>
+                    </p:graphicImage>
+                    
+                    <p:graphicImage class="img-detail" value="#{bb.roomPic}"  width="" height="">
+                        <f:param name="id" value="#{bb.oci.id}"/>
+                    </p:graphicImage>
                 </div>
-
-                <div class="kaguya-detail">
-                    <h:outputText value="#{bb.oci.firstNameHuriganaWife}" styleClass="name"/>
-                </div>
-
-                <h:outputText value="#{bb.oci.lastNameHuriganaWife}" styleClass="name"/><br/>
-
-                <div class="kaguya-detail">
-                    <h:outputText value="#{bb.oci.addressOne}" styleClass="name"/>
-                </div>
-
+                <br/>
+                <br/>
+                <br/>
                 <br/>
 
-                <div class="kaguya-detail">
-                    <h:outputText value="#{bb.oci.payment}" styleClass="price"/>
-                </div>
 
-                <br/>
+                <table class="kaguya-detail-table">
 
-                <div class="kaguya-detail">
-                    <h:outputText value="#{bb.oci.message}" styleClass="text"/>
-                </div>
-                <div id="cart">
-                    <!--                        <h:commandLink action="{bb.addToCart()}">
-                                                <h:graphicImage library="images" name="cart01.jpg"/>
-                                                <f:ajax execute="@this"/> 
-                                            </h:commandLink>-->
-                </div>
-            </div>
+                    <tbody>
+                        <tr>
+                            <th>
+                                お住いの地域 
+                            </th>
+                            <td>
+                                <h:outputText value="#{bb.oci.addressOne}" styleClass="name"/>
+                                <h:outputText value="#{bb.oci.addressTwo}" styleClass="name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>希望月謝</th>
+                            <td>
+                                <h:outputText value="#{bb.oci.payment}" styleClass="price"/>円<br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="center">
+                                提供できる保育の内容
+                            </th>
+                            <td>
+                                <h:outputText value="#{bb.oci.educationContent}" styleClass="price"/><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                保護者の方への言葉
+                            </th>
+                            <td>
+                                <div class="kaguya-detail">
+                                    <h:outputText value="#{bb.oci.message}" styleClass="text"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>  
+                <!--                               
+                                        <div class="kaguya-detail">
+                                            <h3>
+                                                <h:outputText value="#{bb.oci.firstName}" class="kaguya-detail" styleClass="name"/>さんご夫妻
+                                            </h3>
+                                        </div>
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                
+                                        <div class="kaguya-detail">
+                                            <h3>お住いの地域           
+                                                <h:outputText value="#{bb.oci.addressOne}" styleClass="name"/>
+                                                <h:outputText value="#{bb.oci.addressTwo}" styleClass="name"/><br/>
+                                            </h3>
+                                        </div>
+                
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                
+                                        <div class="kaguya-detail" align="center">
+                                            <h3>希望月謝
+                                                <h:outputText value="#{bb.oci.payment}" styleClass="price"/>円<br/>
+                                            </h3>
+                                        </div>
+                                        <br/>
+                                        <br/>                
+                                        <br/>
+                                        <br/>
+                                        <div class="kaguya-detail" align="center">
+                                            <h3>提供できる保育の内容
+                                                <h:outputText value="#{bb.oci.educationContent}" styleClass="price"/><br/>
+                                            </h3>
+                                        </div>
+                                        <h3>保護者の方への言葉
+                                            <div class="kaguya-detail">
+                                                <h:outputText value="#{bb.oci.message}" styleClass="text"/>
+                                            </div>
+                                        </h3>
+                
+                                        <br/>                
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                                    </div>-->
+            </section>
         </h:form>
 
+        <br/>
+        <br/>
+        <br/>
 
 
-        <!--</ui:composition>-->
     </h:body>
 </xhtml>

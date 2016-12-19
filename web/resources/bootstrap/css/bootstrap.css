@@ -88,13 +88,14 @@ sub {
 }
 img {
     border: 0;
-    position: absolute;
-    left: 160px;
-    top: 300px;
-    margin: 300px;
-    width: 600px;
-    margin-top: 20px;
+    position: relative;
+    /*    left: 160px;
+        top: 300px;
+        margin: 300px;*/
+    width: 100px;
+    /*margin-top: 20px;*/
 }
+
 svg:not(:root) {
     overflow: hidden;
 }
@@ -194,7 +195,10 @@ table {
 }
 td,
 th {
+    width: 800px;
+    font-size: 20px;
     padding: 0;
+    margin-left: 80px;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -1094,6 +1098,8 @@ th {
     background: url(bamboo.jpg);
 }
 
+
+
 .subheadig-kaguya {
     margin: 20px 0;
     font-size: 20px;
@@ -1127,38 +1133,76 @@ th {
 
 }
 
+.r1 {/* ヘッダー以外の行 */
+    background-color: white;	/* 薄い青の背景色 */
+}
+.r2 {/* ヘッダー以外の行 */
+    background-color: white;	/* 薄い青の背景色 */
+}
+.c1	{/* ２列目 */
+    width: 3%;				/* 横幅を100pxに */
+    padding: 0px;				/* 左端に10pxの余白 */
+    vertical-align: top;
+    text-align: center;
+}
+.c2	{/* １列目 */
+    /* 横幅を100pxに */
+    vertical-align: top;
+    padding: 10px;
+    text-align: center;
+    width: 3%;				/* 横幅を100pxに */
 
+}
+
+.c3	{/* ３列目 */
+    width: 5%;				/* 横幅を300pxに */
+    /*padding: 10px;			 左端に10pxの余白 */
+    vertical-align: top;
+    text-align: center;
+}
+.c4	{/* ３列目 */
+    width: 5%;				/* 横幅を300pxに */
+    /*padding: 10px;			 左端に10pxの余白 */
+    vertical-align: top;
+    text-align: center;
+}
 
 .reinforce {
     font-size: 25px;
 
+}
+
+
+.kaguya-detail-container {
+    border-bottom: 1px;
+    background: white;
+    margin-left: 25%;
+    margin-top: 100px;
+    width: 50%;
 }
 .description-kaguya {
     padding-top: 30px;
     padding-left: 100px;
     padding-right: 100px;
     display: block-inline;
-    background-color:white;
-    background-image: url(..resources/images/bamboo.jpg);
-    background-image: url('/Users/masanari/Kaguya/web/resources/images/bamboo.jpg');
-
     background: url('../bamboo.jpg');
-
-    width: 60%;
-    margin-left: 250px;
+    /*display: block;*/
+    width: 40%;
+    margin-left: 25%;
+    background: white;
     margin-top: 50px;
     line-height: 35px;
     font-size: 20px;
 }
+
+
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    line-height: 1.42857143;
     color: #333;
+
+    line-height: 1.42857143;
     background: linear-gradient(to bottom, #fff 0, #f6f6f6 0px);
-    background-image: url('/Users/masanari/Kaguya/web/resources/images/bamboo.jpg');
-    background-image: url('../images/bamboo.jpg');
-    background-image: url('../resources/images/bamboo.jpg');
 
 }
 *:before,
@@ -1169,7 +1213,7 @@ body {
 }
 html {
     font-size: 10px;
-
+    background: whitesmoke;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -2345,9 +2389,14 @@ th {
     text-align: left;
 }
 .table {
-    width: 100%;
+    width: 50%;
     max-width: 100%;
     margin-bottom: 20px;
+    position: absolute;
+    margin-left: 25%;
+    margin-right: auto;
+    text-align: center;
+
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -2355,10 +2404,12 @@ th {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-    padding: 8px;
+    padding: 5px;
     line-height: 1.42857143;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
+    vertical-align: middle;
+    /*border-top: 1px solid #ddd;*/
+    font-size: 20px;
+
 }
 .table > thead > tr > th {
     vertical-align: bottom;
@@ -2395,7 +2446,7 @@ th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-    border: 1px solid #ddd;
+    /*border: 1px solid #ddd;*/
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {

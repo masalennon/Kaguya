@@ -8,13 +8,20 @@ import Db.OldCoupleInformation;
 // * and open the template in the editor.
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
+import javax.faces.model.SelectItem;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.servlet.http.Part;
@@ -22,31 +29,168 @@ import net.tkxtools.MailSender;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
+import util.PagenationHelper;
 //
 ///**
 // *
 // * @author Masanari
 // */
-
+@Named
 public class SuperBb<T> extends OldCoupleInformationDb {
 
-    public StreamedContent getPic() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
-            System.out.println("if");
-            return new DefaultStreamedContent();
-        } else {
-            System.out.println("if else");
-            ExternalContext sv = context.getExternalContext();
-            Map<String, String> map = sv.getRequestParameterMap();
-            String key = map.get("id");
-            OldCoupleInformation e = find(Long.valueOf(key));
+    private final List<SelectItem> yearList = new ArrayList();
+    private final List<SelectItem> monthList = new ArrayList();
+    private final List<SelectItem> dayList = new ArrayList();
+    private List<OldCoupleInformation> coupleList;
 
-            ByteArrayInputStream in = new ByteArrayInputStream(e.getImage());
-            DefaultStreamedContent ds = new DefaultStreamedContent(in);
-            return ds;
+    @EJB
+    protected OldCoupleInformationDb db;
+
+    @PostConstruct
+    public void loadPage() {
+        for (int i = 1940; i <= 1990; i++) {
+            final SelectItem item = new SelectItem();
+            item.setLabel(String.valueOf(i));
+            item.setValue(String.valueOf(i));
+            yearList.add(item);
+        }
+        for (int i = 1; i <= 12; i++) {
+            final SelectItem item = new SelectItem();
+            item.setLabel(String.valueOf(i));
+            item.setValue(String.valueOf(i));
+            monthList.add(item);
+        }
+        for (int i = 1; i <= 31; i++) {
+            final SelectItem item = new SelectItem();
+            item.setLabel(String.valueOf(i));
+            item.setValue(String.valueOf(i));
+            dayList.add(item);
+        }
+        coupleList = db.getAll();
+        columns = new ArrayList<>();
+        createDynamicColumns();
+        getPagination();
+//PagenationHelper getPagination();
+    }
+
+    //DataTableのカラムリスト
+    private List<ColumnModel> columns;
+
+    /**
+     * カラム生成
+     */
+    public void createDynamicColumns() {
+        columns.clear();
+
+        //ヘッダとエンティティの属性である変数名を記述
+        columns.add(new ColumnModel("id", "id"));
+        columns.add(new ColumnModel("名前", "firstName"));
+        columns.add(new ColumnModel("住んでいる地域", "addressOne"));
+        columns.add(new ColumnModel("丁目", "addressTwo"));
+        columns.add(new ColumnModel("提供できる保育の内容", "educationContent"));
+        columns.add(new ColumnModel("保護者の方への言葉", "message"));
+
+    }
+
+    
+
+    public String next() {
+        getPagination().nextPage();
+        recreateModel();
+        return "home";
+    }
+
+    public String previous() {
+        getPagination().previousPage();
+        recreateModel();
+        return "home";
+    }
+
+    private PagenationHelper pagination;
+    private int selectedItemIndex;
+    private DataModel dtmdl;
+
+    public PagenationHelper getPagination() {
+
+        if (pagination == null) {
+
+            pagination = new PagenationHelper(10) {
+                @Override
+                public int getItemsCount() {
+                    return db.count();
+                }
+
+                @Override
+                public DataModel createPageDataModel() {
+
+                    return new ListDataModel(db.findRange(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}));
+                }
+            };
+        }
+        return pagination;
+    }
+
+    public DataModel getDtmdl() {
+        if (dtmdl == null) {
+            dtmdl = getPagination().createPageDataModel();
+        }
+        return dtmdl;
+    }
+
+    private void recreateModel() {
+        dtmdl = null;
+    }
+
+    private void recreatePagination() {
+        pagination = null;
+    }
+
+    private void updateCurrentItem() {
+        int count = db.count();
+        if (selectedItemIndex >= count) {
+
+            // selected index cannot be bigger than number of items:
+            selectedItemIndex = count - 1;
+
+            // go to previous page if last page disappeared:
+            if (pagination.getPageFirstItem() >= count) {
+
+                pagination.previousPage();
+            }
+        }
+        if (selectedItemIndex >= 0) {
+            OldCoupleInformation item = (OldCoupleInformation) db.findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
         }
     }
+
+    public List<OldCoupleInformation> getCoupleList() {
+        return coupleList;
+    }
+
+    public void setCoupleList(List<OldCoupleInformation> coupleList) {
+        this.coupleList = coupleList;
+    }
+
+    public List<SelectItem> getYearList() {
+        return yearList;
+    }
+
+    public List<SelectItem> getMonthList() {
+        return monthList;
+    }
+
+    public List<SelectItem> getDayList() {
+        return dayList;
+    }
+    
+        public DataModel getdtmdl() {
+        return dtmdl;
+    }
+
+    public void setDtmdl(DataModel dtmdl) {
+        this.dtmdl = dtmdl;
+    }
+
 //
 //    @EJB
 //    OldCoupleInformationDb db;

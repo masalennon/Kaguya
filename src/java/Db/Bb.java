@@ -5,6 +5,7 @@
  */
 package Db;
 
+import beans.ItemEJB;
 import entities.Image;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -27,6 +28,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.event.PhaseId;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import static javax.mail.internet.HeaderTokenizer.Token.EOF;
@@ -40,6 +43,7 @@ import static org.apache.commons.io.IOUtils.copy;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
+import util.PagenationHelper;
 
 /**
  *
@@ -53,7 +57,7 @@ public class Bb extends SuperBb implements Serializable {
     SuperBb sbb;
 
     @NotEmpty
-    private Long id;
+    private Integer id;
     @NotEmpty
     private String firstName;
     @NotEmpty
@@ -95,11 +99,19 @@ public class Bb extends SuperBb implements Serializable {
 
     private String payment;
 
-    private Part file;//byte[]に画像を変換するメソッドを作って、それをbyte[]型で格納すれば良い
+    private Part file;
+
+    private Part fileRoom;
 
     InputStream is;
 
     private byte[] image;
+
+    private byte[] imageRoom;
+
+    private String previous = "前へ";
+
+    private String next = "次へ";
 
     @NotEmpty
     private String mailAddress;
@@ -118,11 +130,6 @@ public class Bb extends SuperBb implements Serializable {
     protected MakeText text;
 //OldCoupleInformationをEJBで持ってこようとすると失敗するのはなんでだ
 
-    private final List<SelectItem> yearList = new ArrayList();
-    private final List<SelectItem> monthList = new ArrayList();
-    private final List<SelectItem> dayList = new ArrayList();
-    private List<OldCoupleInformation> coupleList;
-
 //confirmBeanを作って、そこで再びflashによるデータの受け渡しをするとうまくいくかもしれない。
     @ManagedProperty(value = "#{dbbean}")
     private DbBean dbbean;
@@ -131,8 +138,45 @@ public class Bb extends SuperBb implements Serializable {
         System.out.println("detail()");
         oci = oldcoupleinformation;
         return "detail-content.xhtml";
+
     }
 
+    public StreamedContent getPic() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+            System.out.println("if");
+            return new DefaultStreamedContent();
+        } else {
+            System.out.println("if else");
+            ExternalContext sv = context.getExternalContext();
+            Map<String, String> map = sv.getRequestParameterMap();
+            String key = map.get("id");
+            OldCoupleInformation e = find(Integer.valueOf(key));
+
+            ByteArrayInputStream in = new ByteArrayInputStream(e.getImage());
+            DefaultStreamedContent ds = new DefaultStreamedContent(in);
+            return ds;
+        }
+    }
+
+     public StreamedContent getRoomPic() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+            System.out.println("if");
+            return new DefaultStreamedContent();
+        } else {
+            System.out.println("if else");
+            ExternalContext sv = context.getExternalContext();
+            Map<String, String> map = sv.getRequestParameterMap();
+            String key = map.get("id");
+            OldCoupleInformation e = find(Integer.valueOf(key));
+
+            ByteArrayInputStream in = new ByteArrayInputStream(e.getImageRoom());
+            DefaultStreamedContent ds = new DefaultStreamedContent(in);
+            return ds;
+        }
+    }
+    
     public ExternalContext getServlet() {
         return FacesContext.getCurrentInstance().getExternalContext();
     }
@@ -142,55 +186,8 @@ public class Bb extends SuperBb implements Serializable {
         return (HttpServletRequest) getServlet().getRequest();
     }
 
-    @PostConstruct
-    public void loadPage() {
-        for (int i = 1940; i <= 1990; i++) {
-            final SelectItem item = new SelectItem();
-            item.setLabel(String.valueOf(i));
-            item.setValue(String.valueOf(i));
-            yearList.add(item);
-        }
-        for (int i = 1; i <= 12; i++) {
-            final SelectItem item = new SelectItem();
-            item.setLabel(String.valueOf(i));
-            item.setValue(String.valueOf(i));
-            monthList.add(item);
-        }
-        for (int i = 1; i <= 31; i++) {
-            final SelectItem item = new SelectItem();
-            item.setLabel(String.valueOf(i));
-            item.setValue(String.valueOf(i));
-            dayList.add(item);
-        }
-        coupleList = db.getAll();
-        columns = new ArrayList<>();
-        createDynamicColumns();
-
-    }
 //書籍エンティティのリスト
-
-    //DataTableのカラムリスト
-    private List<ColumnModel> columns;
-
-    /**
-     * カラム生成
-     */
-    public void createDynamicColumns() {
-        columns.clear();
-
-        //ヘッダとエンティティの属性である変数名を記述
-        columns.add(new ColumnModel("id", "id"));
-
-        columns.add(new ColumnModel("名前", "firstName"));
-        columns.add(new ColumnModel("住んでいる地域", "addressOne"));
-        columns.add(new ColumnModel("丁目", "addressTwo"));
-        columns.add(new ColumnModel("提供できる保育の内容", "educationContent"));
-        columns.add(new ColumnModel("保護者の方への言葉", "message"));
-//        columns.add(new ColumnModel("詳細", "detail"));
-
-    }
-
-    public byte[] toByteArray() throws IOException {
+    public byte[] toByteArray(Part file) throws IOException {
         if (file != null) {
             byte[] data = new byte[(int) file.getSize()];   // byte配列を作成
 
@@ -206,15 +203,17 @@ public class Bb extends SuperBb implements Serializable {
     }
 
 //        return output.toByteArray();
-//        byte[] data = new byte[(int) file.getSize()];   // byte配列を作成
+//        byte[] data = new byte[(int) file.getSize()];   // byte配
     public void imageToByte() throws IOException {
-//        image = toByteArray();
+        image = toByteArray(this.file);
+        imageRoom = toByteArray(this.fileRoom);
 
     }
 
     public String goToConfirm() throws IOException {
-        image = toByteArray();
-//        imageToByte();
+//        image = toByteArray();
+
+        imageToByte();
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
         flash.put("firstName", this.firstName);
@@ -239,6 +238,8 @@ public class Bb extends SuperBb implements Serializable {
         flash.put("educationContent", this.educationContent);
         flash.put("payment", this.payment);
         flash.put("image", image);
+        flash.put("imageRoom", imageRoom);
+
         System.out.println(image);
 
         return "/confirm.xhtml?faces-redirect=true";
@@ -413,11 +414,11 @@ public class Bb extends SuperBb implements Serializable {
         this.mailAddress = mailAddress;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -456,18 +457,6 @@ public class Bb extends SuperBb implements Serializable {
         return dbbean;
     }
 
-    public List<SelectItem> getYearList() {
-        return yearList;
-    }
-
-    public List<SelectItem> getMonthList() {
-        return monthList;
-    }
-
-    public List<SelectItem> getDayList() {
-        return dayList;
-    }
-
     public String getEducationContent() {
         return educationContent;
     }
@@ -484,28 +473,12 @@ public class Bb extends SuperBb implements Serializable {
         this.message = message;
     }
 
-    public List<OldCoupleInformation> getCoupleList() {
-        return coupleList;
-    }
-
-    public void setCoupleList(List<OldCoupleInformation> coupleList) {
-        this.coupleList = coupleList;
-    }
-
     public OldCoupleInformationDb getDb() {
         return db;
     }
 
     public void setDb(OldCoupleInformationDb db) {
         this.db = db;
-    }
-
-    public List getColumns() {
-        return columns;
-    }
-
-    public void setColumns(List columns) {
-        this.columns = columns;
     }
 
     public String getPayment() {
@@ -538,6 +511,38 @@ public class Bb extends SuperBb implements Serializable {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public byte[] getImageRoom() {
+        return imageRoom;
+    }
+
+    public void setImageRoom(byte[] imageRoom) {
+        this.imageRoom = imageRoom;
+    }
+
+    public Part getFileRoom() {
+        return fileRoom;
+    }
+
+    public void setFileRoom(Part fileRoom) {
+        this.fileRoom = fileRoom;
+    }
+
+    public String getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(String previous) {
+        this.previous = previous;
+    }
+
+    public String getNext() {
+        return next;
+    }
+
+    public void setNext(String next) {
+        this.next = next;
     }
 
 }

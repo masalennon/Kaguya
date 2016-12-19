@@ -26,7 +26,7 @@ import javax.servlet.http.Part;
 public class ConfirmBean implements Serializable {
     //
 
-    private Long id;
+    private Integer id;
     //
     private String firstName;
     //
@@ -73,6 +73,8 @@ public class ConfirmBean implements Serializable {
     private String payment;
 
     private byte[] image;
+    
+    private byte[] imageRoom;
 
     @EJB
     OldCoupleInformationDb db;
@@ -83,7 +85,7 @@ public class ConfirmBean implements Serializable {
     @PostConstruct
     public void init() {
         Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
-        this.id = (Long) flash.get("id");
+        this.id = (Integer) flash.get("id");
         this.firstName = (String) flash.get("firstName");
         this.lastName = (String) flash.get("lastName");
         this.firstNameHurigana = (String) flash.get("firstNameHurigana");
@@ -106,6 +108,7 @@ public class ConfirmBean implements Serializable {
         this.message = (String) flash.get("message");
         this.payment = (String) flash.get("payment");
         this.image = (byte[]) flash.get("image");
+        this.imageRoom = (byte[]) flash.get("imageRoom");
 
         System.out.println("firstName in init() = " + firstName);
 
@@ -117,6 +120,7 @@ public class ConfirmBean implements Serializable {
                 = birthMonth = birthDay = firstNameWife = lastNameWife = firstNameHuriganaWife
                 = lastNameHuriganaWife = birthYearWife = birthMonthWife = birthDayWife
                 = phoneNumber = mailAddress = educationContent = message = payment = null;
+        image = imageRoom = null;
     }
 
     public void create() {
@@ -125,7 +129,7 @@ public class ConfirmBean implements Serializable {
                 firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
                 birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
                 lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, phoneNumber, mailAddress,
-                educationContent, message, payment, image);
+                educationContent, message, payment, image, imageRoom);
 
         try {
 
@@ -149,11 +153,11 @@ public class ConfirmBean implements Serializable {
         return "/complete.xhtml?faces-redirect=true";
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -356,7 +360,13 @@ public class ConfirmBean implements Serializable {
     public void setImage(byte[] image) {
         this.image = image;
     }
-    
-    
 
+    public byte[] getImageRoom() {
+        return imageRoom;
+    }
+
+    public void setImageRoom(byte[] imageRoom) {
+        this.imageRoom = imageRoom;
+    }
+                            
 }
