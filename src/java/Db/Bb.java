@@ -211,8 +211,6 @@ public class Bb extends SuperBb implements Serializable {
     }
 
     public String goToConfirm() throws IOException {
-//        image = toByteArray();
-
         imageToByte();
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
@@ -239,8 +237,6 @@ public class Bb extends SuperBb implements Serializable {
         flash.put("payment", this.payment);
         flash.put("image", image);
         flash.put("imageRoom", imageRoom);
-
-        System.out.println(image);
 
         return "/confirm.xhtml?faces-redirect=true";
     }

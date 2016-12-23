@@ -100,7 +100,7 @@
 
             <p:dataTable id="examplej" class="table table-striped table-bordered dt-responsive nowrap table-hover" 
                          var="info" value="#{bb.coupleList}" rows="10" paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                         rowsPerPageTemplate="5,10,15" paginator="true" >
+                         rowsPerPageTemplate="5,10,15" paginator="true" emptyMessage="お探しの地域では見つかりませんでした">
                 <f:facet name="header">
                     <p:outputPanel>
                         <h:outputText value="Search all fields:" />

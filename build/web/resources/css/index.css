@@ -17,9 +17,15 @@ and open the template in the editor.
 }
 
 body {
+    background: white;
 }
 
-
+li {
+    
+    list-style: none;
+    color: red;
+    font-size: 20px;
+}
 .husbandmessage {
     font-weight: bold;
     margin-bottom: 0px;
@@ -49,6 +55,7 @@ body {
 
 }
 .husbandheadrow2 {
+    list-style: none;
     width: 649px;
     height: 79px;
     border-right: 1px solid #ABABAB;
@@ -139,6 +146,10 @@ body {
 .text2 {
     height: 48px;
     width: 250px;
+}
+.text3 {
+    height: 48px;
+    width: 40px;
 }
 .parentmessage {
     margin-bottom: 0pt;

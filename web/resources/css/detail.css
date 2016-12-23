@@ -15,7 +15,7 @@ html {
 body {
     position: relative;
     min-height: 100%;
-    background: #f5f5f5;
+    background: #f5f5f5 !important;
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
     font-size: 14px;
     color: #333;
@@ -27,30 +27,86 @@ body {
         padding-right: 100px;
         display: block;*/
     background: #fff;
-    padding: 24px 16px 55px 16px;
-margin: 16px 0 0;
+    padding: 4px 16px 55px 16px;
+    margin: 16px 0 0;
+    overflow: hidden;
 }
 
 .kaguya-detail-table {
-    float: right;
+    /*float: left;*/
     max-width: 500px;
-    height: 375px;
-    margin-left: 25%;
-
+    height: 300px;
+    position: relative;
     border-collapse: collapse;
-    border: 1px solid #f5f5f5;
+    border: 2px solid #f5f5f5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kaguya-message-table {
+    max-width: 500px;
+    height: 175px;
+    /*position: relative;*/
+    border-collapse: collapse;
+    border: 2px solid #f5f5f5;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    /*margin-top: 30px;*/
 }
 
 .img-detail {
     border: 0;
-    position: relative;
-    /*    left: 160px;
-        top: 300px;
-    */
+    /*position: relative;*/
+    margin-right: auto;
+    /*padding-left: 5px;*/
+    margin-left: auto;
+    /*float: left;*/
     width: 600px;
     /*margin-top: 20px;*/
+    display: inline-block;
+    padding-bottom: 20px;
+}
+.imgRoom-detail {
+    border: 0;
+    /*position: relative;*/
+    margin-right: auto;
+    padding-left: 5px;
+    /*float: left;*/
+    margin-left: auto;
+    width: 600px;
+    display: inline-block;
+    padding-top: 0px;
+
+}
+.kaguya-link {
+    /*position: absolute;*/
+    margin-right: auto;
+    margin-bottom: auto;
+    color: green;
+    font-size: 20px;
+    /*float: left;*/
+    padding-top: 30px;
 }
 
 .kaguya-detail {
     font-size: 24px;
+    color: green;
+
+}
+body {
+    background: whitesmoke;
+}
+
+html {
+    background: whitesmoke !important;
+
+}
+
+th {
+    text-align: center !important;
+}
+
+a {
+    /*font-size: 20px;*/
 }

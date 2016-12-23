@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Masanari
 */
 body{
-    background-color: background;
+    background: white !important;
 }
 .title {
     margin: 30px;
