@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Query;
 import javax.persistence.Table;
 import javax.servlet.http.Part;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -75,7 +77,7 @@ public class OldCoupleInformation implements Serializable {
     private String mailAddress;
 
     private Part file;
-    
+
     private Part fileRoom;
 
     private String educationContent;
@@ -89,6 +91,13 @@ public class OldCoupleInformation implements Serializable {
     @Lob
     @Basic(fetch = FetchType.LAZY)
     private byte[] imageRoom;
+
+//    public void filterTable(String AddressOne) {
+//        EntityManager em;
+//        Query q = em.createQuery(
+//                "SELECT c FROM Customer c WHERE c.name LIKE :custName")
+//                .setParameter("custName", "John");
+//    }
 
 //    @Inject
 //    transient Logger log;
@@ -336,6 +345,5 @@ public class OldCoupleInformation implements Serializable {
     public void setFileRoom(Part fileRoom) {
         this.fileRoom = fileRoom;
     }
-    
 
 }

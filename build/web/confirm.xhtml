@@ -34,12 +34,20 @@ and open the template in the editor.
     </h:head>
     <h:form>
         <h:body>
+
+            <h:outputStylesheet library="css" name="index.css" />
+            <h:outputStylesheet library="css" name="reset.css" />
+
+            <br/>            <br/>
+            <br/>
+
+            
             <div class="set" align="center">
 
-                <div class="title">
+                <div align="center">
                     <h2>かぐや会員登録お申込み画面</h2>
                 </div>
-                <div class="husbandmessage">ご主人のお名前、生年月日を確認してください</div>
+                <div class="husbandmessage"><h2>ご主人のお名前、生年月日を確認してください</h2></div>
                 <table border="1" cellspacing="0" cellpadding="2" class="husband"> 
                     <tr>
                         <td class="husbandheadrow">
@@ -82,7 +90,7 @@ and open the template in the editor.
                     </tr>
                 </table>
 
-                <div class="wifemessage">奥様のお名前、生年月日を確認してください。</div>
+                <div class="wifemessage"><h2>奥様のお名前、生年月日を確認してください。</h2></div>
                 <table border="1" cellspacing="0" cellpadding="2" class="wife"> 
                     <tr>
                         <td class="wifeheadrow">
@@ -125,7 +133,7 @@ and open the template in the editor.
                     </tr>
                 </table>
 
-                <div class="onlyTokyo">ご住所、ご連絡先を確認してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</div>
+                <div class="onlyTokyo"><h2>ご住所、ご連絡先を確認してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</h2></div>
                 <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
                     <tr class="c3">
                         <td class="headrow">
@@ -202,6 +210,10 @@ and open the template in the editor.
                 </p:graphicImage>
                 <br/><br/>
 
+
+                <p:graphicImage class="img-detail" value="#{bb.pic}"  width="" height="">
+                    <f:param name="id" value="#{cb.id}"/>
+                </p:graphicImage>    
                 <h:commandButton value="入力画面へ戻る" action="#{cb.goToInput()}" class="Button"/><br/><br/>
                 <h:commandButton value="上記の内容を確認して送信" action="#{cb.goToComplete()}" class="Button">
 

@@ -71,7 +71,11 @@ and open the template in the editor.
         <h:form enctype="multipart/form-data">
             <div class="set" align="center">
 
-                <div class="title">
+                
+                <br/>                <br/>
+                <br/>
+
+                <div align="center">
                     <h2>かぐや会員登録お申込み画面</h2>
                 </div>
 
@@ -82,7 +86,10 @@ and open the template in the editor.
                 <table border="1" cellspacing="0" cellpadding="2" class="husband"> 
                     <tr>
                         <td class="husbandheadrow">
-                            名前                            <span style="background: #ea352d" class="require">必須</span>
+                            名前                      
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">公開</span>
+
 
                         </td>　
                         <td class="husbandheadrow2">
@@ -94,7 +101,10 @@ and open the template in the editor.
                     </tr> 
                     <tr>
                         <td class="husbandheadrow">
-                            ふりがな                            <span style="background: #ea352d" class="require">必須</span>
+                            ふりがな     
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">非公開</span>
+
 
                         </td>　
                         <td class="husbandheadrow2">
@@ -109,7 +119,10 @@ and open the template in the editor.
                     <tr>
 
                         <td class="husbandheadrow">
-                            誕生日                             <span style="background: #ea352d" class="require">必須</span>
+                            誕生日                             
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">公開</span>
+
 
                         </td>
                         <td class="husbandheadrow2">
@@ -138,7 +151,10 @@ and open the template in the editor.
                 <table border="1" cellspacing="0" cellpadding="2" class="wife" > 
                     <tr>
                         <td class="wifeheadrow">
-                            名前                            <span style="background: #ea352d" class="require">必須</span>
+                            名前                            
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">公開</span>
+
 
                         </td>　
                         <td class="wifeheadrow2">
@@ -150,7 +166,10 @@ and open the template in the editor.
                     </tr> 
                     <tr>
                         <td class="wifeheadrow">
-                            ふりがな                            <span style="background: #ea352d" class="require">必須</span>
+                            ふりがな                           
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">非公開</span>
+
 
                         </td>　
                         <td class="wifeheadrow2">
@@ -165,7 +184,10 @@ and open the template in the editor.
                     <tr>
 
                         <td class="wifeheadrow">
-                            誕生日                            <span style="background: #ea352d" class="require">必須</span>
+                            誕生日                            
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">公開</span>
+
 
                         </td>
                         <td class="wifeheadrow2">
@@ -203,7 +225,10 @@ and open the template in the editor.
                 <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
                     <tr>
                         <td class="headrow">
-                            市区町村                            <span style="background: #ea352d" class="require">必須</span>
+                            市区町村                            
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">公開</span>
+
 
                         </td>
                         <td class="headrow2">
@@ -214,22 +239,25 @@ and open the template in the editor.
                     <tr>
                         <td class="headrow">
                             番地(丁のみ)
+                            <span style="background: green" class="require">公開</span>
+
                         </td>
                         <td class="headrow2"><br/>
-                            必須ではありませんが、何丁目かまでわかると、<br/>保護者の方の参考になります。全体に公開されますので、<br/>
-                            住所を全て記入するのはご遠慮ください。<br/>
+                            必須ではありませんが、何丁目かまでわかると、<br/>保護者の方の参考になります。<br/>
                             <h:inputText class = "text3" id="addressTwo"
-                                         value="#{bb.addressTwo}"/> 丁目<br/><br/>
+                                         value="#{bb.addressTwo}" required="false"/> 丁目<br/><br/>
                         </td>
                     </tr>
                     <tr>
                         <td class="headrow">
-                            電話番号                            <span style="background: #ea352d" class="require">必須</span>
+                            電話番号                            
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">非公開</span>
 
                         </td>
                         <td class="headrow2">
                             <h:inputText class = "text2" id="phoneNumber" required="true"
-                                         requiredMessage="電話番号は必須です" a:placeholder=" 例：03-1234-5678"
+                                         requiredMessage="電話番号の入力は必須です" a:placeholder=" 例：03-1234-5678"
                                          value="#{bb.phoneNumber}"/> 
 
                         </td>　　　
@@ -237,7 +265,9 @@ and open the template in the editor.
 
                     <tr>
                         <td class="headrow">
-                            メールアドレス                            <span style="background: #ea352d" class="require">必須</span>
+                            メールアドレス                            
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">非公開</span>
 
                         </td>
                         <td class="headrow2">
@@ -253,7 +283,10 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td class="headrow">
-                            希望月謝                            <span style="background: #ea352d" class="require">必須</span>
+                            希望月謝                          
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">公開</span>
+
 
                         </td>
                         <td class="headrow2">
@@ -265,7 +298,9 @@ and open the template in the editor.
 
                     <tr>
                         <td class="headrow">
-                            提供できる保育の内容                            <span style="background: #ea352d" class="require">必須</span>
+                            提供できる保育                
+                            <span style="background: #ea352d" class="require">必須</span>
+                            <span style="background: green" class="require">公開</span>
 
                         </td>
                         <td class="headrow2">
@@ -278,6 +313,8 @@ and open the template in the editor.
                     <tr>
                         <td class="headrow">
                             保護者の方への言葉
+                            <span style="background: green" class="require">公開</span>
+
                         </td>
                         <td class="headrow2">
                             <br/>
@@ -294,14 +331,13 @@ and open the template in the editor.
                         </td>
                     </tr>
                 </table><br/><br/>
-                <div align="center">ご夫婦で撮った写真</div>
+                <div align="center">ご夫婦で撮った写真や、お部屋の写真</div><br/>
                 <h:form enctype="multipart/form-data">
-                    <div align="center"><h:inputFile id="file" value="#{bb.file}" label="写真を選択"/></div><br />
+                    <div align="center"><h:inputFile id="file" value="#{bb.file}" label="写真を選択" /></div><br />
                     <div align="center"><h:inputFile id="fileRoom" value="#{bb.fileRoom}" label="写真を選択"/></div><br />
 
                 </h:form>
 
-                <div align="center">お部屋の写真</div>
                 <!--                <h:form enctype="multipart/form-data">
                                 </h:form>-->
                 <div align="center">❇夫婦で撮ったお写真やお部屋の様子がわかる写真があると、申し込みが来やすくなります。</div>

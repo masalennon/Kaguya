@@ -39,6 +39,7 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <h:outputStylesheet name="resources/css/detail.css" />
+        <!--<link rel="stylesheet" type="text/css" href="resources/css/detail.css" />-->    
 
         <h:form>
 
@@ -66,7 +67,9 @@ and open the template in the editor.
                 <div class="img-detail">
                     <br/>                    
 
-                    ご夫婦で撮った写真
+                    ご夫婦で撮った写真         
+                    <br/><br/>
+
                     <p:graphicImage class="img-detail" value="#{bb.pic}"  width="" height="">
                         <f:param name="id" value="#{bb.oci.id}"/>
                     </p:graphicImage>       
@@ -75,7 +78,9 @@ and open the template in the editor.
                     <br/>
 
 
-                    お部屋の写真
+                    お部屋の写真       
+                    <br/><br/>
+
                     <p:graphicImage class="imgRoom-detail" value="#{bb.roomPic}"  width="" height="">
                         <f:param name="id" value="#{bb.oci.id}"/>
                     </p:graphicImage>
@@ -142,6 +147,9 @@ and open the template in the editor.
                         <h:outputText value="#{bb.oci.firstName}" styleClass="price"/>さんと面談する<br/>
                     </h:commandLink> 
                 </div>
+                <br/><br/>
+                <br/><br/>
+
             </section>
 
 
@@ -199,6 +207,7 @@ and open the template in the editor.
                                     <br/>
                                     <br/>
                                 </div>-->
+            <br/><br/><br/>
         </h:form>
 
         <br/>

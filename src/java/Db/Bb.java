@@ -68,7 +68,7 @@ public class Bb extends SuperBb implements Serializable {
     private String lastNameHurigana;
     @NotEmpty
     private String addressOne;
-    @NotEmpty
+
     private String addressTwo;
     @NotEmpty
     private String birthYear = "1940";
