@@ -12,6 +12,7 @@ import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -51,8 +52,22 @@ public class OldCoupleInformationDb<T> implements Serializable {
         return em.find(OldCoupleInformation.class, key);
     }
 
+    public OldCoupleInformation findByAddress(String addressOne) {
+        return em.find(OldCoupleInformation.class, addressOne);
+    }
+
     public List<OldCoupleInformation> getAll() {
         return em.createQuery("SELECT c FROM OldCoupleInformation c").getResultList();
+    }
+
+    public List<OldCoupleInformation> filterTable(String search) {
+        if(search == null) return null;
+        Query query = em.createQuery("SELECT c FROM OldCoupleInformation c WHERE c.addressOne LIKE　:search", OldCoupleInformation.class);
+        query.setParameter("search", "%" + search + "%"); //searchを含む文章を検索できる
+        return query.getResultList();
+//        OldCoupleInformation result = (OldCoupleInformation) query.getResultList();
+//        return (List) result;
+
     }
 
     public List<OldCoupleInformation> getAllItems() {

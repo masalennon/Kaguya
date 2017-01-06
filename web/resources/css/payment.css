@@ -9,9 +9,14 @@ and open the template in the editor.
 */
 
 body {
-    background: whitesmoke;
-    
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    height: 100%;
+    line-height: 1.42857;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    background: linear-gradient(rgb(255, 255, 255) 0px, #f2faf2 0px);
 }
+
 .description-kaguya {
     padding-top: 30px;
     padding-left: 100px;

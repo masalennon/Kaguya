@@ -9,13 +9,22 @@ and open the template in the editor.
 */
 
 body {
-    background: white !important;
+    background: white;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
 }
+
+.ui-widget {
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
+}
+
 .ui-widget-content a {
     color: green; 
 }
-.ui-datatable tbody td {
-    border-color: green;
+.ui-datatable tbody :hover {
+    background: yellow;
+    border: none;
 }
 .ui-datatable-odd {
     background: none repeat scroll 0 0 #e1f2e1;
@@ -24,4 +33,106 @@ body {
     background: none repeat scroll 0 0 #f2faf2;
 
 }
+/*
+.ui-datatable-odd tr :hover{
+    background: none repeat scroll 0 0 green;
+}
+.ui-datatable-even tr:hover{
+    background: none repeat scroll 0 0 #f2faf2;
 
+}*/
+
+.ui-widget-content {
+    border: 0px solid #a8a8a8; 
+    /* color: #4f4f4f; */
+}
+.ui-widget-header {
+    /* border: 1px solid #a8a8a8; */
+    background: greenyellow url(/Kaguya/javax.faces.resource/images/ui-bg_highlight-soft_100_c4c4c4_1x100.png.xhtml?ln=primefaces-aristo) 50% 50% repeat-x;
+    background: greenyellow linear-gradient(top, rgba(255,255,255,0.8), rgba(255,255,255,0));
+    /* background: #c4c4c4 -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.8)), to(rgba(255,255,255,0))); */
+    background: green -moz-linear-gradient(top, rgba(255,255,255,0.8), rgba(255,255,255,0));
+    color: #333;
+    font-weight: bold;
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.7);
+}
+
+.ui-datatable table {
+    table-layout: auto;
+    padding: 5px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 0px solid #ddd; 
+    font-size: 20px;
+    background: white;
+}
+
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td, .ui-datatable tfoot th {
+    padding: 4px 10px; 
+    overflow: hidden;
+    border-width: 1px;
+    border-style: none; 
+}
+
+
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td, .ui-datatable tfoot th :hover td{
+    cursor: pointer;
+    /*background: green;*/
+}
+
+
+
+p:hover {
+    color: green;
+}
+/*.column :hover{
+    cursor: pointer;
+    background: #a0fab5;
+
+}*/
+
+table-hover:hover{background-color:#f5f5f5;
+}
+
+.ui-paginator.ui-paginator-top {
+    border-bottom: 0px none;
+    color: yellow;
+    background: green;
+}
+
+.ui-datatable .ui-datatable-header, .ui-datatable .ui-datatable-footer {
+    text-align: center;
+    color: yellow;
+    padding: 4px 10px;
+    background: green;
+}
+.ui-paginator.ui-paginator-bottom {
+    border-bottom: 0px none;
+    color: yellow;
+    background: green;
+}
+
+img {
+    width: 100px;
+    
+}
+
+.table {
+    width: 50%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    position: absolute;
+    margin-left: 25%;
+    margin-right: auto;
+    text-align: center;
+}
+/*.couple-table tr :hover{
+    background: #a0fab5;
+    cursor: pointer;
+
+}
+.couple-table td :hover{
+    background: #a0fab5;
+    cursor: pointer;
+
+}*/

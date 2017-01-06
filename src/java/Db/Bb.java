@@ -113,6 +113,8 @@ public class Bb extends SuperBb implements Serializable {
 
     private String next = "次へ";
 
+    private String search;
+
     @NotEmpty
     private String mailAddress;
 
@@ -134,11 +136,46 @@ public class Bb extends SuperBb implements Serializable {
     @ManagedProperty(value = "#{dbbean}")
     private DbBean dbbean;
 
-    public String detail(OldCoupleInformation oldcoupleinformation) {
+//    @ManagedProperty(value="#{searchBb}")
+//    private SearchBb searchBb;
+//    
+//    public String detail(OldCoupleInformation oldcoupleinformation) {
+//        System.out.println("detail()");
+//        oci = oldcoupleinformation;
+//        return "detail-content.xhtml";
+//
+//    }
+    public String detail(List a) {//エンティティの代わりにリストにする
         System.out.println("detail()");
-        oci = oldcoupleinformation;
+        coupleList = a;
+        Flash flash = FacesContext.getCurrentInstance()
+                .getExternalContext().getFlash();
+        flash.put("coupleList", coupleList);
         return "detail-content.xhtml";
 
+    }
+
+//    SearchBb searchbb = new SearchBb();
+    public String filterTable() {
+//        oci = oldcoupleinformation;
+        System.out.println("filterTable()");
+        System.out.println("getSearch() in filtereTable() = " + getSearch());
+        System.out.println("search in filterTable() = " + search);
+        Flash flash = FacesContext.getCurrentInstance()
+                .getExternalContext().getFlash();
+        flash.put("search", search);
+        System.out.println("search in filterTable in Bb = " + search);
+        return "/filtered-table-content.xhtml?faces-redirect=true";
+
+    }
+
+    public void filt() {
+        OldCoupleInformation oldcoupleinformation = new OldCoupleInformation();
+        oci = oldcoupleinformation; //これを初期化することにより詳細ページへのリンク先の情報が更新される
+        coupleList.clear();
+        coupleList = db.filterTable(search);
+        columns = new ArrayList<>();
+        createDynamicColumns();
     }
 
     public StreamedContent getPic() {
@@ -159,7 +196,7 @@ public class Bb extends SuperBb implements Serializable {
         }
     }
 
-     public StreamedContent getRoomPic() {
+    public StreamedContent getRoomPic() {
         FacesContext context = FacesContext.getCurrentInstance();
         if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
             System.out.println("if");
@@ -176,7 +213,7 @@ public class Bb extends SuperBb implements Serializable {
             return ds;
         }
     }
-    
+
     public ExternalContext getServlet() {
         return FacesContext.getCurrentInstance().getExternalContext();
     }
@@ -205,8 +242,12 @@ public class Bb extends SuperBb implements Serializable {
 //        return output.toByteArray();
 //        byte[] data = new byte[(int) file.getSize()];   // byte配
     public void imageToByte() throws IOException {
-        image = toByteArray(this.file);
-        imageRoom = toByteArray(this.fileRoom);
+        if (this.file != null) {
+            image = toByteArray(this.file);
+            imageRoom = toByteArray(this.fileRoom);
+        } else {
+            System.out.println("file is null");
+        }
 
     }
 
@@ -540,5 +581,21 @@ public class Bb extends SuperBb implements Serializable {
     public void setNext(String next) {
         this.next = next;
     }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
+    }
+//
+//    public SearchBb getSearchBb() {
+//        return searchBb;
+//    }
+//
+//    public void setSearchBb(SearchBb searchBb) {
+//        this.searchBb = searchBb;
+//    }
 
 }

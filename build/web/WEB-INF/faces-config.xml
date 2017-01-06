@@ -6,6 +6,7 @@
     <managed-bean>
         <managed-bean-name>oci</managed-bean-name>
         <managed-bean-class>bb</managed-bean-class>
+        <managed-bean-class>searchBb</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
 </faces-config>
