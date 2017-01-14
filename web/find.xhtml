@@ -20,7 +20,7 @@
         </f:facet>
 
         <f:facet name="middle">
-            <h:outputStylesheet library="css" name="bootstrap.css" />
+            <!--<h:outputStylesheet library="bootstrap" name="bootstrap.css" />-->
             <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
 
         </f:facet> 
@@ -76,24 +76,20 @@
         <br/>
         <br/>
         <h:form>        
-<p:inputText id="search" value="#{bb.search}" style="width:150px" p:placeholder="例:世田谷区"/> <br/>
-                    <br/>
-                    <h:commandLink type="submit" value="地域で検索" action="#{bb.filt()}" class="Button"/>
+            <p:inputText id="search" value="#{bb.search}" style="width:150px" p:placeholder="例:世田谷区"/> <br/>
+            <br/>
+            <h:commandLink type="submit" value="地域で検索" action="#{bb.search()}" class="Button"/>
+
+
+
 
             <p:dataTable id="examplej" class="table couple-table" 
                          var="info" value="#{bb.coupleList}" widgetVar="couple" rows="10" paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                         rowsPerPageTemplate="5,10,15" paginator="true" emptyMessage="まだ登録している人はいません">
+                         rowsPerPageTemplate="5,10,15" paginator="true" emptyMessage="住所を入力して検索してください">
                 <f:facet name="header">
                     <!--<p:outputPanel>-->
                     <h:outputText value="地域で検索" />
-
-
-                    
-                    <!--</p:outputPanel>-->
-
                 </f:facet>
-                <p:ajax event="rowSelect" listener="#{bb.detail(info)}"
-                        />
 
                 <p:column class="column-couple" >
                     <p:graphicImage value="#{bb.pic}" >
@@ -103,20 +99,21 @@
 
                 <p:column class="column-couple">
                     <h:outputText value="#{info.firstName}" />さん
+                    <h:outputText value="#{info.id}" />さん
 
-                    <h:commandLink action="#{bb.detail(info)}">
-                    </h:commandLink>
 
                 </p:column>
 
                 <p:column class="column-couple">
                     <h:outputText value="#{info.addressOne}" />
-                    <p:commandLink action="#{bb.detail(info)}"/>
+                    <!--引数にリストを渡してそのリストを元に詳細ページに飛ぶようにする？ど、どうやって？-->
+                    <!--リストを渡してそのリストをArrayにしてその要素を順番に表示していく？-->
+                    <!--更新ボタンが押された時に値が消えないように、更新ボタンが押された時の動作を指定することができれば、検索によって新たに作成したリストを違うページに渡してそこから要塞ページに行くようにできるかもしれない-->
                 </p:column>
 
 
                 <p:column class="column-couple">
-                    <h:commandLink action="#{bb.detail(bb.coupleList)}">
+                    <h:commandLink action="#{bb.detail(info.id)}"><!-- 試したもの：bb.oci, bb.coupleList, filt()でOldcoupleInformationをflashでdetail()に渡す-->
                         詳細へ
                     </h:commandLink>  
                 </p:column>

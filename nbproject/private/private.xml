@@ -4,21 +4,23 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/masanari/Kaguya/web/detail-content.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/resources/css/detail.css</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/ConfirmBean.java</file>
+            <file>file:/Users/masanari/Kaguya/web/confirm.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/resources/css/index.css</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/DetailBean.java</file>
             <file>file:/Users/masanari/Kaguya/web/find.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/ConfirmBeanParent.java</file>
             <file>file:/Users/masanari/Kaguya/web/index.xhtml</file>
             <file>file:/Users/masanari/Kaguya/src/java/Db/OldCoupleInformationDb.java</file>
             <file>file:/Users/masanari/Kaguya/src/java/Db/Bb.java</file>
-            <file>file:/Users/masanari/Kaguya/web/filtered-table.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/FindBean.java</file>
             <file>file:/Users/masanari/Kaguya/src/java/Db/SearchBb.java</file>
-            <file>file:/Users/masanari/Kaguya/web/resources/css/find.css</file>
             <file>file:/Users/masanari/Kaguya/src/java/Db/SuperBb.java</file>
             <file>file:/Users/masanari/Kaguya/src/java/Db/OldCoupleInformation.java</file>
-            <file>file:/Users/masanari/Kaguya/web/templates/topbar-template.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/topbar.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/resources/bootstrap/css/bootstrap.css</file>
-            <file>file:/Users/masanari/Kaguya/web/filtered-table-content.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/filtered-detail-content.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/confirm-parent.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/BbParent.java</file>
+            <file>file:/Users/masanari/Kaguya/src/java/entities/ParentEntity.java</file>
+            <file>file:/Users/masanari/Kaguya/web/index-parent.xhtml</file>
         </group>
     </open-files>
 </project-private>

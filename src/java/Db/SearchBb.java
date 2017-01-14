@@ -53,16 +53,17 @@ public class SearchBb extends SuperBb {
     @EJB
     protected OldCoupleInformationDb db;
     protected OldCoupleInformation oci;
+    protected Bb bb;
 
-    @PostConstruct
-    public void loadpage() {
-        System.out.println("loadpage() in searchBb");
-        filter();
-        System.out.println("search in searchBb = " + search);
-        filteredColumns = new ArrayList<>();
-        createDynamicColumns();
-
-    }
+//    @PostConstruct
+//    public void loadpage() {
+//        System.out.println("loadpage() in searchBb");
+////        filter();
+//        System.out.println("search in searchBb = " + search);
+//        filteredColumns = new ArrayList<>();
+//        createDynamicColumns();
+//
+//    }
 
     public StreamedContent getPic() {
         System.out.println("pic in searchBb");
@@ -101,34 +102,8 @@ public class SearchBb extends SuperBb {
         }
     }
 
-    public String detail(OldCoupleInformation oldcoupleinformation) {
-        System.out.println("detail() in SearchBb");
-        oci = oldcoupleinformation;
-//        return "filtered-detail-content.xhtml";
-        return "/filtered-detail-content.xhtml?faces-redirect=true";
-
-    }
-
-    public void filter() {
-        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
-        search = (String) flash.get("search");
-        System.out.println("filter()");
-        System.out.println("search in filter() = " + search);
-
-        if (search != null) {
-            setSecondSearch(search);
-        }
-        System.out.println("secondSearch in filter() = " + secondSearch);
-
-//        this.search = getSearch();
-//        System.out.println(this.search);
-        if (secondSearch != null) {
-            this.filteredList = db.filterTable(secondSearch);
-        } else {
-            System.out.println("not found");
-        }
-
-    }
+    
+    
 
     public String getSearch() {
         return search;

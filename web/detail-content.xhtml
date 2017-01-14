@@ -79,6 +79,7 @@ and open the template in the editor.
                     <p:graphicImage class="img-detail" value="#{bb.pic}"  width="" height="">
                         <f:param name="id" value="#{bb.oci.id}"/>
                     </p:graphicImage>       
+
                     <br/>
                     <br/>
                     <br/>
@@ -95,6 +96,7 @@ and open the template in the editor.
                 <br/>
                 <br/>
                 <br/>
+                <h:outputText value="#{bb.oci.id}" styleClass="name"/>
 
 
                 <table class="kaguya-detail-table">
@@ -105,7 +107,9 @@ and open the template in the editor.
                                 お住いの地域 
                             </th>
                             <td>
-                                <h:outputText value="#{bb.oci.addressOne}" styleClass="name"/>
+                                <h:outputText value="#{bb.oci.addressOne}" styleClass="name">
+                                    <f:param value="bb.oci.id"/>
+                                </h:outputText>
                                 <h:outputText value="#{bb.oci.addressTwo}" styleClass="name"/>
                             </td>
                         </tr>
@@ -149,7 +153,7 @@ and open the template in the editor.
                     </tbody>
                 </table>
                 <div class="kaguya-link" align="center">
-                    <h:commandLink action="#{bb.detail(info)}">
+                    <h:commandLink action="#{bb.goToContract}">
                         <h:outputText value="#{bb.oci.firstName}" styleClass="price"/>さんと面談する<br/>
                     </h:commandLink> 
                 </div>

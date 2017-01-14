@@ -5,11 +5,13 @@
  */
 package Db;
 
+import entities.ParentEntity;
 import java.io.Serializable;
 import java.util.List;
 import static javafx.scene.input.KeyCode.T;
 import javax.ejb.Stateful;
 import javax.ejb.Stateless;
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -36,6 +38,9 @@ public class OldCoupleInformationDb<T> implements Serializable {
     public void create(OldCoupleInformation oldCoupleInformation) {
         em.persist(oldCoupleInformation);
     }
+    public void createa(ParentEntity parentEntity) {
+        em.persist(parentEntity);
+    }
 
     public void update(OldCoupleInformation oldCoupleInformation) {
         em.merge(oldCoupleInformation);
@@ -48,8 +53,8 @@ public class OldCoupleInformationDb<T> implements Serializable {
 //    public OldCoupleInformation find(Integer key) {
 //        return em.find(OldCoupleInformation.class, key);
 //    }
-    public OldCoupleInformation find(Integer key) {
-        return em.find(OldCoupleInformation.class, key);
+    public OldCoupleInformation find(Integer id) throws IllegalArgumentException {
+        return em.find(OldCoupleInformation.class, id);
     }
 
     public OldCoupleInformation findByAddress(String addressOne) {
@@ -59,14 +64,21 @@ public class OldCoupleInformationDb<T> implements Serializable {
     public List<OldCoupleInformation> getAll() {
         return em.createQuery("SELECT c FROM OldCoupleInformation c").getResultList();
     }
+//    
+//        public OldCoupleInformation findById(Integer id) {
+//        return em.createQuery("SELECT c FROM OldCoupleInformation c where c.id = :id");
+//    }
 
     public List<OldCoupleInformation> filterTable(String search) {
-        if(search == null) return null;
+        if(search != null) { 
         Query query = em.createQuery("SELECT c FROM OldCoupleInformation c WHERE c.addressOne LIKE　:search", OldCoupleInformation.class);
         query.setParameter("search", "%" + search + "%"); //searchを含む文章を検索できる
         return query.getResultList();
 //        OldCoupleInformation result = (OldCoupleInformation) query.getResultList();
 //        return (List) result;
+        } else {
+            return getAll();
+        }
 
     }
 
