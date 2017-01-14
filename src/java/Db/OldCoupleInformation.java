@@ -92,12 +92,7 @@ public class OldCoupleInformation implements Serializable {
     @Basic(fetch = FetchType.LAZY)
     private byte[] imageRoom;
 
-//    public void filterTable(String AddressOne) {
-//        EntityManager em;
-//        Query q = em.createQuery(
-//                "SELECT c FROM Customer c WHERE c.name LIKE :custName")
-//                .setParameter("custName", "John");
-//    }
+
 
 //    @Inject
 //    transient Logger log;

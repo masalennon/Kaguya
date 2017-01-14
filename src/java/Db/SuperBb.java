@@ -35,20 +35,23 @@ import util.PagenationHelper;
 // *
 // * @author Masanari
 // */
-@Named
+//@Named
+
 public class SuperBb<T> extends OldCoupleInformationDb {
 
+//    private String search;
     private final List<SelectItem> yearList = new ArrayList();
     private final List<SelectItem> monthList = new ArrayList();
     private final List<SelectItem> dayList = new ArrayList();
-    private List<OldCoupleInformation> coupleList;
+    //DataTableのカラムリスト
+    protected List<ColumnModel> columns;
 
     @EJB
     protected OldCoupleInformationDb db;
 
     @PostConstruct
     public void loadPage() {
-        for (int i = 1940; i <= 1990; i++) {
+        for (int i = 1930; i <= 1990; i++) {
             final SelectItem item = new SelectItem();
             item.setLabel(String.valueOf(i));
             item.setValue(String.valueOf(i));
@@ -66,22 +69,22 @@ public class SuperBb<T> extends OldCoupleInformationDb {
             item.setValue(String.valueOf(i));
             dayList.add(item);
         }
-        coupleList = db.getAll();
+
+//        coupleList = db.getAll();
+//        System.out.println("cupleList was initialized.");
         columns = new ArrayList<>();
         createDynamicColumns();
         getPagination();
+
 //PagenationHelper getPagination();
     }
-
-    //DataTableのカラムリスト
-    private List<ColumnModel> columns;
 
     /**
      * カラム生成
      */
     public void createDynamicColumns() {
         columns.clear();
-
+        
         //ヘッダとエンティティの属性である変数名を記述
         columns.add(new ColumnModel("id", "id"));
         columns.add(new ColumnModel("名前", "firstName"));
@@ -92,7 +95,7 @@ public class SuperBb<T> extends OldCoupleInformationDb {
 
     }
 
-    
+
 
     public String next() {
         getPagination().nextPage();
@@ -163,13 +166,7 @@ public class SuperBb<T> extends OldCoupleInformationDb {
         }
     }
 
-    public List<OldCoupleInformation> getCoupleList() {
-        return coupleList;
-    }
 
-    public void setCoupleList(List<OldCoupleInformation> coupleList) {
-        this.coupleList = coupleList;
-    }
 
     public List<SelectItem> getYearList() {
         return yearList;
@@ -182,19 +179,28 @@ public class SuperBb<T> extends OldCoupleInformationDb {
     public List<SelectItem> getDayList() {
         return dayList;
     }
-    
-        public DataModel getdtmdl() {
+
+    public DataModel getdtmdl() {
         return dtmdl;
     }
 
     public void setDtmdl(DataModel dtmdl) {
         this.dtmdl = dtmdl;
     }
+//
+//    public String getSearch() {
+//        return search;
+//    }
+//
+//    public void setSearch(String search) {
+//        this.search = search;
+//    }
+
+}
 
 //
 //    @EJB
 //    OldCoupleInformationDb db;
-}
 //
 //    @NotEmpty
 //    private Long id;

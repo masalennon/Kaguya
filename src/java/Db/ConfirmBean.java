@@ -6,6 +6,7 @@
 package Db;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -73,8 +74,9 @@ public class ConfirmBean implements Serializable {
     private String payment;
 
     private byte[] image;
-    
+
     private byte[] imageRoom;
+
 
     @EJB
     OldCoupleInformationDb db;
@@ -142,6 +144,12 @@ public class ConfirmBean implements Serializable {
 
         }
     }
+//
+//    public List<OldCoupleInformation> findByAddress(String search) {
+//        filteredList = db.filterTable(search);
+//
+//        return db.filterTable(search);
+//    }
 
     public String goToInput() {
         System.out.println("back to input.");
@@ -368,5 +376,5 @@ public class ConfirmBean implements Serializable {
     public void setImageRoom(byte[] imageRoom) {
         this.imageRoom = imageRoom;
     }
-                            
+
 }

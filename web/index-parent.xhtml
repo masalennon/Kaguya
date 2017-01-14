@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>保護者の方用会員登録ページ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link rel="stylesheet" type="text/css" href="resources/css/index.css" />
+        <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+
+    </h:head>
+    <!--<ui:composition>-->
+
+    <h:body>
+        <h:outputStylesheet library="css" name="index.css" />
+        <h:outputStylesheet library="css" name="reset.css" />
+        <h:form>
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="main.xhtml">かぐや</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="main.xhtml">Home</a></li>
+                        <li><a href="serviceoverview.xhtml">サービスの概要</a></li>
+                        <li><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
+                        <li><a href="safety.xhtml">安全への取り組み</a></li>
+                        <li><a href="find.xhtml">受け入れ先を探す</a></li>
+                        <li><a href="index.xhtml">会員登録</a></li>  
+                        <li><a href="faq.xhtml">よくある質問</a></li>
+                        <li><a href="inquery.xhtml">お問合せ</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+            <br/><br/>
+            <br/>
+            <br/>
+
+
+
+        </h:form>
+        <h:form>
+            <div align="center">
+
+                <div class="title">
+                    <h2>保護者向けかぐや会員登録お申込み画面</h2>
+                </div>
+
+                <div class="parentmessage">お名前、生年月日をそれぞれ入力してください。</div>
+                <table border="1" cellspacing="0" cellpadding="2" class="husband"> 
+                    <tr>
+                        <td class="parentheadrow">
+                            名前
+                        </td>　
+                        <td class="parentheadrow2">
+                            (姓) <h:inputText class = "text" id="firstNameParent" required="true"   requiredMessage="ご主人の名前(姓)の入力は必須です"
+                                             value="#{bbParent.firstNameParent}" label="名前"/>
+                            (名) <h:inputText class = "text" id="lastNameParent" required="true" requiredMessage="ご主人の名前(姓)の入力は必須です"
+                                             value="#{bbParent.lastNameParent}"/><br/>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td class="parentheadrow">
+                            名前(ふりがな)
+                        </td>　
+                        <td class="parentheadrow2">
+                           
+                            (姓) <h:inputText class = "text" id="firstNameHuriganaParent" required="true" requiredMessage="ご主人の名前(姓)の入力は必須です"
+                                             value="#{bbParent.firstNameHuriganaParent}"/>
+                            (名) <h:inputText class = "text" id="lastNameHuriganaParent" required="true"   requiredMessage="ご主人の名前(姓)の入力は必須です"
+                                             value="#{bbParent.lastNameHuriganaParent}"/><br/>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td class="parentheadrow">
+                            誕生日
+                        </td>
+                        <td class="parentheadrow2">
+                            
+                              <h:selectOneMenu id="birthYear" required="true" requiredMessage="生まれた年の入力は必須です"
+                                             value="#{bbParent.birthYearParent}">
+                                <f:selectItems value="#{bbParent.yearList}"/>
+                            </h:selectOneMenu>
+                            <h:selectOneMenu id="birthMonth" required="true"
+                                             requiredMessage="生まれた月の入力は必須です"
+                                             value="#{bbParent.birthMonthParent}">
+                                <f:selectItems value="#{bbParent.monthList}"/>
+                            </h:selectOneMenu>
+                            <h:selectOneMenu id="birthDay" required="true"
+                                             requiredMessage="生まれた日の入力は必須です"
+                                             value="#{bbParent.birthDayParent}">
+                                <f:selectItems value="#{bbParent.dayList}"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <div class="onlyTokyo">ご住所、ご連絡先を入力してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</div>
+                <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
+<!--                    <tr>
+                        <td class="headrow">
+                            市区町村
+                        </td>
+                        <td class="headrow2">
+                            <h:inputText class = "text" id="addressOneParent"  required="true" requiredMessage="市区町村の入力は必須です"   
+                                         value="{bbParent.addressOneParent}"/><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headrow">
+                            それ以降の住所
+                        </td>
+                        <td class="headrow2">
+                            <h:inputText class = "text" id="addressTwoParent"  required="true" requiredMessage="それ以降の住所の入力は必須です"
+                                         value="{bbParent.addressTwoParent}"/><br/>
+
+                        </td>
+                    </tr>-->
+                    <tr>
+                        <td class="headrow">
+                            電話番号
+                        </td>
+                        <td class="headrow2"><h:inputText class = "text" id="PhoneNumberParent"  required="true" requiredMessage="電話番号の入力は必須です"
+
+                                                          value="#{bbParent.phoneNumberParent}"/> 
+                            <br/>
+                        </td>　　　
+                    </tr>
+
+                    <tr>
+                        <td class="headrow">
+                            メールアドレス
+                        </td>
+                        <td class="headrow2"><h:inputText class = "text" id="mailAddressParent"  required="true" requiredMessage="メールアドレスの入力は必須です"
+
+                                                          value="#{bbParent.mailAddressParent}"/><br/>
+                        </td>
+                    </tr>
+                </table>
+                <h:commandButton value="以下の会員規約に同意して確認画面へ進む" action="#{bbParent.goToConfirm()}" class="Button"/>
+            </div>
+
+        </h:form>
+    </h:body>
+    <!--</ui:composition>-->
+</html>

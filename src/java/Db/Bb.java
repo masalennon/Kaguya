@@ -20,10 +20,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
+//import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
@@ -113,6 +115,8 @@ public class Bb extends SuperBb implements Serializable {
 
     private String next = "次へ";
 
+    private boolean listFlag;
+
     @NotEmpty
     private String mailAddress;
 
@@ -134,20 +138,81 @@ public class Bb extends SuperBb implements Serializable {
     @ManagedProperty(value = "#{dbbean}")
     private DbBean dbbean;
 
-    public String detail(OldCoupleInformation oldcoupleinformation) {
+    protected List<OldCoupleInformation> coupleList;
+    private String search;
+
+    public void Id() {
+        Flash flash = FacesContext.getCurrentInstance()
+                .getExternalContext().getFlash();
+        this.coupleList = (List) flash.get("coupleList");
+//        System.out.println(coupleList);
+    }
+
+    @PostConstruct
+    public void filt() {
+        if (FacesContext.getCurrentInstance().isPostback()) {
+            System.out.println("this is postBack.");
+            coupleList = db.getAll();
+//        System.out.println(id);idを出力しようとするとerrorになるのはなぜだ
+        } else {
+            System.out.println("filt()");
+//            coupleList = db.getAll();
+            coupleList = db.filterTable(search);
+
+//            Flash flash = FacesContext.getCurrentInstance()
+//                .getExternalContext().getFlash();
+//        flash.put("coupleList", this.coupleList);
+            System.out.println("coupleList = db.filterTable(search);\n");
+        }
+    }
+
+    public void search() {
+        coupleList = db.filterTable(search);
+        System.out.println("coupleList = db.filterTable(search);\n");
+    }
+
+    public String detail(Integer id) {
+//        id = 6602;
+//        this.id = 6602
         System.out.println("detail()");
-        oci = oldcoupleinformation;
+        oci = db.find(id);
+//        oci = ol;
+//        Flash flash = FacesContext.getCurrentInstance()
+//                .getExternalContext().getFlash();
+//        flash.put("oci", oci);
+//        flash.put("id", id);
+
         return "detail-content.xhtml";
 
+    }
+
+//    @ManagedProperty(value = "#{searchBb}")
+//    private SearchBb searchBb;
+//    @PostConstruct//これのタイミングは一体いつ？
+//    public void checkList() {
+//        try {
+//            if (listFlag) {
+//                coupleList = db.filterTable(search);
+//                System.out.println("coupleList = db.filterTable(search);");
+//            } else {
+//                coupleList = db.getAll();
+//                System.out.println("coupleList = db.getAll();");
+//            }
+//        } finally {
+//            System.out.println("coupleList was initialized.");
+//
+//        }
+//    }//引数のエンティティをociに代入、それをdetail-contentで参照している。ociに正しいエンティティを入れられればいい
+//    //最初テーブルは空で、検索されてから初めてデータが表示されるようにするといいかもしれない
+    public String goToContract() {
+        return "";
     }
 
     public StreamedContent getPic() {
         FacesContext context = FacesContext.getCurrentInstance();
         if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
-            System.out.println("if");
             return new DefaultStreamedContent();
         } else {
-            System.out.println("if else");
             ExternalContext sv = context.getExternalContext();
             Map<String, String> map = sv.getRequestParameterMap();
             String key = map.get("id");
@@ -159,13 +224,11 @@ public class Bb extends SuperBb implements Serializable {
         }
     }
 
-     public StreamedContent getRoomPic() {
+    public StreamedContent getRoomPic() {
         FacesContext context = FacesContext.getCurrentInstance();
         if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
-            System.out.println("if");
             return new DefaultStreamedContent();
         } else {
-            System.out.println("if else");
             ExternalContext sv = context.getExternalContext();
             Map<String, String> map = sv.getRequestParameterMap();
             String key = map.get("id");
@@ -176,7 +239,7 @@ public class Bb extends SuperBb implements Serializable {
             return ds;
         }
     }
-    
+
     public ExternalContext getServlet() {
         return FacesContext.getCurrentInstance().getExternalContext();
     }
@@ -205,8 +268,12 @@ public class Bb extends SuperBb implements Serializable {
 //        return output.toByteArray();
 //        byte[] data = new byte[(int) file.getSize()];   // byte配
     public void imageToByte() throws IOException {
-        image = toByteArray(this.file);
-        imageRoom = toByteArray(this.fileRoom);
+        if (this.file != null) {
+            image = toByteArray(this.file);
+            imageRoom = toByteArray(this.fileRoom);
+        } else {
+            System.out.println("file is null");
+        }
 
     }
 
@@ -252,6 +319,14 @@ public class Bb extends SuperBb implements Serializable {
 
     public List<OldCoupleInformation> getAll() {
         return db.getAll();
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 
     public Logger getLog() {
@@ -539,6 +614,30 @@ public class Bb extends SuperBb implements Serializable {
 
     public void setNext(String next) {
         this.next = next;
+    }
+
+//
+//    public SearchBb getSearchBb() {
+//        return searchBb;
+//    }
+//
+//    public void setSearchBb(SearchBb searchBb) {
+//        this.searchBb = searchBb;
+//    }
+    public boolean isListFlag() {
+        return listFlag;
+    }
+
+    public void setListFlag(boolean listFlag) {
+        this.listFlag = listFlag;
+    }
+
+    public List<OldCoupleInformation> getCoupleList() {
+        return coupleList;
+    }
+
+    public void setCoupleList(List<OldCoupleInformation> coupleList) {
+        this.coupleList = coupleList;
     }
 
 }

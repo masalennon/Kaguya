@@ -1200,12 +1200,14 @@ th {
     display: table;
 }
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     font-size: 14px;
     color: #333;
     height: 100%;
     line-height: 1.42857143;
     background: linear-gradient(to bottom, #fff 0, whitesmoke 0px);
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
 
 }
 *:before,
@@ -1739,6 +1741,8 @@ pre code {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    background: #e1f2e1;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
 .row {
     margin-right: -15px;
@@ -4121,6 +4125,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     display: block;
 }
 .nav > li > a {
+    color: green;
     position: relative;
     display: block;
     padding: 10px 15px;
@@ -4648,7 +4653,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-    color: #777;
+    /*color: #777;*/
+    color: green;
+
     font-size: 18px;
 }
 .navbar-default .navbar-nav > li > a:hover,

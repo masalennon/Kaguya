@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/index.css" />
+        <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+    </h:head>
+    <h:form>
+        <h:body>
+            <h:outputStylesheet library="css" name="index.css" />
+            <h:outputStylesheet library="css" name="reset.css" />
+<br/>
+<br/>
+<br/>
+
+            <div align="center">
+                <div class="parentmessage"><h2>お名前、生年月日を確認してください</h2></div>
+                <table border="1" cellspacing="0" cellpadding="2" class="parent"> 
+                    <tr>
+                        <td class="parentheadrow">
+                            名前
+                        </td>　
+                        <th class="headrow2">
+                            (姓) <h:outputText id="firstNameParent" class = "text"
+                                              value="#{ConfirmBeanParent.firstNameParent}"/>
+                            (名) <h:outputText id="lastNameParent"  value="#{ConfirmBeanParent.lastNameParent}" class = "text"/>
+                        </th>
+                    </tr> 
+                    <tr>
+                        <td class="parentheadrow">
+                            名前(ふりがな)
+                        </td>　
+                        <th class="headrow2">
+                            (姓) <h:outputText id="firstNameHuriganaParent" value="#{ConfirmBeanParent.firstNameHuriganaParent}" class = "text"/>
+                            (名) <h:outputText id="lastNameHuriganaParent" 
+                                              value="#{ConfirmBeanParent.lastNameHuriganaParent}" class = "text"/><br/>
+                        </th>
+                    </tr>
+
+                    <tr>
+
+                        <td class="parentheadrow">
+                            誕生日
+                        </td>
+                        <th class="headrow2">
+                            <br/>
+                            <h:outputText id="birthYearParent" class = "text"
+                                          value="#{ConfirmBeanParent.birthYearParent}" />　年
+                            <h:outputText id="birthMonthParent"  
+                                          value="#{ConfirmBeanParent.birthMonthParent}" class = "text"/> 月
+                            <h:outputText id="birthDayParent" 
+                                          value="#{ConfirmBeanParent.birthDayParent}" class = "text"/> 日 <br/>
+                            <br/>
+                        </th>
+                    </tr>
+                </table>
+
+<br/><br/>
+<br/>
+
+                <div class="onlyTokyo"><h2>ご住所、ご連絡先を確認してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</h2><br/></div>
+                <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
+                    <!--                        <tr>
+                                                <td class="headrow">
+                                                    市区町村
+                                                </td>
+                                                <th class="headrow2">
+                                                    <h:outputText id="addressOne" class = "text"
+                                                                  value="{ConfirmBeanParent.addressOneParent}" /><br/>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td class="headrow">
+                                                    それ以降の住所
+                                                </td>
+                                                <th class="headrow2">
+                                                    <h:outputText id="addressTwo" value="{ConfirmBeanParent.addressTwoParent}" class = "text"/><br/>
+                    
+                                                </th>
+                                            </tr>-->
+                    <tr>
+                        <td class="headrow">
+                            電話番号
+                        </td>
+                        <th class="headrow2"><h:outputText id="PhoneNumber" 
+                                                           value="#{ConfirmBeanParent.phoneNumberParent}" class = "text"/> 
+
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td class="headrow">
+                            メールアドレス
+                        </td>
+                        <th class="headrow2"><h:outputText id="mailAddress" 
+                                                           value="#{ConfirmBeanParent.mailAddressParent}" class = "text"/><br/>
+                        </th>
+                    </tr>
+
+                </table>
+                <br/>
+                <h:commandButton value="入力画面へ戻る" action="#{ConfirmBeanParent.goToInput()}" class="Button"/>
+                <h:commandButton value="上記の内容を確認して送信" action="#{ConfirmBeanParent.goToComplete()}" class="Button"/>
+            </div>
+
+        </h:body>
+    </h:form>
+
+</html>

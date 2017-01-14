@@ -27,3 +27,9 @@ con {
     /*float: left;*/
 }
 
+.nav-sidebar{
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    width: 75%;
+}
