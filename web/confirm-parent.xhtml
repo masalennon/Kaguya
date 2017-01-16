@@ -25,7 +25,7 @@ and open the template in the editor.
 
             <div align="center">
                 <div class="parentmessage"><h2>お名前、生年月日を確認してください</h2></div>
-                <table border="1" cellspacing="0" cellpadding="2" class="parent"> 
+                <table border="1" cellspacing="0" cellpadding="2" class="parent-table"> 
                     <tr>
                         <td class="parentheadrow">
                             名前
@@ -69,7 +69,7 @@ and open the template in the editor.
 <br/>
 
                 <div class="onlyTokyo"><h2>ご住所、ご連絡先を確認してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</h2><br/></div>
-                <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
+                <table border="1" cellspacing="0" cellpadding="2" class="parent-table"> 
                     <!--                        <tr>
                                                 <td class="headrow">
                                                     市区町村
@@ -108,6 +108,44 @@ and open the template in the editor.
                     </tr>
 
                 </table>
+                <Table class="couple-info"  border="1" cellspacing="0" cellpadding="2">
+                <tr>
+                    <th>
+                        面談する方
+                    </th>
+                    <td>
+                        <h:outputText id="firstName" value="#{ConfirmBeanParent.firstName}" class = "text"/>さんご夫妻
+                    </td>
+
+                </tr>
+
+                <tr>                
+                    <th>
+                        希望月額
+                    </th>
+                    <td>
+                        <h:outputText id="payment" value="#{ConfirmBeanParent.payment}" class = "text"/>円<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        お住いの地域
+                    </th>
+                    <td>
+                        <h:outputText value="#{ConfirmBeanParent.addressOne}"/>
+                        <h:outputText value="#{ConfirmBeanParent.addressTwo}"/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        保育内容
+                    </th>
+                    <td>
+                        <h:outputText value="#{ConfirmBeanParent.educationContent}"/>
+                    </td>
+                </tr>
+            </Table>
                 <br/>
                 <h:commandButton value="入力画面へ戻る" action="#{ConfirmBeanParent.goToInput()}" class="Button"/>
                 <h:commandButton value="上記の内容を確認して送信" action="#{ConfirmBeanParent.goToComplete()}" class="Button"/>

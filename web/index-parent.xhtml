@@ -59,15 +59,15 @@ and open the template in the editor.
                 </div>
 
                 <div class="parentmessage">お名前、生年月日をそれぞれ入力してください。</div>
-                <table border="1" cellspacing="0" cellpadding="2" class="husband"> 
+                <table border="1" cellspacing="0" cellpadding="2" class="parent-table"> 
                     <tr>
                         <td class="parentheadrow">
                             名前
                         </td>　
                         <td class="parentheadrow2">
-                            (姓) <h:inputText class = "text" id="firstNameParent" required="true"   requiredMessage="ご主人の名前(姓)の入力は必須です"
+                            (姓) <h:inputText class = "text-parent" id="firstNameParent" required="true"   requiredMessage="ご主人の名前(姓)の入力は必須です"
                                              value="#{bbParent.firstNameParent}" label="名前"/>
-                            (名) <h:inputText class = "text" id="lastNameParent" required="true" requiredMessage="ご主人の名前(姓)の入力は必須です"
+                            (名) <h:inputText class = "text-parent" id="lastNameParent" required="true" requiredMessage="ご主人の名前(姓)の入力は必須です"
                                              value="#{bbParent.lastNameParent}"/><br/>
                         </td>
                     </tr> 
@@ -76,10 +76,10 @@ and open the template in the editor.
                             名前(ふりがな)
                         </td>　
                         <td class="parentheadrow2">
-                           
-                            (姓) <h:inputText class = "text" id="firstNameHuriganaParent" required="true" requiredMessage="ご主人の名前(姓)の入力は必須です"
+
+                            (姓) <h:inputText class = "text-parent" id="firstNameHuriganaParent" required="true" requiredMessage="ご主人の名前(姓)の入力は必須です"
                                              value="#{bbParent.firstNameHuriganaParent}"/>
-                            (名) <h:inputText class = "text" id="lastNameHuriganaParent" required="true"   requiredMessage="ご主人の名前(姓)の入力は必須です"
+                            (名) <h:inputText class = "text-parent" id="lastNameHuriganaParent" required="true"   requiredMessage="ご主人の名前(姓)の入力は必須です"
                                              value="#{bbParent.lastNameHuriganaParent}"/><br/>
                         </td>
                     </tr>
@@ -90,8 +90,8 @@ and open the template in the editor.
                             誕生日
                         </td>
                         <td class="parentheadrow2">
-                            
-                              <h:selectOneMenu id="birthYear" required="true" requiredMessage="生まれた年の入力は必須です"
+
+                            <h:selectOneMenu id="birthYear" required="true" requiredMessage="生まれた年の入力は必須です"
                                              value="#{bbParent.birthYearParent}">
                                 <f:selectItems value="#{bbParent.yearList}"/>
                             </h:selectOneMenu>
@@ -111,31 +111,31 @@ and open the template in the editor.
 
 
                 <div class="onlyTokyo">ご住所、ご連絡先を入力してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</div>
-                <table border="1" cellspacing="0" cellpadding="2" class="latter"> 
-<!--                    <tr>
-                        <td class="headrow">
-                            市区町村
-                        </td>
-                        <td class="headrow2">
-                            <h:inputText class = "text" id="addressOneParent"  required="true" requiredMessage="市区町村の入力は必須です"   
-                                         value="{bbParent.addressOneParent}"/><br/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="headrow">
-                            それ以降の住所
-                        </td>
-                        <td class="headrow2">
-                            <h:inputText class = "text" id="addressTwoParent"  required="true" requiredMessage="それ以降の住所の入力は必須です"
-                                         value="{bbParent.addressTwoParent}"/><br/>
-
-                        </td>
-                    </tr>-->
+                <table border="1" cellspacing="0" cellpadding="2" class="parent-table"> 
+                    <!--                    <tr>
+                                            <td class="headrow">
+                                                市区町村
+                                            </td>
+                                            <td class="headrow2">
+                                                <h:inputText class = "text" id="addressOneParent"  required="true" requiredMessage="市区町村の入力は必須です"   
+                                                             value="{bbParent.addressOneParent}"/><br/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="headrow">
+                                                それ以降の住所
+                                            </td>
+                                            <td class="headrow2">
+                                                <h:inputText class = "text" id="addressTwoParent"  required="true" requiredMessage="それ以降の住所の入力は必須です"
+                                                             value="{bbParent.addressTwoParent}"/><br/>
+                    
+                                            </td>
+                                        </tr>-->
                     <tr>
                         <td class="headrow">
                             電話番号
                         </td>
-                        <td class="headrow2"><h:inputText class = "text" id="PhoneNumberParent"  required="true" requiredMessage="電話番号の入力は必須です"
+                        <td class="headrow2"><h:inputText class = "text-parent" id="PhoneNumberParent"  required="true" requiredMessage="電話番号の入力は必須です"
 
                                                           value="#{bbParent.phoneNumberParent}"/> 
                             <br/>
@@ -146,12 +146,52 @@ and open the template in the editor.
                         <td class="headrow">
                             メールアドレス
                         </td>
-                        <td class="headrow2"><h:inputText class = "text" id="mailAddressParent"  required="true" requiredMessage="メールアドレスの入力は必須です"
+                        <td class="headrow2"><h:inputText class = "text-parent" id="mailAddressParent"  required="true" requiredMessage="メールアドレスの入力は必須です"
 
                                                           value="#{bbParent.mailAddressParent}"/><br/>
                         </td>
                     </tr>
                 </table>
+            </div>
+            <Table class="couple-info"  border="1" cellspacing="0" cellpadding="2">
+                <tr>
+                    <th>
+                        面談する方
+                    </th>
+                    <td>
+                        <h:outputText id="firstName" value="#{bbParent.firstName}" class = "text"/>さんご夫妻
+                    </td>
+
+                </tr>
+
+                <tr>                
+                    <th>
+                        希望月額
+                    </th>
+                    <td>
+                        <h:outputText id="payment" value="#{bbParent.payment}" class = "text"/>円<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        お住いの地域
+                    </th>
+                    <td>
+                        <h:outputText value="#{bbParent.addressOne}"/>
+                        <h:outputText value="#{bbParent.addressTwo}"/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        保育内容
+                    </th>
+                    <td>
+                        <h:outputText value="#{bbParent.educationContent}"/>
+                    </td>
+                </tr>
+            </Table>
+            <div align="center">
                 <h:commandButton value="以下の会員規約に同意して確認画面へ進む" action="#{bbParent.goToConfirm()}" class="Button"/>
             </div>
 

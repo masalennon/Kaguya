@@ -153,7 +153,7 @@ and open the template in the editor.
                     </tbody>
                 </table>
                 <div class="kaguya-link" align="center">
-                    <h:commandLink action="#{bb.goToContract}">
+                    <h:commandLink action="#{bb.goToContract(bb.oci.id, bb.oci.firstName, bb.oci.addressOne, bb.oci.addressTwo, bb.oci.payment, bb.oci.educationContent, bb.oci.mailAddress, bb.oci.phoneNumber)}">
                         <h:outputText value="#{bb.oci.firstName}" styleClass="price"/>さんと面談する<br/>
                     </h:commandLink> 
                 </div>

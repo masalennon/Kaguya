@@ -145,7 +145,6 @@ public class Bb extends SuperBb implements Serializable {
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
         this.coupleList = (List) flash.get("coupleList");
-//        System.out.println(coupleList);
     }
 
     @PostConstruct
@@ -158,10 +157,6 @@ public class Bb extends SuperBb implements Serializable {
             System.out.println("filt()");
 //            coupleList = db.getAll();
             coupleList = db.filterTable(search);
-
-//            Flash flash = FacesContext.getCurrentInstance()
-//                .getExternalContext().getFlash();
-//        flash.put("coupleList", this.coupleList);
             System.out.println("coupleList = db.filterTable(search);\n");
         }
     }
@@ -172,40 +167,27 @@ public class Bb extends SuperBb implements Serializable {
     }
 
     public String detail(Integer id) {
-//        id = 6602;
-//        this.id = 6602
         System.out.println("detail()");
         oci = db.find(id);
-//        oci = ol;
-//        Flash flash = FacesContext.getCurrentInstance()
-//                .getExternalContext().getFlash();
-//        flash.put("oci", oci);
-//        flash.put("id", id);
-
         return "detail-content.xhtml";
 
     }
-
-//    @ManagedProperty(value = "#{searchBb}")
-//    private SearchBb searchBb;
-//    @PostConstruct//これのタイミングは一体いつ？
-//    public void checkList() {
-//        try {
-//            if (listFlag) {
-//                coupleList = db.filterTable(search);
-//                System.out.println("coupleList = db.filterTable(search);");
-//            } else {
-//                coupleList = db.getAll();
-//                System.out.println("coupleList = db.getAll();");
-//            }
-//        } finally {
-//            System.out.println("coupleList was initialized.");
-//
-//        }
-//    }//引数のエンティティをociに代入、それをdetail-contentで参照している。ociに正しいエンティティを入れられればいい
-//    //最初テーブルは空で、検索されてから初めてデータが表示されるようにするといいかもしれない
-    public String goToContract() {
-        return "";
+    public String goToContract(Integer id, String firstName, String addressOne, String addressTwo, String payment, String educationContent, String mailAddress, String phoneNumber) {
+        Flash flash = FacesContext.getCurrentInstance()
+                .getExternalContext().getFlash();
+        System.out.println(firstName);
+        flash.put("id", id);
+        flash.put("firstName", firstName);
+        flash.put("birthYear", birthYear);
+        flash.put("birthDay", birthDay);
+        flash.put("birthMonth", birthMonth);
+        flash.put("addressOne", addressOne);
+        flash.put("addressTwo", addressTwo);
+        flash.put("educationContent", educationContent);
+        flash.put("payment", payment);
+        flash.put("mailAddress", mailAddress);
+        flash.put("phoneNumber", phoneNumber);//電話番号とアドレスは画面には表示しないでメールでこちらに送信するために値を受けわたす
+        return "index-parent.xhtml";
     }
 
     public StreamedContent getPic() {

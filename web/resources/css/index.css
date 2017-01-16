@@ -116,11 +116,30 @@ li {
 
     /*    住所*/
 }
+
+.headrow-parent {
+    width: 500px;
+    height: 50px;
+    border-right: 1px solid #ABABAB;
+    border-left: 2px solid #ABABAB;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+
+    /*    住所*/
+}
+
 .Button {
     font-size: 15px;
-    position: absolute;
-    left: 700px;
-    margin: 50px;
+    /*position: absolute;*/
+    /*left: 700px;*/
+    /*margin: 50px;*/
+    margin: auto;
+    margin-top: 100px;
+}
+
+.parent-table {
+    width: 700px;
 }
 
 .latter {
@@ -133,6 +152,11 @@ li {
     margin-top: 30px;
     font-weight: bold;
 
+}
+
+.text-parent {
+    height: 38px;
+    width: 200px;
 }
 
 .text {
@@ -162,7 +186,7 @@ li {
 
 }
 .parentheadrow {
-    width: 249px;
+    width: 150px;
     height: 79px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
@@ -172,7 +196,7 @@ li {
     text-align: center;
 }
 .parentheadrow2 {
-    width: 649px;
+    width: 500px;
     height: 79px;
     border-right: 1px solid #ABABAB;
     border-left: 2px solid #ABABAB;
@@ -183,6 +207,33 @@ li {
 .parent {
     width: 900px;
 
+}
+.button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    margin: auto;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 150px;
+}
+
+.couple-info {
+    margin: auto;
+    margin-top: 50px;
+    border: 1px solid green;
+    width: 400px;
+    /*position: absolute;*/
+}
+
+.couple-info td {
+    width: 72%;
+    padding: 8px;
+}
+
+.couple-info th{
+    width: 28%;
+    padding: 8px;
+    font-size: 17px;
 }
 
 /*.gallery {

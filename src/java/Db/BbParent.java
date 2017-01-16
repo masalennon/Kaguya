@@ -11,24 +11,27 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
  * @author Masanari
  */
-@SessionScoped
+@ViewScoped
 @ManagedBean(name = "bbParent")
 public class BbParent implements Serializable {
 
     @NotNull
     private Integer id;
+
     @NotNull
     private String firstNameParent;
     @NotNull
@@ -37,10 +40,6 @@ public class BbParent implements Serializable {
     private String firstNameHuriganaParent;
     @NotNull
     private String lastNameHuriganaParent;
-    @NotNull
-    private String addressOneParent;
-    @NotNull
-    private String addressTwoParent;
     @NotNull
     private Integer birthYearParent = 1980;
     @NotNull
@@ -51,6 +50,31 @@ public class BbParent implements Serializable {
     private String phoneNumberParent;
     @NotNull
     private String mailAddressParent;
+    @NotEmpty
+
+    private String firstName;
+
+    private String birthYear;
+
+    private String birthMonth;
+
+    private String birthDay;
+
+    private String addressOne;
+
+    private String addressTwo;
+
+    private String educationContent;
+
+    private String message;
+
+    private String payment;
+
+    private String search;
+
+    private String mailAddress;
+
+    private String phoneNumber;
 
     private final List<SelectItem> yearList = new ArrayList();
     private final List<SelectItem> monthList = new ArrayList();
@@ -76,23 +100,47 @@ public class BbParent implements Serializable {
             item.setValue(String.valueOf(i));
             dayList.add(item);
         }
+        System.out.println(firstName);
+        Flash flash = FacesContext.getCurrentInstance()
+                .getExternalContext().getFlash();
+        firstName = (String) flash.get("firstName");
+        addressOne = (String) flash.get("addressOne");
+        addressTwo = (String) flash.get("addressTwo");
+        birthYear = (String) flash.get("birthYear");
+        birthMonth = (String) flash.get("birthMonth");
+        birthDay = (String) flash.get("birthDay");
+        payment = (String) flash.get("payment");
+        educationContent = (String) flash.get("educationContent");
+        mailAddress = (String) flash.get("mailAddress");
+        phoneNumber = (String) flash.get("phoneNumber");
     }
 
     public String goToConfirm() {
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
-        flash.put("firstName", this.firstNameParent);
-        flash.put("lastName", this.lastNameParent);
-        flash.put("firstNameHurigana", this.firstNameHuriganaParent);
-        flash.put("lastNameHurigana", this.lastNameHuriganaParent);
-        flash.put("addressOne", this.addressOneParent);
-        flash.put("addressTwo", this.addressTwoParent);
-        flash.put("birthYear", this.birthYearParent);
-        flash.put("birthMonth", this.birthMonthParent);
-        flash.put("birthDay", this.birthDayParent);
-        flash.put("phoneNumber", this.phoneNumberParent);
-        flash.put("mailAddress", this.mailAddressParent);
-
+        flash.put("firstNameParent", this.firstNameParent);
+        flash.put("lastNameParent", this.lastNameParent);
+        flash.put("firstNameHuriganaParent", this.firstNameHuriganaParent);
+        flash.put("lastNameHuriganaParent", this.lastNameHuriganaParent);
+        flash.put("birthYearParent", this.birthYearParent);
+        flash.put("birthMonthParent", this.birthMonthParent);
+        flash.put("birthDayParent", this.birthDayParent);
+        flash.put("phoneNumberParent", this.phoneNumberParent);
+        flash.put("mailAddressParent", this.mailAddressParent);
+        flash.put("phoneNumber", this.phoneNumber);
+        flash.put("mailAddress", this.mailAddress);
+        flash.put("id", id);
+        flash.put("firstName", firstName);
+        flash.put("birthYear", birthYear);
+        flash.put("birthDay", birthDay);
+        flash.put("birthMonth", birthMonth);
+        flash.put("addressOne", addressOne);
+        flash.put("addressTwo", addressTwo);
+        flash.put("educationContent", educationContent);
+        flash.put("payment", payment);
+        flash.put("mailAddress", mailAddress);
+        flash.put("phoneNumber", phoneNumber);
+        
         return "/confirm-parent.xhtml?faces-redirect=true";
     }
 
@@ -134,22 +182,6 @@ public class BbParent implements Serializable {
 
     public void setLastNameHuriganaParent(String lastNameHuriganaParent) {
         this.lastNameHuriganaParent = lastNameHuriganaParent;
-    }
-
-    public String getAddressOneParent() {
-        return addressOneParent;
-    }
-
-    public void setAddressOneParent(String addressOneParent) {
-        this.addressOneParent = addressOneParent;
-    }
-
-    public String getAddressTwoParent() {
-        return addressTwoParent;
-    }
-
-    public void setAddressTwoParent(String addressTwoParent) {
-        this.addressTwoParent = addressTwoParent;
     }
 
     public Integer getBirthYearParent() {
@@ -202,6 +234,102 @@ public class BbParent implements Serializable {
 
     public void setPhoneNumberParent(String phoneNumberParent) {
         this.phoneNumberParent = phoneNumberParent;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getAddressOne() {
+        return addressOne;
+    }
+
+    public void setAddressOne(String addressOne) {
+        this.addressOne = addressOne;
+    }
+
+    public String getAddressTwo() {
+        return addressTwo;
+    }
+
+    public void setAddressTwo(String addressTwo) {
+        this.addressTwo = addressTwo;
+    }
+
+    public String getEducationContent() {
+        return educationContent;
+    }
+
+    public void setEducationContent(String educationContent) {
+        this.educationContent = educationContent;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
+    }
+
+    public String getBirthYear() {
+        return birthYear;
+    }
+
+    public void setBirthYear(String birthYear) {
+        this.birthYear = birthYear;
+    }
+
+    public String getBirthMonth() {
+        return birthMonth;
+    }
+
+    public void setBirthMonth(String birthMonth) {
+        this.birthMonth = birthMonth;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getMailAddress() {
+        return mailAddress;
+    }
+
+    public void setMailAddress(String mailAddress) {
+        this.mailAddress = mailAddress;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
 }

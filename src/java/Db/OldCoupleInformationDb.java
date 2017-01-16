@@ -5,7 +5,6 @@
  */
 package Db;
 
-import entities.ParentEntity;
 import java.io.Serializable;
 import java.util.List;
 import static javafx.scene.input.KeyCode.T;
