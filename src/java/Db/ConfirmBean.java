@@ -77,6 +77,9 @@ public class ConfirmBean implements Serializable {
 
     private byte[] imageRoom;
 
+    private String messageTitle = "かぐや会員ご登録の確認メール";
+
+    private String messageToCouple;
 
     @EJB
     OldCoupleInformationDb db;
@@ -136,6 +139,10 @@ public class ConfirmBean implements Serializable {
         try {
 
             db.create(oldCoupleInformation);
+            messageToCouple = "ご登録ありがとうございました。ご登録いただいた情報は、Webサイトの、「受け入れ先を探す」ページから変更できます。変更の際には、ご登録いただいたメールアドレスとこのメールに記載されている"
+                    + "idが必要になりますので、このメールは削除しないでください。" + "あなたのid: " + oldCoupleInformation.getId() + "あなたのメールアドレス: " + this.mailAddress;
+            MailSender mailsender = new MailSender();
+            mailsender.send(messageTitle, getMessageToCouple(), mailAddress);
             clear();
 
         } catch (Exception e) {
@@ -375,6 +382,22 @@ public class ConfirmBean implements Serializable {
 
     public void setImageRoom(byte[] imageRoom) {
         this.imageRoom = imageRoom;
+    }
+
+    public String getMessageTitle() {
+        return messageTitle;
+    }
+
+    public void setMessageTitle(String messageTitle) {
+        this.messageTitle = messageTitle;
+    }
+
+    public String getMessageToCouple() {
+        return messageToCouple;
+    }
+
+    public void setMessageToCouple(String messageToCouple) {
+        this.messageToCouple = messageToCouple;
     }
 
 }

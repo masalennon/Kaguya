@@ -35,6 +35,9 @@ import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import static javax.mail.internet.HeaderTokenizer.Token.EOF;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
@@ -57,7 +60,10 @@ import util.PagenationHelper;
 public class Bb extends SuperBb implements Serializable {
 
     SuperBb sbb;
-
+//
+//    private static final long serialVersionUID = 1L;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotEmpty
     private Integer id;
     @NotEmpty
