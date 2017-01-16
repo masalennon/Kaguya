@@ -13,6 +13,7 @@ package Db;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import javax.mail.Address;
 import javax.mail.Message;
@@ -22,8 +23,9 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-@ManagedBean
+//
+//@ViewScoped
+//@ManagedBean
 public class MailSender {
 //    
 //    MailToParent mailSend = new MailToParent();

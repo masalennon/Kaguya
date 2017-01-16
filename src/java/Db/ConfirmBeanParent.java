@@ -12,6 +12,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.inject.Inject;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
@@ -69,8 +70,9 @@ public class ConfirmBeanParent implements Serializable {
     private String messageToParent = "正常に送信が行われました。お支払いを確認し次第、保育者様の連絡先をお教えいたします。もし万が一"
             + "保育者様と連絡が取れない場合は、こちらで事実確認をし次第必ず全額返金いたしますのでご安心ください。"
             + "このメールに覚えがない場合は、お手数ですがこのメールに返信する形で運営までおしらせください。";
-    @EJB
-    MailSender mailsender;
+    
+//    @EJB
+//    MailSender mailsender;
 
     @EJB
     OldCoupleInformationDb db;
@@ -108,7 +110,7 @@ public class ConfirmBeanParent implements Serializable {
                 phoneNumberParent, mailAddressParent);
 
         try {
-
+            MailSender mailsender = new MailSender();
             db.createa(parentEntity);
             mailsender.send(messageTitle, messageToParent, mailAddressParent);
             clear();
@@ -310,14 +312,6 @@ public class ConfirmBeanParent implements Serializable {
 
     public void setMessageToParent(String messageToParent) {
         this.messageToParent = messageToParent;
-    }
-
-    public MailSender getMailsender() {
-        return mailsender;
-    }
-
-    public void setMailsender(MailSender mailsender) {
-        this.mailsender = mailsender;
     }
 
 }
