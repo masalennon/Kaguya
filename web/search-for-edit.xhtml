@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>待機児童問題解決</title>
+        <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />		
+
+            <title>primestrap</title>
+        </f:facet>
+
+        <f:facet name="middle">
+            <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+
+        </f:facet>
+
+    </h:head>
+    <!--<ui:composition>-->
+
+
+
+    <!--<ui:composition template="/templates/aboutserviceTemplate.xhtml"/>-->
+
+
+    <link rel="stylesheet" type="text/css" href="resources/css/find.css" />
+    <h:outputStylesheet library="css" name="find.css" />
+    <h:form>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="main.xhtml">かぐや</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="main.xhtml">Home</a></li>
+                    <li><a href="serviceoverview.xhtml">サービスの概要</a></li>
+                    <li><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
+                    <li><a href="safety.xhtml">安全への取り組み</a></li>
+                    <li><a href="find.xhtml">受け入れ先を探す</a></li>
+                    <li><a href="index.xhtml">会員登録</a></li>  
+                    <li><a href="faq.xhtml">よくある質問</a></li>
+                    <li><a href="inquery.xhtml">お問合せ</a></li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!--                <h3>Basic Navbar Example</h3>
+                            <p>A navigation bar is a navigation header that is placed at the top of the page.</p>-->
+        </div>
+
+
+        <br/>
+        <br/>
+        編集するために、idとメールアドレスを入力してください。idは会員登録の際に送ったメールに記載されています。
+        <h:panelGrid>
+            <h:inputText id="mailAddress" value="#{searchBb.mailAddress}" style="width:150px" p:placeholder="あなたのメールアドレス"/> <br/>
+            <h:inputText id="id" value="#{searchBb.id}" style="width:150px" p:placeholder="あなたのid"/> <br/>
+        </h:panelGrid>
+        <br/>
+        <h:commandLink type="submit" value="地域で検索" action="#{searchBb.searchToEdit()}" class="Button"/>
+
+
+
+
+
+    </h:form>        
+
+    <!--</ui:composition>-->
+
+</html>

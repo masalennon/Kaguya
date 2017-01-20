@@ -124,7 +124,7 @@ and open the template in the editor.
                         希望月額
                     </th>
                     <td>
-                        <h:outputText id="payment" value="#{ConfirmBeanParent.payment}" class = "text"/>円<br/>
+                        <h:outputText id="payment" value="#{ConfirmBeanParent.payment}" class = "text"/>万円<br/>
                     </td>
                 </tr>
                 <tr>
@@ -133,7 +133,7 @@ and open the template in the editor.
                     </th>
                     <td>
                         <h:outputText value="#{ConfirmBeanParent.addressOne}"/>
-                        <h:outputText value="#{ConfirmBeanParent.addressTwo}"/>
+                        <h:outputText value="#{ConfirmBeanParent.addressTwo}"/>丁目
 
                     </td>
                 </tr>
@@ -147,7 +147,7 @@ and open the template in the editor.
                 </tr>
             </Table>
                 <br/>
-                <h:commandButton value="入力画面へ戻る" action="#{ConfirmBeanParent.goToInput()}" class="Button"/>
+                <Button outcome = "index-parent.xhtml" value="入力画面へ戻る"  class="Button"/>
                 <h:commandButton value="上記の内容を確認して送信" action="#{ConfirmBeanParent.goToComplete()}" class="Button"/>
             </div>
 

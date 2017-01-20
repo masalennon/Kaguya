@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>待機児童問題解決</title>
+        <link rel="stylesheet" type="text/css" href="resources/css/index.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />		
+
+            <title>primestrap</title>
+        </f:facet>
+
+        <f:facet name="middle">
+            <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+            <h:outputStylesheet name="bootstrap/css/index.css" />
+
+        </f:facet>
+
+    </h:head>
+    <!--<ui:composition>-->
+
+
+
+    <!--<ui:composition template="/templates/aboutserviceTemplate.xhtml"/>-->
+
+
+    <link rel="stylesheet" type="text/css" href="resources/css/find.css" />
+    <h:outputStylesheet library="css" name="find.css" />
+    <h:form>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="main.xhtml">かぐや</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="main.xhtml">Home</a></li>
+                    <li><a href="serviceoverview.xhtml">サービスの概要</a></li>
+                    <li><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
+                    <li><a href="safety.xhtml">安全への取り組み</a></li>
+                    <li><a href="find.xhtml">受け入れ先を探す</a></li>
+                    <li><a href="index.xhtml">会員登録</a></li>  
+                    <li><a href="faq.xhtml">よくある質問</a></li>
+                    <li><a href="inquery.xhtml">お問合せ</a></li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!--                <h3>Basic Navbar Example</h3>
+                            <p>A navigation bar is a navigation header that is placed at the top of the page.</p>-->
+        </div>
+
+
+    </h:form>
+    <br/>
+    <br/>
+    <h:form>     
+
+        <p:dataTable 
+            var="info" value="#{editBean.editList}">
+
+            <f:facet name="header">
+                <!--<p:outputPanel>-->
+                <h:outputText value="地域で検索" />
+            </f:facet>
+            <!--
+                                    <p:column class="column-couple" >
+                                        <p:graphicImage value="#{bb.pic}" >
+                                            <f:param name="id" value="#{info.id}"/>
+                                        </p:graphicImage>
+                                    </p:column>-->
+
+            <br/>
+            <th>
+
+            </th>
+            <p:column class="column-couple">
+                <h:outputText value="#{info.addressOne}"/>
+            </p:column>
+
+            <p:column class="column-couple">
+                #{info.addressTwo}
+            </p:column>
+            <br/>
+            <th>
+
+            </th>
+            <p:column class="column-couple">
+                #{info.payment}
+            </p:column>
+            <br/>
+            <th>
+
+            </th>
+            <p:column class="column-couple">
+                #{info.educationContent}
+            </p:column>
+            <br/>
+            <p:column class="column-couple">
+                #{info.message}
+            </p:column>
+            <br/>
+            <p:column class="column-couple">
+                #{info.mailAddress}
+            </p:column>
+            <br/>
+            <p:column>
+                <h:commandLink action="#{editBean.edit(info)}" value="編集"><!-- 試したもの：bb.oci, bb.coupleList, filt()でOldcoupleInformationをflashでdetail()に渡す-->
+                    <!--<f:ajax render="@all"/>-->
+                </h:commandLink> 
+            </p:column>
+        </p:dataTable>
+
+
+        <br/>            
+        <br/>
+        <br/>
+        <div align="center">
+
+            <table border="1" cellspacing="0" cellpadding="2" class="latter">
+                <tr>
+
+                    <td class="headrow">
+                        市区町村                            
+                        <span style="background: #ea352d" class="require">必須</span>
+                        <span style="background: green" class="require">公開</span>
+
+
+                    </td>
+                    <td class="headrow2">
+                        <h:inputText class = "text2" id="addressOne" required="true" a:placeholder=" 例：世田谷区弦巻"
+                                     requiredMessage="お住いの市区町村の入力は必須です" value="#{bb.addressOne}"
+                                     validatorMessage="名前は漢字かひらがなで入力してください"/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headrow">
+                        番地(丁のみ)
+                        <span style="background: green" class="require">公開</span>
+
+                    </td>
+                    <td class="headrow2"><br/>
+                        必須ではありませんが、何丁目かまでわかると、<br/>保護者の方の参考になります。<br/>
+                        <h:inputText class = "text3" id="addressTwo"
+                                     value="#{bb.addressTwo}" required="false"/> 丁目<br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headrow">
+                        電話番号                            
+                        <span style="background: #ea352d" class="require">必須</span>
+                        <span style="background: green" class="require">非公開</span>
+
+                    </td>
+                    <td class="headrow2">
+                        <h:inputText class = "text2" id="phoneNumber" required="true"
+                                     requiredMessage="電話番号の入力は必須です" a:placeholder=" 例：03-1234-5678"
+                                     value="#{bb.phoneNumber}"/> 
+
+                    </td>　　　
+                </tr>
+
+                <tr>
+                    <td class="headrow">
+                        メールアドレス                            
+                        <span style="background: #ea352d" class="require">必須</span>
+                        <span style="background: green" class="require">非公開</span>
+
+                    </td>
+                    <td class="headrow2">
+                        <h:inputText class = "text2" id="email" required="true" label="email" size="40"
+                                     requiredMessage="メールアドレスの入力は必須です" validatorMessage="正しいメールアドレスを入力してください"
+                                     value="#{bb.mailAddress}">
+                            <f:validateRegex
+                                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                        </h:inputText> 
+                        <br/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headrow">
+                        希望月謝                          
+                        <span style="background: #ea352d" class="require">必須</span>
+                        <span style="background: green" class="require">公開</span>
+
+
+                    </td>
+                    <td class="headrow2">
+                        <h:inputText class = "text2" id="payment" required="true"
+                                     requiredMessage="希望月謝の入力は必須です" a:placeholder="　　目安は５〜８万円です"
+                                     value="#{bb.payment}"/><br/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="headrow">
+                        提供できる保育                
+                        <span style="background: #ea352d" class="require">必須</span>
+                        <span style="background: green" class="require">公開</span>
+
+                    </td>
+                    <td class="headrow2">
+                        <h:inputText class = "text1" id="educationcontent" required="true"
+                                     requiredMessage="保育の内容の入力は必須です" a:placeholder=" 例：読み聞かせ、読み書き計算、食事の提供、など"
+                                     value="#{bb.educationContent}"/> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="headrow">
+                        保護者の方への言葉
+                        <span style="background: green" class="require">公開</span>
+
+                    </td>
+                    <td class="headrow2">
+                        <br/>
+                        <br/>
+                        意気込みや伝えておきたいことなどありましたらお書きください。
+                        <br/>
+                        <br/>
+
+                        <h:inputTextarea id="message" cols="40" rows="10" 
+                                         value="#{bb.message}"/>
+                        <br/>                                
+                        <br/>
+
+                    </td>
+                </tr>
+            </table>
+            <!--            <h:panelGrid class="panelgrid-edit">
+            
+                            <h:inputText class = "text2" id="addressOne" required="true" a:placeholder=" 例：世田谷区弦巻"
+                                         requiredMessage="お住いの市区町村の入力は必須です" value="#{editBean.addressOne}"
+                                         validatorMessage="名前は漢字かひらがなで入力してください"/>
+                            <br/>
+            
+                            <h:inputText class = "text2" id="addressTwo" required="true" a:placeholder=" 例：2"
+                                         requiredMessage="お住いの市区町村の入力は必須です" value="#{editBean.addressTwo}"
+                                         validatorMessage="名前は漢字かひらがなで入力してください"/>丁目
+                            <br/>
+            
+                            <h:inputText class = "text2" id="phoneNumber" required="true"
+                                         requiredMessage="電話番号の入力は必須です" a:placeholder=" 例：03-1234-5678"
+                                         value="#{editBean.phoneNumber}"/><br/> 
+            
+                            <h:inputText class = "text2" id="payment" required="true"
+                                         requiredMessage="希望月謝の入力は必須です" a:placeholder="　　目安は５〜８万円です"
+                                         value="#{editBean.payment}"/><br/>
+                            <h:inputText class = "text1" id="educationcontent" required="true"
+                                         requiredMessage="保育の内容の入力は必須です" a:placeholder=" 例：読み聞かせ、読み書き計算、食事の提供、など"
+                                         value="#{editBean.educationContent}"/> <br/>
+                            <h:inputTextarea id="message" cols="40" rows="10" 
+                                             value="#{editBean.message}"/><br/>
+            
+                            メールアドレス<h:inputText id="name" value="#{bb.mailAddress}" /><br/>
+                                    <h:form enctype="multipart/form-data">
+                                        <div align="center"><h:inputFile id="file" value="#{bb.file}"  label="写真を選択" /></div><br />
+                                        <div align="center"><h:inputFile id="fileRoom" value="#{bb.fileRoom}" label="写真を選択"/></div><br />
+                            
+                                    </h:form>
+            
+                        </h:panelGrid>-->
+        </div>
+
+        <h:panelGrid columns="1">
+
+        </h:panelGrid>
+
+
+
+
+
+    </h:form>        
+
+    <!--</ui:composition>-->
+
+</html>

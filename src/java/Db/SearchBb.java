@@ -5,23 +5,13 @@
  */
 package Db;
 
-import java.io.ByteArrayInputStream;
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
-import javax.faces.event.PhaseId;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.primefaces.model.DefaultStreamedContent;
-import org.primefaces.model.StreamedContent;
 
 /**
  *
@@ -29,112 +19,24 @@ import org.primefaces.model.StreamedContent;
  */
 @ManagedBean(name = "searchBb")
 @ViewScoped
-public class SearchBb extends SuperBb {
-
-    @NotEmpty
-    private Integer id;
-    @NotEmpty
-    private String firstName;
-    private String addressOne;
-    private String addressTwo;
-    private String educationContent;
-
-    private String message;
-
-    private String payment;
-
-    private String search;
-    private String secondSearch;
-    private String thirdSearch;
-
-    private List<OldCoupleInformation> filteredList;
-    private List<ColumnModel> filteredColumns;
+public class SearchBb {
 
     @EJB
-    protected OldCoupleInformationDb db;
-    protected OldCoupleInformation oci;
-    protected Bb bb;
+    private OldCoupleInformationDb oldCoupleInformationDb;
 
-//    @PostConstruct
-//    public void loadpage() {
-//        System.out.println("loadpage() in searchBb");
-////        filter();
-//        System.out.println("search in searchBb = " + search);
-//        filteredColumns = new ArrayList<>();
-//        createDynamicColumns();
-//
-//    }
+//    @NotEmpty
+    private Integer id;
+    private String mailAddress;
 
-    public StreamedContent getPic() {
-        System.out.println("pic in searchBb");
-        FacesContext context = FacesContext.getCurrentInstance();
-        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
-            System.out.println("if");
-            return new DefaultStreamedContent();
-        } else {
-            System.out.println("if else");
-            ExternalContext sv = context.getExternalContext();
-            Map<String, String> map = sv.getRequestParameterMap();
-            String key = map.get("id");
-            OldCoupleInformation e = find(Integer.valueOf(key));
+    List<OldCoupleInformation> editList;
 
-            ByteArrayInputStream in = new ByteArrayInputStream(e.getImage());
-            DefaultStreamedContent ds = new DefaultStreamedContent(in);
-            return ds;
-        }
-    }
+    public String searchToEdit() {
+        editList = oldCoupleInformationDb.searchToEdit(mailAddress, id);
+        Flash flash = FacesContext.getCurrentInstance()
+                .getExternalContext().getFlash();
+        flash.put("editList", editList);
 
-    public StreamedContent getRoomPic() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
-            System.out.println("if");
-            return new DefaultStreamedContent();
-        } else {
-            System.out.println("if else");
-            ExternalContext sv = context.getExternalContext();
-            Map<String, String> map = sv.getRequestParameterMap();
-            String key = map.get("id");
-            OldCoupleInformation e = find(Integer.valueOf(key));
-
-            ByteArrayInputStream in = new ByteArrayInputStream(e.getImageRoom());
-            DefaultStreamedContent ds = new DefaultStreamedContent(in);
-            return ds;
-        }
-    }
-
-    
-    
-
-    public String getSearch() {
-        return search;
-    }
-
-    public void setSearch(String search) {
-        this.search = search;
-    }
-
-    public List<OldCoupleInformation> getFilteredList() {
-        return filteredList;
-    }
-
-    public void setFilteredList(List<OldCoupleInformation> filteredList) {
-        this.filteredList = filteredList;
-    }
-
-    public List<ColumnModel> getFilteredColumns() {
-        return filteredColumns;
-    }
-
-    public void setFilteredColumns(List<ColumnModel> filteredColumns) {
-        this.filteredColumns = filteredColumns;
-    }
-
-    public OldCoupleInformation getOci() {
-        return oci;
-    }
-
-    public void setOci(OldCoupleInformation oci) {
-        this.oci = oci;
+        return "edit.xhtml";
     }
 
     public Integer getId() {
@@ -145,76 +47,20 @@ public class SearchBb extends SuperBb {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getMailAddress() {
+        return mailAddress;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setMailAddress(String mailAddress) {
+        this.mailAddress = mailAddress;
     }
 
-    public String getAddressOne() {
-        return addressOne;
+    public List<OldCoupleInformation> getEditList() {
+        return editList;
     }
 
-    public void setAddressOne(String addressOne) {
-        this.addressOne = addressOne;
-    }
-
-    public String getAddressTwo() {
-        return addressTwo;
-    }
-
-    public void setAddressTwo(String addressTwo) {
-        this.addressTwo = addressTwo;
-    }
-
-    public String getEducationContent() {
-        return educationContent;
-    }
-
-    public void setEducationContent(String educationContent) {
-        this.educationContent = educationContent;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getPayment() {
-        return payment;
-    }
-
-    public void setPayment(String payment) {
-        this.payment = payment;
-    }
-
-    public OldCoupleInformationDb getDb() {
-        return db;
-    }
-
-    public void setDb(OldCoupleInformationDb db) {
-        this.db = db;
-    }
-
-    public String getSecondSearch() {
-        return secondSearch;
-    }
-
-    public void setSecondSearch(String secondSearch) {
-        this.secondSearch = secondSearch;
-    }
-
-    public String getThirdSearch() {
-        return thirdSearch;
-    }
-
-    public void setThirdSearch(String thirdSearch) {
-        this.thirdSearch = thirdSearch;
+    public void setEditList(List<OldCoupleInformation> editList) {
+        this.editList = editList;
     }
 
 }

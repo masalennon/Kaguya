@@ -44,7 +44,6 @@ public class SuperBb<T> extends OldCoupleInformationDb {
     private final List<SelectItem> monthList = new ArrayList();
     private final List<SelectItem> dayList = new ArrayList();
     //DataTableのカラムリスト
-    protected List<ColumnModel> columns;
 
     @EJB
     protected OldCoupleInformationDb db;
@@ -72,8 +71,6 @@ public class SuperBb<T> extends OldCoupleInformationDb {
 
 //        coupleList = db.getAll();
 //        System.out.println("cupleList was initialized.");
-        columns = new ArrayList<>();
-        createDynamicColumns();
         getPagination();
 
 //PagenationHelper getPagination();
@@ -82,19 +79,6 @@ public class SuperBb<T> extends OldCoupleInformationDb {
     /**
      * カラム生成
      */
-    public void createDynamicColumns() {
-        columns.clear();
-        
-        //ヘッダとエンティティの属性である変数名を記述
-        columns.add(new ColumnModel("id", "id"));
-        columns.add(new ColumnModel("名前", "firstName"));
-        columns.add(new ColumnModel("住んでいる地域", "addressOne"));
-        columns.add(new ColumnModel("丁目", "addressTwo"));
-        columns.add(new ColumnModel("提供できる保育の内容", "educationContent"));
-        columns.add(new ColumnModel("保護者の方への言葉", "message"));
-
-    }
-
 
 
     public String next() {
@@ -165,8 +149,6 @@ public class SuperBb<T> extends OldCoupleInformationDb {
             OldCoupleInformation item = (OldCoupleInformation) db.findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
         }
     }
-
-
 
     public List<SelectItem> getYearList() {
         return yearList;

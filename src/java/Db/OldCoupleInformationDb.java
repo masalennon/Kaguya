@@ -37,6 +37,7 @@ public class OldCoupleInformationDb<T> implements Serializable {
     public void create(OldCoupleInformation oldCoupleInformation) {
         em.persist(oldCoupleInformation);
     }
+
     public void createa(ParentEntity parentEntity) {
         em.persist(parentEntity);
     }
@@ -69,15 +70,32 @@ public class OldCoupleInformationDb<T> implements Serializable {
 //    }
 
     public List<OldCoupleInformation> filterTable(String search) {
-        if(search != null) { 
-        Query query = em.createQuery("SELECT c FROM OldCoupleInformation c WHERE c.addressOne LIKE　:search", OldCoupleInformation.class);
-        query.setParameter("search", "%" + search + "%"); //searchを含む文章を検索できる
-        return query.getResultList();
+        if (search != null) {
+            Query query = em.createQuery("SELECT c FROM OldCoupleInformation c WHERE c.addressOne LIKE　:search", OldCoupleInformation.class);
+            query.setParameter("search", "%" + search + "%"); //searchを含む文章を検索できる
+            return query.getResultList();
 //        OldCoupleInformation result = (OldCoupleInformation) query.getResultList();
 //        return (List) result;
         } else {
             return getAll();
         }
+
+    }
+
+    public List<OldCoupleInformation> searchToEdit(String mailAddress, Integer id) {
+        Query query = em.createQuery("SELECT c FROM OldCoupleInformation c WHERE c.mailAddress =　:mailAddress and c.id = :id", OldCoupleInformation.class);
+        query.setParameter("mailAddress", mailAddress);
+        query.setParameter("id", id);
+        if (query.getResultList() != null) {
+            System.out.println("-----------------editList is NOT null------------------");
+
+            return query.getResultList();
+        } else {
+            System.out.println("-----------------editList is null------------------");
+            return null;
+        }
+//        OldCoupleInformation result = (OldCoupleInformation) query.getResultList();
+//        return (List) result;
 
     }
 

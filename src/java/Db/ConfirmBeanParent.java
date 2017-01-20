@@ -25,7 +25,7 @@ import javax.validation.constraints.NotNull;
 public class ConfirmBeanParent implements Serializable {
 
     @NotNull
-    private Integer id;
+    private Integer parentId;
     @NotNull
     private String firstNameParent;
     @NotNull
@@ -45,6 +45,8 @@ public class ConfirmBeanParent implements Serializable {
     @NotNull
     private String mailAddressParent;
 
+    private Integer id;
+    
     private String firstName;
 
     private String birthYear;
@@ -60,6 +62,8 @@ public class ConfirmBeanParent implements Serializable {
     private String educationContent;
 
     private String message;
+    
+    private String mailAddress;
 
     private String payment;
 
@@ -70,7 +74,14 @@ public class ConfirmBeanParent implements Serializable {
     private String messageToParent = "正常に送信が行われました。お支払いを確認し次第、保育者様の連絡先をお教えいたします。もし万が一"
             + "保育者様と連絡が取れない場合は、こちらで事実確認をし次第必ず全額返金いたしますのでご安心ください。"
             + "このメールに覚えがない場合は、お手数ですがこのメールに返信する形で運営までおしらせください。";
-    
+
+    private String messageToMe;
+
+    private String messageToMeTitle = "新しい申し込み";
+
+    private final String myMailAddress = "competence.80@gmail.com";
+
+    String crlf = System.getProperty("line.separator");
 //    @EJB
 //    MailSender mailsender;
 
@@ -80,7 +91,7 @@ public class ConfirmBeanParent implements Serializable {
     @PostConstruct
     public void init() {
         Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
-        this.id = (Integer) flash.get("id");
+        this.parentId = (Integer) flash.get("parentId");
         this.firstNameParent = (String) flash.get("firstNameParent");
         this.lastNameParent = (String) flash.get("lastNameParent");
         this.firstNameHuriganaParent = (String) flash.get("firstNameHuriganaParent");
@@ -90,7 +101,8 @@ public class ConfirmBeanParent implements Serializable {
         this.birthDayParent = (Integer) flash.get("birthDayParent");
         this.phoneNumberParent = (String) flash.get("phoneNumberParent");
         this.mailAddressParent = (String) flash.get("mailAddressParent");
-
+        
+        this.id = (Integer) flash.get("id");
         this.firstName = (String) flash.get("firstName");
         this.educationContent = (String) flash.get("educationContent");
         this.payment = (String) flash.get("payment");
@@ -101,7 +113,7 @@ public class ConfirmBeanParent implements Serializable {
         this.addressTwo = (String) flash.get("addressTwo");
         this.phoneNumber = (String) flash.get("phoneNumber");
         this.addressOne = (String) flash.get("addressOne");
-
+        this.mailAddress = (String) flash.get("mailAddress");
     }
 
     public String goToComplete() {
@@ -112,7 +124,12 @@ public class ConfirmBeanParent implements Serializable {
         try {
             MailSender mailsender = new MailSender();
             db.createa(parentEntity);
+            messageToMe = "保護者情報:" + crlf + firstNameParent + lastNameParent + crlf + 
+                    phoneNumberParent + crlf + mailAddressParent + crlf + crlf + "高齢者情報" + 
+                    crlf + id + crlf + firstName + crlf + mailAddress + crlf + phoneNumber;
+
             mailsender.send(messageTitle, messageToParent, mailAddressParent);
+            mailsender.send(messageToMeTitle, messageToMe, myMailAddress);
             clear();
             return "complete-parent.xhtml";
 
@@ -126,16 +143,16 @@ public class ConfirmBeanParent implements Serializable {
     public void clear() {
         firstNameParent = lastNameParent = firstNameHuriganaParent
                 = lastNameHuriganaParent = phoneNumberParent = mailAddressParent = null;
-        id = birthYearParent = birthMonthParent = birthDayParent = null;
+        parentId = birthYearParent = birthMonthParent = birthDayParent = null;
 
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getParentId() {
+        return parentId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
     }
 
     public String getFirstNameParent() {
@@ -312,6 +329,22 @@ public class ConfirmBeanParent implements Serializable {
 
     public void setMessageToParent(String messageToParent) {
         this.messageToParent = messageToParent;
+    }
+
+    public String getMessageToMe() {
+        return messageToMe;
+    }
+
+    public void setMessageToMe(String messageToMe) {
+        this.messageToMe = messageToMe;
+    }
+
+    public String getMessageToMeTitle() {
+        return messageToMeTitle;
+    }
+
+    public void setMessageToMeTitle(String messageToMeTitle) {
+        this.messageToMeTitle = messageToMeTitle;
     }
 
 }

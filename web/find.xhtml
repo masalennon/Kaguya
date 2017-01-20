@@ -84,13 +84,12 @@
 
 
             <p:dataTable id="examplej" class="table couple-table" 
-                         var="info" value="#{bb.coupleList}" widgetVar="couple" rows="10" paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                         var="info" value="#{bb.coupleList}" widgetVar="couple" rows="10" paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                          rowsPerPageTemplate="5,10,15" paginator="true" emptyMessage="住所を入力して検索してください">
-                <f:facet name="header">
-                    <!--<p:outputPanel>-->
-                    <h:outputText value="地域で検索" />
-                </f:facet>
 
+                <div class="search-box">
+                        <h:outputText value="地域で検索" />
+                </div>
                 <p:column class="column-couple" >
                     <p:graphicImage value="#{bb.pic}" >
                         <f:param name="id" value="#{info.id}"/>
@@ -99,18 +98,11 @@
 
                 <p:column class="column-couple">
                     <h:outputText value="#{info.firstName}" />さん
-                    <h:outputText value="#{info.id}" />さん
-
-
                 </p:column>
 
                 <p:column class="column-couple">
                     <h:outputText value="#{info.addressOne}" />
-                    <!--引数にリストを渡してそのリストを元に詳細ページに飛ぶようにする？ど、どうやって？-->
-                    <!--リストを渡してそのリストをArrayにしてその要素を順番に表示していく？-->
-                    <!--更新ボタンが押された時に値が消えないように、更新ボタンが押された時の動作を指定することができれば、検索によって新たに作成したリストを違うページに渡してそこから要塞ページに行くようにできるかもしれない-->
                 </p:column>
-
 
                 <p:column class="column-couple">
                     <h:commandLink action="#{bb.detail(info.id)}"><!-- 試したもの：bb.oci, bb.coupleList, filt()でOldcoupleInformationをflashでdetail()に渡す-->

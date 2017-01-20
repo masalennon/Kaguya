@@ -5,6 +5,7 @@
  */
 package Db;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
@@ -71,7 +72,7 @@ public class ConfirmBean implements Serializable {
 
     private String message;
 
-    private String payment;
+    private Integer payment;
 
     private byte[] image;
 
@@ -111,7 +112,7 @@ public class ConfirmBean implements Serializable {
         this.mailAddress = (String) flash.get("mailAddress");
         this.educationContent = (String) flash.get("educationContent");
         this.message = (String) flash.get("message");
-        this.payment = (String) flash.get("payment");
+        this.payment = (Integer) flash.get("payment");
         this.image = (byte[]) flash.get("image");
         this.imageRoom = (byte[]) flash.get("imageRoom");
 
@@ -124,8 +125,9 @@ public class ConfirmBean implements Serializable {
                 = firstNameHurigana = lastNameHurigana = addressOne = addressTwo = birthYear
                 = birthMonth = birthDay = firstNameWife = lastNameWife = firstNameHuriganaWife
                 = lastNameHuriganaWife = birthYearWife = birthMonthWife = birthDayWife
-                = phoneNumber = mailAddress = educationContent = message = payment = null;
+                = phoneNumber = mailAddress = educationContent = message = null;
         image = imageRoom = null;
+        payment = null;
     }
 
     public void create() {
@@ -139,7 +141,7 @@ public class ConfirmBean implements Serializable {
         try {
 
             db.create(oldCoupleInformation);
-            messageToCouple = "ご登録ありがとうございました。ご登録いただいた情報は、Webサイトの、「受け入れ先を探す」ページから変更できます。変更の際には、ご登録いただいたメールアドレスとこのメールに記載されている"
+            messageToCouple = "ご登録ありがとうございました。ご登録いただいた情報は、Webサイトの、「受け入れ先を探す」ページから変更・削除できます。その際には、ご登録いただいたメールアドレスとこのメールに記載されている"
                     + "idが必要になりますので、このメールは削除しないでください。" + "あなたのid: " + oldCoupleInformation.getId() + "あなたのメールアドレス: " + this.mailAddress;
             MailSender mailsender = new MailSender();
             mailsender.send(messageTitle, getMessageToCouple(), mailAddress);
@@ -151,12 +153,21 @@ public class ConfirmBean implements Serializable {
 
         }
     }
-//
-//    public List<OldCoupleInformation> findByAddress(String search) {
-//        filteredList = db.filterTable(search);
-//
-//        return db.filterTable(search);
-//    }
+
+    public String update() {
+        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
+                firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
+                birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
+                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, phoneNumber, mailAddress,
+                educationContent, message, payment, image, imageRoom);
+        try {
+            db.update(oldCoupleInformation);
+            clear();
+        } catch (Exception e) {
+            return "error.xhtml";
+        }
+        return null;
+    }
 
     public String goToInput() {
         System.out.println("back to input.");
@@ -360,11 +371,11 @@ public class ConfirmBean implements Serializable {
         this.message = message;
     }
 
-    public String getPayment() {
+    public Integer getPayment() {
         return payment;
     }
 
-    public void setPayment(String payment) {
+    public void setPayment(Integer payment) {
         this.payment = payment;
     }
 

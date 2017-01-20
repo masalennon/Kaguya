@@ -1,8 +1,14 @@
 package Db;
 
+import java.io.ByteArrayInputStream;
 import java.io.Serializable;
+import java.util.Map;
+import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseId;
 import javax.inject.Named;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -18,6 +24,8 @@ import javax.persistence.Query;
 import javax.persistence.Table;
 import javax.servlet.http.Part;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -76,15 +84,15 @@ public class OldCoupleInformation implements Serializable {
     @NotEmpty
     private String mailAddress;
 
-    private Part file;
-
-    private Part fileRoom;
+//    private Part file;
+//
+//    private Part fileRoom;
 
     private String educationContent;
 
     private String message;
 
-    private String payment;
+    private Integer payment;
     @Lob
     @Basic(fetch = FetchType.LAZY)
     private byte[] image;
@@ -92,8 +100,8 @@ public class OldCoupleInformation implements Serializable {
     @Basic(fetch = FetchType.LAZY)
     private byte[] imageRoom;
 
-
-
+//    @EJB
+//    OldCoupleInformationDb db;
 //    @Inject
 //    transient Logger log;
     public OldCoupleInformation(Integer id, String firstName, String lastName, String firstNameHurigana,
@@ -101,8 +109,7 @@ public class OldCoupleInformation implements Serializable {
             String birthMonth, String birthDay, String firstNameWife, String lastNameWife,
             String firstNameHuriganaWife, String lastNameHuriganaWife, String birthYearWife,
             String birthMonthWife, String birthDayWife, String phoneNumber, String mailAddress,
-            String educationContent, String message, String payment, byte[] image, byte[] imageRoom) {
-
+            String educationContent, String message, Integer payment, byte[] image, byte[] imageRoom) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -127,8 +134,22 @@ public class OldCoupleInformation implements Serializable {
         this.payment = payment;
         this.image = image;
         this.imageRoom = imageRoom;
+    }
+
+    public OldCoupleInformation(String addressOne, String addressTwo, String phoneNumber, String mailAddress,
+            String educationContent, String message, Integer payment) {
+        this.addressOne = addressOne;
+        this.addressTwo = addressTwo;
+        this.phoneNumber = phoneNumber;
+        this.mailAddress = mailAddress;
+        this.educationContent = educationContent;
+        this.message = message;
+        this.payment = payment;
+//        this.image = image;
+//        this.imageRoom = imageRoom;
 
     }
+
 
     public OldCoupleInformation() {
     }
@@ -285,13 +306,13 @@ public class OldCoupleInformation implements Serializable {
         this.mailAddress = mailAddress;
     }
 
-    public Part getFile() {
-        return file;
-    }
-
-    public void setFile(Part file) {
-        this.file = file;
-    }
+//    public Part getFile() {
+//        return file;
+//    }
+//
+//    public void setFile(Part file) {
+//        this.file = file;
+//    }
 
     public String getEducationContent() {
         return educationContent;
@@ -309,11 +330,11 @@ public class OldCoupleInformation implements Serializable {
         this.message = message;
     }
 
-    public String getPayment() {
+    public Integer getPayment() {
         return payment;
     }
 
-    public void setPayment(String payment) {
+    public void setPayment(Integer payment) {
         this.payment = payment;
     }
 
@@ -333,12 +354,12 @@ public class OldCoupleInformation implements Serializable {
         this.imageRoom = imageRoom;
     }
 
-    public Part getFileRoom() {
-        return fileRoom;
-    }
-
-    public void setFileRoom(Part fileRoom) {
-        this.fileRoom = fileRoom;
-    }
+//    public Part getFileRoom() {
+//        return fileRoom;
+//    }
+//
+//    public void setFileRoom(Part fileRoom) {
+//        this.fileRoom = fileRoom;
+//    }
 
 }

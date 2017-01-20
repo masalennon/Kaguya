@@ -41,7 +41,7 @@ and open the template in the editor.
             <br/>            <br/>
             <br/>
 
-            
+
             <div class="set" align="center">
 
                 <div align="center">
@@ -177,7 +177,7 @@ and open the template in the editor.
                         </td>
                         <th class="headrow2"><h:outputText id="payment" 
                                                            value="#{cb.payment}" class = "text"/><br/>
-                        </th>
+                        </th>万円
                     </tr>
 
                     <tr>
@@ -203,7 +203,7 @@ and open the template in the editor.
 
                 </table>
                 <br/><br/>
-                <p:graphicImage value="#{bb.pic}" >
+<!--                <p:graphicImage value="#{bb.pic}" >
                     <f:param name="id" value="{bb.id}"/>
                 </p:graphicImage>
                 <br/><br/>
@@ -211,11 +211,11 @@ and open the template in the editor.
 
                 <p:graphicImage class="img-detail" value="#{bb.pic}"  width="" height="">
                     <f:param name="id" value="#{cb.id}"/>
-                </p:graphicImage>    
-                <h:commandButton value="入力画面へ戻る" action="#{cb.goToInput()}" class="Button"/><br/><br/>
-                <h:commandButton value="上記の内容を確認して送信" action="#{cb.goToComplete()}" class="Button">
+                </p:graphicImage>    -->
+                <h:button value="入力画面へ戻る" outcome="index.xhtml" class="Button"/>
+                <h:commandButton value="上記の内容を確認して送信" action="#{cb.goToComplete()}" class="Button"/><br/><br/>
 
-                </h:commandButton>
+                <!--</h:commandButton>-->
 
             </div>
         </h:body>

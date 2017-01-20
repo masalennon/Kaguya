@@ -63,8 +63,8 @@ public class Bb extends SuperBb implements Serializable {
 //
 //    private static final long serialVersionUID = 1L;
 //    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotEmpty
+//    @GeneratedValue(strategy = GenerationType.AUTO)エンティティでIDを自動作成するためここではヌルにしておく。
+//    @NotEmpty
     private Integer id;
     @NotEmpty
     private String firstName;
@@ -105,7 +105,7 @@ public class Bb extends SuperBb implements Serializable {
 
     private String message;
 
-    private String payment;
+    private Integer payment;
 
     private Part file;
 
@@ -165,6 +165,7 @@ public class Bb extends SuperBb implements Serializable {
             coupleList = db.filterTable(search);
             System.out.println("coupleList = db.filterTable(search);\n");
         }
+        
     }
 
     public void search() {
@@ -176,8 +177,8 @@ public class Bb extends SuperBb implements Serializable {
         System.out.println("detail()");
         oci = db.find(id);
         return "detail-content.xhtml";
-
     }
+
     public String goToContract(Integer id, String firstName, String addressOne, String addressTwo, String payment, String educationContent, String mailAddress, String phoneNumber) {
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
@@ -196,6 +197,7 @@ public class Bb extends SuperBb implements Serializable {
         return "index-parent.xhtml";
     }
 
+    
     public StreamedContent getPic() {
         FacesContext context = FacesContext.getCurrentInstance();
         if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
@@ -213,6 +215,7 @@ public class Bb extends SuperBb implements Serializable {
     }
 
     public StreamedContent getRoomPic() {
+
         FacesContext context = FacesContext.getCurrentInstance();
         if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
             return new DefaultStreamedContent();
@@ -296,10 +299,13 @@ public class Bb extends SuperBb implements Serializable {
         return "/confirm.xhtml?faces-redirect=true";
     }
 
-    public String edit(OldCoupleInformation oldCoupleInformation) {
-        firstName = oldCoupleInformation.getFirstName();
-        return null;
-    }
+//        public String edit(Employee employee) {	// 編集データのセット
+//        number = employee.getNumber();
+//        name = employee.getName();
+//        mail = employee.getMail();
+//        return null;
+//    }
+
 
     public void sendMail() {
         sender.send(this.mailAddress, "お問い合わせのご確認", text.getText(this.firstName));
@@ -540,11 +546,11 @@ public class Bb extends SuperBb implements Serializable {
         this.db = db;
     }
 
-    public String getPayment() {
+    public Integer getPayment() {
         return payment;
     }
 
-    public void setPayment(String payment) {
+    public void setPayment(Integer payment) {
         this.payment = payment;
     }
 

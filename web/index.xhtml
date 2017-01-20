@@ -71,7 +71,7 @@ and open the template in the editor.
         <h:form enctype="multipart/form-data">
             <div class="set" align="center">
 
-                
+
                 <br/>                <br/>
                 <br/>
 
@@ -94,9 +94,15 @@ and open the template in the editor.
                         </td>　
                         <td class="husbandheadrow2">
                             (姓) <h:inputText class = "text" id="firstName" required="true" requiredMessage="ご主人の名前(姓)の入力は必須です"
-                                             value="#{bb.firstName}" label="名前" size="20" a:placeholder="(姓)" />
+                                             value="#{bb.firstName}" label="名前" size="20" a:placeholder="(姓)" >
+                                <f:validateRegex pattern="^[一-龠]*$"/>
+
+                            </h:inputText>
                             (名) <h:inputText class = "text" id="lastName" required="true"
-                                             requiredMessage="ご主人の名前(名)の入力は必須です" value="#{bb.lastName}" a:placeholder="(名)" /><br/>  
+                                             requiredMessage="ご主人の名前(名)の入力は必須です" value="#{bb.lastName}" a:placeholder="(名)" ><br/>  
+                                <f:validateRegex pattern="^[一-龠]*$"/> 
+                            </h:inputText>
+
                         </td> 
                     </tr> 
                     <tr>
@@ -110,9 +116,15 @@ and open the template in the editor.
                         <td class="husbandheadrow2">
 
                             (姓) <h:inputText class = "text" id="firstNameHurigana" required="true"
-                                             requiredMessage="ご主人のふりがな(姓)の入力は必須です" value="#{bb.firstNameHurigana}" a:placeholder="ふりがな(姓)"/>
+                                             requiredMessage="ご主人のふりがな(姓)の入力は必須です" value="#{bb.firstNameHurigana}" a:placeholder="ふりがな(姓)">
+                                <f:validateRegex pattern="^[ぁ-ゞ]+$"/>
+                            </h:inputText>
+
                             (名) <h:inputText class = "text" id="lastNameHurigana" required="true" requiredMessage="ご主人のふりがな(名)は必須です"
-                                             value="#{bb.lastNameHurigana}" a:placeholder="ふりがな(名)"/><br/>
+                                             value="#{bb.lastNameHurigana}" a:placeholder="ふりがな(名)"  >                                                           
+                                <f:validateRegex pattern="^[ぁ-ゞ]+$"/>
+                            </h:inputText>
+                            <br/>
                         </td>
                     </tr>
 
@@ -158,10 +170,17 @@ and open the template in the editor.
 
                         </td>　
                         <td class="wifeheadrow2">
-                            (姓) <h:inputText class = "text" id="firstNameWife" required="true" 
-                                             requiredMessage="奥様の名前(姓)の入力は必須です" value="#{bb.firstNameWife}" a:placeholder="(姓)"/>
+                            (姓) <h:inputText class = "text" id="firstNameWife" required="true" validatorMessage="名前は漢字かひらがなで入力してください"
+                                             requiredMessage="奥様の名前(姓)の入力は必須です" value="#{bb.firstNameWife}" a:placeholder="(姓)">
+                                             <!--<f:validateRegex pattern="^[一-龠]*$+^[ぁ-ゞ]+$"/>-->
+
+                            </h:inputText>
                             (名) <h:inputText class = "text" id="lastNameWife" required="true" requiredMessage="奥様の名前(名)は必須です"
-                                             value="#{bb.lastNameWife}" a:placeholder="(名)"/><br/>
+                                             value="#{bb.lastNameWife}" a:placeholder="(名)" validatorMessage="名前は漢字かひらがなで入力してください">
+                                <!--<f:validateRegex pattern="^[一-龠]*$+^[ぁ-ゞ]+$"/>-->
+
+                            </h:inputText>
+                            <br/>
                         </td>
                     </tr> 
                     <tr>
@@ -174,9 +193,16 @@ and open the template in the editor.
                         </td>　
                         <td class="wifeheadrow2">
                             (姓) <h:inputText class = "text" id="firstNameHuriganaWife" required="true" requiredMessage="奥様のふりがな(姓)は必須です"
-                                             value="#{bb.firstNameHuriganaWife}" label="名前" a:placeholder="(姓)ふりがな"/>
+                                             value="#{bb.firstNameHuriganaWife}" label="名前" a:placeholder="(姓)ふりがな" validatorMessage="名前は漢字かひらがなで入力してください">
+                                <f:validateRegex pattern="^[ぁ-ゞ]+$"/>
+
+                            </h:inputText>
                             (名) <h:inputText class = "text" id="lastNameHuriganaWife" required="true"
-                                             requiredMessage="奥様のふりがな(名)の入力は必須です" value="#{bb.lastNameHuriganaWife}" a:placeholder="(名)ふりがな"/>
+                                             requiredMessage="奥様のふりがな(名)の入力は必須です" value="#{bb.lastNameHuriganaWife}"
+                                             a:placeholder="(名)ふりがな" validatorMessage="名前は漢字かひらがなで入力してください">
+                                <f:validateRegex pattern="^[ぁ-ゞ]+$"/>
+
+                            </h:inputText>
                             <br/>
                         </td>
                     </tr>
@@ -233,7 +259,8 @@ and open the template in the editor.
                         </td>
                         <td class="headrow2">
                             <h:inputText class = "text2" id="addressOne" required="true" a:placeholder=" 例：世田谷区弦巻"
-                                         requiredMessage="お住いの市区町村の入力は必須です" value="#{bb.addressOne}"/><br/>
+                                         requiredMessage="お住いの市区町村の入力は必須です" value="#{bb.addressOne}"
+                                         validatorMessage="名前は漢字かひらがなで入力してください"/><br/>
                         </td>
                     </tr>
                     <tr>
@@ -245,7 +272,7 @@ and open the template in the editor.
                         <td class="headrow2"><br/>
                             必須ではありませんが、何丁目かまでわかると、<br/>保護者の方の参考になります。<br/>
                             <h:inputText class = "text3" id="addressTwo"
-                                         value="#{bb.addressTwo}" required="false"/> 丁目<br/><br/>
+                                         value="#{bb.addressTwo}" required="false"/> 丁目(半角英数字のみ)<br/><br/>
                         </td>
                     </tr>
                     <tr>
@@ -290,11 +317,11 @@ and open the template in the editor.
 
                         </td>
                         <td class="headrow2">
-                            <h:inputText class = "text2" id="payment" required="true"
-                                         requiredMessage="希望月謝の入力は必須です" a:placeholder="　　目安は５〜８万円です"
-                                         value="#{bb.payment}"/><br/>
+                            <h:inputText class = "text3" id="payment" required="true"
+                                         requiredMessage="希望月謝の入力は必須です" a:placeholder="　　目安は一人につき５〜８万円です"
+                                         value="#{bb.payment}"/>万円<br/>
                         </td>
-                    </tr>
+                    </tr>/
 
                     <tr>
                         <td class="headrow">
@@ -342,7 +369,7 @@ and open the template in the editor.
                                 </h:form>-->
                 <div align="center">❇夫婦で撮ったお写真やお部屋の様子がわかる写真があると、申し込みが来やすくなります。</div>
                 <h:commandButton value="確認画面へ進む(登録は無料です)" action="#{bb.goToConfirm()}" class="Button"/>
-             
+
 
                 <!--enctype="multipart/form-data"-->
             </div>

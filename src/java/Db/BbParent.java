@@ -129,7 +129,7 @@ public class BbParent implements Serializable {
         flash.put("mailAddressParent", this.mailAddressParent);
         flash.put("phoneNumber", this.phoneNumber);
         flash.put("mailAddress", this.mailAddress);
-        flash.put("id", id);
+        flash.put("id", this.id);
         flash.put("firstName", firstName);
         flash.put("birthYear", birthYear);
         flash.put("birthDay", birthDay);
