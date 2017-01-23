@@ -79,7 +79,7 @@ public class ConfirmBeanParent implements Serializable {
 
     private String messageToMeTitle = "新しい申し込み";
 
-    private final String myMailAddress = "competence.80@gmail.com";
+    private final String myMailAddress = "kaguyaforjapan@gmail.com";
 
     String crlf = System.getProperty("line.separator");
 //    @EJB

@@ -75,60 +75,33 @@ and open the template in the editor.
     <br/>
     <h:form>     
 
-        <p:dataTable 
-            var="info" value="#{editBean.editList}">
 
-            <f:facet name="header">
-                <!--<p:outputPanel>-->
-                <h:outputText value="地域で検索" />
-            </f:facet>
-            <!--
-                                    <p:column class="column-couple" >
-                                        <p:graphicImage value="#{bb.pic}" >
-                                            <f:param name="id" value="#{info.id}"/>
-                                        </p:graphicImage>
-                                    </p:column>-->
 
-            <br/>
-            <th>
+        
+                                <p:column class="column-couple" >
+                                    <p:graphicImage value="#{bb.pic}" >
+                                        <f:param name="id" value="#{bb.oci.id}"/>
+                                    </p:graphicImage>
+                                </p:column>
 
-            </th>
-            <p:column class="column-couple">
-                <h:outputText value="#{info.addressOne}"/>
-            </p:column>
+        <br/>
 
-            <p:column class="column-couple">
-                #{info.addressTwo}
-            </p:column>
-            <br/>
-            <th>
+        <div class="description-kaguya">
 
-            </th>
-            <p:column class="column-couple">
-                #{info.payment}
-            </p:column>
-            <br/>
-            <th>
+            <div class="edit-underline3">市区町村　　　　　　　　<h:outputText value="#{bb.oci.addressOne}"/></div><br/>
 
-            </th>
-            <p:column class="column-couple">
-                #{info.educationContent}
-            </p:column>
-            <br/>
-            <p:column class="column-couple">
-                #{info.message}
-            </p:column>
-            <br/>
-            <p:column class="column-couple">
-                #{info.mailAddress}
-            </p:column>
-            <br/>
-            <p:column>
-                <h:commandLink action="#{editBean.edit(info)}" value="編集"><!-- 試したもの：bb.oci, bb.coupleList, filt()でOldcoupleInformationをflashでdetail()に渡す-->
-                    <!--<f:ajax render="@all"/>-->
-                </h:commandLink> 
-            </p:column>
-        </p:dataTable>
+            <div class="edit-underline">住んでいる丁目　　　　　<h:outputText value="#{bb.oci.addressTwo}"/></div><br/>    
+
+            <div class="edit-underline">希望月謝　　　　　　<h:outputText value="#{bb.oci.payment}"/></div>  <br/>
+
+            <div class="edit-underline">提供できる教育内容　  　　<h:outputText value="#{bb.oci.educationContent}"/></div><br/>   
+
+            <div class="edit-underline">保護者の方への言葉　  　　<h:outputText value="#{bb.oci.message}"/></div><br/>
+
+            <div class="edit-underline2">メールアドレス　　　　 　<h:outputText value="#{bb.oci.mailAddress}"/></div><br/>
+
+
+        </div>
 
 
         <br/>            
@@ -247,45 +220,12 @@ and open the template in the editor.
                     </td>
                 </tr>
             </table>
-            <!--            <h:panelGrid class="panelgrid-edit">
+
             
-                            <h:inputText class = "text2" id="addressOne" required="true" a:placeholder=" 例：世田谷区弦巻"
-                                         requiredMessage="お住いの市区町村の入力は必須です" value="#{editBean.addressOne}"
-                                         validatorMessage="名前は漢字かひらがなで入力してください"/>
-                            <br/>
             
-                            <h:inputText class = "text2" id="addressTwo" required="true" a:placeholder=" 例：2"
-                                         requiredMessage="お住いの市区町村の入力は必須です" value="#{editBean.addressTwo}"
-                                         validatorMessage="名前は漢字かひらがなで入力してください"/>丁目
-                            <br/>
-            
-                            <h:inputText class = "text2" id="phoneNumber" required="true"
-                                         requiredMessage="電話番号の入力は必須です" a:placeholder=" 例：03-1234-5678"
-                                         value="#{editBean.phoneNumber}"/><br/> 
-            
-                            <h:inputText class = "text2" id="payment" required="true"
-                                         requiredMessage="希望月謝の入力は必須です" a:placeholder="　　目安は５〜８万円です"
-                                         value="#{editBean.payment}"/><br/>
-                            <h:inputText class = "text1" id="educationcontent" required="true"
-                                         requiredMessage="保育の内容の入力は必須です" a:placeholder=" 例：読み聞かせ、読み書き計算、食事の提供、など"
-                                         value="#{editBean.educationContent}"/> <br/>
-                            <h:inputTextarea id="message" cols="40" rows="10" 
-                                             value="#{editBean.message}"/><br/>
-            
-                            メールアドレス<h:inputText id="name" value="#{bb.mailAddress}" /><br/>
-                                    <h:form enctype="multipart/form-data">
-                                        <div align="center"><h:inputFile id="file" value="#{bb.file}"  label="写真を選択" /></div><br />
-                                        <div align="center"><h:inputFile id="fileRoom" value="#{bb.fileRoom}" label="写真を選択"/></div><br />
-                            
-                                    </h:form>
-            
-                        </h:panelGrid>-->
         </div>
 
-        <h:panelGrid columns="1">
-
-        </h:panelGrid>
-
+<h:commandButton value="編集を完了する" action="#{bb.update()}"/>
 
 
 

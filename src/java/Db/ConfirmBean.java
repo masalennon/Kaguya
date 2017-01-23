@@ -154,20 +154,6 @@ public class ConfirmBean implements Serializable {
         }
     }
 
-    public String update() {
-        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
-                firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
-                birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
-                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, phoneNumber, mailAddress,
-                educationContent, message, payment, image, imageRoom);
-        try {
-            db.update(oldCoupleInformation);
-            clear();
-        } catch (Exception e) {
-            return "error.xhtml";
-        }
-        return null;
-    }
 
     public String goToInput() {
         System.out.println("back to input.");

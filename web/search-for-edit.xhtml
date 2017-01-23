@@ -57,7 +57,7 @@ and open the template in the editor.
                     <li><a href="find.xhtml">受け入れ先を探す</a></li>
                     <li><a href="index.xhtml">会員登録</a></li>  
                     <li><a href="faq.xhtml">よくある質問</a></li>
-                    <li><a href="inquery.xhtml">お問合せ</a></li>
+                    <li><a href="inqueryk.xhtml">お問合せ</a></li>
 
                 </ul>
             </div>
@@ -71,15 +71,18 @@ and open the template in the editor.
 
         <br/>
         <br/>
-        編集するために、idとメールアドレスを入力してください。idは会員登録の際に送ったメールに記載されています。
-        <h:panelGrid>
-            <h:inputText id="mailAddress" value="#{searchBb.mailAddress}" style="width:150px" p:placeholder="あなたのメールアドレス"/> <br/>
-            <h:inputText id="id" value="#{searchBb.id}" style="width:150px" p:placeholder="あなたのid"/> <br/>
-        </h:panelGrid>
-        <br/>
-        <h:commandLink type="submit" value="地域で検索" action="#{searchBb.searchToEdit()}" class="Button"/>
+        <div align="center" >
 
+            編集するために、idとメールアドレスを入力してください。idは会員登録の際に送ったメールに記載されています。 <br/> <br/>
+            <h:panelGrid>
+                id <h:inputText id="id" value="#{bb.id}" style="width:150px" p:placeholder="あなたのid"/> <br/>
 
+                メールアドレス <h:inputText id="mailAddress" value="#{bb.mailAddress}" style="width:150px" p:placeholder="あなたのメールアドレス"/> <br/>
+            </h:panelGrid>
+            <br/>
+            <h:commandLink type="submit" value="地域で検索" action="#{bb.goToEdit(bb.id, bb.mailAddress)}" class="Button"/>
+
+        </div>
 
 
 

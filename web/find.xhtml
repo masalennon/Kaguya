@@ -80,7 +80,9 @@
             <br/>
             <h:commandLink type="submit" value="地域で検索" action="#{bb.search()}" class="Button"/>
 
-
+            <div align="center">
+                <h:commandLink value="登録内容の変更はこちらから" action="search-for-edit.xhtml"/>
+            </div>
 
 
             <p:dataTable id="examplej" class="table couple-table" 
@@ -88,7 +90,7 @@
                          rowsPerPageTemplate="5,10,15" paginator="true" emptyMessage="住所を入力して検索してください">
 
                 <div class="search-box">
-                        <h:outputText value="地域で検索" />
+                    <h:outputText value="地域で検索" />
                 </div>
                 <p:column class="column-couple" >
                     <p:graphicImage value="#{bb.pic}" >

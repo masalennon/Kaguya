@@ -82,14 +82,14 @@ public class OldCoupleInformationDb<T> implements Serializable {
 
     }
 
-    public List<OldCoupleInformation> searchToEdit(String mailAddress, Integer id) {
+    public OldCoupleInformation searchToEdit(String mailAddress, Integer id) {
         Query query = em.createQuery("SELECT c FROM OldCoupleInformation c WHERE c.mailAddress =　:mailAddress and c.id = :id", OldCoupleInformation.class);
         query.setParameter("mailAddress", mailAddress);
         query.setParameter("id", id);
         if (query.getResultList() != null) {
             System.out.println("-----------------editList is NOT null------------------");
 
-            return query.getResultList();
+            return (OldCoupleInformation)query.getSingleResult();
         } else {
             System.out.println("-----------------editList is null------------------");
             return null;

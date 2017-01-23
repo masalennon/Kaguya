@@ -31,3 +31,20 @@ body {
     line-height: 35px;
     font-size: 20px;
 }
+
+
+h2 {
+    margin: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+textarea {
+    width: 500px;
+    height: 400px;
+}
+
+input {
+    width: 300px;
+    
+}

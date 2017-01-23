@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.context.RequestScoped;
 //import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
@@ -33,6 +34,7 @@ import javax.faces.event.PhaseId;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import static javax.mail.internet.HeaderTokenizer.Token.EOF;
 import javax.persistence.GeneratedValue;
@@ -132,6 +134,7 @@ public class Bb extends SuperBb implements Serializable {
 
     @EJB
     protected OldCoupleInformationDb db;
+    protected ConfirmBean cb;
     @Inject
     transient Logger log;
     @EJB
@@ -168,6 +171,21 @@ public class Bb extends SuperBb implements Serializable {
         
     }
 
+    
+    
+    public String update() {
+        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(
+                 addressOne, addressTwo, phoneNumber, mailAddress,
+                educationContent, message, payment);
+        try {
+            db.update(oldCoupleInformation);
+            cb.clear();
+        } catch (Exception e) {
+            return "error.xhtml";
+        }
+        return null;
+    }
+    
     public void search() {
         coupleList = db.filterTable(search);
         System.out.println("coupleList = db.filterTable(search);\n");
@@ -179,6 +197,17 @@ public class Bb extends SuperBb implements Serializable {
         return "detail-content.xhtml";
     }
 
+    public String goToEdit(String Id, String mailAddress) {
+        oci = db.searchToEdit(mailAddress, id);
+        addressOne = oci.getAddressOne();
+        addressTwo = oci.getAddressTwo();
+        phoneNumber = oci.getPhoneNumber();
+        payment = oci.getPayment();
+        educationContent = oci.getEducationContent();
+        message = oci.getMessage();
+        return "edit.xhtml";
+    }
+    
     public String goToContract(Integer id, String firstName, String addressOne, String addressTwo, String payment, String educationContent, String mailAddress, String phoneNumber) {
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
