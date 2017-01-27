@@ -45,24 +45,6 @@ and open the template in the editor.
     <h:outputStylesheet library="css" name="find.css" />
     <h:form>
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="main.xhtml">かぐや</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="main.xhtml">Home</a></li>
-                    <li><a href="serviceoverview.xhtml">サービスの概要</a></li>
-                    <li><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
-                    <li><a href="safety.xhtml">安全への取り組み</a></li>
-                    <li><a href="find.xhtml">受け入れ先を探す</a></li>
-                    <li><a href="index.xhtml">会員登録</a></li>  
-                    <li><a href="faq.xhtml">よくある質問</a></li>
-                    <li><a href="inquery.xhtml">お問合せ</a></li>
-
-                </ul>
-            </div>
-        </nav>
 
         <div class="container">
             <!--                <h3>Basic Navbar Example</h3>
@@ -77,12 +59,15 @@ and open the template in the editor.
 
 
 
-        
-                                <p:column class="column-couple" >
-                                    <p:graphicImage value="#{bb.pic}" >
-                                        <f:param name="id" value="#{bb.oci.id}"/>
-                                    </p:graphicImage>
-                                </p:column>
+
+        <p:graphicImage value="#{bb.pic}" >
+            <f:param name="id" value="#{bb.oci.id}"/>
+        </p:graphicImage>
+
+
+        <p:graphicImage class="imgRoom-detail" value="#{bb.roomPic}"  width="" height="">
+            <f:param name="id" value="#{bb.oci.id}"/>
+        </p:graphicImage>
 
         <br/>
 
@@ -90,24 +75,25 @@ and open the template in the editor.
 
             <div class="edit-underline3">市区町村　　　　　　　　<h:outputText value="#{bb.oci.addressOne}"/></div><br/>
 
-            <div class="edit-underline">住んでいる丁目　　　　　<h:outputText value="#{bb.oci.addressTwo}"/></div><br/>    
+            <div class="edit-underline">住んでいる丁目　　　　　<h:outputText value="#{bb.oci.addressTwo}"/>丁目</div><br/>    
 
-            <div class="edit-underline">希望月謝　　　　　　<h:outputText value="#{bb.oci.payment}"/></div>  <br/>
+            <div class="edit-underline">希望月謝　　　　　　　　<h:outputText value="#{bb.oci.payment}"/>万円(一人につき)</div><br/>
 
             <div class="edit-underline">提供できる教育内容　  　　<h:outputText value="#{bb.oci.educationContent}"/></div><br/>   
 
-            <div class="edit-underline">保護者の方への言葉　  　　<h:outputText value="#{bb.oci.message}"/></div><br/>
+            <div class="edit-underline">メールアドレス　　　　 　<h:outputText value="#{bb.oci.mailAddress}"/></div><br/>
 
-            <div class="edit-underline2">メールアドレス　　　　 　<h:outputText value="#{bb.oci.mailAddress}"/></div><br/>
+            <div class="edit-underline2">保護者の方への言葉　  　　<h:outputText value="#{bb.oci.message}"/></div><br/>
 
-
+            <!--全角スペースは文字として認識される-->
         </div>
-
 
         <br/>            
         <br/>
         <br/>
         <div align="center">
+     
+
 
             <table border="1" cellspacing="0" cellpadding="2" class="latter">
                 <tr>
@@ -127,7 +113,7 @@ and open the template in the editor.
                 </tr>
                 <tr>
                     <td class="headrow">
-                        番地(丁のみ)
+                        丁目
                         <span style="background: green" class="require">公開</span>
 
                     </td>
@@ -179,8 +165,8 @@ and open the template in the editor.
 
                     </td>
                     <td class="headrow2">
-                        <h:inputText class = "text2" id="payment" required="true"
-                                     requiredMessage="希望月謝の入力は必須です" a:placeholder="　　目安は５〜８万円です"
+                        <h:inputText class = "text3" id="payment" required="true"
+                                     requiredMessage="希望月謝の入力は必須です" 
                                      value="#{bb.payment}"/><br/>
                     </td>
                 </tr>
@@ -220,13 +206,12 @@ and open the template in the editor.
                     </td>
                 </tr>
             </table>
-
-            
-            
         </div>
+        <h:commandButton value="編集を完了する" action="#{bb.update()}"/>
 
-<h:commandButton value="編集を完了する" action="#{bb.update()}"/>
-
+        <h:commandButton value="編集" action="#{bb.edit(bb.oci)}">
+            <f:ajax render="@all"/>
+        </h:commandButton>
 
 
 

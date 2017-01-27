@@ -14,10 +14,13 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.scene.input.KeyCode.T;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -34,15 +37,23 @@ import javax.faces.event.PhaseId;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.faces.validator.Validator;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.mail.internet.AddressException;
 import static javax.mail.internet.HeaderTokenizer.Token.EOF;
+import javax.mail.internet.InternetAddress;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Validation;
+import javax.validation.ValidatorFactory;
+import static javax.ws.rs.client.Entity.entity;
 import static jdk.nashorn.tools.ShellFunctions.input;
 import net.tkxtools.MailSender;
 import org.apache.commons.io.IOUtils;
@@ -66,41 +77,41 @@ public class Bb extends SuperBb implements Serializable {
 //    private static final long serialVersionUID = 1L;
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)エンティティでIDを自動作成するためここではヌルにしておく。
-//    @NotEmpty
+//    //
     private Integer id;
-    @NotEmpty
+    //
     private String firstName;
-    @NotEmpty
+    //
     private String lastName;
-    @NotEmpty
+    //
     private String firstNameHurigana;
-    @NotEmpty
+    //
     private String lastNameHurigana;
-    @NotEmpty
+    //
     private String addressOne;
 
     private String addressTwo;
-    @NotEmpty
+    //
     private String birthYear = "1940";
-    @NotEmpty
+    //
     private String birthMonth = "1";
-    @NotEmpty
+    //
     private String birthDay = "1";
-    @NotEmpty
+    //
     private String firstNameWife;
-    @NotEmpty
+    //
     private String lastNameWife;
-    @NotEmpty
+    //
     private String firstNameHuriganaWife;
-    @NotEmpty
+    //
     private String lastNameHuriganaWife;
-    @NotEmpty
+    //
     private String birthYearWife = "1940";
-    @NotEmpty
+    //
     private String birthMonthWife = "1";
-    @NotEmpty
+    //
     private String birthDayWife = "1";
-    @NotEmpty
+    //
     private String phoneNumber;
 
     private String educationContent;
@@ -125,7 +136,7 @@ public class Bb extends SuperBb implements Serializable {
 
     private boolean listFlag;
 
-    @NotEmpty
+    //
     private String mailAddress;
 
     String detail = "詳細へ";
@@ -135,8 +146,6 @@ public class Bb extends SuperBb implements Serializable {
     @EJB
     protected OldCoupleInformationDb db;
     protected ConfirmBean cb;
-    @Inject
-    transient Logger log;
     @EJB
     protected MailSender sender;		// 電子メールユーティリティ
     @Inject
@@ -168,24 +177,104 @@ public class Bb extends SuperBb implements Serializable {
             coupleList = db.filterTable(search);
             System.out.println("coupleList = db.filterTable(search);\n");
         }
-        
+
     }
 
-    
-    
-    public String update() {
-        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(
-                 addressOne, addressTwo, phoneNumber, mailAddress,
-                educationContent, message, payment);
-        try {
-            db.update(oldCoupleInformation);
-            cb.clear();
-        } catch (Exception e) {
-            return "error.xhtml";
-        }
+    public String edit(OldCoupleInformation oldCoupleInformation) {
+        addressOne = oldCoupleInformation.getAddressOne();
+        addressTwo = oldCoupleInformation.getAddressTwo();
+        phoneNumber = oldCoupleInformation.getPhoneNumber();
+        mailAddress = oldCoupleInformation.getMailAddress();
+        educationContent = oldCoupleInformation.getEducationContent();
+        message = oldCoupleInformation.getMessage();
+        payment = oldCoupleInformation.getPayment();
+
         return null;
     }
-    
+
+    public String update() {
+//        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(
+//                id, addressOne, addressTwo, phoneNumber, mailAddress,
+//                educationContent, message, payment, image, imageRoom);
+
+        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
+                firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
+                birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
+                lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, phoneNumber, mailAddress,
+                educationContent, message, payment, image, imageRoom);
+        try {
+
+            db.update(oldCoupleInformation);
+//            cb.clear();]id = oci.getId();
+//            firstName = oci.getFirstName();
+//            lastName = oci.getLastName();
+//            firstNameHurigana = oci.getFirstNameHurigana();
+//            lastNameHurigana = oci.getLastNameHurigana();
+//            firstNameWife = oci.getFirstNameWife();
+//            lastNameWife = oci.getLastNameWife();
+//            firstNameHuriganaWife = oci.getFirstNameHuriganaWife();
+//            lastNameHuriganaWife = oci.getLastNameHuriganaWife();
+//            birthYear = oci.getBirthYear();
+//            birthMonth = oci.getBirthMonth();
+//            birthDay = oci.getBirthDay();
+//            birthYearWife = oci.getBirthYearWife();
+//            birthMonthWife = oci.getBirthMonthWife();
+//            birthDayWife = oci.getBirthDayWife();
+//            phoneNumber = oci.getPhoneNumber();
+//            addressOne = oci.getAddressOne();
+//            addressTwo = oci.getAddressTwo();
+//            phoneNumber = oci.getPhoneNumber();
+//            payment = oci.getPayment();
+//            educationContent = oci.getEducationContent();
+//            message = oci.getMessage();
+//            image = oci.getImage();
+//            imageRoom = oci.getImageRoom();           
+            Flash flash = FacesContext.getCurrentInstance()
+                    .getExternalContext().getFlash();
+            flash.put("firstName", this.firstName);
+            flash.put("lastName", this.lastName);
+            flash.put("firstNameHurigana", this.firstNameHurigana);
+            flash.put("lastNameHurigana", this.lastNameHurigana);
+            flash.put("addressOne", this.addressOne);
+            flash.put("addressTwo", this.addressTwo);
+            flash.put("birthYear", this.birthYear);
+            flash.put("birthMonth", this.birthMonth);
+            flash.put("birthDay", this.birthDay);
+            flash.put("firstNameWife", this.firstNameWife);
+            flash.put("lastNameWife", this.lastNameWife);
+            flash.put("firstNameHuriganaWife", this.firstNameHuriganaWife);
+            flash.put("lastNameHuriganaWife", this.lastNameHuriganaWife);
+            flash.put("birthYearWife", this.birthYearWife);
+            flash.put("birthMonthWife", this.birthMonthWife);
+            flash.put("birthDayWife", this.birthDayWife);
+            flash.put("phoneNumber", this.phoneNumber);
+            flash.put("mailAddress", this.mailAddress);
+            flash.put("message", this.message);
+            flash.put("educationContent", this.educationContent);
+            flash.put("payment", this.payment);
+            flash.put("image", image);
+            flash.put("imageRoom", imageRoom);
+
+            System.out.println("success for updating.");
+            return "after-edit.xhtml";
+        } catch (Exception e) {
+//            log.fine("■" + addressOne + "|" + e.getMessage());
+
+            return "error.xhtml";
+        }
+    }
+
+    public static boolean isValidEmailAddress(String email) {
+        boolean result = true;
+        try {
+            InternetAddress emailAddr = new InternetAddress(email);
+            emailAddr.validate();
+        } catch (AddressException ex) {
+            result = false;
+        }
+        return result;
+    }
+
     public void search() {
         coupleList = db.filterTable(search);
         System.out.println("coupleList = db.filterTable(search);\n");
@@ -197,17 +286,35 @@ public class Bb extends SuperBb implements Serializable {
         return "detail-content.xhtml";
     }
 
-    public String goToEdit(String Id, String mailAddress) {
+    public String goToEdit(Integer id, String mailAddress) {
         oci = db.searchToEdit(mailAddress, id);
+        id = oci.getId();
+        firstName = oci.getFirstName();
+        lastName = oci.getLastName();
+        firstNameHurigana = oci.getFirstNameHurigana();
+        lastNameHurigana = oci.getLastNameHurigana();
+        firstNameWife = oci.getFirstNameWife();
+        lastNameWife = oci.getLastNameWife();
+        firstNameHuriganaWife = oci.getFirstNameHuriganaWife();
+        lastNameHuriganaWife = oci.getLastNameHuriganaWife();
+        birthYear = oci.getBirthYear();
+        birthMonth = oci.getBirthMonth();
+        birthDay = oci.getBirthDay();
+        birthYearWife = oci.getBirthYearWife();
+        birthMonthWife = oci.getBirthMonthWife();
+        birthDayWife = oci.getBirthDayWife();
+        phoneNumber = oci.getPhoneNumber();
         addressOne = oci.getAddressOne();
         addressTwo = oci.getAddressTwo();
         phoneNumber = oci.getPhoneNumber();
         payment = oci.getPayment();
         educationContent = oci.getEducationContent();
         message = oci.getMessage();
+        image = oci.getImage();
+        imageRoom = oci.getImageRoom();
         return "edit.xhtml";
     }
-    
+
     public String goToContract(Integer id, String firstName, String addressOne, String addressTwo, String payment, String educationContent, String mailAddress, String phoneNumber) {
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
@@ -226,7 +333,6 @@ public class Bb extends SuperBb implements Serializable {
         return "index-parent.xhtml";
     }
 
-    
     public StreamedContent getPic() {
         FacesContext context = FacesContext.getCurrentInstance();
         if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
@@ -298,43 +404,47 @@ public class Bb extends SuperBb implements Serializable {
     }
 
     public String goToConfirm() throws IOException {
-        imageToByte();
-        Flash flash = FacesContext.getCurrentInstance()
-                .getExternalContext().getFlash();
-        flash.put("firstName", this.firstName);
-        flash.put("lastName", this.lastName);
-        flash.put("firstNameHurigana", this.firstNameHurigana);
-        flash.put("lastNameHurigana", this.lastNameHurigana);
-        flash.put("addressOne", this.addressOne);
-        flash.put("addressTwo", this.addressTwo);
-        flash.put("birthYear", this.birthYear);
-        flash.put("birthMonth", this.birthMonth);
-        flash.put("birthDay", this.birthDay);
-        flash.put("firstNameWife", this.firstNameWife);
-        flash.put("lastNameWife", this.lastNameWife);
-        flash.put("firstNameHuriganaWife", this.firstNameHuriganaWife);
-        flash.put("lastNameHuriganaWife", this.lastNameHuriganaWife);
-        flash.put("birthYearWife", this.birthYearWife);
-        flash.put("birthMonthWife", this.birthMonthWife);
-        flash.put("birthDayWife", this.birthDayWife);
-        flash.put("phoneNumber", this.phoneNumber);
-        flash.put("mailAddress", this.mailAddress);
-        flash.put("message", this.message);
-        flash.put("educationContent", this.educationContent);
-        flash.put("payment", this.payment);
-        flash.put("image", image);
-        flash.put("imageRoom", imageRoom);
+        if (isValidEmailAddress(this.mailAddress)) {
+            System.out.println("mail is correct");
 
-        return "/confirm.xhtml?faces-redirect=true";
+            imageToByte();
+            Flash flash = FacesContext.getCurrentInstance()
+                    .getExternalContext().getFlash();
+            flash.put("firstName", this.firstName);
+            flash.put("lastName", this.lastName);
+            flash.put("firstNameHurigana", this.firstNameHurigana);
+            flash.put("lastNameHurigana", this.lastNameHurigana);
+            flash.put("addressOne", this.addressOne);
+            flash.put("addressTwo", this.addressTwo);
+            flash.put("birthYear", this.birthYear);
+            flash.put("birthMonth", this.birthMonth);
+            flash.put("birthDay", this.birthDay);
+            flash.put("firstNameWife", this.firstNameWife);
+            flash.put("lastNameWife", this.lastNameWife);
+            flash.put("firstNameHuriganaWife", this.firstNameHuriganaWife);
+            flash.put("lastNameHuriganaWife", this.lastNameHuriganaWife);
+            flash.put("birthYearWife", this.birthYearWife);
+            flash.put("birthMonthWife", this.birthMonthWife);
+            flash.put("birthDayWife", this.birthDayWife);
+            flash.put("phoneNumber", this.phoneNumber);
+            flash.put("mailAddress", this.mailAddress);
+            flash.put("message", this.message);
+            flash.put("educationContent", this.educationContent);
+            flash.put("payment", this.payment);
+            flash.put("image", image);
+            flash.put("imageRoom", imageRoom);
+
+            return "/confirm.xhtml?faces-redirect=true";
+        } else {
+            return "its wrong";
+        }
     }
-
-//        public String edit(Employee employee) {	// 編集データのセット
-//        number = employee.getNumber();
-//        name = employee.getName();
-//        mail = employee.getMail();
-//        return null;
-//    }
-
+    //        public String edit(Employee employee) {	// 編集データのセット
+    //        number = employee.getNumber();
+    //        name = employee.getName();
+    //        mail = employee.getMail();
+    //        return null;
+    //    }
 
     public void sendMail() {
         sender.send(this.mailAddress, "お問い合わせのご確認", text.getText(this.firstName));
@@ -350,14 +460,6 @@ public class Bb extends SuperBb implements Serializable {
 
     public void setSearch(String search) {
         this.search = search;
-    }
-
-    public Logger getLog() {
-        return log;
-    }
-
-    public void setLog(Logger log) {
-        this.log = log;
     }
 
     public void setId() {

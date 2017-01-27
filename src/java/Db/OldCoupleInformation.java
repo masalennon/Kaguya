@@ -46,42 +46,42 @@ public class OldCoupleInformation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @NotEmpty
+    //
     private String firstName;
-    @NotEmpty
+    //
     private String lastName;
-    @NotEmpty
+    //
     private String firstNameHurigana;
-    @NotEmpty
+    //
     private String lastNameHurigana;
-    @NotEmpty
+    //
     private String addressOne;
-    @NotEmpty
+    //
     private String addressTwo;
-    @NotEmpty
+    //
     private String birthYear;
-    @NotEmpty
+    //
     private String birthMonth;
-    @NotEmpty
+    //
     private String birthDay;
-    @NotEmpty
+    //
     private String firstNameWife;
-    @NotEmpty
+    //
     private String lastNameWife;
-    @NotEmpty
+    //
     private String firstNameHuriganaWife;
-    @NotEmpty
+    //
     private String lastNameHuriganaWife;
-    @NotEmpty
+    //
     private String birthYearWife;
-    @NotEmpty
+    //
     private String birthMonthWife;
-    @NotEmpty
+    //
     private String birthDayWife;
-    @NotEmpty
+    //
     private String phoneNumber;
     //
-    @NotEmpty
+    //
     private String mailAddress;
 
 //    private Part file;
@@ -136,8 +136,9 @@ public class OldCoupleInformation implements Serializable {
         this.imageRoom = imageRoom;
     }
 
-    public OldCoupleInformation(String addressOne, String addressTwo, String phoneNumber, String mailAddress,
-            String educationContent, String message, Integer payment) {
+    public OldCoupleInformation(Integer id, String addressOne, String addressTwo, String phoneNumber, String mailAddress,
+            String educationContent, String message, Integer payment, byte[] image, byte[] imageRoom) {
+        this.id = id;
         this.addressOne = addressOne;
         this.addressTwo = addressTwo;
         this.phoneNumber = phoneNumber;
@@ -145,6 +146,8 @@ public class OldCoupleInformation implements Serializable {
         this.educationContent = educationContent;
         this.message = message;
         this.payment = payment;
+        this.image = image;
+        this.imageRoom = imageRoom;
 //        this.image = image;
 //        this.imageRoom = imageRoom;
 

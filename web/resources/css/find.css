@@ -163,3 +163,23 @@ img {
     padding-top: 25px;
     padding-bottom: 15px;
 }
+
+
+.ui-state-default column-couple
+
+.ui-state-default, .ui-state-default  {
+    background: green;
+}
+
+
+.ui-state-default {
+    -moz-box-shadow: inset 0px 1px 0px green;
+    /* -webkit-box-shadow: inset 0px 1px 0px #fff; */
+     box-shadow: inset 0px 0px 0px #fff; 
+}
+
+.search-box {
+    width: 200px;
+    height: 50px;
+    background: white;
+}

@@ -85,8 +85,8 @@ public class ConfirmBean implements Serializable {
     @EJB
     OldCoupleInformationDb db;
 
-    @Inject
-    transient Logger log;
+//    @Inject
+//    transient Logger log;
 
     @PostConstruct
     public void init() {
@@ -149,7 +149,7 @@ public class ConfirmBean implements Serializable {
 
         } catch (Exception e) {
             System.out.println("miss");
-            log.fine("新規登録できない/" + firstName + "|" + e.getMessage());
+//            log.fine("新規登録できない/" + firstName + "|" + e.getMessage());
 
         }
     }
@@ -323,14 +323,6 @@ public class ConfirmBean implements Serializable {
 
     public void setDb(OldCoupleInformationDb db) {
         this.db = db;
-    }
-
-    public Logger getLog() {
-        return log;
-    }
-
-    public void setLog(Logger log) {
-        this.log = log;
     }
 
     public Part getFile() {

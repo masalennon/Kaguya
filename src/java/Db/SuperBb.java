@@ -8,6 +8,7 @@ import Db.OldCoupleInformation;
 // * and open the template in the editor.
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +38,7 @@ import util.PagenationHelper;
 // */
 //@Named
 
-public class SuperBb<T> extends OldCoupleInformationDb {
+public class SuperBb<T> extends OldCoupleInformationDb implements Serializable {
 
 //    private String search;
     private final List<SelectItem> yearList = new ArrayList();
