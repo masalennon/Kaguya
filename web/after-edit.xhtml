@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
@@ -31,7 +32,7 @@
 
     </h:head>
     <h:body>
-    <h:outputStylesheet library="css" name="find.css" />
+        <h:outputStylesheet library="css" name="find.css" />
         <link rel="stylesheet" type="text/css" href="resources/css/safety.css" />
 
         <nav class="navbar navbar-default">
@@ -53,21 +54,30 @@
             </div>
         </nav>
         編集が完了しました。
+
+        <p:graphicImage value="#{bb.pic}" >
+            <f:param name="id" value="#{bb.oci.id}"/>
+        </p:graphicImage>
+
+
+        <p:graphicImage class="imgRoom-detail" value="#{bb.roomPic}"  width="" height="">
+            <f:param name="id" value="#{bb.oci.id}"/>
+        </p:graphicImage>
         <!--<div class="description-kaguya">-->
 
-            <div class="edit-underline3">市区町村　　　　　　　　<h:outputText value="#{editBean.addressOne}"/></div><br/>
+        <div class="edit-underline3">市区町村　　　　　　　　<h:outputText value="#{editBean.addressOne}"/></div><br/>
 
-            <div class="edit-underline">住んでいる丁目　　　　　<h:outputText value="#{editBean.addressTwo}"/>丁目</div><br/>    
+        <div class="edit-underline">住んでいる丁目　　　　　<h:outputText value="#{editBean.addressTwo}"/>丁目</div><br/>    
 
-            <div class="edit-underline">希望月謝　　　　　　　　<h:outputText value="#{editBean.payment}"/>万円(一人につき)</div><br/>
+        <div class="edit-underline">希望月謝　　　　　　　　<h:outputText value="#{editBean.payment}"/>万円(一人につき)</div><br/>
 
-            <div class="edit-underline">提供できる教育内容　  　　<h:outputText value="#{editBean.educationContent}"/></div><br/>   
+        <div class="edit-underline">提供できる教育内容　  　　<h:outputText value="#{editBean.educationContent}"/></div><br/>   
 
-            <div class="edit-underline">メールアドレス　　　　 　<h:outputText value="#{editBean.mailAddress}"/></div><br/>
+        <div class="edit-underline">メールアドレス　　　　 　<h:outputText value="#{editBean.mailAddress}"/></div><br/>
 
-            <div class="edit-underline2">保護者の方への言葉　  　　<h:outputText value="#{editBean.message}"/></div><br/>
+        <div class="edit-underline2">保護者の方への言葉　  　　<h:outputText value="#{editBean.message}"/></div><br/>
 
-            <!--全角スペースは文字として認識される-->
+        <!--全角スペースは文字として認識される-->
         <!--</div>-->
 
 

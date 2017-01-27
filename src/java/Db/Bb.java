@@ -192,18 +192,14 @@ public class Bb extends SuperBb implements Serializable {
         return null;
     }
 
-    public String update() {
-//        OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(
-//                id, addressOne, addressTwo, phoneNumber, mailAddress,
-//                educationContent, message, payment, image, imageRoom);
-
+    public String update() throws IOException {
+        imageToByte();
         OldCoupleInformation oldCoupleInformation = new OldCoupleInformation(id, firstName, lastName,
                 firstNameHurigana, lastNameHurigana, addressOne, addressTwo, birthYear,
                 birthMonth, birthDay, firstNameWife, lastNameWife, firstNameHuriganaWife,
                 lastNameHuriganaWife, birthYearWife, birthMonthWife, birthDayWife, phoneNumber, mailAddress,
                 educationContent, message, payment, image, imageRoom);
         try {
-
             db.update(oldCoupleInformation);
 //            cb.clear();]id = oci.getId();
 //            firstName = oci.getFirstName();
@@ -256,10 +252,11 @@ public class Bb extends SuperBb implements Serializable {
             flash.put("imageRoom", imageRoom);
 
             System.out.println("success for updating.");
+            
             return "after-edit.xhtml";
+            
         } catch (Exception e) {
 //            log.fine("■" + addressOne + "|" + e.getMessage());
-
             return "error.xhtml";
         }
     }
@@ -394,13 +391,23 @@ public class Bb extends SuperBb implements Serializable {
 //        return output.toByteArray();
 //        byte[] data = new byte[(int) file.getSize()];   // byte配
     public void imageToByte() throws IOException {
-        if (this.file != null) {
+        if (this.file != null || this.fileRoom != null) {
             image = toByteArray(this.file);
             imageRoom = toByteArray(this.fileRoom);
         } else {
             System.out.println("file is null");
         }
 
+    }
+
+    public void clear() {
+        firstName = lastName
+                = firstNameHurigana = lastNameHurigana = addressOne = addressTwo = birthYear
+                = birthMonth = birthDay = firstNameWife = lastNameWife = firstNameHuriganaWife
+                = lastNameHuriganaWife = birthYearWife = birthMonthWife = birthDayWife
+                = phoneNumber = mailAddress = educationContent = message = null;
+        image = imageRoom = null;
+        payment = null;
     }
 
     public String goToConfirm() throws IOException {
@@ -439,12 +446,6 @@ public class Bb extends SuperBb implements Serializable {
             return "its wrong";
         }
     }
-    //        public String edit(Employee employee) {	// 編集データのセット
-    //        number = employee.getNumber();
-    //        name = employee.getName();
-    //        mail = employee.getMail();
-    //        return null;
-    //    }
 
     public void sendMail() {
         sender.send(this.mailAddress, "お問い合わせのご確認", text.getText(this.firstName));

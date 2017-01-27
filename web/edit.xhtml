@@ -55,22 +55,26 @@ and open the template in the editor.
     </h:form>
     <br/>
     <br/>
-    <h:form>     
+    <!--<h:form>-->     
+
+    <h:form enctype="multipart/form-data">
 
 
-
-
-        <p:graphicImage value="#{bb.pic}" >
+        <p:graphicImage value="#{bb.pic}" class="img-edit">
             <f:param name="id" value="#{bb.oci.id}"/>
         </p:graphicImage>
+        
+        <br/>          
+        <br/>            
 
-
-        <p:graphicImage class="imgRoom-detail" value="#{bb.roomPic}"  width="" height="">
+        <p:graphicImage class="img-edit2" value="#{bb.roomPic}"  width="80%" height="80%">
             <f:param name="id" value="#{bb.oci.id}"/>
         </p:graphicImage>
 
         <br/>
-
+        <div align="center">
+            <h3>現在の登録状況</h3>
+        </div>
         <div class="description-kaguya">
 
             <div class="edit-underline3">市区町村　　　　　　　　<h:outputText value="#{bb.oci.addressOne}"/></div><br/>
@@ -90,11 +94,14 @@ and open the template in the editor.
 
         <br/>            
         <br/>
+        <br/>        <br/>
         <br/>
+        <br/>
+        <br/>
+
         <div align="center">
-     
 
-
+            <!--</h:form>-->
             <table border="1" cellspacing="0" cellpadding="2" class="latter">
                 <tr>
 
@@ -167,7 +174,7 @@ and open the template in the editor.
                     <td class="headrow2">
                         <h:inputText class = "text3" id="payment" required="true"
                                      requiredMessage="希望月謝の入力は必須です" 
-                                     value="#{bb.payment}"/><br/>
+                                     value="#{bb.payment}"/>万円<br/>
                     </td>
                 </tr>
 
@@ -207,14 +214,14 @@ and open the template in the editor.
                 </tr>
             </table>
         </div>
-        <h:commandButton value="編集を完了する" action="#{bb.update()}"/>
+<br/><br/>
+            <div align="center">ご夫婦で撮った写真や、お部屋の写真</div><br/>
+            <div align="center"><h:inputFile id="file" value="#{bb.file}" label="写真を選択" />上の画像を変える</div><br />
+            <div align="center"><h:inputFile id="fileRoom" value="#{bb.fileRoom}" label="写真を選択"/>下の画像を変える</div><br />
+       
+            <div align="center"><h:commandButton value="編集を完了する" action="#{bb.update()}"/></div>
 
-        <h:commandButton value="編集" action="#{bb.edit(bb.oci)}">
-            <f:ajax render="@all"/>
-        </h:commandButton>
-
-
-
+            
     </h:form>        
 
     <!--</ui:composition>-->
