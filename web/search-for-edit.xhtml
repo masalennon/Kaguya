@@ -80,7 +80,7 @@ and open the template in the editor.
                 メールアドレス <h:inputText id="mailAddress" value="#{bb.mailAddress}" style="width:150px" p:placeholder="あなたのメールアドレス"/> <br/>
             </h:panelGrid>
             <br/>
-            <h:commandLink type="submit" value="編集画面に進む" action="#{bb.goToEdit(bb.id, bb.mailAddress)}" class="Button"/>
+            <h:commandButton type="submit" value="編集画面に進む" action="#{bb.goToEdit(bb.id, bb.mailAddress)}" class="edit-button"/>
 
         </div>
 

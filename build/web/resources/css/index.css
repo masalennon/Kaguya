@@ -212,7 +212,7 @@ li {
     -webkit-appearance: button;
     cursor: pointer;
     margin: auto;
-    padding: 10px;
+    /*padding: 10px;*/
     margin-top: 20px;
     margin-bottom: 150px;
 }
@@ -311,4 +311,136 @@ h1, .h1, h2, .h2, h3, .h3 {
     margin-bottom: 0px;
     padding-left: 0px;
     padding-right: 0px;
+}
+
+
+.edit-button {
+    /*font: BlinkMacSystemFont;*/
+    background: green;
+    color: white;
+    border-color: green;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 9px 20px;
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    border-width: 0px;
+
+}
+.edit-button:hover {
+    font: BlinkMacSystemFont;
+
+    background: #59a359;
+    color: white;
+    border-color: #59a359;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 9px 20px;
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    border-width: 0px;
+
+}
+
+
+.select-menu-year {
+    border: 5px solid transparent;
+
+    width: 100px;
+    padding: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #999;
+    background: transparent;
+    /*background: url(arrow01.png) right 50% no-repeat, -webkit-linear-gradient(top, #fff 0%,#efebe1 100%);*/
+    background: url(arrow01.png) right 50% no-repeat;
+    background-size: 20px, 100%;
+    border-radius: 2px;
+    font: 18px BlinkMacSystemFont;
+    cursor: pointer;
+    height: 47px !important;
+
+    /*    position: relative;
+        -webkit-appearance: none;
+        appearance: none;
+        display: block;
+        width: 200px;
+        padding: 0.5em 1em;
+        color: #f69;
+        border: none;
+        border-radius: 5px;
+        background: transparent;*/
+
+}
+
+.select-menu-month {
+    width: 70px;
+    padding: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #999;
+    background: transparent;
+    /*background: url(arrow01.png) right 50% no-repeat, -webkit-linear-gradient(top, #fff 0%,#efebe1 100%);*/
+    /*background: url(arrow01.png) right 50% no-repeat, linear-gradient(to bottom, #fff 0%,#efebe1 100%);*/
+    background-size: 20px, 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    /*height: 30px !important;*/
+    border-radius: 2px;
+    font: 18px BlinkMacSystemFont;
+    cursor: pointer;
+
+}
+
+.select-menu-day {
+    content: '\25bc';
+    width: 70px;
+    padding: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #999;
+    background: transparent;
+    /*background: url(arrow01.png) right 50% no-repeat, -webkit-linear-gradient(top, #fff 0%,#efebe1 100%);*/
+    /*background: url(arrow01.png) right 50% no-repeat, linear-gradient(to bottom, #fff 0%,#efebe1 100%);*/
+    background-size: 20px, 100%;
+    border-radius: 2px;
+    font: 18px BlinkMacSystemFont;
+    height: 47px !important;
+    cursor: pointer;
+
+}
+.table {
+    color: whitesmoke;
+}
+
+label:before {
+    content: '\25bc';
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: block;
+    width: 0;
+    height: 0;
+    margin: -2px 0 0 0;
+    border: 5px solid transparent;
+    border-top: 7px solid #f69;
+}
+label {
+    position: relative;
+    display: block;
+    width: 200px;
+    border: 1px solid #f69;
+    border-radius: 5px;
+    content: '\25bc';
+    background: #fff;
 }

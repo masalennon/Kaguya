@@ -231,3 +231,34 @@ img {
 .button, html input[type="button"], input[type="reset"], input[type="submit"] {
     margin-bottom: 50px;
 }
+
+.edit-button {
+    border-width: 0px;
+    padding: 9px 24px;
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    background: green;
+    color: white;
+    border-color: green;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.edit-button:hover {
+    background: #59a359;
+    color: white;
+    border-color: #59a359;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 9px 20px;
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    border-width: 0px;
+
+}
+

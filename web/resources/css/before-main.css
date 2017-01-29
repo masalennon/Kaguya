@@ -1,0 +1,109 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 28, 2017, 10:36:21 PM
+    Author     : Masanari
+*/
+body{
+    /*background-image:url("#{resource['images/couple-on-bench.png']}");*/  
+    -moz-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    font-size: 20px;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    height:100%;
+    width: 105%;
+    overflow-x: hidden;    
+    /*横スクロール禁止*/
+
+    /*min-height: 100px;*/
+
+    /*    background-position: center center;
+        background-position-x: center;
+        background-position-y: center;*/
+}
+
+
+
+.gallery {
+    /*background-color: lightblue;*/
+    -moz-background-size: cover;
+    margin-top: -10px;
+    margin-left: -10px;
+    padding-right: 20px;
+    left: 10%;
+    width: 100%;
+    /*background-position: center center !important;*/
+    background-position-x: left;
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat
+}
+image {
+    /*background-image:url("#{resource['images/couple-on-bench.png']}");*/  
+    /*    background: url("/kaguya/javax.faces.resource/images/couple-on-bench.png.xhtml");
+        background: url("/playground/javax.faces.resource/images/smiley.jpg.xhtml");*/
+    /*url("#{resource['img/glyphicons-halflings.png']}");*/
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.couple-bench {
+    width: 100%;
+}
+
+.header {
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.sub-header {
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-size: 25px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+
+.description {
+    padding-right: 45px;
+}
+
+.to-register {
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 45%;
+    right: 55%;
+    font-weight: bold;
+    cursor: pointer;
+    background: transparent;
+    color: black;
+    border-color: black;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+
+
+.center {
+    align-content: center;
+}
+
+
+
+.line {
+    
+    border-top: 1px solid #dce0e0;
+}

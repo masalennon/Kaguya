@@ -55,12 +55,12 @@
         </nav>
         編集が完了しました。
 
-        <p:graphicImage value="#{bb.pic}" >
+        <p:graphicImage value="#{bb.pic}" class="img-edit">
             <f:param name="id" value="#{bb.oci.id}"/>
         </p:graphicImage>
 
 
-        <p:graphicImage class="imgRoom-detail" value="#{bb.roomPic}"  width="" height="">
+        <p:graphicImage value="#{bb.roomPic}"  class="img-edit2">
             <f:param name="id" value="#{bb.oci.id}"/>
         </p:graphicImage>
         <!--<div class="description-kaguya">-->
@@ -79,9 +79,5 @@
 
         <!--全角スペースは文字として認識される-->
         <!--</div>-->
-
-
-
-
     </h:body>
 </html>

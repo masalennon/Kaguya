@@ -271,6 +271,12 @@ public class Bb extends SuperBb implements Serializable {
         }
         return result;
     }
+    
+    
+    public String goToRegister() {
+        clear();
+        return "index.xhtml";
+    }
 
     public void search() {
         coupleList = db.filterTable(search);

@@ -140,15 +140,15 @@ and open the template in the editor.
                         <td class="husbandheadrow2">
 
                             <h:selectOneMenu id="birthYear" required="true" requiredMessage="必須"
-                                             value="#{bb.birthYear}">
+                                             value="#{bb.birthYear}" class="select-menu-year">
                                 <f:selectItems value="#{bb.yearList}"/>
                             </h:selectOneMenu>
-                            <h:selectOneMenu id="birthMonth" required="true"
+                            <h:selectOneMenu id="birthMonth" required="true" class="select-menu-month"
                                              requiredMessage="必須" 
                                              value="#{bb.birthMonth}">
                                 <f:selectItems value="#{bb.monthList}"/>
                             </h:selectOneMenu>
-                            <h:selectOneMenu id="birthDay" required="true"
+                            <h:selectOneMenu id="birthDay" required="true" class="select-menu-day"
                                              requiredMessage="必須"
                                              value="#{bb.birthDay}">
                                 <f:selectItems value="#{bb.dayList}"/>
@@ -172,7 +172,7 @@ and open the template in the editor.
                         <td class="wifeheadrow2">
                             (姓) <h:inputText class = "text" id="firstNameWife" required="true" validatorMessage="名前は漢字かひらがなで入力してください"
                                              requiredMessage="奥様の名前(姓)の入力は必須です" value="#{bb.firstNameWife}" a:placeholder="(姓)">
-                                             <!--<f:validateRegex pattern="^[一-龠]*$+^[ぁ-ゞ]+$"/>-->
+                                <!--<f:validateRegex pattern="^[一-龠]*$+^[ぁ-ゞ]+$"/>-->
 
                             </h:inputText>
                             (名) <h:inputText class = "text" id="lastNameWife" required="true" requiredMessage="奥様の名前(名)は必須です"
@@ -217,21 +217,21 @@ and open the template in the editor.
 
                         </td>
                         <td class="wifeheadrow2">
-
-                            <h:selectOneMenu id="birthYearWife" required="true" requiredMessage="必須"
-                                             value="#{bb.birthYearWife}">
-                                <f:selectItems value="#{bb.yearList}"/>
-                            </h:selectOneMenu>
-
+                            <!--<div class="label">-->
+                                <h:selectOneMenu id="birthYearWife" required="true" requiredMessage="必須"
+                                                 value="#{bb.birthYearWife}" class="select-menu-year">
+                                    <f:selectItems value="#{bb.yearList}"/>
+                                </h:selectOneMenu>
+                            <!--</div>-->
 
                             <h:selectOneMenu id="birthMonthWife" required="true" requiredMessage="必須"
-                                             value="#{bb.birthMonthWife}">
+                                             value="#{bb.birthMonthWife}" class="select-menu-month">
                                 <f:selectItems value="#{bb.monthList}"/>
                             </h:selectOneMenu>
 
 
                             <h:selectOneMenu id="birthDayWife" required="true" requiredMessage="必須"
-                                             value="#{bb.birthDayWife}">
+                                             value="#{bb.birthDayWife}" class="select-menu-day">
                                 <f:selectItems value="#{bb.dayList}"/>
                             </h:selectOneMenu>
 
@@ -367,8 +367,10 @@ and open the template in the editor.
 
                 <!--                <h:form enctype="multipart/form-data">
                                 </h:form>-->
-                <div align="center">❇夫婦で撮ったお写真やお部屋の様子がわかる写真があると、申し込みが来やすくなります。</div>
-                <h:commandButton value="確認画面へ進む(登録は無料です)" action="#{bb.goToConfirm()}" class="Button"/>
+                <div align="center">❇夫婦で撮ったお写真やお部屋の様子がわかる写真があると、申し込みが来やすくなります。</div><br />
+                <div align="center"><strong>ご登録は無料です</strong></div>
+
+                <h:commandButton value="確認画面へ進む" action="#{bb.goToConfirm()}" class="edit-button"/>
 
 
                 <!--enctype="multipart/form-data"-->
