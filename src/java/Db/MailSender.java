@@ -65,7 +65,7 @@ public class MailSender implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        stream();
+//        stream();
 
 //    final String to = "competence.80@gmail.com";
         //final String charset = "ISO-2022-JP";

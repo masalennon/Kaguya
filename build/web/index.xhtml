@@ -40,25 +40,33 @@ and open the template in the editor.
 
 
         <h:form>
+            <!--
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <a class="navbar-brand" href="main.xhtml">かぐや</a>
+                                </div>
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="main.xhtml">Home</a></li>
+                                    <li><a href="serviceoverview.xhtml">サービスの概要</a></li>
+                                    <li><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
+                                    <li><a href="safety.xhtml">安全への取り組み</a></li>
+                                    <li><a href="find.xhtml">受け入れ先を探す</a></li>
+                                    <li><a href="index.xhtml">会員登録</a></li>  
+                                    <li><a href="faq.xhtml">よくある質問</a></li>
+                                    <li><a href="inquery.xhtml">お問合せ</a></li>
+            
+                                </ul>
+                            </div>
+                        </nav>-->
 
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="main.xhtml">かぐや</a>
-                    </div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="main.xhtml">Home</a></li>
-                        <li><a href="serviceoverview.xhtml">サービスの概要</a></li>
-                        <li><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
-                        <li><a href="safety.xhtml">安全への取り組み</a></li>
-                        <li><a href="find.xhtml">受け入れ先を探す</a></li>
-                        <li><a href="index.xhtml">会員登録</a></li>  
-                        <li><a href="faq.xhtml">よくある質問</a></li>
-                        <li><a href="inquery.xhtml">お問合せ</a></li>
+            <!--<div class="new-link">-->
+            <!--                <li class="new-link"><a href="serviceoverview.xhtml">サービスの概要</a></li>
+                            <li class="new-link1"><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
+                            <li class="new-link2"><a href="inquery.xhtml">お問合せ</a></li>
+                        </div>-->
 
-                    </ul>
-                </div>
-            </nav>
+
 
             <div class="container">
                 <!--                <h3>Basic Navbar Example</h3>
@@ -218,10 +226,10 @@ and open the template in the editor.
                         </td>
                         <td class="wifeheadrow2">
                             <!--<div class="label">-->
-                                <h:selectOneMenu id="birthYearWife" required="true" requiredMessage="必須"
-                                                 value="#{bb.birthYearWife}" class="select-menu-year">
-                                    <f:selectItems value="#{bb.yearList}"/>
-                                </h:selectOneMenu>
+                            <h:selectOneMenu id="birthYearWife" required="true" requiredMessage="必須"
+                                             value="#{bb.birthYearWife}" class="select-menu-year">
+                                <f:selectItems value="#{bb.yearList}"/>
+                            </h:selectOneMenu>
                             <!--</div>-->
 
                             <h:selectOneMenu id="birthMonthWife" required="true" requiredMessage="必須"
@@ -272,7 +280,7 @@ and open the template in the editor.
                         <td class="headrow2"><br/>
                             必須ではありませんが、何丁目かまでわかると、<br/>保護者の方の参考になります。<br/>
                             <h:inputText class = "text3" id="addressTwo"
-                                         value="#{bb.addressTwo}" required="false"/> 丁目(半角英数字のみ)<br/><br/>
+                                         value="#{bb.addressTwo}" required="false"/> 丁目<br/><br/>
                         </td>
                     </tr>
                     <tr>
@@ -374,6 +382,18 @@ and open the template in the editor.
 
 
                 <!--enctype="multipart/form-data"-->
+            </div>
+
+            <div class="line"></div>
+            <div class="buttons">
+
+                <h:button class="service" value="サービスの概要" outcome="serviceoverview.xhtml"/>
+
+                <h:button class="payment" value="お支払いについて(保護者の方向け)" outcome="payment.xhtml"/>
+
+                <h:button class="inquery" value="お問合せ" outcome="inquery.xhtml"/>
+
+
             </div>
         </h:form>
 

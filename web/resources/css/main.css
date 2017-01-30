@@ -7,8 +7,19 @@ and open the template in the editor.
     Created on : Nov 5, 2016, 4:52:50 PM
     Author     : Masanari
 */
+
+body {
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    background: #e1f2e1;
+}
+
+.line {
+    border-top: 2px solid #dce0e0;
+}
+
 .title {
-    font-size: 45px;
+    font-weight: bold;
+    font-size: 55px;
 }
 
 .sub-title {
@@ -19,3 +30,152 @@ and open the template in the editor.
     height: 50%;
 }
 
+.gallery {
+    -moz-background-size: cover;
+
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.button-1 {
+    background: #00405f;
+    color: white;
+    font-size: 20px;
+    border-color: #00405f;
+    margin-left: 400px;
+
+}
+
+.button-2 {
+    background: #00405f;
+    color: white;
+    font-size: 20px;
+    border-color: #00405f;
+    margin-left: 1000px;
+}
+
+.couple-main {
+    width: 300px;
+    height: 250px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 450px;
+    position: absolute;
+}
+
+.parent {
+    width: 300px;
+    height: 250px;
+    margin-left: 950px;
+    float: left;
+    margin-top: 10px;
+    position: absolute;
+}
+
+.parent-link {
+    font-size: 25px;
+    float: left;
+    margin-top: 240px;
+    position: absolute;
+    /*padding-right: 100px;*/
+    background-color: white;
+    margin-left: 198px;
+    border-color: transparent;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    padding-left: 35px;
+    padding-right: 37px;
+}
+
+.couple-link {
+    margin-top: 240px;
+    position: relative;
+    float: left;
+    margin-left: 450px;
+    font-size: 25px;
+    background-color: white;
+    border-color: transparent;
+    /*color: white;*/
+    padding-left: 12px;
+    padding-right: 11px;
+    padding-top: 35px;
+        padding-bottom: 35px;
+}
+
+.to-register {
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 44%;
+    right: 56%;
+    font-weight: bold;
+    cursor: pointer;
+    background: transparent;
+    color: black;
+    border-color: black;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+
+.service {
+    border: 0px;
+    background: transparent;
+    margin-left: auto;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    padding-right: 50px;
+}
+.payment {
+    border: 0px;
+    background: transparent;
+    margin-left: auto;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    /*padding-left:*/ 
+
+}
+.inquery {
+    border: 0px;
+    background: transparent;
+    margin-left: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.to-main {
+     border: 0px;
+    background: transparent;   
+    margin: 30px;
+    float: left;
+    font-size: 20px;
+}
+
+.edit-change {
+    margin-left: auto;
+    border: 0px;
+    /*border-color: whitesmoke;*/
+    background: transparent;
+    margin-left: 1200px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 17px;
+    box-shadow: 0px;
+    position: absolute;
+}
+
+.buttons {
+    margin-left: 580px;
+    margin-right: auto;
+/*left: 50%;
+right: 50%;*/
+}

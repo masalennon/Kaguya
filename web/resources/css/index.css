@@ -21,7 +21,7 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
-
+/*table, td, th, tr, tbody { border: 1px whitesmoke solid; }*/
 li {
 
     list-style: none;
@@ -208,14 +208,14 @@ li {
     width: 900px;
 
 }
-.button, html input[type="button"], input[type="reset"], input[type="submit"] {
+/*.button, html input[type="button"], input[type="reset"], input[type="submit"] {
     -webkit-appearance: button;
     cursor: pointer;
     margin: auto;
-    /*padding: 10px;*/
+    padding: 10px;
     margin-top: 20px;
     margin-bottom: 150px;
-}
+}*/
 
 .couple-info {
     margin: auto;
@@ -328,7 +328,9 @@ h1, .h1, h2, .h2, h3, .h3 {
     padding-bottom: 9px;
     padding-left: 20px;
     border-width: 0px;
-
+    margin-bottom: 100px;
+    margin-top: 50px;
+    border-bottom: 1px;
 }
 .edit-button:hover {
     font: BlinkMacSystemFont;
@@ -444,3 +446,30 @@ label {
     content: '\25bc';
     background: #fff;
 }
+
+.new-link {
+    /*float: right;*/
+    margin-left: auto;
+    width: 200px;
+}
+.new-link1 {
+    float: right;
+    margin-left: auto;
+    width: 200px;
+    margin-right: 200px;
+
+}
+.new-link2 {
+    float: right;
+    margin-left: auto;
+    width: 200px;
+    margin-right: 400px;
+}
+
+
+
+
+.line {
+    border-top: 1px solid #dce0e0;
+}
+

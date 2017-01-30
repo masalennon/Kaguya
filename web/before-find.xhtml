@@ -23,9 +23,7 @@ and open the template in the editor.
         </f:facet>
 
         <f:facet name="middle">
-            <h:outputStylesheet library="css" name="before-main.css" />
-            <!--<h:outputStylesheet name="resources/css/index.css" />-->
-            <link rel="stylesheet" type="text/css" href="resources/css/before-main.css" />
+            <link rel="stylesheet" type="text/css" href="resources/css/before-find.css" />
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
 
         </f:facet>
@@ -37,18 +35,31 @@ and open the template in the editor.
     </h:head>
 
     <h:body>
-
         <h:form>
-            <div class="gallery" style="background-image:url(resources/images/couple-bench_1.jpg)">
-　<br/>　
+            <div class="parent-baby" style="background-image:url(resources/images/parent-baby.jpg)">
+                　<br/>　
                 <!--<img background="resources/images/couple-on-bench.png" class="couple-bench">-->
-                <div class="header">もう一度　子育てを　<br/>
-                    今度は日本のために
+                <div class="header">仕事と育児　
 
                 </div>
-                <div class="sub-header">
-                    一人当たり３〜８万円の嬉しい<br/>収入も見込めます。
+                <div class="header1">
+                    どちらも<br/>譲れない
+
                 </div>
+                <div class="sub-header" text-align="center">
+                    一人当たり３〜８万円と
+                </div>
+
+                <div class="sub-header1" >
+                    無認可保育園と比べ
+                </div>
+                <div class="sub-header1" >
+                    圧倒的な安さです。
+                </div>
+                <div align="center">
+                    <h:button class="to-find" value="受け入れ先を探す" outcome="find.xhtml"/>
+                </div>
+
                 　<br/>　<br/>　<br/>　<br/>
 　<br/>　<br/>　<br/>　<br/>
 　<br/>　<br/>　<br/>　<br/>
@@ -56,26 +67,7 @@ and open the template in the editor.
 　<br/>　<br/>　<br/>　<br/>　
                 <br/>　<br/>　<br/>　<br/>
 
-
             </div>
-
-            <!--</img>-->
-            <div class="container">
-                <div align="center" class="description">
-                    <br/>
-                    まずは、ここから会員登録を<br/>
-                </div>
-                <div align="center" class="description">
-                    <br/>
-                    会員登録は無料です
-                </div>
-                <h:commandButton class="to-register" value="会員登録へ進む" action="#{bb.goToRegister}"/>
-            </div>      
-
-            <br/>　<br/>　<br/>　<br/>
-            <div class="line"></div>
-            <br/>　<br/>　<br/>　<br/>
-            <br/>　<br/>　<br/>　<br/>
 
         </h:form>
     </h:body>

@@ -60,14 +60,14 @@ image {
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     font-size: 50px;
     font-weight: bold;
-    margin-left: 50px;
+    margin-left: 120px;
     margin-top: 50px;
 }
 
 .sub-header {
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     font-size: 25px;
-    margin-left: 50px;
+    margin-left: 120px;
     margin-top: 50px;
 }
 
@@ -103,7 +103,6 @@ image {
 
 
 
-.line {
-    
+.line {    
     border-top: 1px solid #dce0e0;
 }

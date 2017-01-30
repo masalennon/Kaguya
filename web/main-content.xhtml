@@ -42,37 +42,66 @@ and open the template in the editor.
 
     </h:head>
     <body>
-        <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.css" />
+        <h:form>
+            <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.css" />
 
-        <h:outputStylesheet name="resources/bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="resources/bootstrap-social-gh-pages/bootstrap-social.css" />
-        <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-        <h:outputStylesheet name="resources/css/main.css" />
+            <!--<h:outputStylesheet name="resources/bootstrap/css/bootstrap.css" />-->
+            <!--<link rel="stylesheet" type="text/css" href="resources/css/main.css" />-->
+            <h:outputStylesheet name="resources/css/main.css" />
+            <div class="gallery" style="background:#e1f2e1">
 
-        <div class="main">
+                <div class="main">
+                    <!--<div class="gallery" style="background-image:url(resources/images/bamboo-komorebi_2.jpg)">-->
 
-            <!--<li><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>-->
-            <br/>
-            <div class="title" align="center">
-                地域で協力する子育てを、今復活させましょう。
+                    <!--<li><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>-->
+                    <br/>            <br/>                <br/>    
+                    <br/>                <br/>    
+
+                    <div class="title" align="center">
+                        地域で協力する子育てを、今復活させましょう。
+                    </div>
+
+                    <br/>
+                    <div class="title" align="center">
+                        お年寄りの力で、待機児童をゼロへ
+                    </div>
+                    <br/>    
+                    <br/>    
+                    <div class="sub-title" align="center"> 
+                        私たちは、待機児童を抱えたご家庭とお年寄りの家庭をつなぎ、<br/>待機児童問題の解決と高齢者の雇用拡大を目指します。
+                    </div>
+
+                    <a href="before-index.xhtml"><img src="resources/images/couple-main.jpg" class="couple-main"/></a><br/>    
+
+                    <a href="before-find.xhtml"><img src="resources/images/parents.jpg" class="parent"/></a><br/>    
+                    <h:commandButton class="couple-link" value="保育の受け入れはこちら" action="before-index.xhtml"/>
+
+                    <h:commandButton class="parent-link" value="保護者の方はこちら" action="bofore-find.xhtml"/>
+
+                    <br/>    
+                    <br/>                <br/>    
+                    <br/>                <br/>              <br/>                <br/>    
+                    <br/>                <br/>    
+                    <br/>                <br/>    
+                    <br/>                <br/>    
+                    <br/>                <br/>    
+                    <br/>                <br/>    
+                    <br/>                <br/>    
+                    <h:commandButton class="to-register" value="私たちのサービスについて" action="serviceoverview.xhtml"/>
+
+                    <br/>                <br/>    
+                    <br/>                <br/>    
+                </div>
+            <div class="line"></div>
+
+            <br/>                <br/>    
+            <br/>                <br/>    
+            <br/>                <br/>    
+            <br/>                <br/>    
+            <br/>    
+
             </div>
 
-            <br/>
-            <div class="title" align="center">
-                お年寄りの力で、待機児童をゼロへ
-            </div>
-            <br/>    
-            <br/>    
-            <div class="sub-title" align="center"> 
-                私たちは、待機児童を抱えたご家庭とお年寄りの家庭をつなぎ、<br/>待機児童問題の解決と高齢者の雇用拡大を目指します。
-            </div>
-            <br/>    
-            <br/>    
-
-
-            <div class="galleryinmain" align="center">
-                <img src="resources/images/bamboo-komorebi_1.jpg" width="120%" class="bamboo-komorebi"></img>
-            </div>
-        </div>
+        </h:form>
     </body>
 </html>
