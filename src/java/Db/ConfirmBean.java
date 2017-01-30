@@ -82,12 +82,13 @@ public class ConfirmBean implements Serializable {
 
     private String messageToCouple;
 
+    String crlf = System.getProperty("line.separator");
+
     @EJB
     OldCoupleInformationDb db;
 
 //    @Inject
 //    transient Logger log;
-
     @PostConstruct
     public void init() {
         Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
@@ -141,9 +142,10 @@ public class ConfirmBean implements Serializable {
         try {
 
             db.create(oldCoupleInformation);
-            messageToCouple = "ご登録ありがとうございました。ご登録いただいた情報は、Webサイトの、「受け入れ先を探す」ページから変更・削除できます。その際には、ご登録いただいたメールアドレスとこのメールに記載されている"
-                    + "idが必要になりますので、このメールは削除しないでください。" + "あなたのid: " + oldCoupleInformation.getId() + "あなたのメールアドレス: " + this.mailAddress;
+            messageToCouple = "ご登録ありがとうございました。ご登録いただいた情報は、Webサイトの、「登録情報の確認・変更」ページから変更・削除できます。その際には、ご登録いただいたメールアドレスとこのメールに記載されている"
+                    + "idが必要になりますので、このメールは削除しないでください。" + crlf + "あなたのid: " + oldCoupleInformation.getId() + crlf + "あなたのメールアドレス: " + this.mailAddress;
             MailSender mailsender = new MailSender();
+            System.out.println("before send() after create()");
             mailsender.send(messageTitle, getMessageToCouple(), mailAddress);
             clear();
 
@@ -153,7 +155,6 @@ public class ConfirmBean implements Serializable {
 
         }
     }
-
 
     public String goToInput() {
         System.out.println("back to input.");
