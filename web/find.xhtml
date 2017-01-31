@@ -50,6 +50,8 @@
 
             <h:button value="かぐや" outcome="main.xhtml" class="to-main"/>
 
+            <a href="main.xhtml"><img src="resources/images/kaguya-logo.png" class="logo"/></a>
+
             <h:button class="edit-change" value="登録情報の確認・変更はこちら" outcome="search-for-edit.xhtml"/>
 
 
@@ -68,9 +70,9 @@
             <br/>
             <h:commandButton type="submit" value="地域で検索" action="#{bb.search()}" class="search-button"/>
 
-<!--            <div align="center">
-                <h:commandLink value="登録内容の変更はこちらから" action="search-for-edit.xhtml"/>
-            </div>-->
+            <!--            <div align="center">
+                            <h:commandLink value="登録内容の変更はこちらから" action="search-for-edit.xhtml"/>
+                        </div>-->
 
 
             <p:dataTable id="examplej" class="table couple-table" 

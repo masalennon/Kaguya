@@ -26,6 +26,7 @@ and open the template in the editor.
     background-repeat: no-repeat
 
 }
+
 .logo {
     float: left;
     width: 50px;
@@ -91,7 +92,7 @@ and open the template in the editor.
     margin-left: auto;
 }
 .to-find {
-    margin-top: 30px;
+    margin-top: 70px;
     position: absolute;
     /*text-align: center;*/
     left: 46%;
