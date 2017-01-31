@@ -110,16 +110,17 @@ image {
     text-align: center;
     top: 0;
     bottom: 0;
-    left: 45%;
-    right: 55%;
+    left: 44%;
+    right: 56%;
     font-weight: bold;
     cursor: pointer;
     background: transparent;
     color: black;
     border-color: black;
     border-radius: 6px;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
+    padding: 15px;
 
 }
 

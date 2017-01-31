@@ -134,7 +134,7 @@ body {
     padding: 15px;
 }
 
-
+/*
 .service {
     border: 0px;
     background: transparent;
@@ -149,7 +149,7 @@ body {
     margin-left: auto;
     margin-bottom: 100px;
     margin-top: 50px;
-    /*padding-left:*/ 
+    padding-left: 
 
 }
 .inquery {
@@ -161,7 +161,7 @@ body {
     padding-left: 50px;
     padding-right: 50px;
 }
-
+*/
 .to-main {
     border: 0px;
     background: transparent;   
