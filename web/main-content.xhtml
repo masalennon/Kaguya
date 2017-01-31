@@ -14,7 +14,7 @@ and open the template in the editor.
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
     <h:head>
-        <title>TODO supply a title</title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>待機児童問題解決</title>
         <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
@@ -23,8 +23,8 @@ and open the template in the editor.
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />		
+        <link rel="shortcut icon" type="image/x-icon" href="#{resources['images/favicon.ico']}" />
 
-            <title>primestrap</title>
         </f:facet>
 
         <f:facet name="middle">
@@ -32,7 +32,7 @@ and open the template in the editor.
             <h:outputStylesheet name="resources/css/main.css" />
             <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
-            <title>Bootstrap 3 Social Media Icons Tutorial</title>
+
             <meta charset="utf-8"/> 
             <!--Load Bootstrap css-->
             <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
@@ -74,9 +74,9 @@ and open the template in the editor.
                     <a href="before-index.xhtml"><img src="resources/images/couple-main.jpg" class="couple-main"/></a><br/>    
 
                     <a href="before-find.xhtml"><img src="resources/images/parents.jpg" class="parent"/></a><br/>    
-                    <h:commandButton class="couple-link" value="保育の受け入れはこちら" action="before-index.xhtml"/>
+                    <h:link class="couple-link" value="保育の受け入れはこちら" outcome="before-index.xhtml"/>
 
-                    <h:commandButton class="parent-link" value="保護者の方はこちら" action="bofore-find.xhtml"/>
+                    <h:link class="parent-link" value="保護者の方はこちら" outcome="before-find.xhtml"/>
 
                     <br/>    
                     <br/>                <br/>    
@@ -87,7 +87,7 @@ and open the template in the editor.
                     <br/>                <br/>    
                     <br/>                <br/>    
                     <br/>                <br/>    
-                    <h:commandButton class="to-register" value="私たちのサービスについて" action="serviceoverview.xhtml"/>
+                    <h:button class="to-register" value="私たちのサービスについて" outcome="serviceoverview.xhtml"/>
 
                     <br/>                <br/>    
                     <br/>                <br/>    

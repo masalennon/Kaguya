@@ -66,11 +66,11 @@
         <h:form>        
             <p:inputText id="search" class="search-box" value="#{bb.search}" style="width:150px" p:placeholder="例:世田谷区"/> <br/>
             <br/>
-            <h:commandLink type="submit" value="地域で検索" action="#{bb.search()}" class="Button"/>
+            <h:commandButton type="submit" value="地域で検索" action="#{bb.search()}" class="search-button"/>
 
-            <div align="center">
+<!--            <div align="center">
                 <h:commandLink value="登録内容の変更はこちらから" action="search-for-edit.xhtml"/>
-            </div>
+            </div>-->
 
 
             <p:dataTable id="examplej" class="table couple-table" 

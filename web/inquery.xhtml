@@ -37,24 +37,10 @@ and open the template in the editor.
         <h:body>
             <link rel="stylesheet" type="text/css" href="resources/css/safety.css" />
 
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="ex-main.xhtml">かぐや</a>
-                    </div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="ex-main.xhtml">Home</a></li>
-                        <li><a href="serviceoverview.xhtml">サービスの概要</a></li>
-                        <li><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
-                        <li><a href="safety.xhtml">安全への取り組み</a></li>
-                        <li><a href="find.xhtml">受け入れ先を探す</a></li>
-                        <li><a href="index.xhtml">会員登録</a></li>
-                        <li><a href="faq.xhtml">よくある質問</a></li>
-                        <li><a href="inquery.xhtml">お問合せ</a></li>
+            <h:button value="かぐや" outcome="main.xhtml" class="to-main"/>
 
-                    </ul>
-                </div>
-            </nav>
+            <h:button class="edit-change" value="登録情報の確認・変更はこちら" outcome="search-for-edit.xhtml"/>
+
             <div class="description-kaguya">
                 <div align="center">
                     <h2>お問い合わせ</h2>

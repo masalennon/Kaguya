@@ -35,24 +35,7 @@
         <h:outputStylesheet library="css" name="find.css" />
         <link rel="stylesheet" type="text/css" href="resources/css/safety.css" />
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="ex-main.xhtml">かぐや</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="ex-main.xhtml">Home</a></li>
-                    <li><a href="serviceoverview.xhtml">サービスの概要</a></li>
-                    <li><a href="payment.xhtml">お支払いについて(保護者の方向け)</a></li>
-                    <li><a href="safety.xhtml">安全への取り組み</a></li>
-                    <li><a href="find.xhtml">受け入れ先を探す</a></li>
-                    <li><a href="index.xhtml">会員登録</a></li>  
-                    <li><a href="faq.xhtml">よくある質問</a></li>
-                    <li><a href="inquery.xhtml">お問合せ</a></li>
 
-                </ul>
-            </div>
-        </nav>
         編集が完了しました。
 
         <p:graphicImage value="#{bb.pic}" class="img-edit">
@@ -76,8 +59,9 @@
         <div class="edit-underline">メールアドレス　　　　 　<h:outputText value="#{editBean.mailAddress}"/></div><br/>
 
         <div class="edit-underline2">保護者の方への言葉　  　　<h:outputText value="#{editBean.message}"/></div><br/>
-
-        <!--全角スペースは文字として認識される-->
-        <!--</div>-->
+表の中に写真も含めるといいと思う。
+        <div align="center">
+            <h:button class="to-find" value="トップページに戻る" outcome="main.xhtml"/>
+        </div>
     </h:body>
 </html>
