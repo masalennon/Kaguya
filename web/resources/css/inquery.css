@@ -1,0 +1,94 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 2, 2017, 2:38:32 PM
+    Author     : Masanari
+*/
+
+.inquery-textarea {
+    height: 300px!important;
+    width: 500px!important;
+    border-radius: 8px;
+    border-color: #3d3939;
+    border: 1px solid #3d3939;
+
+}
+
+.text {
+    height: 48px;
+    font-size: 25px;
+    border-radius: 8px;
+    border-color: #3d3939;
+    border: 1px solid #3d3939;
+
+}
+
+html {
+    background: #e1f2e1 !important;
+}
+body {
+    background: #e1f2e1 !important;
+}
+.description-kaguya-inquery {
+    border-radius: 12px;
+    padding-top: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: block-inline;
+    background: url(../bamboo.jpg);
+    /* display: block; */
+    width: 40%;
+    margin-left: 25%;
+    background: white;
+    /* margin-top: 50px; */
+    line-height: 35px;
+    font-size: 20px;
+}
+
+.otoiawase {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+
+.inquery-button {
+    /*font: BlinkMacSystemFont;*/
+    background: green;
+    color: white;
+    border-color: green;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 9px 20px;
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    border-width: 0px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    border-bottom: 1px;
+}
+.inquery-button:hover {
+    font: BlinkMacSystemFont;
+
+    background: #59a359;
+    color: white;
+    border-color: #59a359;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 9px 20px;
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    border-width: 0px;
+
+}

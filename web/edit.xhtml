@@ -29,7 +29,7 @@ and open the template in the editor.
 
         <f:facet name="middle">
             <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
-            <h:outputStylesheet name="bootstrap/css/index.css" />
+            <h:outputStylesheet library="css" name="after-edit.css" />
 
         </f:facet>
 
@@ -42,6 +42,10 @@ and open the template in the editor.
 
 
     <link rel="stylesheet" type="text/css" href="resources/css/find.css" />
+    <link rel="stylesheet" type="text/css" href="resources/css/after-edit.css" />
+    <link rel="stylesheet" type="text/css" href="resources/css/topbar.css" />
+    <link rel="stylesheet" type="text/css" href="resources/css/bottom-links.css" />
+
     <h:outputStylesheet library="css" name="find.css" />
     <h:form>
 
@@ -63,7 +67,7 @@ and open the template in the editor.
         <p:graphicImage value="#{bb.pic}" class="img-edit">
             <f:param name="id" value="#{bb.oci.id}"/>
         </p:graphicImage>
-        
+
         <br/>          
         <br/>            
 
@@ -77,17 +81,17 @@ and open the template in the editor.
         </div>
         <div class="description-kaguya">
 
-            <div class="edit-underline3">市区町村　　　　　　　　<h:outputText value="#{bb.oci.addressOne}"/></div><br/>
+            <div class="edit-underline3">市区町村　　　　　　　　<h:outputText value="#{bb.oci.addressOne}"/></div>
 
-            <div class="edit-underline">住んでいる丁目　　　　　<h:outputText value="#{bb.oci.addressTwo}"/>丁目</div><br/>    
+            <div class="edit-underline">住んでいる丁目　　　　　<h:outputText value="#{bb.oci.addressTwo}"/>丁目</div>
 
-            <div class="edit-underline">希望月謝　　　　　　　　<h:outputText value="#{bb.oci.payment}"/>万円(一人につき)</div><br/>
+            <div class="edit-underline">希望月謝　　　　　　　　<h:outputText value="#{bb.oci.payment}"/>万円(一人につき)</div>
 
-            <div class="edit-underline">提供できる教育内容　  　　<h:outputText value="#{bb.oci.educationContent}"/></div><br/>   
+            <div class="edit-underline">提供できる教育内容　  　　<h:outputText value="#{bb.oci.educationContent}"/></div>
 
-            <div class="edit-underline">メールアドレス　　　　 　<h:outputText value="#{bb.oci.mailAddress}"/></div><br/>
+            <div class="edit-underline">メールアドレス　　　　 　<h:outputText value="#{bb.oci.mailAddress}"/></div>
 
-            <div class="edit-underline2">保護者の方への言葉　  　　<h:outputText value="#{bb.oci.message}"/></div><br/>
+            <div class="edit-underline2">保護者の方への言葉　  　　<h:outputText value="#{bb.oci.message}"/></div>
 
             <!--全角スペースは文字として認識される-->
         </div>
@@ -102,7 +106,7 @@ and open the template in the editor.
         <div align="center">
 
             <!--</h:form>-->
-            <table border="1" cellspacing="0" cellpadding="2" class="latter">
+            <table border="1" cellspacing="0" cellpadding="2" class="edit-table">
                 <tr>
 
                     <td class="headrow">
@@ -214,14 +218,14 @@ and open the template in the editor.
                 </tr>
             </table>
         </div>
-<br/><br/>
-            <div align="center">ご夫婦で撮った写真や、お部屋の写真</div><br/>
-            <div align="center"><h:inputFile id="file" value="#{bb.file}" label="写真を選択" />上の画像を変える</div><br />
-            <div align="center"><h:inputFile id="fileRoom" value="#{bb.fileRoom}" label="写真を選択"/>下の画像を変える</div><br />
-       
-            <div align="center"><h:commandButton class="edit-button" value="編集を完了する" action="#{bb.update()}"/></div>
+        <br/><br/>
+        <div align="center">ご夫婦で撮った写真や、お部屋の写真</div><br/>
+        <div align="center"><h:inputFile id="file" value="#{bb.file}" label="写真を選択" />上の画像を変える</div><br />
+        <div align="center"><h:inputFile id="fileRoom" value="#{bb.fileRoom}" label="写真を選択"/>下の画像を変える</div><br />
 
-            
+        <div align="center"><h:commandButton class="edit-button" value="編集を完了する" action="#{bb.update()}"/></div>
+
+
     </h:form>        
 
     <!--</ui:composition>-->

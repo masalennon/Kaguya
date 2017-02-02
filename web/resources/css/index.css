@@ -159,6 +159,12 @@ li {
     width: 200px;
 }
 
+.inquery-textarea {
+    height: 300px!important;
+    width: 500px!important;
+
+}
+
 .text {
     height: 48px;
     font-size: 25px;
@@ -282,20 +288,39 @@ p.line {
     position: relative;
 }
 
-.description-kaguya {
+/*.description-kaguya {
     padding-top: 30px;
     padding-left: 100px;
     padding-right: 100px;
     display: block-inline;
     background: url('../bamboo.jpg');
-    /*display: block;*/
+    display: block;
     width: 40%;
     margin-left: 25%;
     background: white;
     margin-top: 50px;
     line-height: 35px;
     font-size: 20px;
-}
+}*/
+/*
+
+.description-kaguya {
+    padding-top: 15px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: block-inline;
+    background: url('../bamboo.jpg');
+    display: block;
+    width: 40%;
+    margin-left: 25%;
+    background: white;
+    margin-top: 0px;
+    line-height: 35px;
+    font-size: 20px;
+    float: left;
+    position: absolute;
+}*/
+
 
 .ui-widget-content {
     border: 0px solid #a8a8a8; 
@@ -341,39 +366,6 @@ h1, .h1, h2, .h2, h3, .h3 {
     font-size: 17px;
     box-shadow: 0px;
     position: absolute;
-}
-
-.buttons {
-    margin-left: 580px;
-    margin-right: auto;
-    /*left: 50%;
-    right: 50%;*/
-}
-.service {
-    border: 0px;
-    background: transparent;
-    margin-left: auto;
-    padding-left: 0px;
-    margin-bottom: 0px;
-    padding-right: 50px;
-}
-.payment {
-    border: 0px;
-    background: transparent;
-    margin-left: auto;
-    margin-bottom: 100px;
-    margin-top: 50px;
-    /*padding-left:*/ 
-
-}
-.inquery {
-    border: 0px;
-    background: transparent;
-    margin-left: auto;
-    margin-top: 50px;
-    margin-bottom: 100px;
-    padding-left: 50px;
-    padding-right: 50px;
 }
 
 

@@ -14,7 +14,6 @@
             <meta name="viewport" content="width=device-width, initial-scale=1" />		
             <link rel="stylesheet" type="text/css" href="/resources/css/payment.css"/>
 
-            <title>primestrap</title>
         </f:facet>
 
         <f:facet name="middle">
@@ -33,35 +32,44 @@
     </h:head>
     <h:body>
         <h:outputStylesheet library="css" name="find.css" />
-        <link rel="stylesheet" type="text/css" href="resources/css/safety.css" />
+        <!--<link rel="stylesheet" type="text/css" href="resources/css/safety.css" />-->
+        <link rel="stylesheet" type="text/css" href="resources/css/find.css" />
+        <link rel="stylesheet" type="text/css" href="resources/css/after-edit.css" />
 
 
-        編集が完了しました。
+        <div class="edit-done-message" align="center">
+            編集が完了しました。
+        </div>
+        
+        <div class="img-place">
 
-        <p:graphicImage value="#{bb.pic}" class="img-edit">
-            <f:param name="id" value="#{bb.oci.id}"/>
-        </p:graphicImage>
+            <p:graphicImage value="#{bb.pic}" class="img-after-edit">
+                <f:param name="id" value="#{bb.oci.id}"/>
+            </p:graphicImage>
+        </div>
 
+        <div class="img-place2">
+            <p:graphicImage value="#{bb.roomPic}"  class="img-after-edit2">
+                <f:param name="id" value="#{bb.oci.id}"/>
+            </p:graphicImage>
+        </div>
 
-        <p:graphicImage value="#{bb.roomPic}"  class="img-edit2">
-            <f:param name="id" value="#{bb.oci.id}"/>
-        </p:graphicImage>
-        <!--<div class="description-kaguya">-->
+        <div class="description-kaguya">
+            <div class="edit-underline3">市区町村　　　　　　　　<h:outputText value="#{editBean.addressOne}"/></div>
 
-        <div class="edit-underline3">市区町村　　　　　　　　<h:outputText value="#{editBean.addressOne}"/></div><br/>
+            <div class="edit-underline">住んでいる丁目　　　　　<h:outputText value="#{editBean.addressTwo}"/>丁目</div>  
 
-        <div class="edit-underline">住んでいる丁目　　　　　<h:outputText value="#{editBean.addressTwo}"/>丁目</div><br/>    
+            <div class="edit-underline">希望月謝　　　　　　　　<h:outputText value="#{editBean.payment}"/>万円(一人につき)</div>
 
-        <div class="edit-underline">希望月謝　　　　　　　　<h:outputText value="#{editBean.payment}"/>万円(一人につき)</div><br/>
+            <div class="edit-underline">提供できる教育内容　  　　<h:outputText value="#{editBean.educationContent}"/></div>  
 
-        <div class="edit-underline">提供できる教育内容　  　　<h:outputText value="#{editBean.educationContent}"/></div><br/>   
+            <div class="edit-underline">メールアドレス　　　　 　<h:outputText value="#{editBean.mailAddress}"/></div>
 
-        <div class="edit-underline">メールアドレス　　　　 　<h:outputText value="#{editBean.mailAddress}"/></div><br/>
+            <div class="edit-underline2">保護者の方への言葉　  　　<h:outputText value="#{editBean.message}"/></div>
+        </div>
 
-        <div class="edit-underline2">保護者の方への言葉　  　　<h:outputText value="#{editBean.message}"/></div><br/>
-表の中に写真も含めるといいと思う。
         <div align="center">
-            <h:button class="to-find" value="トップページに戻る" outcome="main.xhtml"/>
+            <h:button class="to-top" value="トップページに戻る" outcome="main.xhtml"/>
         </div>
     </h:body>
 </html>

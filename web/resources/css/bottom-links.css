@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : Masanari
 */
 
+/*.line {
+    margin-top: 40px;
+    border-top: 2px solid #dce0e0;
+}*/
 
 
 .service {
@@ -17,6 +21,8 @@ and open the template in the editor.
     padding-left: 0px;
     margin-bottom: 0px;
     padding-right: 50px;
+    font-size: 16px;
+
 }
 .payment {
     border: 0px;
@@ -24,7 +30,9 @@ and open the template in the editor.
     margin-left: auto;
     margin-bottom: 100px;
     margin-top: 50px;
-    /*padding-left:*/ 
+    padding-right: 30px;
+    font-size: 16px;
+
 
 }
 .inquery {
@@ -35,12 +43,17 @@ and open the template in the editor.
     margin-bottom: 100px;
     padding-left: 50px;
     padding-right: 50px;
+    font-size: 16px;
+
 }
 
-.to-main {
+.safety {
     border: 0px;
-    background: transparent;   
-    margin: 30px;
-    float: left;
-    font-size: 20px;
+    background: transparent;
+    margin-left: auto;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    /*padding-left:*/ 
+    font-size: 16px;
 }
+

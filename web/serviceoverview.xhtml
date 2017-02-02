@@ -11,7 +11,12 @@ and open the template in the editor.
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <head>
-        <title>TODO supply a title</title>
+
+        <link rel="shortcut icon" type="image/png" href="resources/images/kaguya-logo.png"/>
+        <link rel='shortcut icon' type='image/x-icon' href='resources/images/favicon.ico' />
+        <link rel="shortcut icon" type="image/x-icon" href="#{resources['/images/favicon.ico']}" />
+        /*background-image:url("#{resource['images/couple-on-bench.png']}");*/  
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
@@ -24,11 +29,11 @@ and open the template in the editor.
         <ui:define name="links">
             <ui:include src="/leftbar.xhtml"/>
         </ui:define>
-<!--
-        <ui:define name="links">
-            <ui:include src="/topbar.xhtml"/>
-        </ui:define>-->
-        
+        <!--
+                <ui:define name="links">
+                    <ui:include src="/topbar.xhtml"/>
+                </ui:define>-->
+
         <ui:define name="links">
             <ui:include src="/aboutservice.xhtml"/>
         </ui:define>

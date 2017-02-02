@@ -11,7 +11,7 @@ and open the template in the editor.
 body {
     background: white;
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-
+    /*overflow-y: hidden;*/
 }
 
 .logo {
@@ -26,11 +26,12 @@ body {
 
 }
 
+
 .ui-widget-content a {
     color: green; 
 }
 .ui-datatable tbody :hover {
-    background: yellow;
+    /*background: yellow;*/
     border: none;
 }
 .ui-datatable-odd {
@@ -83,10 +84,17 @@ body {
 
 
 .ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td, .ui-datatable tfoot th :hover td{
-    cursor: pointer;
+    /*cursor: pointer;*/
     /*background: green;*/
 }
 
+
+.find-bottom-links {
+    position: relative;
+    /*bottom: 10%;*/
+    margin-top: auto;
+    margin-bottom: 50px;
+}
 
 
 p:hover {
@@ -127,8 +135,8 @@ img {
 .table {
     width: 50%;
     max-width: 100%;
-    margin-bottom: 20px;
-    position: absolute;
+    margin-bottom: 100px;
+    position: relative;
     margin-left: 25%;
     margin-right: auto;
     text-align: center;
@@ -156,7 +164,7 @@ img {
     margin-top: 30px;
     margin-left: 650px;
     position: absolute;
-        
+
 }
 
 
@@ -182,23 +190,68 @@ img {
 .edit-underline {
     text-decoration:none;
     border-bottom: 1px solid #e1f2e1;
-    /*padding-top: 5px;*/
+    padding-top: 15px;
     padding-bottom: 15px;
+    display: block;
+    margin-right: auto;
+
 }
 
 .edit-underline2 {
     text-decoration:none;
     border-bottom: 2px solid green;
-    /*padding-top: 5px;*/
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-right: auto;
+    display: block;
+
+}
+.description-kaguya-parent-index {
+    padding-top: 30px;
+/*    padding-left: 200px;
+    padding-right: 100px;*/
+    display: block-inline;
+    background: url('../bamboo.jpg');
+    /*display: block;*/
+    width: 40%;
+    max-width: 70%;
+    /*margin-left: 25%;*/
+    background: white;
+    margin-top: 0px;
+    line-height: 35px;
+    font-size: 20px;
+    /*float: left;*/
+    /*position: absolute;*/
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 15px;
+}
+
+
+
+.index-parent-couple-info {
+    width: 250px;
+    float: left;
+
+}
+
+
+.index-parent-couple-info2 {
+    /*display: inline;*/
+    /*margin-left: 200px;*/
 }
 
 .edit-underline3 {
+    margin-right: auto;
+    margin-left: auto;
+    /*position: absolute;*/
     text-decoration:none;
     border-top: 2px solid green;
     border-bottom: 1px solid #e1f2e1;
-    padding-top: 25px;
+    padding-top: 15px;
     padding-bottom: 15px;
+        display: block;
+
 }
 
 
@@ -220,19 +273,21 @@ img {
 
 .description-kaguya {
     padding-top: 30px;
-    padding-left: 200px;
-    padding-right: 100px;
+/*    padding-left: 200px;
+    padding-right: 100px;*/
     display: block-inline;
     background: url('../bamboo.jpg');
     /*display: block;*/
     width: 40%;
-    margin-left: 25%;
+    /*margin-left: 25%;*/
     background: white;
     margin-top: 0px;
     line-height: 35px;
     font-size: 20px;
     float: left;
     /*position: absolute;*/
+    margin-right: auto;
+    margin-left: auto;
 }
 
 
@@ -241,11 +296,10 @@ img {
     max-height: 250px;
     width: 80%;
     height: 80%;
-    float: left;
+    /*float: left;*/
     position: absolute;
-    padding-left: 200px;
-    padding-top: 370px;
-    position: absolute;
+    padding-left: 100px;
+    padding-top: 70px;
 }
 
 .img-edit2 {
@@ -254,11 +308,11 @@ img {
     max-height: 250px;
     width: 80%;
     height: 80%;
-    float: left;
-    position: relative;
-    padding-left: 600px;
+    /*float: left;*/
+    position: absolute;
+    padding-left: 100px;
     padding-bottom: 40px;
-        position: absolute;
+    position: absolute;
 
 }
 
@@ -267,32 +321,7 @@ img {
     margin-bottom: 50px;
 }
 
-.edit-button {
-    border-width: 0px;
-    padding: 9px 24px;
-    padding-top: 9px;
-    padding-right: 20px;
-    padding-bottom: 9px;
-    padding-left: 20px;
-    background: green;
-    color: white;
-    border-color: green;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-}
-.edit-button:hover {
-    background: #59a359;
-    color: white;
-    border-color: #59a359;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 9px 20px;
-    padding-top: 9px;
-    padding-right: 20px;
-    padding-bottom: 9px;
-    padding-left: 20px;
-    border-width: 0px;
 
+.info-table {
+    margin-top: 50px;
 }

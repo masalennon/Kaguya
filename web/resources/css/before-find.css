@@ -7,23 +7,27 @@ and open the template in the editor.
     Created on : Jan 30, 2017, 6:48:44 PM
     Author     : Masanari
 */
+body {
+    overflow-x: hidden;
 
+}
 .parent-baby {
     -moz-background-size: cover;
     margin-top: -10px;
     margin-left: -10px;
     padding-right: 20px;
-    left: 10%;
-    width: auto;
+    left: 0%;
+    width: 100%;
     /*height: 60%;*/
-    /*max-width: 1300px;*/
+    max-width: 2500px;
     height: 100%;
     min-height: 1000px;
     /*background-position: center center !important;*/
     background-position-x: left;
     background-position-y: center;
     background-size: cover;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
+    /*overflow-y: hidden;*/
 
 }
 

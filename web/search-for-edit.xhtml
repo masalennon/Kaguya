@@ -40,44 +40,55 @@ and open the template in the editor.
 
     <!--<ui:composition template="/templates/aboutserviceTemplate.xhtml"/>-->
 
+    <link rel="stylesheet" type="text/css" href="resources/css/topbar.css" />
 
-    <link rel="stylesheet" type="text/css" href="resources/css/find.css" />
-    <h:outputStylesheet library="css" name="find.css" />
+    <!--<link rel="stylesheet" type="text/css" href="resources/css/find.css" />-->
+    <h:outputStylesheet library="css" name="search-for-edit.css" />
     <h:outputStylesheet library="css" name="main.css" />
-
-    <h:form>
-
-
-        <h:button value="かぐや" outcome="main.xhtml" class="to-main"/>
-        <a href="main.xhtml"><img src="resources/images/kaguya-logo.png" class="logo"/></a>
-
-        <h:button class="edit-change" value="登録情報の確認・変更はこちら" outcome="search-for-edit.xhtml"/>
-
-        <div class="container">
-            <!--                <h3>Basic Navbar Example</h3>
-                            <p>A navigation bar is a navigation header that is placed at the top of the page.</p>-->
-        </div>
+    <h:body>
+        <h:form>
 
 
-        <br/>
-        <br/>
-        <div align="center" >
+            <h:button value="かぐや" outcome="main.xhtml" class="to-main"/>
+            <a href="main.xhtml"><img src="resources/images/kaguya-logo.png" class="logo"/></a>
 
-            編集するために、idとメールアドレスを入力してください。idは会員登録の際に送ったメールに記載されています。 <br/> <br/>
-            <h:panelGrid>
-                id <h:inputText id="id" value="#{bb.id}" style="width:150px" p:placeholder="あなたのid"/> <br/>
+            <!--<h:button class="edit-change" value="登録情報の確認・変更はこちら" outcome="search-for-edit.xhtml"/>-->
 
-                メールアドレス <h:inputText id="mailAddress" value="#{bb.mailAddress}" style="width:150px" p:placeholder="あなたのメールアドレス"/> <br/>
-            </h:panelGrid>
+            <div class="container">
+                <!--                <h3>Basic Navbar Example</h3>
+                                <p>A navigation bar is a navigation header that is placed at the top of the page.</p>-->
+            </div>
+
+
             <br/>
-            <h:commandButton type="submit" value="編集画面に進む" action="#{bb.goToEdit(bb.id, bb.mailAddress)}" class="edit-button"/>
+            <br/>
+            <div align="center" >
 
-        </div>
+                <h4>編集するために、idとメールアドレスを入力してください。idは会員登録の際に送ったメールに記載されています。 </h4><br/> <br/>
+                <div class="id-mail-box">
+                    <div class="search-edit-label"> 
+                        id
+                    </div>
+                    <h:inputText id="id" class="text-id" value="#{bb.id}" a:placeholder="あなたのid"/> <br/>
+                    <br/>
+                    <div class="search-edit-label"> 
+                        メールアドレス 
+                    </div>
+                    <h:inputText id="mailAddress" class="text-mail" value="#{bb.mailAddress}" a:placeholder="あなたのメールアドレス"/> <br/>
+                    
+                    <h:commandButton type="submit" value="編集画面に進む" action="#{bb.goToEdit(bb.id, bb.mailAddress)}" class="edit-button"/>
+                    <br/>
+                    <h:commandButton type="submit" value="登録内容を削除する" action="#{bb.goToEdit(bb.id, bb.mailAddress)}" class="delete-button"/>
+
+                </div>
+                <br/>
+
+            </div>
 
 
 
-    </h:form>        
-
+        </h:form>        
+    </h:body>
     <!--</ui:composition>-->
 
 </html>

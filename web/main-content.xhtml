@@ -23,13 +23,15 @@ and open the template in the editor.
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />		
-        <link rel="shortcut icon" type="image/x-icon" href="#{resources['images/favicon.ico']}" />
+            <link rel="shortcut icon" type="image/x-icon" href="#{resources['images/favicon.ico']}" />
 
         </f:facet>
 
         <f:facet name="middle">
             <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
             <h:outputStylesheet name="resources/css/main.css" />
+            <h:outputStylesheet library="css" name="topbar.css" />
+
             <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
 
@@ -48,6 +50,8 @@ and open the template in the editor.
             <!--<h:outputStylesheet name="resources/bootstrap/css/bootstrap.css" />-->
             <!--<link rel="stylesheet" type="text/css" href="resources/css/main.css" />-->
             <h:outputStylesheet name="resources/css/main.css" />
+            <h:outputStylesheet library = "css" name="bottom-links.css" />
+
             <div class="gallery" style="background:#e1f2e1">
 
                 <div class="main">
@@ -74,6 +78,7 @@ and open the template in the editor.
                     <a href="before-index.xhtml"><img src="resources/images/couple-main.jpg" class="couple-main"/></a><br/>    
 
                     <a href="before-find.xhtml"><img src="resources/images/parents.jpg" class="parent"/></a><br/>    
+
                     <h:link class="couple-link" value="保育の受け入れはこちら" outcome="before-index.xhtml"/>
 
                     <h:link class="parent-link" value="保護者の方はこちら" outcome="before-find.xhtml"/>
@@ -87,18 +92,19 @@ and open the template in the editor.
                     <br/>                <br/>    
                     <br/>                <br/>    
                     <br/>                <br/>    
-                    <h:button class="to-register" value="私たちのサービスについて" outcome="serviceoverview.xhtml"/>
-
+                    <div align="center">
+                        <h:button class="to-register" value="私たちのサービスについて" outcome="serviceoverview.xhtml"/>
+                    </div>
                     <br/>                <br/>    
                     <br/>                <br/>    
                 </div>
-            <div class="line"></div>
+                <!--<div class="line"></div>-->
 
-            <br/>                <br/>    
-            <br/>                <br/>    
-            <br/>                <br/>    
-            <br/>                <br/>    
-            <br/>    
+                <br/>                <br/>    
+                <br/>                <br/>    
+                <br/>                <br/>    
+                <br/>                <br/>    
+                <br/>    
 
             </div>
 

@@ -18,16 +18,19 @@ body {
 }
 
 .description-kaguya {
-    padding-top: 30px;
-    padding-left: 100px;
-    padding-right: 100px;
+    /*padding-top: 30px;*/
+/*    padding-left: 100px;
+    padding-right: 100px;*/
     display: block-inline;
     background: url('../bamboo.jpg');
     /*display: block;*/
-    width: 40%;
-    margin-left: 25%;
+    /*width: 100%;*/
+    /*margin-left: 25%;*/
     background: white;
-    margin-top: 50px;
+    /*margin-top: 50px;*/
+    margin-right: auto;
+    margin-left: auto;
     line-height: 35px;
     font-size: 20px;
+    /*position: relative;*/
 }

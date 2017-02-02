@@ -201,7 +201,7 @@ public class Bb extends SuperBb implements Serializable {
                 educationContent, message, payment, image, imageRoom);
         try {
             db.update(oldCoupleInformation);
-//            cb.clear();]id = oci.getId();
+//            cb.clear();id = oci.getId();
 //            firstName = oci.getFirstName();
 //            lastName = oci.getLastName();
 //            firstNameHurigana = oci.getFirstNameHurigana();

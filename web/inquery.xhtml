@@ -35,25 +35,42 @@ and open the template in the editor.
     </h:head>
     <h:form>
         <h:body>
-            <link rel="stylesheet" type="text/css" href="resources/css/safety.css" />
+            <link rel="stylesheet" type="text/css" href="resources/css/inquery.css" />
+            <link rel="stylesheet" type="text/css" href="resources/css/bottom-links.css" />
+            <link rel="stylesheet" type="text/css" href="resources/css/topbar.css" />
+
 
             <h:button value="かぐや" outcome="main.xhtml" class="to-main"/>
+            <a href="main.xhtml"><img src="resources/images/kaguya-logo.png" class="logo"/></a>
 
             <h:button class="edit-change" value="登録情報の確認・変更はこちら" outcome="search-for-edit.xhtml"/>
+            <br/><br/><br/>
+            <br/><br/><br/>
+            <div class="description-kaguya-inquery">
 
-            <div class="description-kaguya">
                 <div align="center">
-                    <h2>お問い合わせ</h2>
+                    <div class="otoiawase">お問い合わせ</div>
                     <br/>
                     題名<br/>
-                    <h:inputText value="#{inqueryBean.title}"/><br/><br/>
+                    <h:inputText value="#{inqueryBean.title}" class="text"/><br/><br/>
                     あなたのメールアドレス<br/>
                     <h:inputText value="#{inqueryBean.mailAddress}" class="text"/><br/><br/>
                     本文<br/>
-                    <h:inputTextarea value="#{inqueryBean.content}"/><br/><br/>
+                    <h:inputTextarea value="#{inqueryBean.content}" class="inquery-textarea" a:placeholder="  例：事前に欲しい情報や、追加してほしい機能、など"/><br/><br/>
 
-                    <h:commandButton value="送信する" action="#{inqueryBean.send()}"/>
+                    <h:commandButton value="送信する" action="#{inqueryBean.send()}" class="inquery-button"/>
                 </div><br/>
+            </div>
+            <div class="buttons" align="center">
+
+                <h:button class="service" value="サービスの概要" outcome="serviceoverview.xhtml"/>
+
+                <h:button class="payment" value="お支払いについて(保護者の方向け)" outcome="payment.xhtml"/>
+
+                <h:button class="safety" value="安全への取り組み" outcome="safety.xhtml"/>
+
+                <h:button class="inquery" value="お問合せ" outcome="inquery.xhtml"/>
+
             </div>
         </h:body>
     </h:form>

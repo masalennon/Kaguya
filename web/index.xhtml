@@ -19,7 +19,6 @@ and open the template in the editor.
             <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />		
 
-            <title>primestrap</title>
         </f:facet>
 
         <f:facet name="middle">
@@ -32,16 +31,19 @@ and open the template in the editor.
         <f:facet name="last">
 
         </f:facet>
-
+        <!--<link rel="shortcut icon" type="image/x-icon" href="#{resource['/images/favicon.png']}" />-->
+    <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.ico" />
     </h:head>
     <h:body>
-        <h:outputStylesheet library="css" name="index.css" />
+        <h:outputStylesheet library="css" name="index.css" />  
+        <h:outputStylesheet library="css" name="bottom-links.css" />
+        <h:outputStylesheet library="css" name="topbar.css" />
         <h:outputStylesheet library="css" name="reset.css" />
 
 
         <h:form>
             <h:button value="かぐや" outcome="main.xhtml" class="to-main"/>
-                <a href="main.xhtml"><img src="resources/images/kaguya-logo.png" class="logo"/></a>
+            <a href="main.xhtml"><img src="resources/images/kaguya-logo.png" class="logo"/></a>
 
             <h:button class="edit-change" value="登録情報の確認・変更はこちら" outcome="search-for-edit.xhtml"/>
 
@@ -362,15 +364,16 @@ and open the template in the editor.
                 <!--enctype="multipart/form-data"-->
             </div>
 
-            <div class="line"></div>
-            <div class="buttons">
+            <!--<div class="line"></div>-->
+            <div class="buttons" align="center">
 
                 <h:button class="service" value="サービスの概要" outcome="serviceoverview.xhtml"/>
 
                 <h:button class="payment" value="お支払いについて(保護者の方向け)" outcome="payment.xhtml"/>
 
-                <h:button class="inquery" value="お問合せ" outcome="inquery.xhtml"/>
+                <h:button class="safety" value="安全への取り組み" outcome="safety.xhtml"/>
 
+                <h:button class="inquery" value="お問合せ" outcome="inquery.xhtml"/>
 
             </div>
         </h:form>

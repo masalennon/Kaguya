@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 html {
-    /*background: whitesmoke;*/
+    background: #e1f2e1;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
     font-size: 14px;
     line-height: 1;
-    background: #f2faf2;
+    background: #e1f2e1;
 }
 .kaguya-detail-container {
     /*    background: white;
@@ -30,7 +30,10 @@ body {
     /*padding: 4px 16px 55px 16px;*/
     margin-right: auto;
     margin-left: auto;
-
+    border-radius: 7px; 
+    right: 50%;
+    margin-top: 80px;
+    left: 50%;
     overflow: hidden;
 }
 
@@ -83,12 +86,18 @@ body {
 }
 .kaguya-link {
     /*position: absolute;*/
+    /*border-radius: 2px;*/
+    border: 3px solid black;
+    width: 300px;
+
     margin-right: auto;
     margin-bottom: auto;
     color: green;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
     /*float: left;*/
-    padding-top: 30px;
+    /*padding-top: 40px;*/
+    margin-top: 30px;
 }
 
 .kaguya-detail {
@@ -99,7 +108,7 @@ body {
 
 
 html {
-    background: #f2faf2;
+    background: #e1f2e1;
 
 }
 
@@ -113,9 +122,55 @@ a {
 
 
 h1, .h1, h2, .h2, h3, .h3 {
-     margin-top: 0px; 
-     margin-bottom: 0px; 
-     padding-left: 0px; 
-     padding-right: 0px; 
-     line-height: 1.6; 
+    margin-top: 0px; 
+    margin-bottom: 0px; 
+    padding-left: 0px; 
+    padding-right: 0px; 
+    line-height: 1.6; 
+}
+
+
+.edit-button {
+    position: relative;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    font-weight: bold;
+    cursor: pointer;
+    background: transparent;
+    color: black;
+    border-color: black;
+    border-radius: 6px;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+}
+.talk-with-this-ppl {
+    /*border: 4px solid #82636b;*/
+    font-size: 25px;
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    /*    left: 45%;
+        right: 55%;*/
+    font-weight: bold;
+    width: 300px;
+    cursor: pointer;
+    background: transparent;
+    color: black;
+    border-color: black;
+    border-radius: 6px;
+    /*font-size: 22px;*/
+    font-weight: bold;
+    /*padding: 15px;*/
+    border: 4px;
+}
+
+.to-register {
+
 }

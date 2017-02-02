@@ -11,48 +11,34 @@ and open the template in the editor.
 body {
     font-size: 14px;
     color: rgb(51, 51, 51);
-    height: 100%;
+    /*height: 100%;*/
     line-height: 1.42857;
     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-    background: linear-gradient(rgb(255, 255, 255) 0px, #f2faf2 0px);
+    background: linear-gradient(rgb(255, 255, 255) 0px, #e1f2e1 0px);
+    /*overflow-x: hidden;*/
+}
+
+html {
+    background: #e1f2e1 !important;
 }
 
 .description-kaguya {
-    padding-top: 30px;
-    padding-left: 100px;
-    padding-right: 100px;
+    /*padding-top: 30px;*/
+/*    padding-left: 100px;
+    padding-right: 100px;*/
     display: block-inline;
     background: url('../bamboo.jpg');
     /*display: block;*/
-    width: 40%;
-    margin-left: 25%;
+    /*width: 100%;*/
+    /*margin-left: 25%;*/
     background: white;
-    margin-top: 50px;
+    /*margin-top: 50px;*/
+    margin-right: auto;
+    margin-left: auto;
     line-height: 35px;
     font-size: 20px;
-}
-
-.to-main {
-    border: 0px;
-    background: transparent;   
-    margin: 30px;
-    float: left;
-    font-size: 20px;
-}
-
-.edit-change {
-    margin-left: auto;
-    border: 0px;
-    /*border-color: whitesmoke;*/
-    background: transparent;
-    margin-left: 1200px;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-    font-size: 17px;
-    box-shadow: 0px;
-    position: absolute;
+    /*position: relative;*/
+    border-radius: 7px;
 }
 
 
@@ -61,14 +47,45 @@ h2 {
     padding-left: 0px;
     padding-right: 0px;
 }
-
+/*
 textarea {
     width: 500px;
     height: 400px;
-}
+}*/
 
-input {
-    width: 300px;
-    
-}
 
+.edit-button {
+    /*font: BlinkMacSystemFont;*/
+    background: green;
+    color: white;
+    border-color: green;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 9px 20px;
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    border-width: 0px;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    border-bottom: 1px;
+}
+.edit-button:hover {
+    font: BlinkMacSystemFont;
+
+    background: #59a359;
+    color: white;
+    border-color: #59a359;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 9px 20px;
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    border-width: 0px;
+
+}

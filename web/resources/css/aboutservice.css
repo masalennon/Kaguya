@@ -9,6 +9,8 @@ and open the template in the editor.
 */
 body{
     background: white !important;
+    font: BlinkMacSystemFont;
+    font-size: 12px;
 }
 .title {
     margin: 30px;

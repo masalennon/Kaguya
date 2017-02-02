@@ -1,0 +1,106 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 1, 2017, 3:21:06 PM
+    Author     : Masanari
+*/
+
+.img-after-edit {
+    width: auto;
+    height: auto;
+    max-height: 300px;
+    max-width: 300px;
+    z-index: 1;
+}
+
+.html {
+    background: white !important;
+}
+
+.img-after-edit2 {
+    width: auto;
+    height: auto;
+    max-height: 300px;
+    max-width: 300px;
+        z-index: 1;
+
+}
+
+.to-top {
+    margin-top: 600px;
+    /*text-align: center;*/
+    left: 42%;
+    right: 58%;
+    /*    margin-left: auto;
+        margin-left: auto;*/
+    font-weight: bold;
+    cursor: pointer;
+    background: white;
+    color: black;
+    border-color: black;
+    border-radius: 6px;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px;
+    position: absolute;
+}
+
+
+.description-kaguya {
+    padding-top: 30px;
+    padding-left: 200px;
+    padding-right: 100px;
+    display: block-inline;
+    background: url('../bamboo.jpg');
+    /*display: block;*/
+    width: 40%;
+    margin-left: 25%;
+    background: white;
+    margin-top: 0px;
+    line-height: 35px;
+    font-size: 20px;
+    float: left;
+    position: absolute;
+}
+
+.edit-done-message {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.img-place {
+    margin: 30px;
+    height: 300px;
+    width: 300px;
+    /*float: left;*/
+    position: absolute;
+    padding-left: 100px;
+
+}
+.img-place2 {
+    height: 300px;
+    width: 300px;
+    /*float: left;*/
+    position: absolute;
+    margin: 30px;
+    padding-top: 300px;
+    padding-left: 100px;
+
+}
+
+
+.edit-table {
+    width: 900px;
+    margin-top: 500px;
+    position: relative;
+}
+
+
+.img-place img-after-edit {
+
+}

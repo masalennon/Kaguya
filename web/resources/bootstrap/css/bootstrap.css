@@ -1094,6 +1094,7 @@ th {
     line-height: 45px;
     letter-spacing: 3px;
     background: url(bamboo.jpg);
+    padding-top: 50px;
 }
 
 
@@ -1189,7 +1190,7 @@ th {
     width: 40%;
     margin-left: 25%;
     background: white;
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     line-height: 35px;
     font-size: 20px;
 }

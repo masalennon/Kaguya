@@ -15,13 +15,15 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />		
+        <link rel="shortcut icon" type="image/x-icon" href="#{resources['images/favicon.ico']}" />
 
-            <title>primestrap</title>
+            <!--<title>primestrap</title>-->
         </f:facet>
 
         <f:facet name="middle">
             <!--<h:outputStylesheet library="bootstrap" name="bootstrap.css" />-->
             <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+            <h:outputStylesheet library="css" name="bottom-links.css" />
 
         </f:facet> 
 
@@ -45,14 +47,16 @@
 
 
         <link rel="stylesheet" type="text/css" href="resources/css/find.css" />
-        <h:outputStylesheet library="css" name="find.css" />
+        <link rel="stylesheet" type="text/css" href="resources/css/topbar.css" />
+
+
         <h:form>
 
             <h:button value="かぐや" outcome="main.xhtml" class="to-main"/>
 
             <a href="main.xhtml"><img src="resources/images/kaguya-logo.png" class="logo"/></a>
 
-            <h:button class="edit-change" value="登録情報の確認・変更はこちら" outcome="search-for-edit.xhtml"/>
+            <!--<h:button class="edit-change" value="登録情報の確認・変更はこちら" outcome="search-for-edit.xhtml"/>-->
 
 
 
@@ -74,36 +78,50 @@
                             <h:commandLink value="登録内容の変更はこちらから" action="search-for-edit.xhtml"/>
                         </div>-->
 
+            <div>
+                <p:dataTable id="examplej" class="table couple-table" 
+                             var="info" value="#{bb.coupleList}" widgetVar="couple" rows="10" paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                             rowsPerPageTemplate="5,10,15" paginator="true" emptyMessage="住所を入力して検索してください">
 
-            <p:dataTable id="examplej" class="table couple-table" 
-                         var="info" value="#{bb.coupleList}" widgetVar="couple" rows="10" paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                         rowsPerPageTemplate="5,10,15" paginator="true" emptyMessage="住所を入力して検索してください">
+                    <div class="search-box">
+                        <h:outputText value="地域で検索" />
+                    </div>
+                    <p:column class="column-couple" >
+                        <p:graphicImage value="#{bb.pic}" >
+                            <f:param name="id" value="#{info.id}"/>
+                        </p:graphicImage>
+                    </p:column>
 
-                <div class="search-box">
-                    <h:outputText value="地域で検索" />
-                </div>
-                <p:column class="column-couple" >
-                    <p:graphicImage value="#{bb.pic}" >
-                        <f:param name="id" value="#{info.id}"/>
-                    </p:graphicImage>
-                </p:column>
+                    <p:column class="column-couple">
+                        <h:outputText value="#{info.firstName}" />さん
+                    </p:column>
 
-                <p:column class="column-couple">
-                    <h:outputText value="#{info.firstName}" />さん
-                </p:column>
+                    <p:column class="column-couple">
+                        <h:outputText value="#{info.addressOne}" />
+                    </p:column>
 
-                <p:column class="column-couple">
-                    <h:outputText value="#{info.addressOne}" />
-                </p:column>
-
-                <p:column class="column-couple">
-                    <h:commandLink action="#{bb.detail(info.id)}"><!-- 試したもの：bb.oci, bb.coupleList, filt()でOldcoupleInformationをflashでdetail()に渡す-->
-                        詳細へ
-                    </h:commandLink>  
-                </p:column>
+                    <p:column class="column-couple">
+                        <h:commandLink action="#{bb.detail(info.id)}"><!-- 試したもの：bb.oci, bb.coupleList, filt()でOldcoupleInformationをflashでdetail()に渡す-->
+                            詳細へ
+                        </h:commandLink>  
+                    </p:column>
 
 
-            </p:dataTable>
+                </p:dataTable>
+            </div>
+            <br/>
+
+            <div align="center" class="find-bottom-links">
+
+                <h:button class="service" value="サービスの概要" outcome="serviceoverview.xhtml"/>
+
+                <h:button class="payment" value="お支払いについて(保護者の方向け)" outcome="payment.xhtml"/>
+
+                <h:button class="safety" value="安全への取り組み" outcome="safety.xhtml"/>
+
+                <h:button class="inquery" value="お問合せ" outcome="inquery.xhtml"/>
+
+            </div>
         </h:form>        
 
         <!--</ui:composition>-->
