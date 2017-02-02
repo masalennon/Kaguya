@@ -86,28 +86,31 @@
                 <p:dataTable id="examplej" class="table couple-table" paginatorPosition="bottom"
                              var="info" value="#{bb.coupleList}" widgetVar="couple" rows="10" paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                              rowsPerPageTemplate="5,10,15" paginator="true" emptyMessage="住所を入力して検索してください">
-                    
+
+                    <div class="table-wrap">
                         <p:column class="column-couple" >
                             <p:graphicImage value="#{bb.pic}" class="img-find">
                                 <f:param name="id" value="#{info.id}"/>
                             </p:graphicImage>
                         </p:column><br/>
-                    
-                    <p:column class="column-couple1">
-                        <h:outputText value="#{info.firstName}" />さん
-                    </p:column>
-                    <br/>
-                    <p:column class="column-couple2">
-                        <h:outputText value="#{info.addressOne}" />
-                    </p:column>
-                    <br/>
-                    <p:column class="column-couple3">
-                        <h:commandLink action="#{bb.detail(info.id)}"><!-- 試したもの：bb.oci, bb.coupleList, filt()でOldcoupleInformationをflashでdetail()に渡す-->
-                            詳細へ
-                        </h:commandLink>  
-                    </p:column>
 
+                        <div class="name-address-detail">
+                            <p:column class="column-couple1">
+                                <h:outputText value="#{info.firstName}" />さん
+                            </p:column>
+                            <br/>
+                            <p:column class="column-couple2">
+                                <h:outputText value="#{info.addressOne}" />
+                            </p:column>
+                            <br/>
+                            <p:column class="column-couple3">
+                                <h:commandLink action="#{bb.detail(info.id)}"><!-- 試したもの：bb.oci, bb.coupleList, filt()でOldcoupleInformationをflashでdetail()に渡す-->
+                                    詳細へ
+                                </h:commandLink>  
+                            </p:column>
+                        </div>
 
+                    </div>
                 </p:dataTable>
             </div>
             <br/>
