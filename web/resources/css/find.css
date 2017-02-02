@@ -97,6 +97,11 @@ body {
 }
 
 
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background:  #f2faf2 -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0)))!important;
+
+}
+
 p:hover {
     color: green;
 }
@@ -208,8 +213,8 @@ img {
 }
 .description-kaguya-parent-index {
     padding-top: 30px;
-/*    padding-left: 200px;
-    padding-right: 100px;*/
+    /*    padding-left: 200px;
+        padding-right: 100px;*/
     display: block-inline;
     background: url('../bamboo.jpg');
     /*display: block;*/
@@ -250,7 +255,7 @@ img {
     border-bottom: 1px solid #e1f2e1;
     padding-top: 15px;
     padding-bottom: 15px;
-        display: block;
+    display: block;
 
 }
 
@@ -273,8 +278,8 @@ img {
 
 .description-kaguya {
     padding-top: 30px;
-/*    padding-left: 200px;
-    padding-right: 100px;*/
+    /*    padding-left: 200px;
+        padding-right: 100px;*/
     display: block-inline;
     background: url('../bamboo.jpg');
     /*display: block;*/
@@ -324,4 +329,12 @@ img {
 
 .info-table {
     margin-top: 50px;
+}
+
+
+.ukeiresaki {
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-weight: 900;
+
 }
