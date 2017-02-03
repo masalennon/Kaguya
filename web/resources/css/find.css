@@ -7,12 +7,17 @@ and open the template in the editor.
     Created on : Dec 25, 2016, 7:55:17 AM
     Author     : Masanari
 */
+html {
+    background: #e1f2e1 !important;
+}
 
 body {
     background: white;
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
     /*overflow-y: hidden;*/
     /*width: 1300px;*/
+    background: #e1f2e1 !important;
+
 }
 
 .logo {
@@ -39,6 +44,7 @@ body {
 }*/
 
 .ui-widget-content {
+    background: transparent;
     width: 2200px;
     margin-right: auto;
     margin-left: auto;
@@ -66,13 +72,13 @@ body {
     background: white;
     width: auto;
     /*box-sizing: border-box;*/
-
+    background: transparent;
 }
 
 
 
 .find-bottom-links {
-    position: absolute;
+    position: relative;
     /*bottom: 10%;*/
     margin-top: auto;
     margin-bottom: 50px;
@@ -134,8 +140,7 @@ table-hover:hover{background-color:#f5f5f5;
     display: inline-block;
     padding: 0 0 0 0em;
     margin: 0 10px 0 10px;
-    /*    margin-left: auto;
-        margin-right: auto;*/
+    background: transparent;
     width: 500px;
 }
 
@@ -302,6 +307,8 @@ table-hover:hover{background-color:#f5f5f5;
 }
 
 .couple-table {
+    background: transparent;
+
     width: 2200px;
     margin-left: auto;
     margin-right: auto;
@@ -425,7 +432,7 @@ tr {
     /*clear: both;*/
     padding-bottom: 0px !important;
     width: 100px;
-    
+
 }
 .column-couple2 {
     padding-top: 0px !important;
@@ -492,8 +499,8 @@ tr {
 }
 
 .name-address-detail {
-      -webkit-justify-content: center; /* Safari */
-  justify-content:         center;
+    -webkit-justify-content: center; /* Safari */
+    justify-content:         center;
     /*float: left;*/
     padding-left: 30px;
     margin-left: 50px;
