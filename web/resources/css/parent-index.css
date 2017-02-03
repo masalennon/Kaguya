@@ -1,0 +1,102 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 3, 2017, 11:48:51 AM
+    Author     : Masanari
+*/
+
+
+.edit-underline {
+    text-decoration:none;
+    border-bottom: 1px solid #e1f2e1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: block;
+    margin-right: auto;
+
+}
+
+.edit-underline2 {
+    text-decoration:none;
+    border-bottom: 2px solid green;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-right: auto;
+    display: block;
+
+}
+
+
+.description-kaguya-parent-index {
+    padding-top: 30px;
+    /*    padding-left: 200px;
+        padding-right: 100px;*/
+    display: block-inline;
+    background: url('../bamboo.jpg');
+    /*display: block;*/
+    width: 40%;
+    max-width: 70%;
+    /*margin-left: 25%;*/
+    background: white;
+    margin-top: 0px;
+    line-height: 35px;
+    font-size: 20px;
+    /*float: left;*/
+    /*position: absolute;*/
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 15px;
+}
+
+
+
+.edit-underline {
+    text-decoration:none;
+    border-bottom: 1px solid #e1f2e1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: block;
+    margin-right: auto;
+
+}
+
+.edit-underline2 {
+    text-decoration:none;
+    border-bottom: 2px solid green;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-right: auto;
+    display: block;
+
+}
+
+
+
+
+.index-parent-couple-info {
+    width: 250px;
+    float: left;
+
+}
+
+
+.index-parent-couple-info2 {
+    /*display: inline;*/
+    /*margin-left: 200px;*/
+}
+
+.edit-underline3 {
+    margin-right: auto;
+    margin-left: auto;
+    /*position: absolute;*/
+    text-decoration:none;
+    border-top: 2px solid green;
+    border-bottom: 1px solid #e1f2e1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: block;
+
+}

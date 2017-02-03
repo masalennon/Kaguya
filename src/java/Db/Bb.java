@@ -278,9 +278,10 @@ public class Bb extends SuperBb implements Serializable {
         return "index.xhtml";
     }
 
-    public void search() {
+    public String search() {
         coupleList = db.filterTable(search);
         System.out.println("coupleList = db.filterTable(search);\n");
+        return "find.xhtml";
     }
 
     public String detail(Integer id) {

@@ -5,37 +5,72 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
 
     <h:head>
-        <f:facet name="first">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />		
+        <!--<f:facet name="first">-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />		
 
-            <title>primestrap</title>
-        </f:facet>
+        <!--<title>primestrap</title>-->
+        <!--</f:facet>-->
 
-        <f:facet name="middle">
-            <h:outputStylesheet name="bootstrap/css/main.css" />
+        <!--<f:facet name="middle">-->
+        <!--<h:outputStylesheet library="css" name="main.css" />-->
+        <h:outputStylesheet library="css" name="topbar.css" />
+        <h:outputStylesheet library="css" name="bootstrap.css" />
 
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+        <h:outputStylesheet library="css" name="bottom-links.css" />
+        <h:outputStylesheet library="css" name="find.css" />
+        <h:outputStylesheet library="css" name="search-box.css" />
 
-            <h:outputScript name="bootstrap/js/bootstrap.js" />
-        </f:facet>
 
-        <f:facet name="last">
 
-        </f:facet>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+
+        <h:outputScript name="bootstrap/js/bootstrap.js" />
+        <!--        </f:facet>
+        
+                <f:facet name="last">
+        
+                </f:facet>-->
 
     </h:head>
     <h:body>
+        <h:outputStylesheet library="css" name="search-box.css" />
+
         <h:form>
-            <div class="search-box">
+            <div>
+                <h:button value="かぐや" outcome="main.xhtml" class="to-main-search-box"/>
+                <a href="main.xhtml"><img src="resources/images/kaguya-logo.png" class="logo-searchbox"/></a>
+            </div>
+            <div class="ukeiresaki" align="center">
+                受け入れ先を探す
+            </div>
+            <div align="center" class="search-form">
+                <p:inputText id="search" class="search-box" value="#{bb.search}" style="width:150px" p:placeholder="例:世田谷区"/>
+                <h:commandButton type="submit" value="地域で検索" action="#{bb.search()}" class="search-button "/>
+            </div>
 
 
+            <!--<p:layoutUnit position="south" size="100" header="Bottom">-->
+            <div class="buttons" align="center">
+
+                <h:button class="service" value="サービスの概要" outcome="serviceoverview.xhtml"/>
+
+                <h:button class="payment" value="お支払いについて(保護者の方向け)" outcome="payment.xhtml"/>
+
+                <h:button class="safety" value="安全への取り組み" outcome="safety.xhtml"/>
+
+                <h:button class="inquery" value="お問合せ" outcome="inquery.xhtml"/>
 
             </div>
+            <!--</p:layoutUnit>-->
+
         </h:form>
     </h:body>
 </html>
