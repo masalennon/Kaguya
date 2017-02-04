@@ -84,19 +84,19 @@ public class BbParent implements Serializable {
     public void loadPage() {
         for (int i = 1950; i <= 2000; i++) {
             final SelectItem item = new SelectItem();
-            item.setLabel(String.valueOf(i));
+            item.setLabel(String.valueOf(i) + "年");
             item.setValue(String.valueOf(i));
             yearList.add(item);
         }
         for (int i = 1; i <= 12; i++) {
             final SelectItem item = new SelectItem();
-            item.setLabel(String.valueOf(i));
+            item.setLabel(String.valueOf(i) + "月");
             item.setValue(String.valueOf(i));
             monthList.add(item);
         }
         for (int i = 1; i <= 31; i++) {
             final SelectItem item = new SelectItem();
-            item.setLabel(String.valueOf(i));
+            item.setLabel(String.valueOf(i) + "日");
             item.setValue(String.valueOf(i));
             dayList.add(item);
         }

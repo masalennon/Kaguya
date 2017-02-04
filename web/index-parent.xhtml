@@ -88,15 +88,15 @@ and open the template in the editor.
                         <td class="parentheadrow2">
 
                             <h:selectOneMenu id="birthYear" required="true" requiredMessage="生まれた年の入力は必須です"
-                                             value="#{bbParent.birthYearParent}">
+                                             value="#{bbParent.birthYearParent}" class="select-menu-year">
                                 <f:selectItems value="#{bbParent.yearList}"/>
                             </h:selectOneMenu>
-                            <h:selectOneMenu id="birthMonth" required="true"
+                            <h:selectOneMenu id="birthMonth" required="true" class="select-menu-month"
                                              requiredMessage="生まれた月の入力は必須です"
                                              value="#{bbParent.birthMonthParent}">
                                 <f:selectItems value="#{bbParent.monthList}"/>
                             </h:selectOneMenu>
-                            <h:selectOneMenu id="birthDay" required="true"
+                            <h:selectOneMenu id="birthDay" required="true" class="select-menu-day"
                                              requiredMessage="生まれた日の入力は必須です"
                                              value="#{bbParent.birthDayParent}">
                                 <f:selectItems value="#{bbParent.dayList}"/>
