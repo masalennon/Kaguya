@@ -24,7 +24,7 @@ import javax.validation.constraints.NotNull;
 @ViewScoped
 public class ConfirmBeanParent implements Serializable {
 
-    @NotNull
+//    @NotNull
     private Integer parentId;
     @NotNull
     private String firstNameParent;
@@ -46,7 +46,7 @@ public class ConfirmBeanParent implements Serializable {
     private String mailAddressParent;
 
     private Integer id;
-    
+
     private String firstName;
 
     private String birthYear;
@@ -62,7 +62,7 @@ public class ConfirmBeanParent implements Serializable {
     private String educationContent;
 
     private String message;
-    
+
     private String mailAddress;
 
     private String payment;
@@ -71,7 +71,8 @@ public class ConfirmBeanParent implements Serializable {
 
     private String messageTitle = "かぐや会員ご登録の確認メール";
 
-    private String messageToParent = "正常に送信が行われました。お支払いを確認し次第、保育者様の連絡先をお教えいたします。もし万が一"
+    private String messageToParent = "正常に送信が行われました。お支払いを確認し次第、保育者様の連絡先をお教えいたします。お支払額は"
+            + "５０００円になります。もし万が一"
             + "保育者様と連絡が取れない場合は、こちらで事実確認をし次第必ず全額返金いたしますのでご安心ください。"
             + "このメールに覚えがない場合は、お手数ですがこのメールに返信する形で運営までおしらせください。";
 
@@ -101,7 +102,7 @@ public class ConfirmBeanParent implements Serializable {
         this.birthDayParent = (Integer) flash.get("birthDayParent");
         this.phoneNumberParent = (String) flash.get("phoneNumberParent");
         this.mailAddressParent = (String) flash.get("mailAddressParent");
-        
+
         this.id = (Integer) flash.get("id");
         this.firstName = (String) flash.get("firstName");
         this.educationContent = (String) flash.get("educationContent");
@@ -123,12 +124,18 @@ public class ConfirmBeanParent implements Serializable {
 
         try {
             MailSender mailsender = new MailSender();
+            System.out.println("before creat");
             db.createa(parentEntity);
-            messageToMe = "保護者情報:" + crlf + firstNameParent + lastNameParent + crlf + 
-                    phoneNumberParent + crlf + mailAddressParent + crlf + crlf + "高齢者情報" + 
-                    crlf + id + crlf + firstName + crlf + mailAddress + crlf + phoneNumber;
-
-            mailsender.send(messageTitle, messageToParent, mailAddressParent);
+            System.out.println("after creat");
+            System.out.println("3");
+            messageToMe = "保護者情報:" + crlf + firstNameParent + lastNameParent + crlf
+                    + phoneNumberParent + crlf + mailAddressParent + crlf + crlf + "高齢者情報"
+                    + crlf + id + crlf + firstName + crlf + mailAddress + crlf + phoneNumber;
+            System.out.println("4");
+            System.out.println(messageTitle + getMessageToParent()+ mailAddressParent
+                    +messageToMeTitle+ messageToMe+ myMailAddress);
+            mailsender.send(messageTitle, getMessageToParent(), mailAddressParent);
+            System.out.println("5");
             mailsender.send(messageToMeTitle, messageToMe, myMailAddress);
             clear();
             return "complete-parent.xhtml";

@@ -47,6 +47,12 @@ and open the template in the editor.
                 <div class="title">
                     <h2>保護者向けかぐや会員登録お申込み画面</h2>
                 </div>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+
+                <h:messages/>
 
                 <div class="parentmessage">お名前、生年月日をそれぞれ入力してください。</div>
                 <table border="1" cellspacing="0" cellpadding="2" class="parent-table"> 
@@ -55,9 +61,9 @@ and open the template in the editor.
                             名前
                         </td>　
                         <td class="parentheadrow2">
-                            (姓) <h:inputText class = "text-parent" id="firstNameParent" required="true"   requiredMessage="ご主人の名前(姓)の入力は必須です"
+                            (姓) <h:inputText class = "text-parent" id="firstNameParent" required="true"   requiredMessage="名前(姓)の入力は必須です"
                                              value="#{bbParent.firstNameParent}" label="名前"/>
-                            (名) <h:inputText class = "text-parent" id="lastNameParent" required="true" requiredMessage="ご主人の名前(姓)の入力は必須です"
+                            (名) <h:inputText class = "text-parent" id="lastNameParent" required="true" requiredMessage="名前(名)の入力は必須です"
                                              value="#{bbParent.lastNameParent}"/><br/>
                         </td>
                     </tr> 
@@ -67,9 +73,9 @@ and open the template in the editor.
                         </td>　
                         <td class="parentheadrow2">
 
-                            (姓) <h:inputText class = "text-parent" id="firstNameHuriganaParent" required="true" requiredMessage="ご主人の名前(姓)の入力は必須です"
+                            (姓) <h:inputText class = "text-parent" id="firstNameHuriganaParent" required="true" requiredMessage="ふりがな(姓)の入力は必須です"
                                              value="#{bbParent.firstNameHuriganaParent}"/>
-                            (名) <h:inputText class = "text-parent" id="lastNameHuriganaParent" required="true"   requiredMessage="ご主人の名前(姓)の入力は必須です"
+                            (名) <h:inputText class = "text-parent" id="lastNameHuriganaParent" required="true"   requiredMessage="ふりがなの名前(姓)の入力は必須です"
                                              value="#{bbParent.lastNameHuriganaParent}"/><br/>
                         </td>
                     </tr>

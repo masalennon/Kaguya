@@ -201,30 +201,7 @@ public class Bb extends SuperBb implements Serializable {
                 educationContent, message, payment, image, imageRoom);
         try {
             db.update(oldCoupleInformation);
-//            cb.clear();id = oci.getId();
-//            firstName = oci.getFirstName();
-//            lastName = oci.getLastName();
-//            firstNameHurigana = oci.getFirstNameHurigana();
-//            lastNameHurigana = oci.getLastNameHurigana();
-//            firstNameWife = oci.getFirstNameWife();
-//            lastNameWife = oci.getLastNameWife();
-//            firstNameHuriganaWife = oci.getFirstNameHuriganaWife();
-//            lastNameHuriganaWife = oci.getLastNameHuriganaWife();
-//            birthYear = oci.getBirthYear();
-//            birthMonth = oci.getBirthMonth();
-//            birthDay = oci.getBirthDay();
-//            birthYearWife = oci.getBirthYearWife();
-//            birthMonthWife = oci.getBirthMonthWife();
-//            birthDayWife = oci.getBirthDayWife();
-//            phoneNumber = oci.getPhoneNumber();
-//            addressOne = oci.getAddressOne();
-//            addressTwo = oci.getAddressTwo();
-//            phoneNumber = oci.getPhoneNumber();
-//            payment = oci.getPayment();
-//            educationContent = oci.getEducationContent();
-//            message = oci.getMessage();
-//            image = oci.getImage();
-//            imageRoom = oci.getImageRoom();           
+         
             Flash flash = FacesContext.getCurrentInstance()
                     .getExternalContext().getFlash();
             flash.put("firstName", this.firstName);

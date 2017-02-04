@@ -52,7 +52,7 @@ public class MailSender implements Serializable {
 //        from = (configuration.getProperty("from"));
         final Properties properties = new Properties();
         try (final InputStream stream
-                = this.getClass().getResourceAsStream("property.properties")) {
+                = this.getClass().getResourceAsStream("property-mail.properties")) {
             properties.load(stream);
 
 //            ClassLoader classLoader = MailSender.class.getClassLoader();

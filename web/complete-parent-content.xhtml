@@ -35,8 +35,13 @@ and open the template in the editor.
     <h:body>
         <h:form>
             <ui:composition>
-                <h:outputStylesheet name="resources/css/safety.css" />
+                <h:outputStylesheet library="css" name="safety.css" />
+                <h:outputStylesheet library="css" name="main.css" />
                 <link rel="stylesheet" type="text/css" href="resources/css/safety.css" />
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+
 
                 <div class= "description-kaguya" align="center">
                     <strong align="center">ご登録ありがとうございました</strong><br/><br/><br/>
@@ -47,6 +52,20 @@ and open the template in the editor.
                     <br/>
 
                 </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                <div align="center" class="top">
+
+                    <h:button value="最初の画面に戻る" outcome="main.xhtml" class="to-register"/>
+                </div>
+                    <br/>
+                    <br/>
+                    <br/>    <br/>
+                    <br/>
+                    <br/>    <br/>
+                    <br/>
+                    <br/>
             </ui:composition>
         </h:form>
     </h:body>
