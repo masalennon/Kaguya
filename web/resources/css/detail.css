@@ -61,7 +61,8 @@ body {
 }
 
 .img-detail {
-    border: 0;
+    /*border: 0;*/
+    border-radius: 15px;
     /*position: relative;*/
     margin-right: auto;
     /*padding-left: 5px;*/
@@ -70,13 +71,13 @@ body {
     width: 600px;
     /*margin-top: 20px;*/
     display: inline-block;
-    padding-bottom: 20px;
+    margin-bottom: 30px;
 }
 .imgRoom-detail {
-    border: 0;
+    border-radius: 15px;
     /*position: relative;*/
     margin-right: auto;
-    padding-left: 5px;
+    /*padding-left: 5px;*/
     /*float: left;*/
     margin-left: auto;
     width: 600px;

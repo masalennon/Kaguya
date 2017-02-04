@@ -7,11 +7,7 @@ and open the template in the editor.
     Created on : Nov 11, 2016, 1:44:57 PM
     Author     : Masanari
 */
-body{
-    background: white !important;
-    font: BlinkMacSystemFont;
-    font-size: 12px;
-}
+
 .title {
     margin: 30px;
 }
@@ -35,4 +31,15 @@ con {
     list-style: none;
     width: 75%;
     margin-top: 120px;
+}
+
+html {
+    background: #e1f2e1 !important;
+
+}
+body {
+    background: #e1f2e1 !important;
+    font: BlinkMacSystemFont;
+    font-size: 12px;
+
 }

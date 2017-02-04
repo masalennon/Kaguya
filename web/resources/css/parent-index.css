@@ -31,6 +31,7 @@ and open the template in the editor.
 
 
 .description-kaguya-parent-index {
+    /*margin-left: 50px;*/
     padding-top: 30px;
     /*    padding-left: 200px;
         padding-right: 100px;*/
@@ -69,8 +70,10 @@ and open the template in the editor.
     padding-top: 15px;
     padding-bottom: 15px;
     margin-right: auto;
+    margin-left: auto;
+    /*position: absolute;*/
     display: block;
-
+    position: relative;
 }
 
 
@@ -79,7 +82,8 @@ and open the template in the editor.
 .index-parent-couple-info {
     width: 250px;
     float: left;
-
+    /*padding-bottom: 15px;*/
+    position: relative;
 }
 
 
@@ -98,5 +102,46 @@ and open the template in the editor.
     padding-top: 15px;
     padding-bottom: 15px;
     display: block;
+
+}
+
+
+
+
+.parent-index-button {
+    /*font: BlinkMacSystemFont;*/
+    text-align: -webkit-center;
+    background: green;
+    color: white;
+    border-color: green;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 9px 20px;
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    border-width: 0px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    border-bottom: 1px;
+    /*position: absolute;*/
+}
+.parent-index-button:hover {
+    font: BlinkMacSystemFont;
+    text-align: -webkit-center;
+    background: #59a359;
+    color: white;
+    border-color: #59a359;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 9px 20px;
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    border-width: 0px;
 
 }

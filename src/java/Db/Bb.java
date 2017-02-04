@@ -252,9 +252,9 @@ public class Bb extends SuperBb implements Serializable {
             flash.put("imageRoom", imageRoom);
 
             System.out.println("success for updating.");
-            
+
             return "after-edit.xhtml";
-            
+
         } catch (Exception e) {
 //            log.fine("■" + addressOne + "|" + e.getMessage());
             return "error.xhtml";
@@ -271,8 +271,7 @@ public class Bb extends SuperBb implements Serializable {
         }
         return result;
     }
-    
-    
+
     public String goToRegister() {
         clear();
         return "index.xhtml";
@@ -281,13 +280,14 @@ public class Bb extends SuperBb implements Serializable {
     public String search() {
         coupleList = db.filterTable(search);
         System.out.println("coupleList = db.filterTable(search);\n");
-        return "find.xhtml";
+        return "/find.xhtml?faces-redirect=true";
+
     }
 
     public String detail(Integer id) {
         System.out.println("detail()");
         oci = db.find(id);
-        return "detail-content.xhtml";
+        return "/detail-content.xhtml?faces-redirect=true";
     }
 
     public String goToEdit(Integer id, String mailAddress) {

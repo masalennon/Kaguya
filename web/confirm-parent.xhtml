@@ -17,14 +17,15 @@ and open the template in the editor.
     </h:head>
     <h:form>
         <h:body>
-            <h:outputStylesheet library="css" name="index.css" />
-            <h:outputStylesheet library="css" name="reset.css" />
-<br/>
-<br/>
-<br/>
+            <h:outputStylesheet library="css" name="index.css" />  
+            <h:outputStylesheet library="css" name="parent-index.css" />
 
+            <h:outputStylesheet library="css" name="reset.css" />
+            <br/>
+            <br/>
+            <br/>
             <div align="center">
-                <div class="parentmessage"><h2>お名前、生年月日を確認してください</h2></div>
+                <div class="parentmessage"><h3>お名前、生年月日を確認してください</h3></div>
                 <table border="1" cellspacing="0" cellpadding="2" class="parent-table"> 
                     <tr>
                         <td class="parentheadrow">
@@ -65,10 +66,10 @@ and open the template in the editor.
                     </tr>
                 </table>
 
-<br/><br/>
-<br/>
+                <br/><br/>
+                <br/>
 
-                <div class="onlyTokyo"><h2>ご住所、ご連絡先を確認してください。　注：本サービスは東京都にお住まいの方のみを対象としています。</h2><br/></div>
+                <div class="onlyTokyo"><h3>ご連絡先を確認してください。</h3><br/></div>
                 <table border="1" cellspacing="0" cellpadding="2" class="parent-table"> 
                     <!--                        <tr>
                                                 <td class="headrow">
@@ -108,47 +109,68 @@ and open the template in the editor.
                     </tr>
 
                 </table>
-                <Table class="couple-info"  border="1" cellspacing="0" cellpadding="2">
-                <tr>
-                    <th>
-                        面談する方
-                    </th>
-                    <td>
-                        <h:outputText id="firstName" value="#{ConfirmBeanParent.firstName}" class = "text"/>さんご夫妻
-                    </td>
+                <!--                <Table class="couple-info"  border="1" cellspacing="0" cellpadding="2">
+                                <tr>
+                                    <th>
+                                        面談する方
+                                    </th>
+                                    <td>
+                                        <h:outputText id="firstName" value="#{ConfirmBeanParent.firstName}" class = "text"/>さんご夫妻
+                                    </td>
+                
+                                </tr>
+                
+                                <tr>                
+                                    <th>
+                                        希望月謝
+                                    </th>
+                                    <td>
+                                        <h:outputText id="payment" value="#{ConfirmBeanParent.payment}" class = "text"/>万円<br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        お住いの地域
+                                    </th>
+                                    <td>
+                                        <h:outputText value="#{ConfirmBeanParent.addressOne}"/>
+                                        <h:outputText value="#{ConfirmBeanParent.addressTwo}"/>丁目
+                
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        保育内容
+                                    </th>
+                                    <td>
+                                        <h:outputText value="#{ConfirmBeanParent.educationContent}"/>
+                                    </td>
+                                </tr>
+                            </Table>-->
+                <div align="center" class="description-kaguya-parent-index">
+                    <div class="edit-underline3">
+                        <div class="index-parent-couple-info" align="left">面談する方</div>
+                        <div class="index-parent-couple-info2" align="left"><h:outputText value="#{ConfirmBeanParent.firstName}"/>さん</div>
+                    </div>
 
-                </tr>
+                    <div class="edit-underline">
+                        <div class="index-parent-couple-info" align="left">希望月謝</div>
+                        <div class="index-parent-couple-info2" align="left"><h:outputText value="#{ConfirmBeanParent.payment}"/>万円(一人につき)</div>
+                    </div>
 
-                <tr>                
-                    <th>
-                        希望月額
-                    </th>
-                    <td>
-                        <h:outputText id="payment" value="#{ConfirmBeanParent.payment}" class = "text"/>万円<br/>
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        お住いの地域
-                    </th>
-                    <td>
-                        <h:outputText value="#{ConfirmBeanParent.addressOne}"/>
-                        <h:outputText value="#{ConfirmBeanParent.addressTwo}"/>丁目
+                    <div class="edit-underline">
+                        <div class="index-parent-couple-info" align="left">お住いの地域</div>
+                        <div class="index-parent-couple-info2" align="left"><h:outputText value="#{ConfirmBeanParent.addressOne}"/><h:outputText value="#{ConfirmBeanParent.addressTwo}"/>丁目</div>
+                    </div>
 
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        保育内容
-                    </th>
-                    <td>
-                        <h:outputText value="#{ConfirmBeanParent.educationContent}"/>
-                    </td>
-                </tr>
-            </Table>
+                    <div class="edit-underline2">
+                        <div class="index-parent-couple-info" align="left">教育内容　　</div>
+                        <div class="index-parent-couple-info2" align="left">　<h:outputText value="#{ConfirmBeanParent.educationContent}"/></div>
+                    </div>   
+                </div>
                 <br/>
-                <Button outcome = "index-parent.xhtml" value="入力画面へ戻る"  class="Button"/>
-                <h:commandButton value="上記の内容を確認して送信" action="#{ConfirmBeanParent.goToComplete()}" class="Button"/>
+                <h:button outcome = "index-parent.xhtml" value="入力画面へ戻る" class="back-button-index-parent"/>
+                <h:commandButton value="上記の内容を確認して送信" action="#{ConfirmBeanParent.goToComplete()}" class="edit-button"/>
             </div>
 
         </h:body>
