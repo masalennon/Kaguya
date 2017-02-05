@@ -7,14 +7,12 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:p="http://primefaces.org/ui"
+
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
     <h:head>
-        <title>TODO supply a title</title>
+        <title>編集画面</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>待機児童問題解決</title>
         <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
@@ -24,7 +22,6 @@ and open the template in the editor.
             <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />		
 
-            <title>primestrap</title>
         </f:facet>
 
         <f:facet name="middle">
@@ -38,11 +35,9 @@ and open the template in the editor.
 
 
 
-    <!--<ui:composition template="/templates/aboutserviceTemplate.xhtml"/>-->
 
     <link rel="stylesheet" type="text/css" href="resources/css/topbar.css" />
 
-    <!--<link rel="stylesheet" type="text/css" href="resources/css/find.css" />-->
     <h:outputStylesheet library="css" name="search-for-edit.css" />
     <h:outputStylesheet library="css" name="main.css" />
     <h:body>
@@ -52,14 +47,11 @@ and open the template in the editor.
             <h:button value="かぐや" outcome="main.xhtml" class="to-main"/>
             <a href="main.xhtml"><img src="resources/images/kaguya-logo.png" class="logo"/></a>
 
-            <!--<h:button class="edit-change" value="登録情報の確認・変更はこちら" outcome="search-for-edit.xhtml"/>-->
-
-            <div class="container">
-                <!--                <h3>Basic Navbar Example</h3>
-                                <p>A navigation bar is a navigation header that is placed at the top of the page.</p>-->
-            </div>
 
 
+
+            <br/>
+            <br/>
             <br/>
             <br/>
             <div align="center" >

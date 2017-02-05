@@ -29,10 +29,11 @@ and open the template in the editor.
         </f:facet>
 
         <f:facet name="last">
+            <title>会員登録</title>
 
         </f:facet>
         <!--<link rel="shortcut icon" type="image/x-icon" href="#{resource['/images/favicon.png']}" />-->
-    <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.ico" />
     </h:head>
     <h:body>
         <h:outputStylesheet library="css" name="index.css" />  
@@ -82,13 +83,16 @@ and open the template in the editor.
                         </td>　
                         <td class="husbandheadrow2">
                             (姓) <h:inputText class = "text" id="firstName" required="true" requiredMessage="ご主人の名前(姓)の入力は必須です"
-                                             value="#{bb.firstName}" label="名前" size="20" a:placeholder="(姓)" >
-                                <f:validateRegex pattern="^[一-龠]*$"/>
+                                             value="#{bb.firstName}" label="名前" size="20" a:placeholder="(姓)" validatorMessage="ご主人の名前(姓)は漢字かひらがなで入力してください">
+                                <f:validateRegex pattern="^[一-龠ぁ-ゞ]+$"/>
+
 
                             </h:inputText>
-                            (名) <h:inputText class = "text" id="lastName" required="true"
+                            (名) <h:inputText class = "text" id="lastName" required="true" validatorMessage="ご主人の名前(名)は漢字かひらがなで入力してください"
                                              requiredMessage="ご主人の名前(名)の入力は必須です" value="#{bb.lastName}" a:placeholder="(名)" ><br/>  
-                                <f:validateRegex pattern="^[一-龠]*$"/> 
+                                <f:validateRegex pattern="^[一-龠ぁ-ゞ]+$"/>
+
+
                             </h:inputText>
 
                         </td> 
@@ -103,13 +107,13 @@ and open the template in the editor.
                         </td>　
                         <td class="husbandheadrow2">
 
-                            (姓) <h:inputText class = "text" id="firstNameHurigana" required="true"
+                            (姓) <h:inputText class = "text" id="firstNameHurigana" required="true" validatorMessage="ご主人のお名前のふりがな(姓)はひらがなで入力してください"
                                              requiredMessage="ご主人のふりがな(姓)の入力は必須です" value="#{bb.firstNameHurigana}" a:placeholder="ふりがな(姓)">
                                 <f:validateRegex pattern="^[ぁ-ゞ]+$"/>
                             </h:inputText>
 
                             (名) <h:inputText class = "text" id="lastNameHurigana" required="true" requiredMessage="ご主人のふりがな(名)は必須です"
-                                             value="#{bb.lastNameHurigana}" a:placeholder="ふりがな(名)"  >                                                           
+                                             value="#{bb.lastNameHurigana}" a:placeholder="ふりがな(名)" validatorMessage="ご主人のお名前のふりがな(名)はひらがなで入力してください">                                                           
                                 <f:validateRegex pattern="^[ぁ-ゞ]+$"/>
                             </h:inputText>
                             <br/>
@@ -158,14 +162,14 @@ and open the template in the editor.
 
                         </td>　
                         <td class="wifeheadrow2">
-                            (姓) <h:inputText class = "text" id="firstNameWife" required="true" validatorMessage="名前は漢字かひらがなで入力してください"
+                            (姓) <h:inputText class = "text" id="firstNameWife" required="true" validatorMessage="奥様の名前は漢字かひらがなで入力してください"
                                              requiredMessage="奥様の名前(姓)の入力は必須です" value="#{bb.firstNameWife}" a:placeholder="(姓)">
-                                <!--<f:validateRegex pattern="^[一-龠]*$+^[ぁ-ゞ]+$"/>-->
+                                <f:validateRegex pattern="^[一-龠ぁ-ゞ]+$"/>
 
                             </h:inputText>
                             (名) <h:inputText class = "text" id="lastNameWife" required="true" requiredMessage="奥様の名前(名)は必須です"
-                                             value="#{bb.lastNameWife}" a:placeholder="(名)" validatorMessage="名前は漢字かひらがなで入力してください">
-                                <!--<f:validateRegex pattern="^[一-龠]*$+^[ぁ-ゞ]+$"/>-->
+                                             value="#{bb.lastNameWife}" a:placeholder="(名)" validatorMessage="奥様の名前は漢字かひらがなで入力してください">
+                                <f:validateRegex pattern="^[一-龠ぁ-ゞ]+$"/>
 
                             </h:inputText>
                             <br/>
@@ -181,13 +185,13 @@ and open the template in the editor.
                         </td>　
                         <td class="wifeheadrow2">
                             (姓) <h:inputText class = "text" id="firstNameHuriganaWife" required="true" requiredMessage="奥様のふりがな(姓)は必須です"
-                                             value="#{bb.firstNameHuriganaWife}" label="名前" a:placeholder="(姓)ふりがな" validatorMessage="名前は漢字かひらがなで入力してください">
+                                             value="#{bb.firstNameHuriganaWife}" label="名前" a:placeholder="(姓)ふりがな" validatorMessage="奥様の名前(姓)はひらがなで入力してください">
                                 <f:validateRegex pattern="^[ぁ-ゞ]+$"/>
 
                             </h:inputText>
                             (名) <h:inputText class = "text" id="lastNameHuriganaWife" required="true"
                                              requiredMessage="奥様のふりがな(名)の入力は必須です" value="#{bb.lastNameHuriganaWife}"
-                                             a:placeholder="(名)ふりがな" validatorMessage="名前は漢字かひらがなで入力してください">
+                                             a:placeholder="(名)ふりがな" validatorMessage="奥様の名前(名)のふりがなはひらがなで入力してください">
                                 <f:validateRegex pattern="^[ぁ-ゞ]+$"/>
 
                             </h:inputText>
@@ -248,7 +252,7 @@ and open the template in the editor.
                         <td class="headrow2">
                             <h:inputText class = "text2" id="addressOne" required="true" a:placeholder=" 例：世田谷区弦巻"
                                          requiredMessage="お住いの市区町村の入力は必須です" value="#{bb.addressOne}"
-                                         validatorMessage="名前は漢字かひらがなで入力してください"/><br/>
+                                         validatorMessage="市区町村は漢字かひらがなで入力してください"/><br/>
                         </td>
                     </tr>
                     <tr>

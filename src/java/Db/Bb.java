@@ -165,20 +165,20 @@ public class Bb extends SuperBb implements Serializable {
         this.coupleList = (List) flash.get("coupleList");
     }
 
-    @PostConstruct
-    public void filt() {
-        if (FacesContext.getCurrentInstance().isPostback()) {
-            System.out.println("this is postBack.");
-            coupleList = db.getAll();
-//        System.out.println(id);idを出力しようとするとerrorになるのはなぜだ
-        } else {
-            System.out.println("filt()");
+//    @PostConstruct
+//    public void filt() {
+//        if (FacesContext.getCurrentInstance().isPostback()) {
+//            System.out.println("this is postBack.");
 //            coupleList = db.getAll();
-            coupleList = db.filterTable(search);
-            System.out.println("coupleList = db.filterTable(search);\n");
-        }
-
-    }
+////        System.out.println(id);idを出力しようとするとerrorになるのはなぜだ
+//        } else {
+//            System.out.println("filt()");
+////            coupleList = db.getAll();
+//            coupleList = db.filterTable(search);
+//            System.out.println("coupleList = db.filterTable(search);\n");
+//        }
+//
+//    }
 
     public String edit(OldCoupleInformation oldCoupleInformation) {
         addressOne = oldCoupleInformation.getAddressOne();
@@ -255,9 +255,12 @@ public class Bb extends SuperBb implements Serializable {
     }
 
     public String search() {
+        if(db.filterTable(search)!=null) {
         coupleList = db.filterTable(search);
-        System.out.println("coupleList = db.filterTable(search);\n");
         return "/find.xhtml?faces-redirect=true";
+        } else {
+            return "/empty.xhtml?faces-redirect=true";
+        }
 
     }
 
@@ -395,7 +398,7 @@ public class Bb extends SuperBb implements Serializable {
     }
 
     public String goToConfirm() throws IOException {
-        if (isValidEmailAddress(this.mailAddress)) {
+//        if (isValidEmailAddress(this.mailAddress)) {
             System.out.println("mail is correct");
 
             imageToByte();
@@ -426,9 +429,9 @@ public class Bb extends SuperBb implements Serializable {
             flash.put("imageRoom", imageRoom);
 
             return "/confirm.xhtml?faces-redirect=true";
-        } else {
-            return "its wrong";
-        }
+//        } else {
+//            return "its wrong";
+//        }
     }
 
     public void sendMail() {
