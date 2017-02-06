@@ -74,12 +74,8 @@ public class OldCoupleInformationDb<T> implements Serializable {
             Query query = em.createQuery("SELECT c FROM OldCoupleInformation c WHERE c.addressOne LIKE　:search", OldCoupleInformation.class);
             query.setParameter("search", "%" + search + "%"); //searchを含む文章を検索できる
             return query.getResultList();
-//        OldCoupleInformation result = (OldCoupleInformation) query.getResultList();
-//        return (List) result;
-        } else {
-            return getAll();
         }
-
+        return null;
     }
 
     public OldCoupleInformation searchToEdit(String mailAddress, Integer id) {
@@ -88,8 +84,7 @@ public class OldCoupleInformationDb<T> implements Serializable {
         query.setParameter("id", id);
         if (query.getResultList() != null) {
             System.out.println("-----------------editList is NOT null------------------");
-
-            return (OldCoupleInformation)query.getSingleResult();
+            return (OldCoupleInformation) query.getSingleResult();
         } else {
             System.out.println("-----------------editList is null------------------");
             return null;

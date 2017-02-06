@@ -261,7 +261,6 @@ public class Bb extends SuperBb implements Serializable {
         } else {
             return "/empty.xhtml?faces-redirect=true";
         }
-
     }
 
     public String detail(Integer id) {

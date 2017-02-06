@@ -21,6 +21,7 @@ body {
 }
 
 .search-button {
+    cursor: pointer;
     /*position: relative;*/
     float: left;
     clear: right;

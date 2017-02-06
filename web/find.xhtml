@@ -71,19 +71,22 @@
         <!--<br/>-->
 
         <h:form>        
+            <div align="center">
+                <h:messages/>
+            </div>
 
 
             <div align="center">
-                <p:dataTable id="examplej" class="table couple-table" paginatorPosition="bottom" style="margin-left: auto; margin-right: auto;"
+                <p:dataTable id="examplej" styleClass="table couple-table" paginatorPosition="bottom" style="margin-left: auto; margin-right: auto;"
                              var="info" value="#{bb.coupleList}" widgetVar="couple" rows="12" paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                             rowsPerPageTemplate="5,10,15" paginator="true" emptyMessage="住所を入力して検索してください">
+                             rowsPerPageTemplate="5,10,15" paginator="true" emptyMessage="お探しの地域で登録している人はまだいません。しばらくしてからまた再度検索してください。">
 
                     <div class="table-wrap">
 
-                        <p:column class="column-couple" >
+                        <p:column styleClass="column-couple" >
                             <p:commandLink action="#{bb.detail(info.id)}">
 
-                                <p:graphicImage value="#{bb.pic}" class="img-find">
+                                <p:graphicImage value="#{bb.pic}" styleClass="img-find">
                                     <f:param name="id" value="#{info.id}"/>
                                 </p:graphicImage>
                             </p:commandLink>  
@@ -92,20 +95,20 @@
 
                         <div class="name-address-detail">
 
-                            <p:column class="column-couple1">
-                                <p:commandLink action="#{bb.detail(info.id)}" class="table-links">
+                            <p:column styleClass="column-couple1">
+                                <p:commandLink action="#{bb.detail(info.id)}" styleClass="table-links">
                                     <h:outputText value="#{info.firstName}" />さん
                                 </p:commandLink>  
                             </p:column>
 
-                            <p:column class="column-couple2">
-                                <p:commandLink action="#{bb.detail(info.id)}" class="table-links">
+                            <p:column styleClass="column-couple2">
+                                <p:commandLink action="#{bb.detail(info.id)}" styleClass="table-links">
                                     <h:outputText value="#{info.addressOne}" />
                                 </p:commandLink>  
                             </p:column>
 
-                            <p:column class="column-couple3">
-                                <p:commandLink action="#{bb.detail(info.id)}" class="table-links">
+                            <p:column styleClass="column-couple3">
+                                <p:commandLink action="#{bb.detail(info.id)}" styleClass="table-links">
                                     月<h:outputText value="#{info.payment}"/>万円から
                                 </p:commandLink>  
                             </p:column>
