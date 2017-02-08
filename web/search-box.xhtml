@@ -30,14 +30,21 @@
         <h:form>
             <div>
                 <h:button value="かぐや" outcome="main.xhtml" class="to-main-search-box"/>
-                <a href="main.xhtml"><img src="resources/images/kaguya-logo.png" class="logo-searchbox"/></a>
+                <a href="main.xhtml"><img src="resources/images/kaguya-logo-strong-yellow.png" class="logo-searchbox"/></a>
             </div>
+            
             <div class="ukeiresaki" align="center">
                 受け入れ先を探す
             </div>
+            
+            <div align="center" style="list-style: none;">
+                <h:messages/>
+            </div>
+            
             <div align="center" class="search-form">
-                <p:inputText id="search" styleClass="search-box" value="#{bb.search}" style="width:150px" p:placeholder="例:世田谷区"/>
-                <h:commandButton type="submit" value="地域で検索" action="#{bb.search()}" class="search-button "/>
+                <p:inputText id="search" styleClass="search-box" value="#{bb.search}" style="width:150px" p:placeholder="例:足立区、足立区東和" 
+                             required="true" requiredMessage="地域を入力してください"/>
+                <h:commandButton type="submit" value="地域で検索" action="#{bb.search(bb.search)}" class="search-button "/>
             </div>
 
 

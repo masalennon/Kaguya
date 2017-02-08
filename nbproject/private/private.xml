@@ -3,26 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/masanari/Kaguya/web/resources/css/topbar.css</file>
             <file>file:/Users/masanari/Kaguya/web/detail-content.xhtml</file>
             <file>file:/Users/masanari/Kaguya/web/main-content.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/resources/css/detail.css</file>
-            <file>file:/Users/masanari/Kaguya/web/resources/css/index.css</file>
+            <file>file:/Users/masanari/Kaguya/web/resources/css/search-box.css</file>
+            <file>file:/Users/masanari/Kaguya/web/empty.xhtml</file>
             <file>file:/Users/masanari/Kaguya/web/resources/css/main.css</file>
             <file>file:/Users/masanari/Kaguya/web/find.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/complete.xhtml</file>
             <file>file:/Users/masanari/Kaguya/web/index.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/resources/css/bottom-links.css</file>
+            <file>file:/Users/masanari/Kaguya/src/java/Db/OldCoupleInformationDb.java</file>
             <file>file:/Users/masanari/Kaguya/src/java/Db/Bb.java</file>
             <file>file:/Users/masanari/Kaguya/web/before-find.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/resources/css/aboutservice.css</file>
+            <file>file:/Users/masanari/Kaguya/web/edit.xhtml</file>
             <file>file:/Users/masanari/Kaguya/web/resources/css/find.css</file>
-            <file>file:/Users/masanari/Kaguya/web/bottom-links.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/resources/css/before-main.css</file>
-            <file>file:/Users/masanari/Kaguya/web/confirm-parent.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/search-box.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/serviceoverview.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/topbar.xhtml</file>
             <file>file:/Users/masanari/Kaguya/web/resources/css/before-find.css</file>
             <file>file:/Users/masanari/Kaguya/web/search-for-edit.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/index-parent.xhtml</file>
             <file>file:/Users/masanari/Kaguya/web/before-index.xhtml</file>
-            <file>file:/Users/masanari/Kaguya/web/ex-before-index.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/web/main.xhtml</file>
+            <file>file:/Users/masanari/Kaguya/test/pom.xml</file>
         </group>
     </open-files>
 </project-private>

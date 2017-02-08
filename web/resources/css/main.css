@@ -11,6 +11,7 @@ and open the template in the editor.
 body {
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     background: #e1f2e1;
+    overflow-x: hidden;
 }
 
 .line {
@@ -67,6 +68,12 @@ body {
 
 }
 
+
+.parent-and-couple {
+    width: auto;
+    min-width:1000px;
+
+}
 
 .couple {
     width: 300px;

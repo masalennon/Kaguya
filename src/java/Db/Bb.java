@@ -254,7 +254,7 @@ public class Bb extends SuperBb implements Serializable {
         return "index.xhtml";
     }
 
-    public String search() {
+    public String search(String search) {
         if(db.filterTable(search)!=null) {
         coupleList = db.filterTable(search);
         return "/find.xhtml?faces-redirect=true";
