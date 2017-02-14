@@ -5,28 +5,13 @@
  */
 package Db;
 
-import beans.ItemEJB;
-import entities.Image;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static javafx.scene.input.KeyCode.T;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
-import javax.enterprise.context.ConversationScoped;
-import javax.enterprise.context.RequestScoped;
-//import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -34,34 +19,14 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.event.PhaseId;
-import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
-import javax.faces.model.SelectItem;
-import javax.faces.validator.Validator;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.mail.internet.AddressException;
-import static javax.mail.internet.HeaderTokenizer.Token.EOF;
 import javax.mail.internet.InternetAddress;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Transient;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import javax.validation.Validation;
-import javax.validation.ValidatorFactory;
-import static javax.ws.rs.client.Entity.entity;
-import static jdk.nashorn.tools.ShellFunctions.input;
 import net.tkxtools.MailSender;
-import org.apache.commons.io.IOUtils;
-import static org.apache.commons.io.IOUtils.copy;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
-import util.PagenationHelper;
 
 /**
  *
@@ -73,11 +38,7 @@ import util.PagenationHelper;
 public class Bb extends SuperBb implements Serializable {
 
     SuperBb sbb;
-//
-//    private static final long serialVersionUID = 1L;
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)エンティティでIDを自動作成するためここではヌルにしておく。
-//    //
+    
     private Integer id;
     //
     private String firstName;
@@ -150,9 +111,7 @@ public class Bb extends SuperBb implements Serializable {
     protected MailSender sender;		// 電子メールユーティリティ
     @Inject
     protected MakeText text;
-//OldCoupleInformationをEJBで持ってこようとすると失敗するのはなんでだ
 
-//confirmBeanを作って、そこで再びflashによるデータの受け渡しをするとうまくいくかもしれない。
     @ManagedProperty(value = "#{dbbean}")
     private DbBean dbbean;
 
@@ -165,20 +124,6 @@ public class Bb extends SuperBb implements Serializable {
         this.coupleList = (List) flash.get("coupleList");
     }
 
-//    @PostConstruct
-//    public void filt() {
-//        if (FacesContext.getCurrentInstance().isPostback()) {
-//            System.out.println("this is postBack.");
-//            coupleList = db.getAll();
-////        System.out.println(id);idを出力しようとするとerrorになるのはなぜだ
-//        } else {
-//            System.out.println("filt()");
-////            coupleList = db.getAll();
-//            coupleList = db.filterTable(search);
-//            System.out.println("coupleList = db.filterTable(search);\n");
-//        }
-//
-//    }
 
     public String edit(OldCoupleInformation oldCoupleInformation) {
         addressOne = oldCoupleInformation.getAddressOne();

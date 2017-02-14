@@ -12,6 +12,7 @@ body {
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     background: #e1f2e1;
     overflow-x: hidden;
+    width: auto;
 }
 
 .line {
@@ -70,12 +71,13 @@ body {
 
 
 .parent-and-couple {
-    width: auto;
+    /*width: auto;*/
     min-width:1000px;
 
 }
 
 .couple {
+    clear: left;
     width: 300px;
     float: left;
     margin-left: 500px;
@@ -113,6 +115,7 @@ body {
 }
 
 .parent {
+    clear: right;
     width: 300px;
     float: right;
     margin-right: 500px;
